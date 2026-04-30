@@ -1,0 +1,182 @@
+{
+  "id": "dolphin-tower",
+  "slug": "dolphin-tower",
+  "name": "Dolphin Tower & Shopping Mall",
+  "status": "Completed",
+  "city": "Sukkur",
+  "location": "Minara Road (Masoom Shah Minar Road), Sukkur",
+  "featured": {
+    "isFeatured": true,
+    "images": [
+      "/dt-images/dt-1.jpg"
+    ],
+    "tagline": "Elegant Living in the Heart of Sukkur"
+  },
+  "latestProperties": [
+    {
+      "id": "2-unit-1",
+      "title": "Luxury 3-Bedroom Apartment",
+      "location": "Minara Road, Sukkur",
+      "price": "Contact for Resale",
+      "beds": 3,
+      "baths": 3,
+      "area": "1800 sqft",
+      "image": "/dt-images/dt-2.jpg",
+      "type": "Buy",
+      "projectId": "dolphin-tower",
+      "projectSlug": "dolphin-tower"
+    }
+  ],
+  "projectCard": {
+    "images": [
+      "/dt-images/dt-1.jpg"
+    ],
+    "badges": [
+      "Completed",
+      "Mixed-Use"
+    ],
+    "shortDescription": "A premier mixed-use landmark in Sukkur, integrating one of the city's first multi-brand shopping malls with high-end residential living."
+  },
+  "detailsPage": {
+    "heroImage": "/dt-images/dt-1.jpg",
+    "gallery": [
+      "/dt-images/dt-1.jpg",
+      "/dt-images/dt-2.jpg",
+      "/dt-images/dt-3.jpg"
+    ],
+    "fullDescription": "Dolphin Tower & Shopping Mall is a premier mixed-use landmark in Sukkur, integrating one of the city's first multi-brand shopping malls with high-end residential living. Developed by Dolphin Builders & Developers, the project offers a luxurious environment with modern commercial and residential facilities.\n\nStrategically located on Minara Road, it serves as a central hub for both business activity and urban living. The project is designed for both business growth and modern urban lifestyle, offering high visibility and attracting consistent footfall in an established commercial zone.",
+    "introduction": "A Premier Mixed-Use Landmark Integrating Retail & Luxury Living",
+    "offerings": [
+      {
+        "icon": "Tag",
+        "label": "Commercial Showrooms"
+      },
+      {
+        "icon": "Building",
+        "label": "Executive Offices"
+      },
+      {
+        "icon": "Home",
+        "label": "Luxury 3-Bed Apartments"
+      },
+      {
+        "icon": "Star",
+        "label": "Event Spaces (Nihal Banquet)"
+      }
+    ],
+    "amenities": [
+      {
+        "icon": "Zap",
+        "label": "Standby Generators"
+      },
+      {
+        "icon": "Shield",
+        "label": "24/7 CCTV Security"
+      },
+      {
+        "icon": "Car",
+        "label": "Dedicated Parking"
+      },
+      {
+        "icon": "Layers",
+        "label": "Capsule & Cargo Lifts"
+      }
+    ],
+    "unitTypes": [
+      {
+        "type": "Commercial Showrooms",
+        "size": "Ground & Mezzanine",
+        "price": "High Rental Yield"
+      },
+      {
+        "type": "Executive Offices",
+        "size": "Premium Floors",
+        "price": "Fully Operational"
+      },
+      {
+        "type": "Luxury Apartments",
+        "size": "3-Bedroom Suites",
+        "price": "Modern Finishes"
+      }
+    ],
+    "galleryCategories": {
+      "exterior": [
+        "/dt-images/ext-1.jpg",
+        "/dt-images/ext-2.jpg",
+        "/dt-images/ext-3.jpg",
+        "/dt-images/ext-4.jpg",
+        "/dt-images/ext-5.jpg",
+        "/dt-images/ext-6.jpg",
+        "/dt-images/ext-7.jpg",
+        "/dt-images/ext-8.jpg",
+        "/dt-images/ext-9.jpg",
+        "/dt-images/ext-10.jpg"
+      ],
+      "interior": [
+        "/dt-images/apt_1.jpg",
+        "/dt-images/apt_1_1.jpg",
+        "/dt-images/int-1.jpg",
+        "/dt-images/int-2.jpg",
+        "/dt-images/int-3.jpg",
+        "/dt-images/int-4.jpg",
+        "/dt-images/int-5.jpg",
+        "/dt-images/int-6.jpg",
+        "/dt-images/int-7.jpg",
+        "/dt-images/int-8.jpg",
+        "/dt-images/int-9.jpg",
+        "/dt-images/int-10.jpg",
+        "/dt-images/int-11.jpg",
+        "/dt-images/int-12.jpg"
+      ],
+      "layouts": [
+        "/dt-images/lay-1.jpg",
+        "/dt-images/lay-2.jpg",
+        "/dt-images/lay-3.jpg",
+        "/dt-images/lay-4.jpg",
+        "/dt-images/lay-5.jpg",
+        "/dt-images/lay-6.jpg",
+        "/dt-images/lay-7.jpg"
+      ]
+    },
+    "specifications": {
+      "floors": "18 Floors",
+      "totalUnits": "250+ Operational Units",
+      "totalArea": "15,000 sq. yards (Approx)",
+      "projectType": "Mixed-use (Commercial & Residential)",
+      "completionYear": "Fully Completed"
+    },
+    "features": [
+      "High-speed capsule and cargo lifts",
+      "Standby generators and 24/7 CCTV security",
+      "Dedicated residential parking",
+      "Marble tiled flooring and interwood-finished kitchens",
+      "Separate entrances for residential and commercial areas",
+      "On-site restaurants and cafes (e.g., Chai and Grill)"
+    ],
+    "investmentBenefits": [
+      "Fully completed and operational project",
+      "High occupancy with 250+ units",
+      "Strong rental income opportunities",
+      "Developed by reputable group since 1994"
+    ],
+    "landmarks": [
+      {
+        "icon": "Building",
+        "name": "Masoom Shah Minar",
+        "distance": "Prime Hub"
+      },
+      {
+        "icon": "Tag",
+        "name": "Established Commercial Zone",
+        "distance": "High Footfall"
+      }
+    ],
+    "projectContact": {
+      "phone": "0370 2502769",
+      "email": "thedreamcitysuk@gmail.com",
+      "whatsapp": "+92 300 0772287",
+      "facebook": "https://www.facebook.com/profile.php?id=61573224854561"
+    },
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3521.8475254924!2d68.850400!3d27.712100!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3935d4f000000001%3A0x8888888888888888!2sSukkur%2C%20Sindh!5e0!3m2!1sen!2spk!4v1620000000000!5m2!1sen!2spk"
+  }
+}

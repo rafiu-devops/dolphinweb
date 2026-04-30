@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue: #5aa1ff;
+  --color-brand-blue-light: #7db8ff;
+  --color-brand-blue-dark: #3d7fd9;
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --background: #f8fafc;
+  --foreground: #020617;
+  --card: #ffffff;
+  --card-foreground: #020617;
+  --border: #e2e8f0;
+  --accent: #5aa1ff;
+  --accent-light: #7db8ff;
+  --accent-dark: #3d7fd9;
+  --bg-primary: #ffffff;
+  --bg-card: #f1f5f9;
+  --bg-deep: #e2e8f0;
+  --glow: rgba(90, 161, 255, 0.15);
+  --muted: #64748b;
+  --muted-foreground: #94a3b8;
+}
+
+@layer base {
+  * {
+    @apply border-[--border];
+  }
+  body {
+    @apply bg-[--background] text-[--foreground] transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .btn-brand {
+    @apply bg-brand-blue text-black px-6 py-2 rounded-lg font-black uppercase tracking-[0.1em] transition-all duration-300 hover:bg-brand-blue-light hover:shadow-[0_0_25px_rgba(90,161,255,0.4)] hover:-translate-y-0.5 active:scale-95 flex items-center justify-center gap-2;
+  }
+  
+  /* Premium Glows */
+  .glow-blue-sm  { box-shadow: 0 0 12px rgba(90,161,255,0.25); }
+  .glow-blue-md  { box-shadow: 0 0 28px rgba(90,161,255,0.30); }
+  .glow-blue-lg  { box-shadow: 0 0 60px rgba(90,161,255,0.15); }
+  .text-glow     { text-shadow: 0 0 15px rgba(90,161,255,0.5); }
+  .border-glow   { box-shadow: 0 0 0 1px rgba(90,161,255,0.3); }
+
+  /* Glassmorphism & Cards */
+  .glass-premium {
+    @apply bg-card/40 backdrop-blur-xl border border-border/40 shadow-2xl;
+  }
+
+  .card-premium {
+    @apply bg-card border border-border/40 rounded-2xl overflow-hidden transition-all duration-500 hover:border-brand-blue/40;
+  }
+
+  .glass-card-premium {
+    @apply bg-card/60 backdrop-blur-xl border border-border/40 rounded-3xl overflow-hidden transition-all duration-500 hover:border-brand-blue/30 shadow-xl;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-5xl font-black uppercase tracking-tight text-foreground italic;
+  }
+
+  /* Tactical Readability Utilities */
+  .tactical-label {
+    @apply text-[12px] md:text-[13px] font-bold uppercase tracking-[0.15em] leading-relaxed;
+  }
+
+  .tactical-description {
+    @apply text-[14px] md:text-[16px] font-medium text-muted-foreground/80 leading-relaxed;
+  }
+}
+
+/* Base Reveal Animation for Motion */
+.reveal-init {
+  @apply opacity-0 translate-y-4 transition-all duration-700 ease-out;
+}
+
+.reveal-active {
+  @apply opacity-100 translate-y-0;
+}
+
+/* Performance Optimizations */
+@media (max-width: 768px) {
+  .backdrop-blur-2xl, .backdrop-blur-xl, .backdrop-blur-lg {
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform;
+}

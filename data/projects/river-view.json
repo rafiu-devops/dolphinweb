@@ -1,0 +1,145 @@
+{
+  "id": "river-view",
+  "slug": "river-view",
+  "name": "Dolphin River View",
+  "status": "Under Construction",
+  "city": "Sukkur",
+  "location": "Dolphin River View, Near Arfat Masjid, Bunder Road, Sukkur, Pakistan, 65200",
+  "featured": {
+    "isFeatured": true,
+    "images": [
+      "/river-view/rv-p1.png"
+    ],
+    "tagline": "Modern Serenity by the River"
+  },
+  "latestProperties": [],
+  "projectCard": {
+    "images": [
+      "/river-view/rv-p1.png"
+    ],
+    "badges": [
+      "Under Construction",
+      "Mixed-Use"
+    ],
+    "shortDescription": "A high-end mixed-use development combining super luxury residential units with a flagship shopping destination and scenic river views."
+  },
+  "detailsPage": {
+    "heroImage": "/river-view/rv-p1.png",
+    "gallery": [
+      "/river-view/rv-p1.png",
+      "/river-view/rv-p2.png"
+    ],
+    "fullDescription": "Dolphin River View is a high-end mixed-use development that redefines modern luxury living and shopping. Featuring inspired architecture and stylish interiors, the project combines super luxury residential units with a flagship shopping destination, designed for those seeking an elite lifestyle.\n\nStrategically positioned to leverage its river-view advantage, the development provides a scenic living experience while serving as a premium shopping hub. It integrates advanced security, premium finishes, and a community-focused design to offer a secure and sophisticated environment for both families and businesses.",
+    "introduction": "Redefining Modern Luxury Living & Elite Shopping",
+    "offerings": [
+      {
+        "icon": "Home",
+        "label": "Super Luxury Apartments (3 & 4 Bed)"
+      },
+      {
+        "icon": "Tag",
+        "label": "Ultra Luxury Shopping Center"
+      },
+      {
+        "icon": "Box",
+        "label": "Type A, A-1 & A-2 Units"
+      }
+    ],
+    "amenities": [
+      {
+        "icon": "Shield",
+        "label": "Advanced Security Systems"
+      },
+      {
+        "icon": "Building",
+        "label": "Premium Interior Finishes"
+      },
+      {
+        "icon": "Zap",
+        "label": "High-End Commercial Hub"
+      },
+      {
+        "icon": "Camera",
+        "label": "Scenic River-View Balconies"
+      }
+    ],
+    "unitTypes": [
+      {
+        "type": "Type A & A-1",
+        "size": "4 Bed | 4+1 Bath | Lounge",
+        "price": "Elite Inventory"
+      },
+      {
+        "type": "Type A-2",
+        "size": "4 Bed | 4+1 Bath | 2 Balconies",
+        "price": "Scenic Views"
+      },
+      {
+        "type": "Super Luxury Suite",
+        "size": "3-Bedroom Units",
+        "price": "Affordable Luxury"
+      }
+    ],
+    "galleryCategories": {
+      "exterior": [
+        "/river-view/rv-p1.png",
+        "/river-view/rv-p2.png"
+      ],
+      "interior": [
+        "/river-view/int-1.jpg",
+        "/river-view/int-2.jpg",
+        "/river-view/int-3.jpg",
+        "/river-view/int-4.jpg",
+        "/river-view/int-5.jpg",
+        "/river-view/int-6.jpg"
+      ],
+      "layouts": [
+        "/river-view/type-A1.jpg",
+        "/river-view/type-A2.jpg",
+        "/river-view/type-A3.jpg",
+        "/river-view/type-B.jpg",
+        "/river-view/type-B1.jpg",
+        "/river-view/type-B2.jpg",
+        "/river-view/type-B3.jpg"
+      ]
+    },
+    "specifications": {
+      "floors": "Elite High-Rise",
+      "totalUnits": "Super Luxury Inventory",
+      "totalArea": "Prime Riverfront Sector",
+      "projectType": "Mixed-use (Residential & Commercial)",
+      "completionYear": "2027"
+    },
+    "features": [
+      "Advanced security systems for safe living",
+      "Premium interior finishes with modern lounges and lobby areas",
+      "Commercial hub with high-end retail presence",
+      "Multiple balcony configurations depending on unit type"
+    ],
+    "investmentBenefits": [
+      "Positioned as an affordable luxury development",
+      "High-value retail presence increases potential",
+      "Ideal for residential comfort & commercial ROI",
+      "Designed for secure & community-focused lifestyle"
+    ],
+    "landmarks": [
+      {
+        "icon": "MapPin",
+        "name": "Prime River-View Advantage",
+        "distance": "Scenic Hub"
+      },
+      {
+        "icon": "Building",
+        "name": "Accessible Urban Destination",
+        "distance": "High Connectivity"
+      }
+    ],
+    "projectContact": {
+      "phone": "0370 2502769",
+      "email": "thedreamcitysuk@gmail.com",
+      "whatsapp": "+92 300 0772287",
+      "facebook": "https://www.facebook.com/profile.php?id=61573224854561"
+    },
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3521.8475254924!2d68.850400!3d27.712100!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3935d4f000000001%3A0x8888888888888888!2sSukkur%2C%20Sindh!5e0!3m2!1sen!2spk!4v1620000000000!5m2!1sen!2spk"
+  }
+}

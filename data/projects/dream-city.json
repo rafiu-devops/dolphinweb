@@ -1,0 +1,139 @@
+{
+  "id": "dream-city",
+  "slug": "dream-city",
+  "name": "Dream City Sukkur",
+  "status": "Under Construction",
+  "city": "Sukkur",
+  "location": "Main Shikarpur Road near Dua Hotel & Restaurant, Sukkur",
+  "featured": {
+    "isFeatured": true,
+    "images": [
+      "/dc-images/dc-cover.png"
+    ],
+    "tagline": "Modern Lifestyle Housing Scheme"
+  },
+  "latestProperties": [],
+  "projectCard": {
+    "images": [
+      "/dc-images/dc-p1.jpg",
+      "/dc-images/dc-p2.jpg"
+    ],
+    "badges": [
+      "Govt Approved",
+      "Housing Scheme"
+    ],
+    "shortDescription": "A premier gated housing scheme on Main Shikarpur Road offering residential and commercial plots with modern infrastructure, parks, and 24/7 security."
+  },
+  "detailsPage": {
+    "heroImage": "/dc-images/dc-cover.png",
+    "gallery": [
+      "/dc-images/dc-cover.png",
+      "/dc-images/dc-p1.jpg",
+      "/dc-images/dc-p2.jpg"
+    ],
+    "fullDescription": "Dream City Housing Scheme Sukkur is a state-of-the-art residential and commercial project developed by Dolphin Builders & Developers. Strategically located on Main Shikarpur Road near Dua Hotel & Restaurant, this project is designed to redefine urban living in Sukkur. As a Government of Sindh approved development, it offers a secure and legally sound investment environment.\n\nThe project features a fully gated community with a magnificent main gate, wide road networks, and modern underground infrastructure. Residents will enjoy a complete lifestyle ecosystem including a central masjid, family parks, walking tracks, and essential facilities like schools, hospitals, and a dedicated shopping mall. With sustainable features like solar street lights and robust 24/7 CCTV surveillance, Dream City Sukkur provides a safe, green, and sophisticated atmosphere for families to thrive.",
+    "introduction": "A Modern Lifestyle Housing Scheme Approved by Government of Sindh",
+    "offerings": [
+      {
+        "icon": "Home",
+        "label": "Residential Plots (80 - 250 Yards)"
+      },
+      {
+        "icon": "Tag",
+        "label": "Commercial Plots (Prime Frontage)"
+      }
+    ],
+    "amenities": [
+      {
+        "icon": "Shield",
+        "label": "Gated Community & CCTV"
+      },
+      {
+        "icon": "Layers",
+        "label": "Wide Roads Infrastructure"
+      },
+      {
+        "icon": "Trees",
+        "label": "Parks & Walking Tracks"
+      },
+      {
+        "icon": "Building",
+        "label": "School, Hospital & Mall"
+      }
+    ],
+    "unitTypes": [
+      {
+        "type": "Residential Plot",
+        "size": "80, 120, 150, 200, 250 Yards",
+        "price": "Easy Installment Plans"
+      },
+      {
+        "type": "Commercial Plot",
+        "size": "Strategic Commercial Sizes",
+        "price": "High Growth Potential"
+      }
+    ],
+    "galleryCategories": {
+      "exterior": [
+        "/dc-images/ext-1.jpg",
+        "/dc-images/ext-2.jpg",
+        "/dc-images/ext-3.jpg",
+        "/dc-images/ext-4.jpg"
+      ],
+      "interior": [
+        "/dc-images/int-1.jpg",
+        "/dc-images/int-2.jpg",
+        "/dc-images/int-3.jpg",
+        "/dc-images/int-4.jpg",
+        "/dc-images/int-5.jpg"
+      ],
+      "layouts": [
+        "/dc-images/lay-1.jpg",
+        "/dc-images/lay-2.jpg",
+        "/dc-images/lay-3.jpg",
+        "/dc-images/lay-4.jpg",
+        "/dc-images/lay-5.jpg",
+        "/dc-images/lay-6.jpg",
+        "/dc-images/lay-7.jpg"
+      ]
+    },
+    "specifications": {
+      "floors": "Master Planned",
+      "totalUnits": "Gated Scheme",
+      "totalArea": "High Growth Zone",
+      "projectType": "Residential & Commercial Housing Scheme",
+      "completionYear": "2028"
+    },
+    "features": [
+      "Boundary wall gated project with professional security guards",
+      "Magnificent main gate development and entrance",
+      "Wide road infrastructure with solar street lights",
+      "Central Masjid and family parks with walking tracks",
+      "Integrated school, hospital, and shopping mall facilities",
+      "Modern water supply system and 24/7 CCTV surveillance"
+    ],
+    "investmentBenefits": [
+      "Official approval by Government of Sindh for maximum security",
+      "Flexible booking available on easy installments",
+      "Strategic highway road connectivity for rapid accessibility",
+      "Premium positioning as Sukkur's modern lifestyle housing destination"
+    ],
+    "landmarks": [
+      {
+        "icon": "MapPin",
+        "name": "Main Shikarpur Road (Dua Hotel)",
+        "distance": "0 Min (On Highway)"
+      },
+      {
+        "icon": "TrendingUp",
+        "name": "Approved Growth Zone",
+        "distance": "Secure Value"
+      }
+    ],
+    "projectContact": {
+      "phone": "0310 2287402",
+      "facebook": "https://www.facebook.com/DreamCitySukkur/"
+    },
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.5723460655824!2d68.8055556!3d27.7011111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3935d496e5d26335%3A0x7d6a54f15d26335!2sDua%20Hotel%20%26%20Restaurant!5e0!3m2!1sen!2spk!4v1714310000000!5m2!1sen!2spk"
+  }
+}

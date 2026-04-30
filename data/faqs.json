@@ -1,0 +1,22 @@
+[
+  {
+    "category": "Buying Process",
+    "question": "What is the process to book a property?",
+    "answer": "To book a property, you need to submit a signed application form along with a copy of your passport/ID and the initial booking deposit. Our sales team will then guide you through the Sale & Purchase Agreement (SPA)."
+  },
+  {
+    "category": "Buying Process",
+    "question": "Are there any hidden charges?",
+    "answer": "No, we believe in complete transparency. All costs, including registration fees and service charges, are clearly outlined in the agreement before you sign."
+  },
+  {
+    "category": "Amenities",
+    "question": "What kind of security do the projects have?",
+    "answer": "All our projects feature 24/7 security with CCTV surveillance, gated entries, and professional security personnel on-site."
+  },
+  {
+    "category": "Payment",
+    "question": "Do you offer flexible payment plans?",
+    "answer": "Yes, we offer multiple flexible payment plans tailored to different project stages, including post-handover options for select properties."
+  }
+]

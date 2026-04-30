@@ -1,0 +1,132 @@
+{
+  "id": "dolphin-plaza",
+  "slug": "dolphin-plaza",
+  "name": "Dolphin Plaza",
+  "status": "Under Construction",
+  "city": "Sukkur",
+  "location": "Race Course Road, Sukkur",
+  "featured": {
+    "isFeatured": true,
+    "images": [
+      "/dp-images/dp-cover.png"
+    ],
+    "tagline": "Premium Mixed-Use Development"
+  },
+  "latestProperties": [],
+  "projectCard": {
+    "images": [
+      "/dp-images/dp-1.jpg"
+    ],
+    "badges": [
+      "Under Construction",
+      "Mixed-Use"
+    ],
+    "shortDescription": "A 10-story modern high-rise offering luxury apartments and prime commercial shops on Race Course Road, Sukkur."
+  },
+  "detailsPage": {
+    "heroImage": "/dp-images/dp-cover.png",
+    "gallery": [
+      "/dp-images/dp-1.jpg",
+      "/dp-images/dp-cover.png"
+    ],
+    "fullDescription": "Dolphin Plaza is a premium mixed-use development offering a blend of luxury residential living and commercial opportunities. Set in a contemporary 10-story building, the project is designed to provide a peaceful and sophisticated lifestyle with high-end architectural aesthetics.\n\nPositioned as a strong long-term investment opportunity, the project features prime commercial frontage and a residential privacy-focused design, complete with integrated greenery across balconies and the rooftop.",
+    "introduction": "Luxury Residential Living & Commercial Opportunities",
+    "offerings": [
+      {
+        "icon": "Home",
+        "label": "Luxury Apartments (1,400 - 2,100 sq. ft.)"
+      },
+      {
+        "icon": "Tag",
+        "label": "Commercial Shops"
+      }
+    ],
+    "amenities": [
+      {
+        "icon": "Building",
+        "label": "10-Story Structure"
+      },
+      {
+        "icon": "Box",
+        "label": "Commercial Frontage"
+      },
+      {
+        "icon": "Shield",
+        "label": "Privacy-Focused Design"
+      },
+      {
+        "icon": "Trees",
+        "label": "Integrated Greenery"
+      }
+    ],
+    "unitTypes": [
+      {
+        "type": "Luxury Apartments",
+        "size": "1,400 - 2,100 sq. ft.",
+        "price": "Starting from 168 Lacs"
+      },
+      {
+        "type": "Commercial Shops",
+        "size": "Investment Friendly",
+        "price": "Starting from 30 Lacs"
+      }
+    ],
+    "galleryCategories": {
+      "exterior": [
+        "/dp-images/dp-cover.png",
+        "/dp-images/dp-1.jpg"
+      ],
+      "interior": [
+        "/dp-images/dp-1.jpg"
+      ],
+      "layouts": [
+        "/dp-images/lay-1.jpg",
+        "/dp-images/lay-2.jpg",
+        "/dp-images/lay-3.jpg"
+      ]
+    },
+    "specifications": {
+      "floors": "10 Floors",
+      "totalUnits": "Mixed Inventory",
+      "totalArea": "Race Course Road",
+      "projectType": "Mixed-use (Residential + Commercial)",
+      "completionYear": "2027"
+    },
+    "features": [
+      "10-story modern high-rise structure",
+      "Prime commercial frontage",
+      "Residential privacy-focused design",
+      "Integrated greenery (balconies/rooftop)"
+    ],
+    "investmentBenefits": [
+      "Booking starts from 10%",
+      "3-year installment plan (Apartments)",
+      "2-year installment plan (Shops)",
+      "Strong long-term investment opportunity"
+    ],
+    "landmarks": [
+      {
+        "icon": "MapPin",
+        "name": "Racecourse Road, Sukkur, Pakistan, 65200",
+        "distance": "Exact Location"
+      },
+      {
+        "icon": "Zap",
+        "name": "Strong Connectivity",
+        "distance": "Citywide"
+      },
+      {
+        "icon": "Eye",
+        "name": "Commercial Visibility",
+        "distance": "High"
+      }
+    ],
+    "projectContact": {
+      "phone": "0370 2502769",
+      "email": "thedreamcitysuk@gmail.com",
+      "whatsapp": "+92 300 0772287",
+      "facebook": "https://www.facebook.com/profile.php?id=61573224854561"
+    },
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.043517454802!2d68.85764047525383!3d27.691456276189914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393798a729e19033%3A0x63359d9c28b5774e!2sRace%20Course%20Rd%2C%20Sukkur%2C%20Sindh%2C%20Pakistan!5e0!3m2!1sen!2s!4v1714135740000!5m2!1sen!2s"
+  }
+}
