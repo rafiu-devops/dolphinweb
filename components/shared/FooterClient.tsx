@@ -134,10 +134,14 @@ export function FooterClient({ contact }: FooterClientProps) {
                 <div className="relative group max-w-sm mx-auto lg:mx-0">
                   <input
                     type="email"
+                    suppressHydrationWarning
                     placeholder="EMAIL ADDRESS"
                     className="w-full bg-white/10 border border-white/20 rounded-xl px-5 py-4 text-[11px] font-black text-white outline-none focus:border-white transition-all placeholder:text-white/40 focus:bg-white/[0.15]"
                   />
-                  <button className="absolute right-2 top-2 bottom-2 bg-white hover:bg-black text-brand-blue hover:text-white px-5 rounded-lg transition-all active:scale-95 shadow-2xl group-hover:px-6">
+                  <button 
+                    suppressHydrationWarning
+                    className="absolute right-2 top-2 bottom-2 bg-white hover:bg-black text-brand-blue hover:text-white px-5 rounded-lg transition-all active:scale-95 shadow-2xl group-hover:px-6"
+                  >
                     <Bell size={16} />
                   </button>
                 </div>
@@ -177,7 +181,7 @@ export function FooterClient({ contact }: FooterClientProps) {
       <div className="bg-white border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-6 md:px-8 py-8 md:py-12 flex flex-col items-center justify-center gap-6 text-center">
           <p className="text-[14px] sm:text-[16px] md:text-[18px] text-black font-black tracking-widest uppercase leading-tight">
-            © <span suppressHydrationWarning>{currentYear}</span> <span className="text-brand-blue">Dolphin Builders</span>. <br className="md:hidden" /> All Rights Reserved.
+            © <span suppressHydrationWarning>{currentYear}</span> <Link href={contact.social.facebook || "#"} target="_blank" className="text-brand-blue font-black hover:scale-105 transition-transform inline-block">Dolphin Builders</Link>. <br className="md:hidden" /> All Rights Reserved.
           </p>
           <p className="text-[13px] sm:text-[15px] md:text-[16px] font-black uppercase tracking-[0.2em] text-black/80">
             DEVELOPED BY <Link href="/marketing-partner" className="text-brand-blue font-black hover:scale-105 transition-transform inline-block">ANZI & .CO</Link>

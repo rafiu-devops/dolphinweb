@@ -9,9 +9,15 @@ interface TopBarProps {
   phone: string;
   email: string;
   address: string;
+  social: {
+    facebook: string;
+    instagram: string;
+    linkedin: string;
+    tiktok: string;
+  };
 }
 
-export function TopBar({ phone, email, address }: TopBarProps) {
+export function TopBar({ phone, email, address, social }: TopBarProps) {
   return (
     <div className="bg-brand-blue text-black py-4 border-b border-black/5 hidden md:block w-full">
       <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between">
@@ -44,14 +50,14 @@ export function TopBar({ phone, email, address }: TopBarProps) {
         <div className="flex-1 flex items-center justify-end gap-6">
           <div className="flex items-center gap-3 border-r border-black/10 pr-6">
             {[
-              { icon: FaFacebookF, href: "#", brand: "#1877F2" },
+              { icon: FaFacebookF, href: social.facebook, brand: "#1877F2" },
               { 
                 icon: FaInstagram, 
-                href: "#", 
+                href: social.instagram, 
                 brand: "linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)" 
               },
-              { icon: FaLinkedinIn, href: "#", brand: "#0077B5" },
-              { icon: FaTiktok, href: "#", brand: "#010101" },
+              { icon: FaLinkedinIn, href: social.linkedin, brand: "#0077B5" },
+              { icon: FaTiktok, href: social.tiktok, brand: "#010101" },
             ].map((social, idx) => (
               <a
                 key={idx}
@@ -67,14 +73,7 @@ export function TopBar({ phone, email, address }: TopBarProps) {
               </a>
             ))}
           </div>
-          <motion.div 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-3 px-6 py-2 rounded-full bg-black/5 border border-black/10 text-black cursor-pointer"
-          >
-            <div className="w-2.5 h-2.5 rounded-full bg-black animate-pulse" />
-            <span className="text-[11px] font-black uppercase tracking-[0.3em]">Status: Live</span>
-          </motion.div>
+
         </div>
       </div>
     </div>

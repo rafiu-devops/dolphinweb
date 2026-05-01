@@ -52,7 +52,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
         setFormData({ name: "", email: "", phone: "", inquiryType: "General Inquiry", message: "" });
         setTimeout(() => setIsSuccess(false), 5000);
       } else {
-        alert("Failed to send inquiry. Please try again.");
+        alert("Failed to send message. Please try again.");
       }
     } catch (error) {
       console.error("Submission error:", error);
@@ -234,7 +234,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
             <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-brand-blue border-brand-blue/30 group-hover:via-brand-blue transition-all duration-1000" />
 
             <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter italic text-foreground">Send Us Your <span className="text-brand-blue">Inquiry</span></h2>
+              <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter italic text-foreground">Send Us a <span className="text-brand-blue">Message</span></h2>
               <p className="tactical-label text-muted-foreground/80 max-w-sm">
                 Our expert mission control team is ready to assist with your strategic property requirements. Expect a tactical brief within 24 hours.
               </p>
@@ -282,7 +282,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
                       />
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[12px] font-black uppercase tracking-[0.3em] text-[#0a0f1a]/70 pl-2">Inquiry Type</label>
+                      <label className="text-[12px] font-black uppercase tracking-[0.3em] text-[#0a0f1a]/70 pl-2">Contact Type</label>
                       <select 
                         value={formData.inquiryType}
                         onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
@@ -291,7 +291,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
                         <option value="Buy Property">Buy Property</option>
                         <option value="Investment">Investment</option>
                         <option value="Project Details">Project Details</option>
-                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="General Contact">General Contact</option>
                       </select>
                     </div>
                   </div>
@@ -434,7 +434,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
                 }}
                 className="px-10 py-5 bg-white text-black rounded-2xl font-black uppercase tracking-widest text-[12px] flex items-center justify-center gap-3 hover:bg-white/80 transition-all shadow-2xl"
               >
-                <Send size={18} /> Enquire Now
+                <Send size={18} /> Contact Us
               </button>
             </div>
           </div>

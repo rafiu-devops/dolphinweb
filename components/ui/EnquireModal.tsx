@@ -40,7 +40,7 @@ export function EnquireModal({ isOpen, onClose, projectName }: EnquireModalProps
           onClose();
         }, 3000);
       } else {
-        alert("Failed to send inquiry. Please check your connection.");
+        alert("Failed to send message. Please check your connection.");
       }
     } catch (error) {
       console.error("Submission error:", error);
@@ -83,7 +83,7 @@ export function EnquireModal({ isOpen, onClose, projectName }: EnquireModalProps
                 <div className="space-y-1">
                    <div className="flex items-center gap-2 text-brand-blue/60 mb-2">
                        <Target size={14} className="animate-pulse" />
-                       <span className="tactical-label">Official Enquiry</span>
+                       <span className="tactical-label">Official Contact</span>
                    </div>
                    <h3 className="text-3xl md:text-4xl font-black text-foreground uppercase tracking-tighter italic leading-none">
                       Establish <span className="text-brand-blue text-glow-blue underline decoration-brand-blue/20 underline-offset-4">Link</span>
@@ -112,7 +112,7 @@ export function EnquireModal({ isOpen, onClose, projectName }: EnquireModalProps
                     <div className="space-y-4">
                       <h4 className="text-3xl font-black uppercase tracking-tighter italic text-foreground">Message Sent</h4>
                       <p className="tactical-label text-muted-foreground/80 leading-relaxed max-w-xs mx-auto">
-                        Your enquiry has been received. Our team will contact you shortly.
+                        Your message has been received. Our team will contact you shortly.
                       </p>
                     </div>
                   </motion.div>
@@ -190,7 +190,7 @@ export function EnquireModal({ isOpen, onClose, projectName }: EnquireModalProps
                         </>
                       ) : (
                         <>
-                          Send Enquiry <Send size={16} className="group-hover:translate-x-2 transition-transform" />
+                          Send Message <Send size={16} className="group-hover:translate-x-2 transition-transform" />
                         </>
                       )}
                     </motion.button>

@@ -5,7 +5,7 @@ import { ImageSlider } from "@/components/ui/ImageSlider";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { EnquireModal } from "@/components/ui/EnquireModal";
 import { StatCounter } from "@/components/ui/StatCounter";
-import { Quote, CheckCircle2, ShieldCheck, Trophy, Headphones, ArrowRight, Star, Users, Briefcase, Zap, Phone, Send, MapPin, Building, TrendingUp, Loader2 } from "lucide-react";
+import { Quote, CheckCircle2, ShieldCheck, Trophy, Headphones, ArrowRight, Star, Users, Briefcase, Zap, Phone, Send, MapPin, Building, TrendingUp, Loader2, Map, PenTool, LayoutGrid } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
@@ -112,7 +112,7 @@ export default function HomeClient({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...expressFormData,
-          message: "Express Enquiry from Home Page",
+          message: "Quick Contact from Home Page",
           projectName: "Home Page Quick Form"
         }),
       });
@@ -177,7 +177,7 @@ export default function HomeClient({
                     rel="noopener noreferrer"
                     className="btn-brand bg-brand-blue/80 backdrop-blur-md px-6 md:px-10 py-3 md:py-5 text-[11px] md:text-[13px] border-2 border-transparent shadow-[0_0_30px_rgba(90,161,255,0.3)] w-full block text-center"
                   >
-                    View Portfolio
+                    View Projects
                   </Link>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
@@ -419,214 +419,182 @@ export default function HomeClient({
         </div>
       </section>
 
-      {/* Our Process (Interactive Tactical Flow) */}
-      <section className="container mx-auto px-6 py-16 relative overflow-hidden">
+      {/* Project Development Journey (Interactive Development Flow) */}
+      <section className="container mx-auto px-6 py-32 relative overflow-hidden">
         {/* Background Decorative Element */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-blue/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-blue/[0.03] rounded-full blur-[120px] pointer-events-none" />
 
-        <motion.div {...fadeInUp} className="text-center mb-24 relative z-10">
-          <h2 className="section-heading italic">Home Selling Process</h2>
+        <motion.div {...fadeInUp} className="text-center mb-32 relative z-10">
+          <h2 className="section-heading italic">Project Development Journey</h2>
           <p className="text-muted-foreground/80 max-w-2xl mx-auto tactical-label mt-4">
-            A Strategic Deployment for Maximum Asset Valuation
+            From Vision to Landmark: Our Strategic Development Lifecycle
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start relative z-10">
           {/* Left: Description Content */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="lg:col-span-5 space-y-8 sticky top-32">
             <AnimatePresence mode="wait">
               {[
                 {
-                  title: "Meet Agent",
-                  subtitle: "Phase 01: Initial Consultation",
-                  desc: "Connect with our elite agents for a strategic brief. We analyze your goals and market position to create a tailored deployment plan.",
-                  icon: Users
+                  title: "Land Planning",
+                  subtitle: "Phase 01: Strategic Acquisition",
+                  desc: "We identify and acquire prime locations with high growth potential. Our team conducts rigorous surveys and legal vetting to ensure a solid foundation for future developments.",
+                  icon: MapPin
                 },
                 {
-                  title: "Pricing Strategy",
-                  subtitle: "Phase 02: Value Optimization",
-                  desc: "Utilizing data-driven analytics to determine the most competitive pricing strategy, ensuring your asset stands out in the marketplace.",
-                  icon: TrendingUp
+                  title: "Design & Architecture",
+                  subtitle: "Phase 02: Conceptual Intelligence",
+                  desc: "Collaborating with world-class architects to design modern, sustainable, and functional spaces. Every blueprint is engineered for aesthetic excellence and urban efficiency.",
+                  icon: PenTool
                 },
                 {
-                  title: "Prepare Home",
-                  subtitle: "Phase 03: Asset Staging",
-                  desc: "Professional staging and surgical-grade repairs to enhance visual appeal. We ensure every square inch of your property is ready for deployment.",
+                  title: "Infrastructure Development",
+                  subtitle: "Phase 03: Ground Engineering",
+                  desc: "Deploying high-fidelity infrastructure including roads, sewage systems, and utilities. We establish the essential framework that transforms raw land into a premium sector.",
                   icon: Zap
                 },
                 {
-                  title: "Market Home",
-                  subtitle: "Phase 04: Strategic Marketing",
-                  desc: "Omnichannel deployment across premium real estate networks. Professional cinematography and high-precision listings to attract elite buyers.",
-                  icon: Briefcase
+                  title: "Construction Execution",
+                  subtitle: "Phase 04: Precision Engineering",
+                  desc: "Our construction teams execute the vision with surgical precision, using top-tier materials and modern techniques to ensure structural integrity and premium finishes.",
+                  icon: Building
                 },
                 {
-                  title: "Receive Offer",
-                  subtitle: "Phase 05: Negotiation & Vetting",
-                  desc: "Comprehensive review of potential offers. We vet all prospects and negotiate with surgical precision to secure the best possible terms.",
-                  icon: Headphones
+                  title: "Sectors & Allocation",
+                  subtitle: "Phase 05: Sector Optimization",
+                  desc: "Strategic zoning and allocation of commercial hubs and residential sanctuaries. We create a balanced ecosystem designed for both business growth and elite living.",
+                  icon: LayoutGrid
                 },
                 {
-                  title: "Sign & Close",
-                  subtitle: "Phase 06: Terminal Success",
-                  desc: "Legal precision in documentation and secure transaction logistics. Successful handover of your asset with maximum efficiency.",
-                  icon: ShieldCheck
+                  title: "Completion & Delivery",
+                  subtitle: "Phase 06: Handover Success",
+                  desc: "Final audits, quality checks, and legal handovers. We deliver ready-to-deploy assets that redefine urban living and offer significant long-term value.",
+                  icon: CheckCircle2
                 }
               ].map((step, idx) => (
                 activeStep === idx && (
                   <motion.div
                     key={idx}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 20 }}
-                    transition={{ duration: 0.5 }}
-                    className="space-y-6"
+                    exit={{ opacity: 0, x: 30 }}
+                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                    className="space-y-8"
                   >
-                    <div className="inline-block px-4 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-[10px] font-black uppercase tracking-[0.2em]">
+                    <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-[11px] font-black uppercase tracking-[0.25em]">
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-blue animate-pulse" />
                       {step.subtitle}
                     </div>
-                    <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tighter italic text-foreground flex items-center gap-4">
-                      <step.icon size={40} className="text-brand-blue" />
+                    <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter italic text-foreground flex items-center gap-6 leading-none">
+                      <div className="w-20 h-20 rounded-2xl bg-brand-blue text-black flex items-center justify-center shadow-glow-sm">
+                        <step.icon size={40} />
+                      </div>
                       {step.title}
                     </h3>
-                    <p className="text-lg text-muted-foreground leading-relaxed font-medium">
+                    <p className="text-xl text-muted-foreground leading-relaxed font-medium italic">
                       {step.desc}
                     </p>
-                    <div className="pt-6 border-t border-border/40">
-                      <div className="flex items-center gap-6">
-                        <div className="flex -space-x-4">
-                          {[1, 2, 3].map((i) => (
-                            <div key={i} className="w-10 h-10 rounded-full border-2 border-background bg-bg-card flex items-center justify-center overflow-hidden">
-                              <img
-                                src={(`https://i.pravatar.cc/100?u=${idx}${i}`) || "/assets/projects/placeholder.png"}
-                                alt="Agent"
-                                className="w-full h-full object-cover grayscale"
-                                onError={(e) => (e.currentTarget.src = "/assets/projects/placeholder.png")}
-                              />
-                            </div>
-                          ))}
-                        </div>
-                        <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest leading-tight">
-                          Dedicated <span className="text-brand-blue">Strategic Team</span> <br />
-                          assigned to this phase.
-                        </p>
-                      </div>
-                    </div>
+                    
+
                   </motion.div>
                 )
               ))}
             </AnimatePresence>
           </div>
 
-          {/* Right: Interactive Flow Diagram */}
+          {/* Right: Modern Vertical Timeline Diagram */}
           <div className="lg:col-span-7 flex flex-col items-center justify-center">
-            <div className="relative w-full max-w-[500px] aspect-square">
-              {/* Circular Path SVG */}
-              <svg className="absolute inset-0 w-full h-full -rotate-90 pointer-events-none overflow-visible" viewBox="0 0 100 100">
-                <circle
-                  cx="50" cy="50" r="40"
-                  fill="none"
-                  stroke="rgba(90, 161, 255, 0.1)"
-                  strokeWidth="0.5"
-                />
-                {/* Active Path Segment */}
-                <motion.circle
-                  cx="50" cy="50" r="40"
-                  fill="none"
-                  stroke="#5aa1ff"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  initial={{ strokeDasharray: "0 252" }}
-                  animate={{ strokeDasharray: `${(activeStep / 5) * 252} 252` }}
-                  transition={{ duration: 1, ease: "easeInOut" }}
-                />
-              </svg>
+            <div className="relative w-full max-w-[600px] py-10">
+              {/* Main Vertical Track */}
+              <div className="absolute left-[39px] top-0 bottom-0 w-[2px] bg-border/40" />
+              
+              {/* Active Progress Track */}
+              <motion.div 
+                className="absolute left-[39px] top-0 w-[2px] bg-brand-blue shadow-[0_0_15px_rgba(90,161,255,0.5)]"
+                initial={{ height: 0 }}
+                animate={{ height: `${(activeStep / 5) * 100}%` }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              />
 
-              {/* Steps (Points around the circle) */}
-              {[
-                { id: 0, label: "Meet Agent" },
-                { id: 1, label: "Pricing" },
-                { id: 2, label: "Prepare" },
-                { id: 3, label: "Market" },
-                { id: 4, label: "Offer" },
-                { id: 5, label: "Close" }
-              ].map((step, idx) => {
-                const angle = (idx / 6) * 360 - 90;
-                const x = 50 + 40 * Math.cos((angle * Math.PI) / 180);
-                const y = 50 + 40 * Math.sin((angle * Math.PI) / 180);
-
-                return (
+              <div className="space-y-16">
+                {[
+                  { title: "Land Planning", subtitle: "Strategic Acquisition", icon: MapPin },
+                  { title: "Design & Architecture", subtitle: "Conceptual Intelligence", icon: PenTool },
+                  { title: "Infrastructure", subtitle: "Ground Engineering", icon: Zap },
+                  { title: "Construction", subtitle: "Precision Engineering", icon: Building },
+                  { title: "Allocation", subtitle: "Sector Optimization", icon: LayoutGrid },
+                  { title: "Delivery", subtitle: "Handover Success", icon: CheckCircle2 }
+                ].map((step, idx) => (
                   <motion.button
-                    key={step.id}
+                    key={idx}
+                    suppressHydrationWarning
                     onClick={() => setActiveStep(idx)}
                     className={cn(
-                      "absolute -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full flex items-center justify-center transition-all duration-500 z-20 group shadow-2xl overflow-visible",
-                      activeStep === idx
-                        ? "bg-brand-blue text-black scale-125 shadow-[0_0_30px_rgba(90,161,255,0.5)]"
-                        : "bg-bg-card text-muted-foreground hover:bg-brand-blue/20 hover:text-brand-blue"
+                      "relative flex items-center gap-10 w-full group text-left transition-all duration-500",
+                      activeStep === idx ? "opacity-100" : "opacity-30 hover:opacity-60"
                     )}
-                    style={{ left: `${x}%`, top: `${y}%` }}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
                   >
-                    <span className="text-xs font-black italic">{idx + 1}</span>
-
-                    {/* Floating Label */}
-                    <div className={cn(
-                      "absolute whitespace-nowrap tactical-label transition-all duration-500",
-                      activeStep === idx ? "opacity-100 translate-y-12" : "opacity-0 translate-y-10 group-hover:opacity-100",
-                      // Adjust label position based on side - hidden on very small screens to avoid overflow
-                      "hidden sm:block",
-                      x > 50 ? "left-full pl-4" : "right-full pr-4 text-right"
-                    )}>
-                      {step.label}
+                    {/* Node Container */}
+                    <div className="relative z-10">
+                      <div className={cn(
+                        "w-20 h-20 rounded-[2rem] flex items-center justify-center transition-all duration-700",
+                        activeStep === idx 
+                          ? "bg-brand-blue text-black rotate-0 shadow-[0_20px_40px_rgba(90,161,255,0.3)]" 
+                          : "bg-bg-card text-muted-foreground border border-border/40 -rotate-12 group-hover:rotate-0"
+                      )}>
+                        <step.icon size={activeStep === idx ? 32 : 24} className="transition-all duration-500" />
+                      </div>
+                      
+                      {/* Active Ripple Effect */}
+                      {activeStep === idx && (
+                        <motion.div
+                          layoutId="ripple"
+                          className="absolute inset-0 rounded-[2rem] border-2 border-brand-blue"
+                          initial={{ scale: 1, opacity: 0.5 }}
+                          animate={{ scale: 1.4, opacity: 0 }}
+                          transition={{ duration: 2, repeat: Infinity }}
+                        />
+                      )}
                     </div>
 
-                    {/* Active Ripple */}
+                    {/* Text Content */}
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-4">
+                        <span className={cn(
+                          "text-[12px] font-black italic transition-colors",
+                          activeStep === idx ? "text-brand-blue" : "text-muted-foreground"
+                        )}>
+                          PHASE 0{idx + 1}
+                        </span>
+                        <div className={cn(
+                          "h-[1px] w-8 transition-all duration-500",
+                          activeStep === idx ? "bg-brand-blue w-12" : "bg-border/40"
+                        )} />
+                      </div>
+                      <h4 className={cn(
+                        "text-2xl md:text-3xl font-black uppercase italic tracking-tighter transition-all duration-500",
+                        activeStep === idx ? "text-foreground translate-x-2" : "text-muted-foreground"
+                      )}>
+                        {step.title}
+                      </h4>
+                      <p className={cn(
+                         "tactical-label text-[10px] tracking-[0.2em] transition-all",
+                         activeStep === idx ? "text-brand-blue/80" : "text-muted-foreground/40"
+                      )}>
+                        {step.subtitle}
+                      </p>
+                    </div>
+
+                    {/* Background Glow for Active Step */}
                     {activeStep === idx && (
-                      <motion.div
-                        className="absolute inset-0 rounded-full border border-brand-blue"
-                        initial={{ scale: 1, opacity: 0.5 }}
-                        animate={{ scale: 2, opacity: 0 }}
-                        transition={{ duration: 2, repeat: Infinity }}
+                      <motion.div 
+                        layoutId="active-bg-glow"
+                        className="absolute inset-y-[-20px] inset-x-[-20px] bg-brand-blue/[0.03] rounded-[3rem] -z-10 blur-xl"
                       />
                     )}
                   </motion.button>
-                );
-              })}
-
-              {/* Center Element (Final SOLD) */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                <motion.div
-                  initial={{ scale: 0.8, opacity: 0.5 }}
-                  animate={{
-                    scale: activeStep === 5 ? 1.1 : 0.95,
-                    opacity: 1
-                  }}
-                  className={cn(
-                    "w-32 h-32 md:w-48 md:h-48 rounded-full flex flex-col items-center justify-center relative transition-shadow duration-1000",
-                    activeStep === 5 ? "shadow-[0_0_60px_rgba(90,161,255,0.3)]" : "shadow-none"
-                  )}
-                >
-                  <img
-                    src="/assets/process/sold-icon.png"
-                    alt="SOLD"
-                    className={cn(
-                      "w-24 h-24 md:w-40 md:h-40 object-contain transition-all duration-1000",
-                      activeStep === 5 ? "grayscale-0 scale-110 drop-shadow-[0_0_20px_rgba(90,161,255,0.8)]" : "grayscale opacity-40 scale-100"
-                    )}
-                    onError={(e) => (e.currentTarget.src = "/assets/projects/placeholder.png")}
-                  />
-                  {activeStep === 5 && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="absolute -bottom-2 md:-bottom-4 bg-brand-blue text-black font-black uppercase tracking-[0.2em] md:tracking-[0.3em] px-4 md:px-6 py-1.5 md:py-2 rounded-lg italic text-[10px] md:text-[12px] shadow-2xl"
-                    >
-                      Deployed
-                    </motion.div>
-                  )}
-                </motion.div>
+                ))}
               </div>
             </div>
 
@@ -635,6 +603,7 @@ export default function HomeClient({
               {[0, 1, 2, 3, 4, 5].map((idx) => (
                 <button
                   key={idx}
+                  suppressHydrationWarning
                   onClick={() => setActiveStep(idx)}
                   className={cn(
                     "h-1.5 transition-all duration-500 rounded-full",
@@ -743,7 +712,7 @@ export default function HomeClient({
             {/* Quick Contact Form */}
             <div className="bg-black/10 backdrop-blur-xl p-6 sm:p-10 rounded-3xl border border-white/10 space-y-6">
               <div className="space-y-2">
-                <h4 className="text-xl font-black text-white italic uppercase tracking-tight">Express Enquiry</h4>
+                <h4 className="text-xl font-black text-white italic uppercase tracking-tight">Quick Contact</h4>
                 <p className="tactical-label text-black/60">Guaranteed response in 24 tactical hours.</p>
               </div>
 
@@ -764,6 +733,7 @@ export default function HomeClient({
                   <form onSubmit={handleExpressSubmit} className="space-y-4">
                     <input
                       required
+                      suppressHydrationWarning
                       type="text"
                       placeholder="FULL NAME"
                       value={expressFormData.name}
@@ -772,6 +742,7 @@ export default function HomeClient({
                     />
                     <input
                       required
+                      suppressHydrationWarning
                       type="email"
                       placeholder="EMAIL ADDRESS"
                       value={expressFormData.email}
@@ -779,6 +750,7 @@ export default function HomeClient({
                       className="w-full bg-white/5 border border-white/10 p-4 md:p-5 rounded-xl text-white text-[11px] md:text-[12px] font-bold tracking-widest focus:ring-brand-blue focus:border-brand-blue outline-none placeholder:text-black/30"
                     />
                     <input
+                      suppressHydrationWarning
                       type="tel"
                       placeholder="PHONE NUMBER"
                       value={expressFormData.phone}
@@ -787,13 +759,14 @@ export default function HomeClient({
                     />
                     <button
                       disabled={isExpressSubmitting}
+                      suppressHydrationWarning
                       type="submit"
                       className="w-full bg-black text-white py-5 rounded-xl tactical-label text-[13px] flex items-center justify-center gap-3 hover:bg-black/90 transition-all shadow-3xl disabled:opacity-50"
                     >
                       {isExpressSubmitting ? (
                         <>Processing... <Loader2 size={16} className="animate-spin" /></>
                       ) : (
-                        <>Deploy Enquiry <Send size={16} /></>
+                        <>Send Message <Send size={16} /></>
                       )}
                     </button>
                   </form>

@@ -179,7 +179,7 @@ export function Navbar() {
               prefetch={false}
               className="bg-brand-blue text-white px-8 py-4 tactical-label text-[13px] rounded-2xl transition-all hover:bg-black hover:shadow-xl hover:-translate-y-1 active:translate-y-0"
             >
-              Enquire Now
+              Contact Us
             </Link>
           </div>
 
@@ -251,7 +251,7 @@ export function Navbar() {
                     prefetch={false}
                     className="w-full bg-brand-blue text-white py-5 rounded-2xl text-center text-[15px] font-bold uppercase tracking-[0.1em] shadow-xl hover:bg-black transition-colors"
                   >
-                    Enquire Now
+                    Contact Us
                   </Link>
                   <div className="flex items-center justify-center gap-3 tactical-label text-black/60">
                     <div className="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue">

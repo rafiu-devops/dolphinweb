@@ -407,7 +407,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                   <div className="flex items-center gap-6 group cursor-pointer" onClick={() => window.location.href = `tel:${project.detailsPage.projectContact?.phone}`}>
                     <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-brand-blue group-hover:text-black transition-all"><Phone size={20} /></div>
                     <div className="flex flex-col">
-                      <span className="tactical-label text-white/60">Inquiry Hot-line</span>
+                      <span className="tactical-label text-white/60">Contact Hot-line</span>
                       <span className="text-lg font-black tracking-widest">{project.detailsPage.projectContact?.phone || "+92 347 0139661"}</span>
                     </div>
                   </div>
@@ -563,7 +563,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
             <div className="space-y-10">
               <div className="space-y-6">
-                <h3 className="text-3xl sm:text-4xl md:text-6xl font-black uppercase italic tracking-tighter text-white">Deploy an <span className="text-brand-blue text-glow">Inquiry</span></h3>
+                <h3 className="text-3xl sm:text-4xl md:text-6xl font-black uppercase italic tracking-tighter text-white">Contact <span className="text-brand-blue text-glow">Us</span></h3>
                 <p className="text-base md:text-lg text-white/60 font-bold uppercase tracking-[0.1em] leading-relaxed max-w-xl">Our high-tier asset management team will process your strategic interest within 24 operational hours.</p>
               </div>
             </div>
@@ -595,7 +595,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                       <textarea rows={4} placeholder="ASSET PREFERENCE / ACQUISITION GOALS" className="w-full bg-white/5 border border-white/10 p-6 rounded-2xl text-white font-bold tracking-widest focus:border-brand-blue outline-none resize-none transition-all"></textarea>
                     </div>
                     <button disabled={isSubmitting} className="w-full btn-brand py-8 text-[14px] font-black shadow-glow-md">
-                      {isSubmitting ? <Loader2 className="animate-spin" /> : <><Send size={20} /> Deploy Intelligence</>}
+                       {isSubmitting ? <Loader2 className="animate-spin" /> : <><Send size={20} /> Send Message</>}
                     </button>
                   </form>
                 )}

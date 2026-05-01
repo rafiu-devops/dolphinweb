@@ -34,6 +34,7 @@ export default async function RootLayout({
                   phone={contact.phone}
                   email={contact.email}
                   address={contact.address}
+                  social={contact.social}
                 />
               </div>
               <div className="relative pointer-events-auto">
