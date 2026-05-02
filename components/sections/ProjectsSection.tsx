@@ -97,7 +97,7 @@ export function ProjectsSection() {
   const [filterStatus, setFilterStatus] = useState("All");
   const [filterCity, setFilterCity] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
-  const [layoutView, setLayoutView] = useState<"magazine" | "grid">("magazine");
+  const [layoutView, setLayoutView] = useState<"grid">("grid");
   const [isScrolled, setIsScrolled] = useState(false);
 
   // Handle sticky bar state
@@ -197,27 +197,6 @@ export function ProjectsSection() {
                 />
               </div>
 
-              {/* Layout Toggle */}
-              <div className="flex items-center bg-gray-100 p-1 rounded-xl">
-                <button
-                  onClick={() => setLayoutView("magazine")}
-                  className={cn(
-                    "p-2 rounded-lg transition-all",
-                    layoutView === "magazine" ? "bg-white text-brand-blue shadow-sm" : "text-gray-400"
-                  )}
-                >
-                  <Layout size={18} />
-                </button>
-                <button
-                  onClick={() => setLayoutView("grid")}
-                  className={cn(
-                    "p-2 rounded-lg transition-all",
-                    layoutView === "grid" ? "bg-white text-brand-blue shadow-sm" : "text-gray-400"
-                  )}
-                >
-                  <Grid size={18} />
-                </button>
-              </div>
             </div>
           </div>
 
@@ -269,19 +248,12 @@ export function ProjectsSection() {
               <p className="text-gray-400 mt-2">Adjust your filters to see more projects.</p>
             </motion.div>
           ) : (
-            <div className={cn(
-              "transition-all duration-700",
-              layoutView === "grid" 
-                ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" 
-                : "grid grid-cols-1 lg:grid-cols-2 gap-10"
-            )}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               {filteredProjects.map((project, idx) => (
                 <ProjectCard 
                   key={project.id} 
                   project={project} 
                   index={idx}
-                  layoutView={layoutView}
-                  isFullWidth={layoutView === "magazine" && idx === 3}
                 />
               ))}
             </div>
@@ -292,14 +264,10 @@ export function ProjectsSection() {
   );
 }
 
-function ProjectCard({ project, index, layoutView, isFullWidth }: { 
+function ProjectCard({ project, index }: { 
   project: any, 
-  index: number, 
-  layoutView: "magazine" | "grid",
-  isFullWidth?: boolean 
+  index: number
 }) {
-  const isLarge = layoutView === "magazine" && index === 0;
-  
   return (
     <motion.div
       layout
@@ -307,22 +275,11 @@ function ProjectCard({ project, index, layoutView, isFullWidth }: {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className={cn(
-        "group bg-white rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden border border-gray-100 hover:border-brand-blue/20 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_rgba(0,0,0,0.08)]",
-        isLarge && "lg:row-span-2",
-        isFullWidth && "lg:col-span-2"
-      )}
+      className="group bg-white rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden border border-gray-100 hover:border-brand-blue/20 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_rgba(0,0,0,0.08)]"
     >
-      <div className={cn(
-        "flex flex-col h-full",
-        isFullWidth ? "lg:flex-row" : ""
-      )}>
+      <div className="flex flex-col h-full">
         {/* Image Section */}
-        <div className={cn(
-          "relative overflow-hidden",
-          isLarge ? "h-[320px] sm:h-[420px] lg:h-full" : "h-[220px] sm:h-[240px]",
-          isFullWidth ? "lg:w-[40%] lg:h-[400px]" : "w-full"
-        )}>
+        <div className="relative overflow-hidden h-[220px] sm:h-[240px] w-full">
           <img 
             src={project.image} 
             alt={project.name} 
@@ -362,10 +319,7 @@ function ProjectCard({ project, index, layoutView, isFullWidth }: {
         </div>
 
         {/* Content Section */}
-        <div className={cn(
-          "p-6 sm:p-8 flex flex-col justify-between",
-          isFullWidth ? "lg:w-[60%]" : "flex-1"
-        )}>
+        <div className="p-6 sm:p-8 flex flex-col justify-between flex-1">
           <div className="space-y-4">
             <div className="space-y-2">
               <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tighter italic text-[#373635] group-hover:text-brand-blue transition-colors duration-500">
@@ -377,37 +331,14 @@ function ProjectCard({ project, index, layoutView, isFullWidth }: {
               </div>
             </div>
 
-            <p className={cn(
-              "text-sm text-gray-500 leading-relaxed font-medium",
-              !isFullWidth && "line-clamp-2"
-            )}>
+            <p className="text-sm text-gray-500 leading-relaxed font-medium line-clamp-2">
               {project.shortDescription}
             </p>
 
-            {/* Amenity Chips */}
-            <div className="flex flex-wrap gap-2 pt-2">
-              {project.amenities.slice(0, isFullWidth ? 4 : 2).map((amenity: any, i: number) => (
-                <span 
-                  key={i} 
-                  className="flex items-center gap-2 px-3 py-1.5 bg-gray-50 border border-gray-100 rounded-lg text-[9px] font-black uppercase tracking-widest text-gray-400 group-hover:border-brand-blue/20 group-hover:text-[#373635] transition-all"
-                >
-                  <amenity.icon size={12} className="text-brand-blue/50" />
-                  {amenity.label}
-                </span>
-              ))}
-              {!isFullWidth && (
-                <span className="text-[9px] font-black uppercase tracking-widest px-3 py-1.5 text-brand-blue/40">
-                  +2 Assets
-                </span>
-              )}
-            </div>
+            {/* Amenity Chips removed for cleaner aesthetic */}
           </div>
 
-          {/* Action Row - Mobile Visible only or Grid View */}
-          <div className={cn(
-            "pt-8 flex gap-4",
-            isFullWidth || isLarge ? "lg:hidden" : ""
-          )}>
+          <div className="pt-8 flex gap-4">
             <Link 
               href={`/projects/${project.slug}`}
               className="flex-1 bg-brand-blue text-white py-3.5 rounded-xl text-[10px] font-black uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-black transition-all shadow-lg"
@@ -416,20 +347,6 @@ function ProjectCard({ project, index, layoutView, isFullWidth }: {
             </Link>
           </div>
 
-          {/* Card 4 Specific View Details Button */}
-          {isFullWidth && (
-            <div className="hidden lg:block pt-8">
-              <Link 
-                href={`/projects/${project.slug}`}
-                className="inline-flex items-center gap-4 text-[13px] font-black uppercase tracking-widest text-black hover:text-brand-blue transition-all group/btn"
-              >
-                View Project Intelligence 
-                <div className="w-10 h-10 rounded-full bg-brand-blue/5 flex items-center justify-center group-hover/btn:bg-brand-blue group-hover:text-white transition-all">
-                  <ArrowRight size={18} />
-                </div>
-              </Link>
-            </div>
-          )}
         </div>
       </div>
     </motion.div>

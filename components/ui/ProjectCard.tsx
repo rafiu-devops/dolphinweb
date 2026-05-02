@@ -83,17 +83,7 @@ export function ProjectCard({ project, className, onEnquire }: ProjectCardProps)
           {project.projectCard?.shortDescription}
         </p>
 
-        {/* Feature Tags */}
-        <div className="flex flex-wrap gap-2">
-          {(project.detailsPage?.amenities || []).slice(0, 2).map((amenity, idx) => (
-            <span key={idx} className="tactical-label px-2.5 py-1.5 rounded bg-muted/10 border border-border/40 text-muted-foreground group-hover:border-brand-blue/20 transition-all">
-              {amenity.label}
-            </span>
-          ))}
-          {(project.detailsPage?.amenities?.length || 0) > 2 && (
-            <span className="tactical-label px-2 py-1.5 text-brand-blue/60">+{(project.detailsPage?.amenities?.length || 0) - 2} Assets</span>
-          )}
-        </div>
+        {/* Feature Tags removed for cleaner aesthetic */}
 
         {/* Actions */}
         <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-2">

@@ -149,7 +149,7 @@ export default function HomeClient({
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-transparent z-[2]" />
         </div>
 
-        <div className="container mx-auto px-6 md:px-20 pt-20 sm:pt-40 md:pt-64 pb-12 md:pb-20 relative z-[10]">
+        <div className="container mx-auto px-6 md:px-20 pt-32 sm:pt-48 md:pt-64 pb-12 md:pb-20 relative z-[10]">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -668,6 +668,7 @@ export default function HomeClient({
               {testimonials.map((_, idx) => (
                 <button
                   key={idx}
+                  suppressHydrationWarning
                   onClick={() => setActiveTestimonialIndex(idx)}
                   className="group relative px-2 py-4"
                 >
@@ -710,10 +711,15 @@ export default function HomeClient({
             </div>
 
             {/* Quick Contact Form */}
-            <div className="bg-black/10 backdrop-blur-xl p-6 sm:p-10 rounded-3xl border border-white/10 space-y-6">
-              <div className="space-y-2">
-                <h4 className="text-xl font-black text-white italic uppercase tracking-tight">Quick Contact</h4>
-                <p className="tactical-label text-black/60">Guaranteed response in 24 tactical hours.</p>
+            <div className="bg-white p-8 sm:p-12 md:p-16 rounded-[2.5rem] sm:rounded-[3.5rem] border border-gray-100 shadow-4xl relative overflow-hidden group">
+              {/* Subtle background accent */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+              
+              <div className="space-y-4 mb-12 text-center lg:text-left">
+                <h4 className="text-2xl md:text-3xl font-black text-black italic uppercase tracking-tighter leading-none">
+                  Quick <span className="text-brand-blue">Contact</span>
+                </h4>
+                <p className="text-[11px] font-black uppercase tracking-[0.2em] text-gray-400">Operational response within 24 tactical hours.</p>
               </div>
 
               <AnimatePresence mode="wait">
@@ -722,51 +728,68 @@ export default function HomeClient({
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
-                    className="py-12 flex flex-col items-center text-center gap-4"
+                    className="py-20 flex flex-col items-center text-center gap-6"
                   >
-                    <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-white">
-                      <ShieldCheck size={32} />
+                    <div className="w-20 h-20 bg-brand-blue text-white rounded-[1.5rem] flex items-center justify-center shadow-glow-md animate-bounce">
+                      <ShieldCheck size={40} />
                     </div>
-                    <p className="text-sm font-black uppercase tracking-widest text-white italic">Deployed Successfully</p>
+                    <div className="space-y-2">
+                      <p className="text-lg font-black uppercase tracking-tighter text-black italic">Transmission Successful</p>
+                      <p className="tactical-label text-gray-400">Stand by for tactical follow-up.</p>
+                    </div>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleExpressSubmit} className="space-y-4">
-                    <input
-                      required
-                      suppressHydrationWarning
-                      type="text"
-                      placeholder="FULL NAME"
-                      value={expressFormData.name}
-                      onChange={(e) => setExpressFormData({ ...expressFormData, name: e.target.value })}
-                      className="w-full bg-white/5 border border-white/10 p-4 md:p-5 rounded-xl text-white text-[11px] md:text-[12px] font-bold tracking-widest focus:ring-brand-blue focus:border-brand-blue outline-none placeholder:text-black/30"
-                    />
-                    <input
-                      required
-                      suppressHydrationWarning
-                      type="email"
-                      placeholder="EMAIL ADDRESS"
-                      value={expressFormData.email}
-                      onChange={(e) => setExpressFormData({ ...expressFormData, email: e.target.value })}
-                      className="w-full bg-white/5 border border-white/10 p-4 md:p-5 rounded-xl text-white text-[11px] md:text-[12px] font-bold tracking-widest focus:ring-brand-blue focus:border-brand-blue outline-none placeholder:text-black/30"
-                    />
-                    <input
-                      suppressHydrationWarning
-                      type="tel"
-                      placeholder="PHONE NUMBER"
-                      value={expressFormData.phone}
-                      onChange={(e) => setExpressFormData({ ...expressFormData, phone: e.target.value })}
-                      className="w-full bg-white/5 border border-white/10 p-4 md:p-5 rounded-xl text-white text-[11px] md:text-[12px] font-bold tracking-widest focus:ring-brand-blue focus:border-brand-blue outline-none placeholder:text-black/30"
-                    />
+                  <form onSubmit={handleExpressSubmit} className="space-y-6">
+                    <div className="space-y-6">
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-black uppercase tracking-widest text-black/40 ml-4">Identity</label>
+                        <input
+                          required
+                          suppressHydrationWarning
+                          type="text"
+                          placeholder="YOUR NAME"
+                          value={expressFormData.name}
+                          onChange={(e) => setExpressFormData({ ...expressFormData, name: e.target.value })}
+                          className="w-full bg-gray-50 border border-gray-200 p-5 rounded-2xl text-black text-[12px] font-bold tracking-widest focus:ring-1 focus:ring-brand-blue focus:border-brand-blue outline-none placeholder:text-black/20 transition-all"
+                        />
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-black uppercase tracking-widest text-black/40 ml-4">Secure Email</label>
+                        <input
+                          required
+                          suppressHydrationWarning
+                          type="email"
+                          placeholder="EMAIL ADDRESS"
+                          value={expressFormData.email}
+                          onChange={(e) => setExpressFormData({ ...expressFormData, email: e.target.value })}
+                          className="w-full bg-gray-50 border border-gray-200 p-5 rounded-2xl text-black text-[12px] font-bold tracking-widest focus:ring-1 focus:ring-brand-blue focus:border-brand-blue outline-none placeholder:text-black/20 transition-all"
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-black uppercase tracking-widest text-black/40 ml-4">Tactical Number</label>
+                        <input
+                          suppressHydrationWarning
+                          type="tel"
+                          placeholder="PHONE / WHATSAPP"
+                          value={expressFormData.phone}
+                          onChange={(e) => setExpressFormData({ ...expressFormData, phone: e.target.value })}
+                          className="w-full bg-gray-50 border border-gray-200 p-5 rounded-2xl text-black text-[12px] font-bold tracking-widest focus:ring-1 focus:ring-brand-blue focus:border-brand-blue outline-none placeholder:text-black/20 transition-all"
+                        />
+                      </div>
+                    </div>
+
                     <button
                       disabled={isExpressSubmitting}
                       suppressHydrationWarning
                       type="submit"
-                      className="w-full bg-black text-white py-5 rounded-xl tactical-label text-[13px] flex items-center justify-center gap-3 hover:bg-black/90 transition-all shadow-3xl disabled:opacity-50"
+                      className="w-full bg-brand-blue text-white py-6 rounded-2xl text-[13px] font-black uppercase tracking-[0.2em] flex items-center justify-center gap-3 hover:bg-black transition-all shadow-glow-sm disabled:opacity-50 mt-4 group/btn"
                     >
                       {isExpressSubmitting ? (
                         <>Processing... <Loader2 size={16} className="animate-spin" /></>
                       ) : (
-                        <>Send Message <Send size={16} /></>
+                        <>Send Message <Send size={18} className="group-hover:translate-x-1 transition-transform" /></>
                       )}
                     </button>
                   </form>

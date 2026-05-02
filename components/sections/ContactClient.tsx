@@ -66,7 +66,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
     <div className="flex flex-col gap-32 pb-32 bg-background overflow-x-hidden">
 
       {/* Hero Banner */}
-      <section className="relative h-[75vh] flex items-center justify-center pt-28 md:pt-44 overflow-hidden">
+      <section className="relative h-[75vh] flex items-center justify-center pt-40 md:pt-60 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <motion.img
             initial={{ scale: 1.1, opacity: 0 }}

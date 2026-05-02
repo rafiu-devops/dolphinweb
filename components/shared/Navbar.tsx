@@ -7,12 +7,12 @@ import { X, ChevronRight, Star, Play, CheckCircle2, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-interface NavbarProps {}
+interface NavbarProps { }
 
 function BrandLogo({ height = 88, mobileHeight = 48 }: { height?: number; mobileHeight?: number }) {
   return (
     <div className="flex items-center gap-4 group">
-      <div 
+      <div
         className="logo-container w-auto transition-all duration-500 flex items-center"
         style={{ height: `var(--logo-h, ${mobileHeight}px)` }}
       >
@@ -31,7 +31,7 @@ function BrandLogo({ height = 88, mobileHeight = 48 }: { height?: number; mobile
           Dolphin Builders
         </span>
         <span className="tactical-label text-brand-blue mt-1 whitespace-nowrap">
-          Premium Developers
+          & Developers
         </span>
       </div>
     </div>
@@ -106,7 +106,7 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-10">
             <nav className="flex items-center gap-2">
               {navLinks.map((link) => (
-                <div 
+                <div
                   key={link.name}
                   className="relative py-4"
                   onMouseEnter={() => link.hasDropdown && setActiveDropdown(link.name)}
@@ -119,8 +119,8 @@ export function Navbar() {
                     onMouseLeave={() => setHoveredPath(null)}
                     className={cn(
                       "px-6 py-2.5 tactical-label text-[13px] rounded-2xl transition-all duration-300 relative flex items-center gap-1.5",
-                      pathname === link.href || hoveredPath === link.href
-                        ? "text-black"
+                      (hoveredPath === link.href || (!hoveredPath && pathname === link.href))
+                        ? "text-white"
                         : "text-[#373635]/70"
                     )}
                   >
@@ -128,15 +128,13 @@ export function Navbar() {
                     {link.hasDropdown && (
                       <ChevronRight size={14} className={cn("relative z-10 transition-transform duration-300", activeDropdown === link.name && "rotate-90")} />
                     )}
-                    
+
                     {(hoveredPath === link.href || (!hoveredPath && pathname === link.href)) && (
                       <motion.div
                         layoutId="navHighlight"
-                        className="absolute inset-0 rounded-2xl border border-black bg-brand-blue/[0.04] z-0"
+                        className="absolute inset-0 rounded-2xl bg-brand-blue shadow-[0_10px_20px_rgba(26,106,255,0.3)] z-0"
                         transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                      >
-                        <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-8 h-[2.5px] bg-brand-blue rounded-full" />
-                      </motion.div>
+                      />
                     )}
                   </Link>
 
@@ -239,7 +237,7 @@ export function Navbar() {
                         {link.name}
                         <ChevronRight size={18} className={cn("opacity-40", pathname === link.href && "opacity-100")} />
                       </Link>
-                      
+
 
                     </div>
                   ))}

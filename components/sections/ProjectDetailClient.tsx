@@ -6,7 +6,7 @@ import {
   Camera, WavesLadder, Coffee, Trees, Car, ArrowLeft,
   Download, Crosshair, Box, TrendingUp, Heart, Info,
   Phone, Mail, Globe, Send, Loader2, CheckCircle2,
-  Calendar, Layers, Map as MapIcon, Star
+  Calendar, Layers, Map as MapIcon, Star, X
 } from "lucide-react";
 import Link from "next/link";
 import { ProjectCard } from "@/components/ui/ProjectCard";
@@ -38,7 +38,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
   const iconMap: any = {
     WavesLadder, Home, Camera, Trees, Car, Coffee, Shield, Zap, Building, MapPin,
     Tag, Download, Globe, TrendingUp, Layers, Ruler, Calendar, Star, Info,
-    Mail, Phone, Send, Loader2, CheckCircle2, Crosshair, Box, FaWhatsapp, FaFacebook
+    Mail, Phone, Send, Loader2, CheckCircle2, Crosshair, Box, FaWhatsapp, FaFacebook, X
   };
 
   const [isEnquireOpen, setIsEnquireOpen] = useState(false);
@@ -47,6 +47,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
   const [isSuccess, setIsSuccess] = useState(false);
   const [activeCategory, setActiveCategory] = useState<"exterior" | "interior" | "layouts">("exterior");
   const [mounted, setMounted] = useState(false);
+  const [selectedGalleryImage, setSelectedGalleryImage] = useState<string | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -101,14 +102,12 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
     <div className="flex flex-col bg-background overflow-x-hidden">
 
       {/* 1. PROJECT HERO SHOWCASE */}
-      <section className="pt-40 md:pt-48 pb-16 bg-background">
+      <section className="pt-48 md:pt-64 pb-16 bg-background">
         <div className="container mx-auto px-6 space-y-12">
           {/* Breadcrumbs */}
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center gap-4 tactical-label text-muted-foreground/80">
             <Link href="/" prefetch={false} className="hover:text-brand-blue transition-colors">Home</Link>
-            <div className="w-4 h-[1px] bg-border" />
-            <Link href="/projects" prefetch={false} className="hover:text-brand-blue transition-colors">Strategic Portfolio</Link>
-            <div className="w-4 h-[1px] bg-border" />
+            <div className="w-[1px] h-3 bg-muted-foreground/30 mx-1" />
             <span className="text-brand-blue">{project.name}</span>
           </motion.div>
 
@@ -136,7 +135,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               <div className="flex items-center gap-4 bg-bg-card border border-border/40 px-6 sm:px-8 py-4 sm:py-5 rounded-2xl shadow-xl">
                 <MapPin size={24} className="text-brand-blue" />
                 <div className="flex flex-col">
-                  <span className="tactical-label text-muted-foreground/80">Operational Zone</span>
+                  <span className="tactical-label text-muted-foreground/80">Located At</span>
                   <span className="text-[12px] sm:text-sm font-black uppercase tracking-tight text-foreground">{project.location}, {project.city}</span>
                 </div>
               </div>
@@ -212,17 +211,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               ))}
             </div>
 
-            <div className="flex flex-wrap gap-8 pt-6">
-              <div className="flex flex-col gap-1">
-                <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Investment Potential</span>
-                <span className="text-2xl font-black italic text-brand-blue">High ROI Target</span>
-              </div>
-              <div className="w-[1px] h-12 bg-border/40 hidden md:block" />
-              <div className="flex flex-col gap-1">
-                <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Asset Class</span>
-                <span className="text-2xl font-black italic text-foreground uppercase">{project.projectCard.badges[1] || "Premium"}</span>
-              </div>
-            </div>
+
           </motion.div>
 
           <motion.div {...fadeInUp} className="relative aspect-square rounded-[2.5rem] sm:rounded-[4rem] overflow-hidden border border-border/40 shadow-4xl group">
@@ -237,11 +226,11 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
       </section>
 
       {/* 3. WHAT THIS PROJECT OFFERS (OFFERINGS) */}
-      <section className="py-32 bg-background">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-6 space-y-20">
           <div className="text-center space-y-6">
             <h2 className="section-heading tracking-tighter">What This Project <span className="text-brand-blue">Offers</span></h2>
-            <p className="tactical-label text-muted-foreground/80">Strategic Asset Classes for Diversified Portfolios</p>
+            <p className="tactical-label text-muted-foreground/80">Prime Location's Approved by government of sindh.</p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-8">
@@ -258,7 +247,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                   whileHover={{ y: -10 }}
                   className="w-full md:w-[calc(50%-2rem)] lg:w-[calc(25%-2rem)] min-w-[280px] p-8 sm:p-10 rounded-[2rem] sm:rounded-[2.5rem] bg-bg-card border border-border/40 text-center space-y-6 hover:border-brand-blue/40 transition-all group"
                 >
-                  <div className="w-20 h-20 bg-brand-blue/10 text-brand-blue rounded-3xl flex items-center justify-center mx-auto transition-all group-hover:bg-brand-blue group-hover:text-black shadow-glow-sm">
+                  <div className="w-20 h-20 bg-white border-2 border-black text-brand-blue rounded-3xl flex items-center justify-center mx-auto transition-all group-hover:bg-brand-blue group-hover:text-black shadow-lg">
                     <Icon size={32} />
                   </div>
                   <h3 className="text-xl font-black uppercase italic tracking-tight">{offer.label}</h3>
@@ -271,14 +260,20 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
       </section>
 
       {/* 4. ASSET INVENTORY (AVAILABLE SPACES) */}
-      <section className="py-32 bg-bg-card border-y border-border/40">
+      <section className="py-24 bg-bg-card border-y border-border/40">
         <div className="container mx-auto px-6 space-y-20">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div className="space-y-6">
-              <h2 className="section-heading">Available <span className="text-brand-blue">Spaces</span></h2>
-              <p className="tactical-label text-muted-foreground/80">Operational Blueprint & Inventory Specs</p>
+              <h2 className="section-heading">
+                {project.slug === "dolphin-tower" ? "What This Project " : "Available "}
+                <span className="text-brand-blue">{project.slug === "dolphin-tower" ? "Includes" : "Spaces"}</span>
+              </h2>
+              <p className="tactical-label text-muted-foreground/80">
+                {project.slug === "dolphin-tower"
+                  ? "Key commercial, corporate, and residential facilities integrated within the Dolphin Tower development."
+                  : "Operational Blueprint & Inventory Specs"}
+              </p>
             </div>
-            <button onClick={() => handleEnquire(project)} className="btn-brand px-8 md:px-12 py-4 md:py-5 rounded-xl md:rounded-2xl text-[10px] md:text-[12px] w-full md:w-auto">Download Full Price Plan</button>
           </div>
 
           <div className="overflow-hidden rounded-[3rem] border border-border/40 shadow-4xl bg-background">
@@ -286,13 +281,24 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               <table className="w-full text-left border-collapse min-w-[600px]">
                 <thead>
                   <tr className="bg-black text-white">
-                    <th className="p-6 md:p-10 tactical-label">Unit Classification</th>
-                    <th className="p-6 md:p-10 tactical-label">Area Footprint</th>
-                    <th className="p-6 md:p-10 tactical-label text-right">Acquisition State</th>
+                    <th className="p-6 md:p-10 tactical-label">
+                      {project.slug === "dolphin-tower" ? "What This Project Includes" : "Unit Classification"}
+                    </th>
+                    <th className={cn(
+                      "p-6 md:p-10 tactical-label",
+                      project.slug === "dolphin-tower" ? "text-right" : ""
+                    )}>
+                      {project.slug === "dolphin-tower" ? "Details" : "Area Footprint"}
+                    </th>
+                    {project.slug !== "dolphin-tower" && <th className="p-6 md:p-10 tactical-label text-right">Acquisition State</th>}
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-border/20 font-black uppercase tracking-tight italic">
-                  {project.detailsPage.unitTypes.map((unit, idx) => (
+                  {(project.slug === "dolphin-tower" ? [
+                    { type: "Executive Offices", size: "Premium Corporate Office Floors" },
+                    { type: "Luxury Apartments", size: "Modern 3-Bedroom Residential Suites" },
+                    { type: "Food & Retail Outlets", size: "Restaurants & Franchise Brands" }
+                  ] : project.detailsPage.unitTypes).map((unit, idx) => (
                     <tr key={idx} className="hover:bg-brand-blue/[0.03] transition-colors group">
                       <td className="p-6 md:p-10">
                         <div className="flex items-center gap-4 md:gap-6">
@@ -300,10 +306,15 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                           <span className="text-base md:text-lg text-foreground">{unit.type}</span>
                         </div>
                       </td>
-                      <td className="p-6 md:p-10 text-lg md:text-xl text-muted-foreground">{unit.size}</td>
-                      <td className="p-6 md:p-10 text-right">
-                        <span className="text-brand-blue text-[10px] md:text-sm border border-brand-blue/20 px-4 md:px-6 py-1.5 md:py-2 rounded-full bg-brand-blue/5">Available</span>
-                      </td>
+                      <td className={cn(
+                        "p-6 md:p-10 text-lg md:text-xl",
+                        project.slug === "dolphin-tower" ? "text-right text-brand-blue" : "text-muted-foreground"
+                      )}>{unit.size}</td>
+                      {project.slug !== "dolphin-tower" && (
+                        <td className="p-6 md:p-10 text-right">
+                          <span className="text-brand-blue text-[10px] md:text-sm border border-brand-blue/20 px-4 md:px-6 py-1.5 md:py-2 rounded-full bg-brand-blue/5">Available</span>
+                        </td>
+                      )}
                     </tr>
                   ))}
                 </tbody>
@@ -402,7 +413,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               {/* PROJECT SPECIFIC CONTACT */}
               <div className="p-8 sm:p-10 rounded-[2rem] sm:rounded-[3rem] bg-black text-white space-y-8 sm:space-y-10 shadow-4xl relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-40 h-40 bg-brand-blue/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-                <h3 className="text-2xl font-black uppercase italic tracking-tighter">Direct Sector <span className="text-brand-blue">Comm-Link</span></h3>
+                <h3 className="text-2xl font-black uppercase italic tracking-tighter">Contact <span className="text-brand-blue">Information</span></h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="flex items-center gap-6 group cursor-pointer" onClick={() => window.location.href = `tel:${project.detailsPage.projectContact?.phone}`}>
                     <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-brand-blue group-hover:text-black transition-all"><Phone size={20} /></div>
@@ -411,13 +422,15 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                       <span className="text-lg font-black tracking-widest">{project.detailsPage.projectContact?.phone || "+92 347 0139661"}</span>
                     </div>
                   </div>
-                  <div className="flex items-center gap-6 group cursor-pointer" onClick={() => window.location.href = `mailto:${project.detailsPage.projectContact?.email}`}>
-                    <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-brand-blue group-hover:text-black transition-all"><Mail size={20} /></div>
-                    <div className="flex flex-col">
-                      <span className="tactical-label text-white/60">Transmission Email</span>
-                      <span className="text-sm font-black tracking-widest truncate max-w-[200px]">{project.detailsPage.projectContact?.email || "ops@dolphinbuilders.pk"}</span>
+                  {project.detailsPage.projectContact?.email && (
+                    <div className="flex items-center gap-6 group cursor-pointer" onClick={() => window.location.href = `mailto:${project.detailsPage.projectContact?.email}`}>
+                      <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-brand-blue group-hover:text-black transition-all"><Mail size={20} /></div>
+                      <div className="flex flex-col">
+                        <span className="tactical-label text-white/60">Transmission Email</span>
+                        <span className="text-sm font-black tracking-widest truncate max-w-[200px]">{project.detailsPage.projectContact?.email}</span>
+                      </div>
                     </div>
-                  </div>
+                  )}
                   {project.detailsPage.projectContact?.whatsapp && (
                     <div
                       className="flex items-center gap-6 group cursor-pointer"
@@ -538,6 +551,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.4 }}
                     className="group relative aspect-[4/3] rounded-[2.5rem] overflow-hidden border border-border/40 shadow-2xl cursor-zoom-in"
+                    onClick={() => setSelectedGalleryImage(img)}
                   >
                     <img src={img || "/assets/projects/placeholder.png"} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt={`Asset ${idx}`} />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
@@ -568,34 +582,34 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               </div>
             </div>
 
-            <div className="glass-premium p-8 sm:p-12 md:p-20 rounded-[2.5rem] sm:rounded-[4rem] border-white/10 relative">
+            <div className="bg-white p-8 sm:p-12 md:p-20 rounded-[2.5rem] sm:rounded-[4rem] border border-white/10 relative shadow-4xl">
               <AnimatePresence mode="wait">
                 {isSuccess ? (
                   <motion.div key="success" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-20 text-center space-y-8">
-                    <div className="w-24 h-24 bg-brand-blue text-black rounded-[2rem] flex items-center justify-center mx-auto shadow-glow-md animate-bounce"><CheckCircle2 size={48} /></div>
+                    <div className="w-24 h-24 bg-brand-blue text-white rounded-[2rem] flex items-center justify-center mx-auto shadow-glow-md animate-bounce"><CheckCircle2 size={48} /></div>
                     <div className="space-y-2">
-                      <h3 className="text-3xl font-black uppercase italic text-white">Encrypted Transmission Received</h3>
-                      <p className="tactical-label text-white/60">Stand by for tactical agent follow-up.</p>
+                      <h3 className="text-3xl font-black uppercase italic text-black">Transmission Received</h3>
+                      <p className="tactical-label text-black/60">Stand by for tactical agent follow-up.</p>
                     </div>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleFormSubmit} className="space-y-8">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                      <div className="space-y-3">
-                        <label className="text-[10px] font-black uppercase tracking-widest text-white/30 ml-4">Agent Name</label>
-                        <input required type="text" placeholder="IDENTITY" className="w-full bg-white/5 border border-white/10 p-6 rounded-2xl text-white font-bold tracking-widest focus:border-brand-blue outline-none transition-all" />
+                  <form onSubmit={handleFormSubmit} className="space-y-6">
+                    <div className="space-y-6">
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-black uppercase tracking-widest text-black/40 ml-4">Identity</label>
+                        <input required type="text" placeholder="YOUR NAME" className="w-full bg-gray-50 border border-gray-200 p-5 rounded-2xl text-black font-bold tracking-widest focus:border-brand-blue outline-none transition-all placeholder:text-black/20" />
                       </div>
-                      <div className="space-y-3">
-                        <label className="text-[10px] font-black uppercase tracking-widest text-white/30 ml-4">Comm-Channel</label>
-                        <input required type="email" placeholder="SECURE EMAIL" className="w-full bg-white/5 border border-white/10 p-6 rounded-2xl text-white font-bold tracking-widest focus:border-brand-blue outline-none transition-all" />
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-black uppercase tracking-widest text-black/40 ml-4">Secure Email</label>
+                        <input required type="email" placeholder="EMAIL ADDRESS" className="w-full bg-gray-50 border border-gray-200 p-5 rounded-2xl text-black font-bold tracking-widest focus:border-brand-blue outline-none transition-all placeholder:text-black/20" />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-black uppercase tracking-widest text-black/40 ml-4">Tactical Number</label>
+                        <input required type="tel" placeholder="PHONE / WHATSAPP" className="w-full bg-gray-50 border border-gray-200 p-5 rounded-2xl text-black font-bold tracking-widest focus:border-brand-blue outline-none transition-all placeholder:text-black/20" />
                       </div>
                     </div>
-                    <div className="space-y-3">
-                      <label className="text-[10px] font-black uppercase tracking-widest text-white/30 ml-4">Mission Objective</label>
-                      <textarea rows={4} placeholder="ASSET PREFERENCE / ACQUISITION GOALS" className="w-full bg-white/5 border border-white/10 p-6 rounded-2xl text-white font-bold tracking-widest focus:border-brand-blue outline-none resize-none transition-all"></textarea>
-                    </div>
-                    <button disabled={isSubmitting} className="w-full btn-brand py-8 text-[14px] font-black shadow-glow-md">
-                       {isSubmitting ? <Loader2 className="animate-spin" /> : <><Send size={20} /> Send Message</>}
+                    <button disabled={isSubmitting} className="w-full btn-brand py-6 rounded-2xl text-[14px] font-black shadow-glow-sm mt-4">
+                      {isSubmitting ? <Loader2 className="animate-spin" /> : <><Send size={20} /> Send Message</>}
                     </button>
                   </form>
                 )}
@@ -604,6 +618,42 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
           </div>
         </div>
       </section>
+
+      {/* LIGHTBOX MODAL */}
+      <AnimatePresence>
+        {selectedGalleryImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedGalleryImage(null)}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-10 cursor-zoom-out"
+          >
+            <motion.button
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="absolute top-6 right-6 md:top-10 md:right-10 w-12 h-12 md:w-16 md:h-16 bg-white/10 hover:bg-brand-blue hover:text-black rounded-full flex items-center justify-center text-white transition-all z-[110]"
+              onClick={() => setSelectedGalleryImage(null)}
+            >
+              <X size={24} />
+            </motion.button>
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="relative max-w-7xl w-full aspect-auto flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={selectedGalleryImage}
+                alt="Full Gallery View"
+                className="max-w-full max-h-[90vh] object-contain rounded-2xl shadow-2xl border border-white/10"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <EnquireModal isOpen={isEnquireOpen} onClose={() => setIsEnquireOpen(false)} projectName={selectedProject?.name} />
     </div>

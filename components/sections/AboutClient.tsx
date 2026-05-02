@@ -72,7 +72,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
     <div className="flex flex-col pb-20 bg-background overflow-x-hidden">
       
       {/* 1. HERO BANNER */}
-      <section className="relative min-h-[70vh] flex items-center justify-center pt-32 md:pt-44 pb-20 overflow-hidden">
+      <section className="relative min-h-[70vh] flex items-center justify-center pt-48 md:pt-64 pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <motion.img 
             initial={{ scale: 1.1, opacity: 0 }}
@@ -138,7 +138,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
           >
-            <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-border/40 glass-premium group bg-black">
+            <div className="aspect-square rounded-[2.5rem] overflow-hidden border border-border/40 glass-premium group bg-black">
               <img 
                 src="/dolphin_builders_excellence.png" 
                 className="w-full h-full object-cover group-hover:scale-110 transition-all duration-1000 opacity-80" 

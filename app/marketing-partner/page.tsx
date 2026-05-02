@@ -46,7 +46,7 @@ export default function MarketingPartnerPage() {
   return (
     <div className="flex flex-col bg-background overflow-x-hidden">
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-[500px] md:min-h-[700px] lg:min-h-screen flex items-center overflow-hidden bg-white pt-24 md:pt-44 pb-12 md:pb-20">
+      <section className="relative min-h-[500px] md:min-h-[700px] lg:min-h-screen flex items-center overflow-hidden bg-white pt-40 md:pt-60 pb-12 md:pb-20">
         <div className="absolute inset-0 z-0">
           <ImageSlider
             images={coverImages}
@@ -54,12 +54,12 @@ export default function MarketingPartnerPage() {
             showArrows={false}
             showDots={true}
             interval={5000}
-            className="h-full w-full grayscale-0 opacity-100 transition-all duration-1000 [&_div.flex>div:nth-child(1)_img]:object-contain"
+            className="h-full w-full grayscale-0 opacity-100 transition-all duration-1000 [&_div.flex>div:nth-child(1)_img]:object-cover"
           />
         </div>
         {/* Overlays removed for clear visibility as requested */}
 
-        <div className="container mx-auto px-6 md:px-20 relative z-10 pt-20">
+        <div className="container mx-auto px-6 md:px-20 relative z-10 pt-32">
           {/* Hero Content Removed as requested */}
         </div>
       </section>

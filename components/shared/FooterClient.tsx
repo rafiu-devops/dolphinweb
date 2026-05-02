@@ -147,31 +147,6 @@ export function FooterClient({ contact }: FooterClientProps) {
                 </div>
               </div>
 
-              {/* 5. Social Icons */}
-              <div className="flex flex-col items-center lg:items-start gap-6 pt-4 lg:pt-0">
-                <h4 className="text-[10px] font-black text-white uppercase tracking-[0.3em] mb-2 opacity-60 text-center lg:text-left">Social Presence</h4>
-                <div className="flex items-center justify-center lg:justify-start gap-4">
-                  {[
-                    { icon: FaFacebookF, href: contact.social.facebook, brand: "#1877F2" },
-                    { icon: FaInstagram, href: contact.social.instagram, brand: "linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)" },
-                    { icon: FaLinkedinIn, href: contact.social.linkedin, brand: "#0077B5" },
-                    { icon: FaTiktok, href: contact.social.tiktok, brand: "#010101" },
-                  ].map((social, idx) => (
-                    <Link
-                      key={idx}
-                      href={social.href || "#"}
-                      target="_blank"
-                      className="relative w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center text-white hover:border-white transition-all duration-500 hover:-translate-y-2 shadow-2xl overflow-hidden group"
-                    >
-                      <div
-                        className="absolute inset-0 transition-transform duration-500 group-hover:scale-110"
-                        style={{ background: social.brand }}
-                      />
-                      <social.icon size={20} className="relative z-10 transition-transform duration-300 group-hover:scale-125 md:size-[24px]" />
-                    </Link>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
         </div>

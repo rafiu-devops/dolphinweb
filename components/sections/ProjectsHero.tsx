@@ -32,7 +32,7 @@ export function ProjectsHero({
   }, []);
 
   return (
-    <div className="relative min-h-[65vh] md:min-h-[75vh] flex items-center pt-32 md:pt-44 pb-20 overflow-hidden bg-black">
+    <div className="relative min-h-[65vh] md:min-h-[75vh] flex items-center pt-48 md:pt-64 pb-20 overflow-hidden bg-black">
       {/* Background Slider */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -47,7 +47,7 @@ export function ProjectsHero({
           <img
             src={SLIDE_IMAGES[currentIndex]}
             alt="Sector Deployment Area"
-            className="w-full h-full object-contain"
+            className="w-full h-full object-cover"
           />
         </motion.div>
       </AnimatePresence>
