@@ -251,12 +251,6 @@ export function Navbar() {
                   >
                     Contact Us
                   </Link>
-                  <div className="flex items-center justify-center gap-3 tactical-label text-black/60">
-                    <div className="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue">
-                      <Phone size={16} />
-                    </div>
-                    +92 347 0139661
-                  </div>
                 </div>
               </motion.aside>
             </>
