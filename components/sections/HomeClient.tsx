@@ -249,9 +249,9 @@ export default function HomeClient({
                   isLeft ? "justify-start" : "justify-end"
                 )}
               >
-                {/* Large Background Index - Side Centered Positioning */}
+                {/* Large Background Index - Side Centered Positioning - Hidden on Mobile */}
                 <div className={cn(
-                  "absolute top-1/2 -translate-y-1/2 opacity-[0.15] text-black text-[6rem] sm:text-[15rem] md:text-[25rem] font-black italic select-none pointer-events-none transition-all duration-1000 group-hover:opacity-[0.25] z-0 will-change-transform",
+                  "hidden md:block absolute top-1/2 -translate-y-1/2 opacity-[0.15] text-black text-[6rem] sm:text-[15rem] md:text-[25rem] font-black italic select-none pointer-events-none transition-all duration-1000 group-hover:opacity-[0.25] z-0 will-change-transform",
                   isLeft ? "left-[85%] md:left-[90%] -translate-x-1/2" : "left-[15%] md:left-[10%] -translate-x-1/2"
                 )}>
                   {projectNumber}
@@ -269,7 +269,15 @@ export default function HomeClient({
                     {/* Shadow Glow Accent */}
                     <div className="absolute -inset-6 bg-brand-blue/5 blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
 
+                    {/* Mobile-Only Project Number Tag (Circular Messenger Style - Partially Outside) */}
+                    <div className="md:hidden absolute -top-5 -right-5 z-[70] pointer-events-none">
+                      <div className="w-14 h-14 bg-brand-blue text-black rounded-full font-black italic text-xl shadow-[0_10px_30px_rgba(90,161,255,0.4)] flex items-center justify-center border-4 border-white dark:border-background">
+                        {projectNumber}
+                      </div>
+                    </div>
+
                     <div className="relative aspect-[4/5] sm:aspect-[16/10] rounded-[2rem] sm:rounded-[3rem] overflow-hidden border border-border/40 glass-card-premium shadow-4xl group-hover:border-brand-blue/40 transition-colors">
+                      {/* Image Slider Section */}
                       <ImageSlider
                         images={project.featured?.images || []}
                         autoPlay={true}

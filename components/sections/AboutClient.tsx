@@ -33,15 +33,15 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
   const [isEnquireOpen, setIsEnquireOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const visionMission = [
-    { 
-      icon: Eye, 
-      title: "Our Vision", 
-      desc: "To become a trusted name in Pakistan’s real estate sector by developing high-quality projects that combine innovation, sustainability, and long-term investment value." 
+    {
+      icon: Eye,
+      title: "Our Vision",
+      desc: "To become a trusted name in Pakistan’s real estate sector by developing high-quality projects that combine innovation, sustainability, and long-term investment value."
     },
-    { 
-      icon: Target, 
-      title: "Our Mission", 
-      desc: "To design and deliver real estate developments that offer exceptional value, prime locations, and modern infrastructure while maintaining transparency, reliability, and customer satisfaction." 
+    {
+      icon: Target,
+      title: "Our Mission",
+      desc: "To design and deliver real estate developments that offer exceptional value, prime locations, and modern infrastructure while maintaining transparency, reliability, and customer satisfaction."
     },
   ];
 
@@ -70,34 +70,34 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
 
   return (
     <div className="flex flex-col pb-20 bg-background overflow-x-hidden">
-      
+
       {/* 1. HERO BANNER */}
-      <section className="relative min-h-[70vh] flex items-center justify-center pt-48 md:pt-64 pb-20 overflow-hidden">
+      <section className="relative min-h-[100vh] flex items-center justify-center pt-48 md:pt-64 pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <motion.img 
+          <motion.img
             initial={{ scale: 1.1, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
-            src="/dolphin_builders_excellence.png" 
+            src="/about-db.png"
             className="w-full h-full object-cover"
             onError={(e) => (e.currentTarget.src = "/assets/projects/placeholder.png")}
           />
           <div className="absolute inset-0 bg-black/40 z-[1]" />
         </div>
-        
+
         <div className="container mx-auto px-6 relative z-10 text-center space-y-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-             <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-brand-blue border border-brand-blue/20 mb-6 shadow-[0_0_20px_rgba(90,161,255,0.3)]">
-                <span className="tactical-label text-white">Corporate Intelligence v.02</span>
-              </div>
-              <h1 className="text-4xl sm:text-6xl md:text-9xl font-black tracking-tighter text-white uppercase italic leading-[0.85] drop-shadow-2xl">
-                Building <br />
-                <span className="text-brand-blue text-glow-blue underline decoration-brand-blue/40 underline-offset-[10px] md:underline-offset-[15px]">Legacies</span>
-              </h1>
+            <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-brand-blue border border-brand-blue/20 mb-6 shadow-[0_0_20px_rgba(90,161,255,0.3)]">
+              <span className="tactical-label text-white">Corporate Intelligence v.02</span>
+            </div>
+            <h1 className="text-4xl sm:text-6xl md:text-9xl font-black tracking-tighter text-white uppercase italic leading-[0.85] drop-shadow-2xl">
+              Building <br />
+              <span className="text-brand-blue text-glow-blue underline decoration-brand-blue/40 underline-offset-[10px] md:underline-offset-[15px]">Legacies</span>
+            </h1>
           </motion.div>
         </div>
       </section>
@@ -118,7 +118,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
                 With a focus on <span className="text-foreground font-black">quality construction, strategic locations, and long-term value creation</span>, we provide spaces that are not only functional but also investment-friendly. Each project is carefully planned to meet the evolving needs of modern lifestyles and businesses.
               </p>
             </div>
-            
+
             <div className="flex flex-wrap gap-6 pt-6">
               <div className="flex items-center gap-3 px-5 py-3 rounded-xl bg-brand-blue/5 border border-brand-blue/20">
                 <CheckCircle2 className="text-brand-blue" size={18} />
@@ -131,7 +131,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -139,16 +139,16 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
             className="relative"
           >
             <div className="aspect-square rounded-[2.5rem] overflow-hidden border border-border/40 glass-premium group bg-black">
-              <img 
-                src="/dolphin_builders_excellence.png" 
-                className="w-full h-full object-cover group-hover:scale-110 transition-all duration-1000 opacity-80" 
+              <img
+                src="/about-db.png"
+                className="w-full h-full object-cover group-hover:scale-110 transition-all duration-1000 opacity-80"
                 alt="Corporate Excellence"
                 onError={(e) => (e.currentTarget.src = "/assets/projects/placeholder.png")}
               />
             </div>
-            <motion.div 
-               whileHover={{ scale: 1.05, y: -5 }}
-               className="absolute -bottom-10 -left-10 bg-brand-blue text-black p-10 rounded-[2rem] shadow-[0_30px_60px_rgba(90,161,255,0.4)] hidden lg:block max-w-xs"
+            <motion.div
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="absolute -bottom-10 -left-10 bg-brand-blue text-black p-10 rounded-[2rem] shadow-[0_30px_60px_rgba(90,161,255,0.4)] hidden lg:block max-w-xs"
             >
               <Building className="mb-4 w-8 h-8" />
               <p className="text-lg font-black uppercase tracking-tight italic leading-tight">
@@ -164,8 +164,8 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {visionMission.map((v, idx) => (
-              <motion.div 
-                key={idx} 
+              <motion.div
+                key={idx}
                 {...fadeInUp}
                 className="bg-card p-8 md:p-16 rounded-[2rem] md:rounded-[3rem] border border-border/40 flex flex-col items-center text-center space-y-6 md:space-y-8 hover:border-brand-blue/40 transition-all duration-300 shadow-xl"
               >
@@ -193,7 +193,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {expertise.map((e, idx) => (
-            <motion.div 
+            <motion.div
               key={idx}
               {...fadeInUp}
               whileHover={{ y: -10 }}
@@ -222,19 +222,19 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             {approachSteps.map((step, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 {...fadeInUp}
                 transition={{ delay: idx * 0.1 }}
                 className="relative space-y-6"
               >
                 <div className="flex items-center gap-4">
-                   <div className="w-12 h-12 rounded-full border border-brand-blue flex items-center justify-center text-brand-blue font-black italic">0{idx + 1}</div>
-                   {idx < 4 && <div className="hidden md:block h-[2px] flex-grow bg-brand-blue shadow-[0_0_10px_rgba(90,161,255,0.5)]" />}
+                  <div className="w-12 h-12 rounded-full border border-brand-blue flex items-center justify-center text-brand-blue font-black italic">0{idx + 1}</div>
+                  {idx < 4 && <div className="hidden md:block h-[2px] flex-grow bg-brand-blue shadow-[0_0_10px_rgba(90,161,255,0.5)]" />}
                 </div>
                 <div className="space-y-3">
-                   <h4 className="text-lg font-black uppercase italic tracking-tight text-white">{step.title}</h4>
-                   <p className="tactical-description text-white/60 text-xs">{step.desc}</p>
+                  <h4 className="text-lg font-black uppercase italic tracking-tight text-white">{step.title}</h4>
+                  <p className="tactical-description text-white/60 text-xs">{step.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -252,7 +252,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {featuredProjects.map((p, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 {...fadeInUp}
                 transition={{ delay: idx * 0.15 }}
@@ -271,12 +271,12 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
       <section className="container mx-auto px-6 py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           <motion.div {...fadeInUp} className="relative aspect-video rounded-[3rem] overflow-hidden border border-border/40 shadow-4xl group">
-             <img 
-               src="/dolphin_builders_excellence.png" 
-               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
-               alt="Why Choose Us"
-             />
-             <div className="absolute inset-0 bg-brand-blue/20 mix-blend-overlay" />
+            <img
+              src="/about-db.png"
+              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              alt="Why Choose Us"
+            />
+            <div className="absolute inset-0 bg-brand-blue/20 mix-blend-overlay" />
           </motion.div>
 
           <motion.div {...fadeInUp} className="space-y-12">
@@ -286,14 +286,14 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
             </div>
 
             <div className="space-y-6">
-               {whyChooseUs.map((item, i) => (
-                 <div key={i} className="flex items-center gap-6 group">
-                    <div className="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-black transition-all">
-                       <CheckCircle2 size={20} />
-                    </div>
-                    <span className="text-lg font-black uppercase italic tracking-tight text-foreground/80">{item}</span>
-                 </div>
-               ))}
+              {whyChooseUs.map((item, i) => (
+                <div key={i} className="flex items-center gap-6 group">
+                  <div className="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-black transition-all">
+                    <CheckCircle2 size={20} />
+                  </div>
+                  <span className="text-lg font-black uppercase italic tracking-tight text-foreground/80">{item}</span>
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>
@@ -301,7 +301,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
 
       {/* Final Investment CTA */}
       <section className="container mx-auto px-6 pb-20">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -319,10 +319,10 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
               Deployment ready assets in Sukkur’s most strategic urban sectors.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Link 
-                href="/contact" 
+              <Link
+                href="/contact"
                 suppressHydrationWarning
-                prefetch={false} 
+                prefetch={false}
                 className="px-16 py-6 bg-black text-white text-lg font-black uppercase tracking-widest rounded-2xl shadow-3xl hover:bg-black/90 hover:scale-105 transition-all"
               >
                 Start Consultation
@@ -332,9 +332,9 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
         </motion.div>
       </section>
 
-      <EnquireModal 
-        isOpen={isEnquireOpen} 
-        onClose={() => setIsEnquireOpen(false)} 
+      <EnquireModal
+        isOpen={isEnquireOpen}
+        onClose={() => setIsEnquireOpen(false)}
         projectName={selectedProject?.name}
       />
     </div>

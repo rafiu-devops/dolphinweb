@@ -27,10 +27,10 @@ function BrandLogo({ height = 88, mobileHeight = 48 }: { height?: number; mobile
         `}</style>
       </div>
       <div className="flex flex-col">
-        <span className="text-base sm:text-lg md:text-[24px] font-bold text-black tracking-tight leading-none group-hover:text-brand-blue transition-colors whitespace-nowrap">
+        <span className="text-xl sm:text-xl md:text-[24px] font-bold text-black tracking-tight leading-none group-hover:text-brand-blue transition-colors whitespace-nowrap">
           Dolphin Builders
         </span>
-        <span className="tactical-label text-brand-blue mt-1 whitespace-nowrap">
+        <span className="tactical-label text-[11px] sm:text-[12px] text-brand-blue mt-1 whitespace-nowrap">
           & Developers
         </span>
       </div>
@@ -99,7 +99,7 @@ export function Navbar() {
       >
         <div className="h-full px-6 md:px-10 flex items-center justify-between">
           <Link href="/" prefetch={false} className="hover:opacity-90 transition-opacity">
-            <BrandLogo height={scrolled ? 64 : 88} mobileHeight={48} />
+            <BrandLogo height={scrolled ? 64 : 88} mobileHeight={60} />
           </Link>
 
           {/* Desktop Nav */}
@@ -212,7 +212,7 @@ export function Navbar() {
                 className="fixed top-0 right-0 h-screen w-[320px] z-[100] bg-white border-l border-brand-blue/20 shadow-[-8px_0_40px_rgba(0,0,0,0.15)] flex flex-col md:hidden overflow-y-auto"
               >
                 <div className="px-8 py-8 flex items-center justify-between border-b border-black/5 text-black">
-                  <BrandLogo mobileHeight={40} />
+                  <BrandLogo mobileHeight={56} />
                   <button
                     onClick={() => setIsOpen(false)}
                     className="w-10 h-10 flex items-center justify-center bg-brand-blue/5 border border-brand-blue/20 rounded-xl text-brand-blue"
