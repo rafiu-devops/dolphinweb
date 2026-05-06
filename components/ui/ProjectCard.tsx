@@ -32,7 +32,7 @@ export function ProjectCard({ project, className, onEnquire }: ProjectCardProps)
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ y: -8 }}
-      className={cn("glass-card-premium group relative gpu-accelerated", className)}
+      className={cn("glass-card-premium group relative gpu-accelerated flex flex-col h-full", className)}
     >
       {/* Hover Edge Highlight Overlay */}
       <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-brand-blue/40 to-transparent -translate-y-full group-hover:animate-[scan_2s_linear_infinite] z-20 pointer-events-none" />
@@ -65,7 +65,7 @@ export function ProjectCard({ project, className, onEnquire }: ProjectCardProps)
       </div>
 
       {/* Content Section */}
-      <div className="p-7 space-y-6 relative overflow-hidden">
+      <div className="p-7 space-y-6 relative overflow-hidden flex flex-col flex-grow">
         {/* Subtle Background Icon */}
         <ShieldCheck className="absolute -right-4 -bottom-4 w-24 h-24 text-foreground/[0.03] rotate-12" />
 
@@ -79,23 +79,23 @@ export function ProjectCard({ project, className, onEnquire }: ProjectCardProps)
           </div>
         </div>
 
-        <p className="text-sm text-muted-foreground leading-relaxed font-medium line-clamp-2 min-h-[40px]">
+        <p className="text-sm text-muted-foreground leading-relaxed font-medium line-clamp-2 min-h-[40px] flex-grow">
           {project.projectCard?.shortDescription}
         </p>
 
         {/* Feature Tags removed for cleaner aesthetic */}
 
         {/* Actions */}
-        <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-2">
+        <div className="flex flex-col sm:flex-row gap-3 pt-2 mt-auto">
           <Link 
             suppressHydrationWarning
             href={`/projects/${project.slug}`}
             prefetch={false}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 btn-brand py-3 md:py-3.5 tactical-label shadow-[0_0_20px_rgba(90,161,255,0.15)] group-hover:shadow-[0_0_30px_rgba(90,161,255,0.3)] transition-all text-[11px] md:text-[13px]"
+            className="flex-[1.2] btn-brand py-2 md:py-2.5 tactical-label shadow-[0_0_20px_rgba(90,161,255,0.15)] group-hover:shadow-[0_0_30px_rgba(90,161,255,0.3)] transition-all text-[9px] md:text-[10px] whitespace-nowrap flex items-center justify-center gap-1"
           >
-            View Details <ArrowRight size={14} />
+            View Details <ArrowRight size={11} />
           </Link>
           <button 
             suppressHydrationWarning
@@ -104,7 +104,7 @@ export function ProjectCard({ project, className, onEnquire }: ProjectCardProps)
               e.stopPropagation();
               onEnquire?.(project);
             }}
-            className="flex-1 bg-muted/10 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-muted/20 hover:border-brand-blue/30 transition-all py-3 md:py-3.5 rounded-lg tactical-label text-[11px] md:text-[13px]"
+            className="flex-1 bg-muted/10 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-muted/20 hover:border-brand-blue/30 transition-all py-2 md:py-2.5 rounded-lg tactical-label text-[9px] md:text-[10px] whitespace-nowrap"
           >
             Contact Us
           </button>

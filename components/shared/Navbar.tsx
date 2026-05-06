@@ -93,8 +93,8 @@ export function Navbar() {
     <div className="w-full transition-all duration-300 pointer-events-none relative">
       <header
         className={cn(
-          "max-w-7xl mx-auto transition-all duration-500 pointer-events-auto origin-top mt-2 md:mt-4 bg-white/95 backdrop-blur-xl border border-black/5 shadow-[0_20px_40px_rgba(0,0,0,0.1)] rounded-[1.5rem] md:rounded-[2.5rem]",
-          scrolled ? "h-[90px] md:h-[100px]" : "h-[110px] md:h-[124px]"
+          "max-w-7xl mx-4 md:mx-8 xl:mx-auto transition-all duration-500 pointer-events-auto origin-top mt-1 md:mt-2 bg-white/25 backdrop-blur-2xl border border-white/20 shadow-[0_20px_40px_rgba(0,0,0,0.05)] rounded-[1.5rem] md:rounded-[3rem]",
+          "h-[90px] md:h-[104px]"
         )}
       >
         <div className="h-full px-6 md:px-10 flex items-center justify-between">
@@ -103,7 +103,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden md:flex items-center gap-6">
             <nav className="flex items-center gap-2">
               {navLinks.map((link) => (
                 <div
@@ -118,7 +118,7 @@ export function Navbar() {
                     onMouseEnter={() => setHoveredPath(link.href)}
                     onMouseLeave={() => setHoveredPath(null)}
                     className={cn(
-                      "px-6 py-2.5 tactical-label text-[13px] rounded-2xl transition-all duration-300 relative flex items-center gap-1.5",
+                      "px-4 py-2.5 tactical-label text-[13px] rounded-2xl transition-all duration-300 relative flex items-center gap-1.5",
                       (hoveredPath === link.href || (!hoveredPath && pathname === link.href))
                         ? "text-white"
                         : "text-[#373635]/70"
@@ -175,7 +175,7 @@ export function Navbar() {
             <Link
               href="/contact"
               prefetch={false}
-              className="bg-brand-blue text-white px-8 py-4 tactical-label text-[13px] rounded-2xl transition-all hover:bg-black hover:shadow-xl hover:-translate-y-1 active:translate-y-0"
+              className="bg-brand-blue text-white px-6 py-3 tactical-label text-[12px] rounded-xl transition-all hover:bg-black hover:shadow-xl hover:-translate-y-1 active:translate-y-0 whitespace-nowrap"
             >
               Contact Us
             </Link>

@@ -23,11 +23,7 @@ export function StickyHeader({ children }: StickyHeaderProps) {
       const isHome = pathname === "/";
       const isMobile = window.innerWidth < 768;
       
-      if (isHome && !isMobile) {
-        setIsVisible(currentScrollY >= 120);
-      } else {
-        setIsVisible(true);
-      }
+      setIsVisible(true);
       ticking = false;
     };
 

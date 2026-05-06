@@ -61,12 +61,6 @@ export default function HomeClient({
   const [isExpressSubmitting, setIsExpressSubmitting] = useState(false);
   const [isExpressSuccess, setIsExpressSuccess] = useState(false);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveTestimonialIndex((prev) => (prev + 1) % testimonials.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, [testimonials.length]);
 
   const handleFilterChange = (filter: { type: string; area: string; propertyType: string }) => {
     let results = allProjects;
@@ -415,15 +409,30 @@ export default function HomeClient({
             ))}
           </motion.div>
 
-          {/* Trust Line */}
-          <motion.div
-            {...fadeInUp}
-            className="text-center pt-8 border-t border-border/40"
-          >
-            <p className="text-[16px] md:text-[18px] font-black uppercase tracking-[0.4em] text-foreground/80 italic leading-relaxed">
-              Serving premium locations across Karachi with <span className="text-brand-blue font-black underline decoration-brand-blue/30 underline-offset-[10px]">trusted developments</span>
-            </p>
-          </motion.div>
+          {/* Trust Line Marquee */}
+          <div className="relative border-t border-border/40 pt-12 overflow-hidden w-full">
+            <div className="flex whitespace-nowrap">
+              <motion.div
+                animate={{ x: ["0%", "-50%"] }}
+                transition={{ 
+                  duration: 40, 
+                  repeat: Infinity, 
+                  ease: "linear" 
+                }}
+                className="flex items-center gap-10 pr-10"
+              >
+                {[...Array(4)].map((_, i) => (
+                  <p key={i} className="text-[20px] md:text-[48px] font-black uppercase tracking-[0.3em] text-foreground/80 italic leading-none flex items-center gap-10">
+                    Serving premium locations across Karachi with 
+                    <span className="text-brand-blue font-black italic underline decoration-brand-blue/30 underline-offset-[15px]">
+                      trusted developments
+                    </span>
+                    <span className="w-3 h-3 md:w-5 md:h-5 bg-brand-blue/30 rounded-full rotate-45" />
+                  </p>
+                ))}
+              </motion.div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -626,70 +635,60 @@ export default function HomeClient({
         </div>
       </section>
 
-      {/* Testimonials Carousel Section */}
-      <section className="bg-bg-card/40 py-16 border-y border-border/40 relative overflow-hidden">
+      {/* Testimonials Marquee Section */}
+      <section className="bg-bg-card/40 py-24 border-y border-border/40 relative overflow-hidden">
         {/* Decorative Background Elements */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-blue/5 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-blue/5 rounded-full blur-[120px] -translate-x-1/2 translate-y-1/2" />
 
-        <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-24 space-y-4">
-            <h2 className="section-heading underline decoration-brand-blue/20 underline-offset-[20px]">
-              Client Testimonials
+        <div className="container mx-auto px-6 relative z-10 mb-16">
+          <motion.div {...fadeInUp} className="text-center space-y-4">
+            <h2 className="section-heading underline decoration-brand-blue/20 underline-offset-[20px] italic">
+              Executive Testimonials
             </h2>
-            <p className="tactical-label text-brand-blue/80 pt-6">Executive Success Stories</p>
+            <p className="tactical-label text-brand-blue/80 pt-6">Strategic Success Stories</p>
           </motion.div>
+        </div>
 
-          <div className="max-w-5xl mx-auto relative px-4 md:px-0">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTestimonialIndex}
-                initial={{ opacity: 0, x: 20, scale: 0.95 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: -20, scale: 0.95 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="bg-card p-8 sm:p-16 md:p-24 rounded-[2.5rem] sm:rounded-[3rem] backdrop-blur-md border border-border/40 relative group shadow-3xl flex flex-col items-center text-center"
+        {/* Marquee Container */}
+        <div className="flex whitespace-nowrap overflow-hidden py-10">
+          <motion.div
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ 
+              duration: 50, 
+              repeat: Infinity, 
+              ease: "linear" 
+            }}
+            className="flex items-center gap-8 px-4"
+          >
+            {[...testimonials, ...testimonials, ...testimonials, ...testimonials].map((t, idx) => (
+              <div 
+                key={idx} 
+                className="w-[300px] md:w-[400px] h-[240px] md:h-[280px] p-8 md:p-10 rounded-[2.5rem] bg-card/60 backdrop-blur-md border border-border/40 shadow-2xl flex flex-col justify-between flex-shrink-0 whitespace-normal group hover:border-brand-blue/30 transition-all duration-500 hover:-translate-y-2"
               >
-                <Quote className="text-brand-blue/10 absolute top-12 right-12" size={80} />
-
-                <div className="space-y-8 sm:space-y-12 relative z-10 w-full">
-                  <p className="text-xl sm:text-2xl md:text-3xl italic text-foreground leading-relaxed font-medium tracking-tight max-w-3xl mx-auto drop-shadow-sm">
-                    "{testimonials[activeTestimonialIndex].quote}"
+                <div className="relative">
+                  <Quote className="text-brand-blue/20 absolute -top-4 -left-4" size={32} />
+                  <p className="text-[13px] md:text-[15px] italic text-foreground/90 leading-relaxed font-medium pt-2 line-clamp-4">
+                    "{t.quote}"
                   </p>
-
-                  <div className="flex flex-col items-center gap-4">
-                    <div className="space-y-1">
-                      <h4 className="text-xl font-black text-foreground uppercase tracking-tight italic">
-                        {testimonials[activeTestimonialIndex].name}
-                      </h4>
-                      <p className="tactical-label text-brand-blue">
-                        {testimonials[activeTestimonialIndex].role}
-                      </p>
-                    </div>
+                </div>
+                
+                <div className="pt-4 border-t border-border/10 flex items-center gap-4">
+                  <div className="w-9 h-9 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue">
+                    <Star size={14} fill="currentColor" />
+                  </div>
+                  <div className="space-y-0.5">
+                    <h4 className="text-[14px] md:text-[15px] font-black text-foreground uppercase italic tracking-tight">
+                      {t.name}
+                    </h4>
+                    <p className="text-[10px] tactical-label text-brand-blue/70">
+                      {t.role}
+                    </p>
                   </div>
                 </div>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Tactical Navigation Dots */}
-            <div className="flex justify-center gap-4 mt-16">
-              {testimonials.map((_, idx) => (
-                <button
-                  key={idx}
-                  suppressHydrationWarning
-                  onClick={() => setActiveTestimonialIndex(idx)}
-                  className="group relative px-2 py-4"
-                >
-                  <div className={cn(
-                    "h-1.5 rounded-full transition-all duration-500",
-                    activeTestimonialIndex === idx
-                      ? "w-12 bg-brand-blue shadow-[0_0_15px_rgba(90,161,255,0.5)]"
-                      : "w-4 bg-border/40 group-hover:bg-brand-blue/30"
-                  )} />
-                </button>
-              ))}
-            </div>
-          </div>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
 

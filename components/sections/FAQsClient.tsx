@@ -181,7 +181,7 @@ export default function FAQsPage({ faqs, featuredProjects }: FAQsClientProps) {
       {/* Featured Context */}
       <section className="container mx-auto px-6 py-20">
         <motion.div {...fadeInUp} className="flex items-center gap-6 mb-20 overflow-hidden">
-           <h2 className="section-heading whitespace-nowrap">Featured Properties</h2>
+           <h2 className="section-heading whitespace-nowrap">Featured Projects</h2>
            <div className="h-[1px] w-full bg-border/40" />
         </motion.div>
         
