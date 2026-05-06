@@ -8,7 +8,7 @@
   "featured": {
     "isFeatured": true,
     "images": [
-      "/dt-images/dt-1.jpg"
+      "/dt-images/dtcover.png"
     ],
     "tagline": "Elegant Living in the Heart of Sukkur"
   },
@@ -29,7 +29,7 @@
   ],
   "projectCard": {
     "images": [
-      "/dt-images/dt-1.jpg"
+      "/dt-images/dtcover.png"
     ],
     "badges": [
       "Completed",
@@ -38,7 +38,7 @@
     "shortDescription": "A premier mixed-use landmark in Sukkur, integrating one of the city's first multi-brand shopping malls with high-end residential living."
   },
   "detailsPage": {
-    "heroImage": "/dt-images/dt-1.jpg",
+    "heroImage": "/dt-images/dtcover.png",
     "gallery": [
       "/dt-images/dt-1.jpg",
       "/dt-images/dt-2.jpg",

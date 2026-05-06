@@ -2,6 +2,8 @@ import { getProjectBySlug, getProjects } from "@/lib/data";
 import { notFound } from "next/navigation";
 import ProjectDetailClient from "@/components/sections/ProjectDetailClient";
 
+export const dynamic = "force-dynamic";
+
 export async function generateStaticParams() {
   const projects = await getProjects();
   return projects.map((project) => ({

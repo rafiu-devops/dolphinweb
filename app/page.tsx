@@ -1,6 +1,8 @@
 import { getProjects, getStats, getTestimonials, getTeam } from "@/lib/data";
 import HomeClient from "@/components/sections/HomeClient";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const allProjects = (await getProjects()) || [];
   const featuredProjects = allProjects.filter((p) => p.featured?.isFeatured) || [];

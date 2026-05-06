@@ -6,7 +6,7 @@ import {
   Camera, WavesLadder, Coffee, Trees, Car, ArrowLeft,
   Download, Crosshair, Box, TrendingUp, Heart, Info,
   Phone, Mail, Globe, Send, Loader2, CheckCircle2,
-  Calendar, Layers, Map as MapIcon, Star, X
+  Calendar, Layers, Map as MapIcon, Star, X, Road, Trophy
 } from "lucide-react";
 import Link from "next/link";
 import { ProjectCard } from "@/components/ui/ProjectCard";
@@ -38,7 +38,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
   const iconMap: any = {
     WavesLadder, Home, Camera, Trees, Car, Coffee, Shield, Zap, Building, MapPin,
     Tag, Download, Globe, TrendingUp, Layers, Ruler, Calendar, Star, Info,
-    Mail, Phone, Send, Loader2, CheckCircle2, Crosshair, Box, FaWhatsapp, FaFacebook, X
+    Mail, Phone, Send, Loader2, CheckCircle2, Crosshair, Box, FaWhatsapp, FaFacebook, X, Road, Trophy
   };
 
   const [isEnquireOpen, setIsEnquireOpen] = useState(false);
@@ -294,11 +294,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-border/20 font-black uppercase tracking-tight italic">
-                  {(project.slug === "dolphin-tower" ? [
-                    { type: "Executive Offices", size: "Premium Corporate Office Floors" },
-                    { type: "Luxury Apartments", size: "Modern 3-Bedroom Residential Suites" },
-                    { type: "Food & Retail Outlets", size: "Restaurants & Franchise Brands" }
-                  ] : project.detailsPage.unitTypes).map((unit, idx) => (
+                  {project.detailsPage.unitTypes.map((unit, idx) => (
                     <tr key={idx} className="hover:bg-brand-blue/[0.03] transition-colors group">
                       <td className="p-6 md:p-10">
                         <div className="flex items-center gap-4 md:gap-6">

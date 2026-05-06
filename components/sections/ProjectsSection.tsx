@@ -20,80 +20,15 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { Project } from "@/types";
 
-// Static Data based on real project files
-const PROJECTS_DATA = [
-  {
-    id: "dolphin-plaza",
-    slug: "dolphin-plaza",
-    name: "Dolphin Plaza",
-    status: "Under Construction",
-    city: "Sukkur",
-    location: "Race Course Road, Sukkur",
-    image: "/dp-images/dp-1.jpg",
-    shortDescription: "A 10-story modern high-rise offering luxury apartments and prime commercial shops on Race Course Road, Sukkur.",
-    amenities: [
-      { icon: Building2, label: "10-Story Structure" },
-      { icon: Tag, label: "Commercial Frontage" },
-      { icon: ShieldCheck, label: "Privacy-Focused" },
-      { icon: Trees, label: "Integrated Greenery" }
-    ],
-    contactPhone: "0370 2502769"
-  },
-  {
-    id: "dolphin-tower",
-    slug: "dolphin-tower",
-    name: "Dolphin Tower & Shopping Mall",
-    status: "Completed",
-    city: "Sukkur",
-    location: "Minara Road, Sukkur",
-    image: "/dt-images/dt-1.jpg",
-    shortDescription: "A premier mixed-use landmark in Sukkur, integrating one of the city's first multi-brand shopping malls with high-end residential living.",
-    amenities: [
-      { icon: Zap, label: "Standby Generators" },
-      { icon: ShieldCheck, label: "24/7 Security" },
-      { icon: Home, label: "Luxury Apartments" },
-      { icon: Tag, label: "Shopping Mall" }
-    ],
-    contactPhone: "0370 2502769"
-  },
-  {
-    id: "dream-city",
-    slug: "dream-city",
-    name: "Dream City Housing Scheme Sukkur",
-    status: "Under Construction",
-    city: "Sukkur",
-    location: "Main Shikarpur Road near Dua Hotel, Sukkur",
-    image: "/dc-images/dc-p1.jpg",
-    shortDescription: "A premier gated housing scheme offering residential and commercial plots with modern infrastructure, family parks, and highway connectivity.",
-    amenities: [
-      { icon: Home, label: "Residential Plots" },
-      { icon: Tag, label: "Commercial Plots" },
-      { icon: ShieldCheck, label: "Gated Security" },
-      { icon: Zap, label: "Modern Infrastructure" }
-    ],
-    contactPhone: "0310 2287402"
-  },
-  {
-    id: "river-view",
-    slug: "river-view",
-    name: "Dolphin River View",
-    status: "Under Construction",
-    city: "Sukkur",
-    location: "Bunder Road, Sukkur",
-    image: "/river-view/rv-p1.png",
-    shortDescription: "A high-end mixed-use development combining super luxury residential units with a flagship shopping destination and scenic river views.",
-    amenities: [
-      { icon: ShieldCheck, label: "Advanced Security" },
-      { icon: Building2, label: "Premium Finishes" },
-      { icon: Zap, label: "Commercial Hub" },
-      { icon: Trees, label: "River Balconies" }
-    ],
-    contactPhone: "0370 2502769"
-  }
-];
+interface ProjectsSectionProps {
+  projects?: Project[];
+}
 
-export function ProjectsSection() {
+export function ProjectsSection({ projects: initialProjects }: ProjectsSectionProps) {
+  // Use passed projects or fallback to empty array (data is now fetched from server)
+  const PROJECTS_DATA = initialProjects || [];
   const [filterStatus, setFilterStatus] = useState("All");
   const [filterCity, setFilterCity] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
@@ -281,7 +216,7 @@ function ProjectCard({ project, index }: {
         {/* Image Section */}
         <div className="relative overflow-hidden h-[220px] sm:h-[240px] w-full">
           <img 
-            src={project.image} 
+            src={project.projectCard?.images?.[0] || project.image || "/assets/projects/placeholder.png"} 
             alt={project.name} 
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
           />
@@ -332,7 +267,7 @@ function ProjectCard({ project, index }: {
             </div>
 
             <p className="text-sm text-gray-500 leading-relaxed font-medium line-clamp-2">
-              {project.shortDescription}
+              {project.projectCard?.shortDescription || project.shortDescription}
             </p>
 
             {/* Amenity Chips removed for cleaner aesthetic */}

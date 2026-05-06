@@ -8,14 +8,14 @@
   "featured": {
     "isFeatured": true,
     "images": [
-      "/dc-images/dc-cover.png"
+      "/dc-images/dccover.png"
     ],
     "tagline": "Modern Lifestyle Housing Scheme"
   },
   "latestProperties": [],
   "projectCard": {
     "images": [
-      "/dc-images/dc-p1.jpg",
+      "/dc-images/dccover.png",
       "/dc-images/dc-p2.jpg"
     ],
     "badges": [
@@ -25,9 +25,9 @@
     "shortDescription": "A premier gated housing scheme on Main Shikarpur Road offering residential and commercial plots with modern infrastructure, parks, and 24/7 security."
   },
   "detailsPage": {
-    "heroImage": "/dc-images/dc-cover.png",
+    "heroImage": "/dc-images/dccover.png",
     "gallery": [
-      "/dc-images/dc-cover.png",
+      "/dc-images/dccover.png",
       "/dc-images/dc-p1.jpg",
       "/dc-images/dc-p2.jpg"
     ],
@@ -45,20 +45,24 @@
     ],
     "amenities": [
       {
-        "icon": "Shield",
-        "label": "Gated Community & CCTV"
-      },
-      {
-        "icon": "Layers",
-        "label": "Wide Roads Infrastructure"
-      },
-      {
-        "icon": "Trees",
-        "label": "Parks & Walking Tracks"
+        "icon": "Road",
+        "label": "Wide Roads"
       },
       {
         "icon": "Building",
-        "label": "School, Hospital & Mall"
+        "label": "Mosques"
+      },
+      {
+        "icon": "Trophy",
+        "label": "Indoor Cricket Ground"
+      },
+      {
+        "icon": "Trees",
+        "label": "Family Parks"
+      },
+      {
+        "icon": "Camera",
+        "label": "24/7 Surveillance"
       }
     ],
     "unitTypes": [
@@ -109,7 +113,7 @@
       "Magnificent main gate development and entrance",
       "Wide road infrastructure with solar street lights",
       "Central Masjid and family parks with walking tracks",
-      "Integrated school, hospital, and shopping mall facilities",
+      "Indoor Cricket Ground for sports enthusiasts",
       "Modern water supply system and 24/7 CCTV surveillance"
     ],
     "investmentBenefits": [

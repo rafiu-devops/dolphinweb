@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { ChevronDown, Mail, MapPin, Phone, ArrowRight, Bell, ShieldCheck as Shield } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown, Mail, MapPin, Phone, ArrowRight, Bell, ShieldCheck as Shield, Loader2, CheckCircle2 } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTiktok } from "react-icons/fa6";
 import { cn } from "@/lib/utils";
 import { ContactInfo } from "@/types";
@@ -13,9 +14,41 @@ interface FooterClientProps {
 
 export function FooterClient({ contact }: FooterClientProps) {
   const [openSection, setOpenSection] = useState<string | null>(null);
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const toggleSection = (section: string) => {
     setOpenSection(openSection === section ? null : section);
+  };
+  
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: "Newsletter Subscriber",
+          email,
+          message: "Newsletter Subscription from Footer",
+          projectName: "Newsletter"
+        }),
+      });
+
+      if (response.ok) {
+        setIsSuccess(true);
+        setEmail("");
+        setTimeout(() => setIsSuccess(false), 5000);
+      }
+    } catch (error) {
+      console.error("Newsletter subscription error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const currentYear = new Date().getFullYear();
@@ -57,7 +90,7 @@ export function FooterClient({ contact }: FooterClientProps) {
         <div className="max-w-7xl mx-auto px-6 md:px-8 pt-12 md:pt-24 pb-12 md:pb-20 relative z-10">
           
           {/* Mobile Hierarchy: Logo -> CTA -> Nav -> Newsletter -> Socials */}
-          <div className="flex flex-col lg:grid lg:grid-cols-[2.5fr_1.1fr_1.1fr_1.1fr_2.2fr] gap-8 md:gap-12 lg:gap-24">
+          <div className="flex flex-col lg:grid lg:grid-cols-[2.2fr_1fr_1fr_1fr_2.8fr] gap-8 md:gap-12 lg:gap-16">
             
             {/* 1. Identity & Logo Area */}
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left lg:-ml-20">
@@ -119,32 +152,56 @@ export function FooterClient({ contact }: FooterClientProps) {
             ))}
 
             {/* 4. Newsletter Section */}
-            <div className="space-y-10 lg:space-y-12 py-8 lg:py-0">
+            <div className="space-y-10 lg:space-y-12 py-8 lg:py-0 lg:col-span-1">
               <div className="text-center lg:text-left">
-                <div className="hidden lg:block mb-10">
-                  <h4 className="text-[16px] font-black text-white uppercase tracking-[0.16em] mb-3">Project Updates</h4>
-                  <div className="w-10 h-[2px] bg-white rounded-full" />
+                <div className="hidden lg:block mb-8">
+                  <h4 className="text-[18px] font-black text-white uppercase tracking-[0.2em] mb-4">Project Updates</h4>
+                  <div className="w-16 h-[3px] bg-white rounded-full" />
                 </div>
                 <h4 className="lg:hidden text-[14px] font-black text-white uppercase tracking-[0.15em] mb-6">Project Updates</h4>
                 
-                <p className="text-[12px] text-white/75 uppercase tracking-widest leading-relaxed mb-8 mx-auto lg:mx-0 max-w-[280px]">
-                  Subscribe for real-time property deployment alerts.
+                <p className="text-[13px] md:text-[14px] text-white/80 uppercase tracking-[0.15em] leading-relaxed mb-10 mx-auto lg:mx-0 max-w-[320px] font-bold">
+                  Subscribe for real-time property deployment alerts and exclusive investor access.
                 </p>
                 
-                <div className="relative group max-w-sm mx-auto lg:mx-0">
+                <form 
+                  onSubmit={handleNewsletterSubmit}
+                  className="relative group max-w-full lg:max-w-2xl mx-auto lg:mx-0"
+                >
                   <input
+                    required
                     type="email"
                     suppressHydrationWarning
                     placeholder="EMAIL ADDRESS"
-                    className="w-full bg-white/10 border border-white/20 rounded-xl px-5 py-4 text-[11px] font-black text-white outline-none focus:border-white transition-all placeholder:text-white/40 focus:bg-white/[0.15]"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full bg-white text-brand-blue border-2 border-white/20 rounded-2xl px-6 pr-24 md:pr-32 py-5 md:py-6 text-[13px] md:text-[15px] font-black outline-none focus:border-white transition-all placeholder:text-brand-blue/40 shadow-2xl"
                   />
                   <button 
+                    disabled={isSubmitting}
                     suppressHydrationWarning
-                    className="absolute right-2 top-2 bottom-2 bg-white hover:bg-black text-brand-blue hover:text-white px-5 rounded-lg transition-all active:scale-95 shadow-2xl group-hover:px-6"
+                    type="submit"
+                    className="absolute right-2 top-2 bottom-2 bg-black hover:bg-brand-blue text-white hover:text-black px-4 md:px-8 rounded-xl transition-all active:scale-95 shadow-2xl flex items-center justify-center disabled:opacity-50 min-w-[50px]"
                   >
-                    <Bell size={16} />
+                    {isSubmitting ? (
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                    ) : isSuccess ? (
+                      <CheckCircle2 className="w-5 h-5 text-white" />
+                    ) : (
+                      <Bell size={20} />
+                    )}
                   </button>
-                </div>
+                  
+                  {isSuccess && (
+                    <motion.p 
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="absolute -bottom-10 left-0 text-[11px] font-black uppercase tracking-widest text-white/90 bg-black/40 backdrop-blur-md px-4 py-2 rounded-lg"
+                    >
+                      Subscription Successful
+                    </motion.p>
+                  )}
+                </form>
               </div>
 
             </div>

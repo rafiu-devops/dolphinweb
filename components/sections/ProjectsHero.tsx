@@ -18,9 +18,9 @@ interface ProjectsHeroProps {
 }
 
 export function ProjectsHero({ 
-  title = "Project Portfolio", 
-  italicTitle = "Strategic Developments in Sukkur", 
-  subtitle = "Explore our curated collection of residential, commercial, and mixed-use developments — from landmark towers to modern housing schemes, built to deliver long-term value and premium living experiences." 
+  title = "PROJECT", 
+  italicTitle = "STRATEGIC REAL ESTATE IN SUKKUR", 
+  subtitle = "Explore Dolphin Builders’ portfolio of commercial landmarks, modern housing schemes, and high-value developments shaping the future of Sukkur." 
 }: ProjectsHeroProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -80,10 +80,15 @@ export function ProjectsHero({
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-white leading-tight"
+              className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-white leading-[0.9]"
             >
-              {title} <br />
-              <span className="text-brand-blue italic drop-shadow-[0_0_20px_rgba(90,161,255,0.3)] text-3xl md:text-5xl block mt-4">
+              {title === "PROJECT" ? (
+                <>
+                  PROJECT <br />
+                  DEVELOPMENTS
+                </>
+              ) : title}
+              <span className="text-brand-blue italic drop-shadow-[0_0_20px_rgba(90,161,255,0.3)] text-3xl md:text-5xl block mt-6">
                 {italicTitle}
               </span>
             </motion.h1>

@@ -200,18 +200,18 @@ export default function ContactClient({ contact }: ContactClientProps) {
                   key={i} 
                   whileHover={{ y: -6 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
-                  className="flex gap-8 group p-6 rounded-3xl transition-all hover:bg-white/[0.02]"
+                  className="flex items-start gap-5 md:gap-8 group p-4 sm:p-6 rounded-3xl transition-all hover:bg-white/[0.02]"
                 >
-                  <div className="shrink-0 w-16 h-16 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-black transition-all">
+                  <div className="shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-black transition-all">
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: 5 }}
                     >
                       <item.icon size={24} />
                     </motion.div>
                   </div>
-                  <div className="space-y-3">
-                    <h4 className="text-lg font-black uppercase tracking-tight italic text-foreground">{item.title}</h4>
-                    <p className="tactical-description text-[12px]">{item.desc}</p>
+                  <div className="space-y-2">
+                    <h4 className="text-base md:text-lg font-black uppercase tracking-tight italic text-foreground leading-tight">{item.title}</h4>
+                    <p className="text-[14px] md:text-[15px] text-foreground/60 leading-relaxed font-medium">{item.desc}</p>
                   </div>
                 </motion.div>
               ))}
