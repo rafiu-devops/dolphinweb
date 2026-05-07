@@ -66,7 +66,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
     <div className="flex flex-col gap-32 pb-32 bg-background overflow-x-hidden">
 
       {/* Hero Banner */}
-      <section className="relative h-[75vh] flex items-center justify-center pt-40 md:pt-60 overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center pt-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <motion.img
             initial={{ scale: 1.1, opacity: 0 }}
@@ -75,22 +75,24 @@ export default function ContactClient({ contact }: ContactClientProps) {
             src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000"
             className="w-full h-full object-cover grayscale-0"
           />
-          <div className="absolute inset-0 bg-black/10 z-[1]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent z-[2]" />
+          <div className="absolute inset-0 bg-black/20 z-[1]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent z-[2]" />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10 text-center space-y-8">
+        <div className="container mx-auto px-6 relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
+            className="flex flex-col items-center gap-4 md:gap-8"
           >
-            <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-brand-blue text-black mb-10 shadow-[0_0_30px_rgba(90,161,255,0.3)]">
-              <Radio size={14} className="animate-pulse" />
-              <span className="tactical-label">Active Communication Channel</span>
+            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-brand-blue/90 backdrop-blur-md text-black shadow-[0_0_30px_rgba(90,161,255,0.2)]">
+              <Radio size={12} className="animate-pulse" />
+              <span className="text-[10px] md:tactical-label font-black uppercase tracking-widest">Active Communication Channel</span>
             </div>
-            <h1 className="text-4xl sm:text-6xl md:text-9xl font-black tracking-tighter uppercase italic leading-[0.8] drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-              <span className="text-white">Get in</span> <br />
+            
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase italic leading-[1] drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-wrap justify-center gap-x-4 md:gap-x-8">
+              <span className="text-white">Get in</span>
               <span className="text-brand-blue text-glow-blue">Touch</span>
             </h1>
           </motion.div>
@@ -420,10 +422,10 @@ export default function ContactClient({ contact }: ContactClientProps) {
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <Link
                 href={`tel:${contact.phone}`}
-                className="px-10 py-5 bg-black text-white rounded-2xl font-black uppercase tracking-widest text-[12px] flex items-center justify-center gap-3 hover:bg-black/80 transition-all shadow-2xl"
+                className="px-8 md:px-10 py-5 bg-black text-white rounded-2xl font-black uppercase tracking-widest text-[11px] md:text-[12px] flex items-center justify-center gap-3 hover:bg-black/80 transition-all shadow-2xl whitespace-nowrap"
               >
                 <Phone size={18} /> Call Now
               </Link>
@@ -432,7 +434,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
                   const form = document.querySelector('form');
                   form?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="px-10 py-5 bg-white text-black rounded-2xl font-black uppercase tracking-widest text-[12px] flex items-center justify-center gap-3 hover:bg-white/80 transition-all shadow-2xl"
+                className="px-8 md:px-10 py-5 bg-white text-black rounded-2xl font-black uppercase tracking-widest text-[11px] md:text-[12px] flex items-center justify-center gap-3 hover:bg-white/80 transition-all shadow-2xl whitespace-nowrap"
               >
                 <Send size={18} /> Contact Us
               </button>

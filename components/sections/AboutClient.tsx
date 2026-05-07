@@ -92,7 +92,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-brand-blue border border-brand-blue/20 mb-6 shadow-[0_0_20px_rgba(90,161,255,0.3)]">
-              <span className="tactical-label text-white">Corporate Intelligence v.02</span>
+              <span className="tactical-label text-white">Modern Real Estate Solutions</span>
             </div>
             <h1 className="text-4xl sm:text-6xl md:text-9xl font-black tracking-tighter text-white uppercase italic leading-[0.85] drop-shadow-2xl">
               Building <br />

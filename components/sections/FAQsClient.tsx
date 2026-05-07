@@ -47,25 +47,24 @@ export default function FAQsPage({ faqs, featuredProjects }: FAQsClientProps) {
   const filteredFaqs = useMemo(() => {
     return faqs.filter((faq) => {
       const matchCategory = activeCategory === "All" || faq.category === activeCategory;
-      const matchSearch = faq.question.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          faq.answer.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchSearch = faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        faq.answer.toLowerCase().includes(searchQuery.toLowerCase());
       return matchCategory && matchSearch;
     });
   }, [faqs, activeCategory, searchQuery]);
 
   return (
     <div className="flex flex-col gap-32 pt-44 md:pt-60 pb-32 bg-background overflow-x-hidden">
-      
+
       {/* Hero */}
       <section className="container mx-auto px-6 text-center space-y-12">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           className="space-y-6"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-blue/10 border border-brand-blue/10 mb-2">
-            <Database size={12} className="text-brand-blue" />
-            <span className="tactical-label text-brand-blue">Information Center v2.0</span>
+            <span className="tactical-label text-brand-blue">Information Center</span>
           </div>
           <h1 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9]">
             Information <span className="text-brand-blue text-glow-blue underline decoration-brand-blue/20 underline-offset-[10px]">Portal</span>
@@ -76,16 +75,16 @@ export default function FAQsPage({ faqs, featuredProjects }: FAQsClientProps) {
         </motion.div>
 
         {/* Search Bar */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2 }}
           className="max-w-2xl mx-auto relative group"
         >
           <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-muted-foreground/30 group-focus-within:text-brand-blue transition-colors" size={20} />
-          <input 
-            type="text" 
-            placeholder="Search for answers..." 
+          <input
+            type="text"
+            placeholder="Search for answers..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full bg-card/40 border border-border/40 rounded-2xl px-16 py-6 text-[15px] font-black outline-none focus:border-brand-blue/30 shadow-2xl focus:shadow-[0_0_40px_rgba(90,161,255,0.1)] transition-all uppercase tracking-tight placeholder:text-muted-foreground/30 backdrop-blur-xl text-foreground"
@@ -107,8 +106,8 @@ export default function FAQsPage({ faqs, featuredProjects }: FAQsClientProps) {
               onClick={() => { setActiveCategory(cat); setOpenIndex(null); }}
               className={cn(
                 "px-8 py-3.5 rounded-xl tactical-label transition-all border",
-                activeCategory === cat 
-                  ? "bg-brand-blue text-black border-brand-blue shadow-[0_0_25px_rgba(90,161,255,0.4)]" 
+                activeCategory === cat
+                  ? "bg-brand-blue text-black border-brand-blue shadow-[0_0_25px_rgba(90,161,255,0.4)]"
                   : "bg-muted/10 border-border/40 text-muted-foreground hover:border-brand-blue/30 hover:text-foreground"
               )}
             >
@@ -118,7 +117,7 @@ export default function FAQsPage({ faqs, featuredProjects }: FAQsClientProps) {
         </div>
 
         {/* Accordion List */}
-        <motion.div 
+        <motion.div
           layout
           variants={staggerContainer}
           initial="initial"
@@ -129,7 +128,7 @@ export default function FAQsPage({ faqs, featuredProjects }: FAQsClientProps) {
             {filteredFaqs.length > 0 ? (
               filteredFaqs.map((faq, idx) => (
                 <motion.div key={faq.question} layout variants={fadeInUp}>
-                  <AccordionItem 
+                  <AccordionItem
                     question={faq.question}
                     answer={faq.answer}
                     isOpen={openIndex === idx}
@@ -138,12 +137,12 @@ export default function FAQsPage({ faqs, featuredProjects }: FAQsClientProps) {
                 </motion.div>
               ))
             ) : (
-              <motion.div 
+              <motion.div
                 {...fadeInUp}
                 className="text-center py-32 space-y-6 opacity-30"
               >
                 <div className="w-16 h-16 rounded-full border border-brand-blue/20 flex items-center justify-center mx-auto">
-                   <ShieldCheck size={32} className="text-brand-blue" />
+                  <ShieldCheck size={32} className="text-brand-blue" />
                 </div>
                 <p className="text-lg font-black uppercase tracking-widest italic">No matching questions found.</p>
               </motion.div>
@@ -152,15 +151,15 @@ export default function FAQsPage({ faqs, featuredProjects }: FAQsClientProps) {
         </motion.div>
 
         {/* Support Link Card */}
-        <motion.div 
+        <motion.div
           {...fadeInUp}
           className="bg-card/40 border border-border/40 rounded-[2.5rem] p-12 md:p-20 text-center space-y-10 relative overflow-hidden group backdrop-blur-xl shadow-xl"
         >
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-[2px] bg-gradient-to-r from-transparent via-brand-blue to-transparent group-hover:w-full transition-all duration-1000" />
-          
+
           <div className="space-y-6">
             <div className="w-20 h-20 bg-brand-blue/10 rounded-2xl flex items-center justify-center mx-auto transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(90,161,255,0.2)]">
-               <MessageCircle className="text-brand-blue" size={32} />
+              <MessageCircle className="text-brand-blue" size={32} />
             </div>
             <div className="space-y-4">
               <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter italic text-foreground leading-tight">Need More Help?</h3>
@@ -169,7 +168,7 @@ export default function FAQsPage({ faqs, featuredProjects }: FAQsClientProps) {
               </p>
             </div>
           </div>
-          
+
           <motion.div whileHover={{ scale: 1.05 }} className="pt-6">
             <Link href="/contact" className="btn-brand px-16 py-6 text-[13px] shadow-[0_0_40px_rgba(90,161,255,0.3)]">
               Contact Us
@@ -181,11 +180,11 @@ export default function FAQsPage({ faqs, featuredProjects }: FAQsClientProps) {
       {/* Featured Context */}
       <section className="container mx-auto px-6 py-20">
         <motion.div {...fadeInUp} className="flex items-center gap-6 mb-20 overflow-hidden">
-           <h2 className="section-heading whitespace-nowrap">Featured Projects</h2>
-           <div className="h-[1px] w-full bg-border/40" />
+          <h2 className="section-heading whitespace-nowrap">Featured Projects</h2>
+          <div className="h-[1px] w-full bg-border/40" />
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           variants={staggerContainer}
           initial="initial"
           whileInView="animate"
@@ -200,9 +199,9 @@ export default function FAQsPage({ faqs, featuredProjects }: FAQsClientProps) {
         </motion.div>
       </section>
 
-      <EnquireModal 
-        isOpen={isEnquireOpen} 
-        onClose={() => setIsEnquireOpen(false)} 
+      <EnquireModal
+        isOpen={isEnquireOpen}
+        onClose={() => setIsEnquireOpen(false)}
         projectName={selectedProject?.name}
       />
     </div>

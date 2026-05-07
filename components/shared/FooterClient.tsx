@@ -93,7 +93,7 @@ export function FooterClient({ contact }: FooterClientProps) {
           <div className="flex flex-col lg:grid lg:grid-cols-[2.2fr_1fr_1fr_1fr_2.8fr] gap-8 md:gap-12 lg:gap-16">
             
             {/* 1. Identity & Logo Area */}
-            <div className="flex flex-col items-center lg:items-start text-center lg:text-left lg:-ml-20">
+            <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
               <Link href="/" className="inline-block transform hover:scale-105 transition-all duration-500 mb-6 md:mb-10">
                 <img
                   src="/db-logo.png"
@@ -101,7 +101,7 @@ export function FooterClient({ contact }: FooterClientProps) {
                   className="h-[100px] md:h-[180px] w-auto object-contain brightness-0 invert opacity-100"
                 />
               </Link>
-              <p className="text-[14px] md:text-[15px] leading-relaxed text-white max-w-[320px] font-medium opacity-90 mb-8 line-clamp-2">
+              <p className="text-[14px] md:text-[15px] leading-relaxed text-white max-w-[320px] font-medium opacity-90 mb-8">
                 Premium real estate developers delivering high-end projects with surgical precision across Karachi.
               </p>
               

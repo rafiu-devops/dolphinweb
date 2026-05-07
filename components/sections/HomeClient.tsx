@@ -1,13 +1,13 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { ImageSlider } from "@/components/ui/ImageSlider";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { EnquireModal } from "@/components/ui/EnquireModal";
 import { StatCounter } from "@/components/ui/StatCounter";
 import { Quote, CheckCircle2, ShieldCheck, Trophy, Headphones, ArrowRight, Star, Users, Briefcase, Zap, Phone, Send, MapPin, Building, TrendingUp, Loader2, Map, PenTool, LayoutGrid } from "lucide-react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { AdvancedSearch } from "@/components/ui/AdvancedSearch";
 import { FaWhatsapp } from "react-icons/fa6";
@@ -52,7 +52,6 @@ export default function HomeClient({
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(allProjects);
   const [activeTestimonialIndex, setActiveTestimonialIndex] = useState(0);
-  const [activeStep, setActiveStep] = useState(0);
   const [expressFormData, setExpressFormData] = useState({
     name: "",
     phone: "",
@@ -60,6 +59,47 @@ export default function HomeClient({
   });
   const [isExpressSubmitting, setIsExpressSubmitting] = useState(false);
   const [isExpressSuccess, setIsExpressSuccess] = useState(false);
+
+  const steps = [
+    {
+      title: "Land Planning",
+      subtitle: "Phase 01: Strategic Acquisition",
+      desc: "We identify and acquire prime locations with high growth potential. Our team conducts rigorous surveys and legal vetting to ensure a solid foundation for future developments.",
+      icon: MapPin
+    },
+    {
+      title: "Design & Architecture",
+      subtitle: "Phase 02: Conceptual Intelligence",
+      desc: "Collaborating with world-class architects to design modern, sustainable, and functional spaces. Every blueprint is engineered for aesthetic excellence and urban efficiency.",
+      icon: PenTool
+    },
+    {
+      title: "Infrastructure Development",
+      subtitle: "Phase 03: Ground Engineering",
+      desc: "Deploying high-fidelity infrastructure including roads, sewage systems, and utilities. We establish the essential framework that transforms raw land into a premium sector.",
+      icon: Zap
+    },
+    {
+      title: "Construction Execution",
+      subtitle: "Phase 04: Precision Engineering",
+      desc: "Our construction teams execute the vision with surgical precision, using top-tier materials and modern techniques to ensure structural integrity and premium finishes.",
+      icon: Building
+    },
+    {
+      title: "Sectors & Allocation",
+      subtitle: "Phase 05: Sector Optimization",
+      desc: "Strategic zoning and allocation of commercial hubs and residential sanctuaries. We create a balanced ecosystem designed for both business growth and elite living.",
+      icon: LayoutGrid
+    },
+    {
+      title: "Completion & Delivery",
+      subtitle: "Phase 06: Handover Success",
+      desc: "Final audits, quality checks, and legal handovers. We deliver ready-to-deploy assets that redefine urban living and offer significant long-term value.",
+      icon: CheckCircle2
+    }
+  ];
+
+
 
 
   const handleFilterChange = (filter: { type: string; area: string; propertyType: string }) => {
@@ -240,20 +280,20 @@ export default function HomeClient({
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                 className={cn(
                   "flex w-full px-6 md:px-0 relative",
-                  isLeft ? "justify-start" : "justify-end"
+                  isLeft ? "justify-end" : "justify-start"
                 )}
               >
-                {/* Large Background Index - Side Centered Positioning - Hidden on Mobile */}
+                {/* Large Background Index - Side-Centered Positioning */}
                 <div className={cn(
-                  "hidden md:block absolute top-1/2 -translate-y-1/2 opacity-[0.15] text-black text-[6rem] sm:text-[15rem] md:text-[25rem] font-black italic select-none pointer-events-none transition-all duration-1000 group-hover:opacity-[0.25] z-0 will-change-transform",
-                  isLeft ? "left-[85%] md:left-[90%] -translate-x-1/2" : "left-[15%] md:left-[10%] -translate-x-1/2"
+                  "hidden md:block absolute top-1/2 -translate-y-1/2 opacity-[0.08] text-black text-[9rem] md:text-[13rem] font-black italic select-none pointer-events-none transition-all duration-1000 group-hover:opacity-[0.12] z-0 will-change-transform",
+                  isLeft ? "left-[18%] -translate-x-1/2" : "left-[82%] -translate-x-1/2"
                 )}>
                   {projectNumber}
                 </div>
 
                 <div className={cn(
-                  "w-full md:w-11/12 lg:w-9/12 relative z-10",
-                  isLeft ? "md:pr-20" : "md:pl-20"
+                  "w-full md:w-10/12 lg:w-8/12 relative z-10",
+                  isLeft ? "md:pl-16" : "md:pr-16"
                 )}>
                   <motion.div
                     whileHover={{ y: -10 }}
@@ -393,9 +433,9 @@ export default function HomeClient({
                 variants={fadeInUp}
                 whileHover={{ y: -8 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
-                className="p-8 sm:p-10 rounded-3xl bg-bg-card border border-border/40 hover:border-brand-blue/30 transition-all duration-300 group shadow-lg hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
+                className="p-8 sm:p-10 rounded-3xl bg-bg-card border border-border/40 hover:border-brand-blue/30 transition-all duration-300 group shadow-lg hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] h-[300px] md:h-[350px] flex flex-col items-start"
               >
-                <div className="w-14 h-14 bg-brand-blue/10 text-brand-blue rounded-xl flex items-center justify-center group-hover:bg-brand-blue group-hover:text-black transition-all mb-6 shadow-glow-sm">
+                <div className="w-14 h-14 bg-brand-blue/10 text-brand-blue rounded-xl flex items-center justify-center group-hover:bg-brand-blue group-hover:text-black transition-all mb-6 shadow-glow-sm shrink-0">
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ duration: 0.25, ease: "easeOut" }}
@@ -403,8 +443,8 @@ export default function HomeClient({
                     <item.icon size={24} />
                   </motion.div>
                 </div>
-                <h3 className="text-lg font-black uppercase tracking-tight italic mb-3 text-foreground">{item.title}</h3>
-                <p className="text-[13px] text-muted-foreground leading-relaxed font-medium">{item.desc}</p>
+                <h3 className="text-lg font-black uppercase tracking-tight italic mb-3 text-foreground leading-tight">{item.title}</h3>
+                <p className="text-[13px] text-muted-foreground leading-relaxed font-medium line-clamp-4">{item.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -414,16 +454,16 @@ export default function HomeClient({
             <div className="flex whitespace-nowrap">
               <motion.div
                 animate={{ x: ["0%", "-50%"] }}
-                transition={{ 
-                  duration: 40, 
-                  repeat: Infinity, 
-                  ease: "linear" 
+                transition={{
+                  duration: 40,
+                  repeat: Infinity,
+                  ease: "linear"
                 }}
                 className="flex items-center gap-10 pr-10"
               >
                 {[...Array(4)].map((_, i) => (
                   <p key={i} className="text-[20px] md:text-[48px] font-black uppercase tracking-[0.3em] text-foreground/80 italic leading-none flex items-center gap-10">
-                    Serving premium locations across Karachi with 
+                    Serving premium locations across Karachi with
                     <span className="text-brand-blue font-black italic underline decoration-brand-blue/30 underline-offset-[15px]">
                       trusted developments
                     </span>
@@ -436,199 +476,102 @@ export default function HomeClient({
         </div>
       </section>
 
-      {/* Project Development Journey (Interactive Development Flow) */}
-      <section className="container mx-auto px-6 py-32 relative overflow-hidden">
-        {/* Background Decorative Element */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-blue/[0.03] rounded-full blur-[120px] pointer-events-none" />
+      {/* Strategic Development Journey - Static High-End Timeline */}
+      <section className="relative bg-white overflow-hidden border-y border-border/40 py-24 md:py-48">
+        {/* Subtle Architectural Blueprint Background */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
+          <div className="absolute inset-0 bg-[radial-gradient(#000000_1px,transparent_1px)] [background-size:40px_40px]" />
+          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="blueprint-grid-static" width="100" height="100" patternUnits="userSpaceOnUse">
+                <path d="M 100 0 L 0 0 0 100" fill="none" stroke="black" strokeWidth="0.5"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#blueprint-grid-static)" />
+          </svg>
+        </div>
 
-        <motion.div {...fadeInUp} className="text-center mb-32 relative z-10">
-          <h2 className="section-heading italic">Project Development Journey</h2>
-          <p className="text-muted-foreground/80 max-w-2xl mx-auto tactical-label mt-4">
-            From Vision to Landmark: Our Strategic Development Lifecycle
-          </p>
-        </motion.div>
+        <div className="container mx-auto px-6 relative z-10">
+          {/* Centered Single-Line Heading */}
+          <motion.div {...fadeInUp} className="text-center mb-32 md:mb-48">
+            <h2 className="text-4xl md:text-8xl font-black uppercase italic tracking-tighter text-black leading-none flex flex-wrap justify-center gap-x-4 md:gap-x-8">
+              <span>Development</span>
+              <span className="text-brand-blue text-glow-blue underline decoration-brand-blue/20 underline-offset-[10px] md:underline-offset-[15px]">Journey</span>
+            </h2>
+            <p className="tactical-label text-brand-blue/80 mt-10 uppercase tracking-[0.3em]">Strategic Project Lifecycle</p>
+          </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start relative z-10">
-          {/* Left: Description Content */}
-          <div className="lg:col-span-5 space-y-8 sticky top-32">
-            <AnimatePresence mode="wait">
-              {[
-                {
-                  title: "Land Planning",
-                  subtitle: "Phase 01: Strategic Acquisition",
-                  desc: "We identify and acquire prime locations with high growth potential. Our team conducts rigorous surveys and legal vetting to ensure a solid foundation for future developments.",
-                  icon: MapPin
-                },
-                {
-                  title: "Design & Architecture",
-                  subtitle: "Phase 02: Conceptual Intelligence",
-                  desc: "Collaborating with world-class architects to design modern, sustainable, and functional spaces. Every blueprint is engineered for aesthetic excellence and urban efficiency.",
-                  icon: PenTool
-                },
-                {
-                  title: "Infrastructure Development",
-                  subtitle: "Phase 03: Ground Engineering",
-                  desc: "Deploying high-fidelity infrastructure including roads, sewage systems, and utilities. We establish the essential framework that transforms raw land into a premium sector.",
-                  icon: Zap
-                },
-                {
-                  title: "Construction Execution",
-                  subtitle: "Phase 04: Precision Engineering",
-                  desc: "Our construction teams execute the vision with surgical precision, using top-tier materials and modern techniques to ensure structural integrity and premium finishes.",
-                  icon: Building
-                },
-                {
-                  title: "Sectors & Allocation",
-                  subtitle: "Phase 05: Sector Optimization",
-                  desc: "Strategic zoning and allocation of commercial hubs and residential sanctuaries. We create a balanced ecosystem designed for both business growth and elite living.",
-                  icon: LayoutGrid
-                },
-                {
-                  title: "Completion & Delivery",
-                  subtitle: "Phase 06: Handover Success",
-                  desc: "Final audits, quality checks, and legal handovers. We deliver ready-to-deploy assets that redefine urban living and offer significant long-term value.",
-                  icon: CheckCircle2
-                }
-              ].map((step, idx) => (
-                activeStep === idx && (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 30 }}
-                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                    className="space-y-8"
-                  >
-                    <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-[11px] font-black uppercase tracking-[0.25em]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-brand-blue animate-pulse" />
-                      {step.subtitle}
-                    </div>
-                    <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter italic text-foreground flex items-center gap-6 leading-none">
-                      <div className="w-20 h-20 rounded-2xl bg-brand-blue text-black flex items-center justify-center shadow-glow-sm">
-                        <step.icon size={40} />
+          <div className="relative max-w-7xl mx-auto">
+            {/* Connecting Vertical Line */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-brand-blue/10 -translate-x-1/2 hidden lg:block" />
+
+            <div className="space-y-12 md:space-y-16">
+              {steps.map((step, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
+                >
+                  {/* Left: Description Content Panel */}
+                  <div className="space-y-6 order-2 lg:order-none lg:text-left lg:items-start">
+                    <div className="flex flex-col gap-4 items-start">
+                      <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-[10px] font-black uppercase tracking-[0.3em]">
+                        <span className="w-1.5 h-1.5 rounded-full bg-brand-blue animate-pulse" />
+                        {step.subtitle}
                       </div>
-                      {step.title}
-                    </h3>
-                    <p className="text-xl text-muted-foreground leading-relaxed font-medium italic">
+                      <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-black leading-tight">
+                        {step.title}
+                      </h3>
+                    </div>
+
+                    <p className="text-base md:text-lg text-muted-foreground leading-relaxed font-medium italic max-w-lg border-l-2 border-brand-blue/20 pl-6">
                       {step.desc}
                     </p>
-                    
 
-                  </motion.div>
-                )
-              ))}
-            </AnimatePresence>
-          </div>
-
-          {/* Right: Modern Vertical Timeline Diagram */}
-          <div className="lg:col-span-7 flex flex-col items-center justify-center">
-            <div className="relative w-full max-w-[600px] py-10">
-              {/* Main Vertical Track */}
-              <div className="absolute left-[39px] top-0 bottom-0 w-[2px] bg-border/40" />
-              
-              {/* Active Progress Track */}
-              <motion.div 
-                className="absolute left-[39px] top-0 w-[2px] bg-brand-blue shadow-[0_0_15px_rgba(90,161,255,0.5)]"
-                initial={{ height: 0 }}
-                animate={{ height: `${(activeStep / 5) * 100}%` }}
-                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              />
-
-              <div className="space-y-16">
-                {[
-                  { title: "Land Planning", subtitle: "Strategic Acquisition", icon: MapPin },
-                  { title: "Design & Architecture", subtitle: "Conceptual Intelligence", icon: PenTool },
-                  { title: "Infrastructure", subtitle: "Ground Engineering", icon: Zap },
-                  { title: "Construction", subtitle: "Precision Engineering", icon: Building },
-                  { title: "Allocation", subtitle: "Sector Optimization", icon: LayoutGrid },
-                  { title: "Delivery", subtitle: "Handover Success", icon: CheckCircle2 }
-                ].map((step, idx) => (
-                  <motion.button
-                    key={idx}
-                    suppressHydrationWarning
-                    onClick={() => setActiveStep(idx)}
-                    className={cn(
-                      "relative flex items-center gap-10 w-full group text-left transition-all duration-500",
-                      activeStep === idx ? "opacity-100" : "opacity-30 hover:opacity-60"
-                    )}
-                  >
-                    {/* Node Container */}
-                    <div className="relative z-10">
-                      <div className={cn(
-                        "w-20 h-20 rounded-[2rem] flex items-center justify-center transition-all duration-700",
-                        activeStep === idx 
-                          ? "bg-brand-blue text-black rotate-0 shadow-[0_20px_40px_rgba(90,161,255,0.3)]" 
-                          : "bg-bg-card text-muted-foreground border border-border/40 -rotate-12 group-hover:rotate-0"
-                      )}>
-                        <step.icon size={activeStep === idx ? 32 : 24} className="transition-all duration-500" />
+                    <div className="flex items-center gap-6 pt-2">
+                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-brand-blue text-black flex items-center justify-center shadow-glow-sm shrink-0">
+                        <step.icon size={36} />
                       </div>
+                      <div className="space-y-0.5">
+                        <div className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                          <p className="text-black font-black uppercase tracking-widest text-[11px]">Status: Verified</p>
+                        </div>
+                        <p className="text-brand-blue/60 text-[10px] font-bold uppercase tracking-[0.2em]">Quality Protocol Active</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right: Premium Glass Step Card */}
+                  <div className="relative order-1 lg:order-none lg:pl-12">
+                    {/* Enhanced Glass Card - High Transparency with Ice Tint */}
+                    <div className="relative z-10 p-6 md:p-10 rounded-[2.5rem] border border-brand-blue/10 bg-brand-blue/[0.02] backdrop-blur-3xl shadow-xl overflow-hidden group">
+                      <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                       
-                      {/* Active Ripple Effect */}
-                      {activeStep === idx && (
-                        <motion.div
-                          layoutId="ripple"
-                          className="absolute inset-0 rounded-[2rem] border-2 border-brand-blue"
-                          initial={{ scale: 1, opacity: 0.5 }}
-                          animate={{ scale: 1.4, opacity: 0 }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                        />
-                      )}
-                    </div>
-
-                    {/* Text Content */}
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-4">
-                        <span className={cn(
-                          "text-[12px] font-black italic transition-colors",
-                          activeStep === idx ? "text-brand-blue" : "text-muted-foreground"
-                        )}>
-                          PHASE 0{idx + 1}
-                        </span>
-                        <div className={cn(
-                          "h-[1px] w-8 transition-all duration-500",
-                          activeStep === idx ? "bg-brand-blue w-12" : "bg-border/40"
-                        )} />
+                      <div className="relative z-10 space-y-5">
+                        <div className="flex items-center gap-4">
+                          <span className="text-[11px] md:text-[12px] font-black italic tracking-[0.3em] text-brand-blue">
+                            PHASE 0{idx + 1}
+                          </span>
+                          <div className="h-[1px] w-10 bg-brand-blue/20" />
+                        </div>
+                        <h4 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter text-black leading-[0.9] break-words">
+                          {step.title}
+                        </h4>
+                        
+                        <div className="pt-6 flex items-center gap-5">
+                          <div className="w-12 h-12 rounded-xl bg-white/10 border border-brand-blue/20 flex items-center justify-center text-brand-blue shadow-sm">
+                            <step.icon size={24} />
+                          </div>
+                          <div className="h-[1px] flex-1 bg-gradient-to-r from-brand-blue/30 to-transparent" />
+                        </div>
                       </div>
-                      <h4 className={cn(
-                        "text-2xl md:text-3xl font-black uppercase italic tracking-tighter transition-all duration-500",
-                        activeStep === idx ? "text-foreground translate-x-2" : "text-muted-foreground"
-                      )}>
-                        {step.title}
-                      </h4>
-                      <p className={cn(
-                         "tactical-label text-[10px] tracking-[0.2em] transition-all",
-                         activeStep === idx ? "text-brand-blue/80" : "text-muted-foreground/40"
-                      )}>
-                        {step.subtitle}
-                      </p>
                     </div>
-
-                    {/* Background Glow for Active Step */}
-                    {activeStep === idx && (
-                      <motion.div 
-                        layoutId="active-bg-glow"
-                        className="absolute inset-y-[-20px] inset-x-[-20px] bg-brand-blue/[0.03] rounded-[3rem] -z-10 blur-xl"
-                      />
-                    )}
-                  </motion.button>
-                ))}
-              </div>
-            </div>
-
-            {/* Step Indicators (Dots) */}
-            <div className="flex gap-4 mt-20">
-              {[0, 1, 2, 3, 4, 5].map((idx) => (
-                <button
-                  key={idx}
-                  suppressHydrationWarning
-                  onClick={() => setActiveStep(idx)}
-                  className={cn(
-                    "h-1.5 transition-all duration-500 rounded-full",
-                    activeStep === idx
-                      ? "w-12 bg-brand-blue shadow-[0_0_15px_rgba(90,161,255,0.5)]"
-                      : "w-3 bg-white/10 hover:bg-white/20"
-                  )}
-                />
+                  </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -654,16 +597,16 @@ export default function HomeClient({
         <div className="flex whitespace-nowrap overflow-hidden py-10">
           <motion.div
             animate={{ x: ["0%", "-50%"] }}
-            transition={{ 
-              duration: 50, 
-              repeat: Infinity, 
-              ease: "linear" 
+            transition={{
+              duration: 50,
+              repeat: Infinity,
+              ease: "linear"
             }}
             className="flex items-center gap-8 px-4"
           >
             {[...testimonials, ...testimonials, ...testimonials, ...testimonials].map((t, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="w-[300px] md:w-[400px] h-[240px] md:h-[280px] p-8 md:p-10 rounded-[2.5rem] bg-card/60 backdrop-blur-md border border-border/40 shadow-2xl flex flex-col justify-between flex-shrink-0 whitespace-normal group hover:border-brand-blue/30 transition-all duration-500 hover:-translate-y-2"
               >
                 <div className="relative">
@@ -672,7 +615,7 @@ export default function HomeClient({
                     "{t.quote}"
                   </p>
                 </div>
-                
+
                 <div className="pt-4 border-t border-border/10 flex items-center gap-4">
                   <div className="w-9 h-9 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue">
                     <Star size={14} fill="currentColor" />
@@ -721,7 +664,7 @@ export default function HomeClient({
             <div className="bg-white p-8 sm:p-12 md:p-16 rounded-[2.5rem] sm:rounded-[3.5rem] border border-gray-100 shadow-4xl relative overflow-hidden group">
               {/* Subtle background accent */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-              
+
               <div className="space-y-4 mb-12 text-center lg:text-left">
                 <h4 className="text-2xl md:text-3xl font-black text-black italic uppercase tracking-tighter leading-none">
                   Quick <span className="text-brand-blue">Contact</span>
@@ -760,7 +703,7 @@ export default function HomeClient({
                           className="w-full bg-gray-50 border border-gray-200 p-5 rounded-2xl text-black text-[12px] font-bold tracking-widest focus:ring-1 focus:ring-brand-blue focus:border-brand-blue outline-none placeholder:text-black/20 transition-all"
                         />
                       </div>
-                      
+
                       <div className="space-y-2">
                         <label className="text-[10px] font-black uppercase tracking-widest text-black/40 ml-4">Secure Email</label>
                         <input

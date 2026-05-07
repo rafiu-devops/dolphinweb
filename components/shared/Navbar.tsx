@@ -90,10 +90,10 @@ export function Navbar() {
   useEffect(() => { setIsOpen(false); }, [pathname]);
 
   return (
-    <div className="w-full transition-all duration-300 pointer-events-none relative">
+    <div className="w-full transition-all duration-300 pointer-events-none relative z-[100]">
       <header
         className={cn(
-          "max-w-7xl mx-4 md:mx-8 xl:mx-auto transition-all duration-500 pointer-events-auto origin-top mt-1 md:mt-2 bg-white/25 backdrop-blur-2xl border border-white/20 shadow-[0_20px_40px_rgba(0,0,0,0.05)] rounded-[1.5rem] md:rounded-[3rem]",
+          "max-w-7xl mx-8 md:mx-16 lg:mx-24 xl:mx-auto transition-all duration-500 pointer-events-auto origin-top mt-1 md:mt-2 bg-white/10 backdrop-blur-3xl border border-white/20 shadow-[0_20px_40px_rgba(0,0,0,0.05)] rounded-[1.5rem] md:rounded-[3rem]",
           "h-[90px] md:h-[104px]"
         )}
       >
@@ -121,7 +121,7 @@ export function Navbar() {
                       "px-4 py-2.5 tactical-label text-[13px] rounded-2xl transition-all duration-300 relative flex items-center gap-1.5",
                       (hoveredPath === link.href || (!hoveredPath && pathname === link.href))
                         ? "text-white"
-                        : "text-[#373635]/70"
+                        : "text-white/70"
                     )}
                   >
                     <span className="relative z-10">{link.name}</span>
