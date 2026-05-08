@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 interface NavbarProps { }
 
-function BrandLogo({ height = 88, mobileHeight = 48 }: { height?: number; mobileHeight?: number }) {
+function BrandLogo({ height = 88, mobileHeight = 48, theme = "dark" }: { height?: number; mobileHeight?: number; theme?: "light" | "dark" }) {
   return (
     <div className="flex items-center gap-4 group">
       <div
@@ -27,7 +27,10 @@ function BrandLogo({ height = 88, mobileHeight = 48 }: { height?: number; mobile
         `}</style>
       </div>
       <div className="flex flex-col">
-        <span className="text-xl sm:text-xl md:text-[24px] font-bold text-black tracking-tight leading-none group-hover:text-brand-blue transition-colors whitespace-nowrap">
+        <span className={cn(
+          "text-xl sm:text-xl md:text-[24px] font-bold tracking-tight leading-none group-hover:text-brand-blue transition-colors whitespace-nowrap",
+          theme === "dark" ? "text-white" : "text-black"
+        )}>
           Dolphin Builders
         </span>
         <span className="tactical-label text-[11px] sm:text-[12px] text-brand-blue mt-1 whitespace-nowrap">
@@ -93,13 +96,13 @@ export function Navbar() {
     <div className="w-full transition-all duration-300 pointer-events-none relative z-[100]">
       <header
         className={cn(
-          "max-w-7xl mx-8 md:mx-16 lg:mx-24 xl:mx-auto transition-all duration-500 pointer-events-auto origin-top mt-1 md:mt-2 bg-white/10 backdrop-blur-3xl border border-white/20 shadow-[0_20px_40px_rgba(0,0,0,0.05)] rounded-[1.5rem] md:rounded-[3rem]",
+          "max-w-[1240px] mx-4 md:mx-6 lg:mx-8 xl:mx-auto transition-all duration-500 pointer-events-auto origin-top mt-1 md:mt-2 bg-white/10 backdrop-blur-3xl border border-white/20 shadow-[0_20px_40px_rgba(0,0,0,0.05)] rounded-[1.5rem] md:rounded-[3rem]",
           "h-[90px] md:h-[104px]"
         )}
       >
         <div className="h-full px-6 md:px-10 flex items-center justify-between">
           <Link href="/" prefetch={false} className="hover:opacity-90 transition-opacity">
-            <BrandLogo height={scrolled ? 64 : 88} mobileHeight={60} />
+            <BrandLogo height={scrolled ? 64 : 88} mobileHeight={60} theme={scrolled ? "light" : "dark"} />
           </Link>
 
           {/* Desktop Nav */}
@@ -121,7 +124,7 @@ export function Navbar() {
                       "px-4 py-2.5 tactical-label text-[13px] rounded-2xl transition-all duration-300 relative flex items-center gap-1.5",
                       (hoveredPath === link.href || (!hoveredPath && pathname === link.href))
                         ? "text-white"
-                        : "text-white/70"
+                        : scrolled ? "text-black/70" : "text-white/70"
                     )}
                   >
                     <span className="relative z-10">{link.name}</span>
@@ -184,12 +187,15 @@ export function Navbar() {
           {/* Hamburger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden w-11 h-11 flex flex-col items-center justify-center gap-1.5 border-1.5 border-brand-blue/40 rounded-lg transition-all active:scale-95"
+            className={cn(
+              "md:hidden w-11 h-11 flex flex-col items-center justify-center gap-1.5 rounded-lg transition-all active:scale-95 border border-brand-blue/20",
+              scrolled ? "bg-black/5" : "bg-white/5"
+            )}
             aria-label="Toggle Menu"
           >
-            <span className={cn("w-6 h-[2px] bg-[#373635] rounded-full transition-all duration-300", isOpen && "rotate-45 translate-y-2 bg-brand-blue")} />
-            <span className={cn("w-6 h-[2px] bg-[#373635] rounded-full transition-all duration-300", isOpen && "opacity-0")} />
-            <span className={cn("w-6 h-[2px] bg-[#373635] rounded-full transition-all duration-300", isOpen && "-rotate-45 -translate-y-2 bg-brand-blue")} />
+            <span className={cn("w-6 h-[2px] rounded-full transition-all duration-300", isOpen ? "rotate-45 translate-y-2 bg-brand-blue" : scrolled ? "bg-black" : "bg-white")} />
+            <span className={cn("w-6 h-[2px] rounded-full transition-all duration-300", isOpen ? "opacity-0" : scrolled ? "bg-black" : "bg-white")} />
+            <span className={cn("w-6 h-[2px] rounded-full transition-all duration-300", isOpen ? "-rotate-45 -translate-y-2 bg-brand-blue" : scrolled ? "bg-black" : "bg-white")} />
           </button>
         </div>
 

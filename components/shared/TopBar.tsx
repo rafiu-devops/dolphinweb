@@ -20,7 +20,7 @@ interface TopBarProps {
 export function TopBar({ phone, email, address, social }: TopBarProps) {
   return (
     <div className="hidden md:block w-full pt-2 pointer-events-none">
-      <div className="max-w-7xl mx-8 md:mx-16 lg:mx-24 xl:mx-auto bg-brand-blue/80 backdrop-blur-xl rounded-[1.5rem] md:rounded-[2rem] border border-white/15 shadow-xl pointer-events-auto py-3 md:py-3.5">
+      <div className="max-w-[1240px] mx-4 md:mx-6 lg:mx-8 xl:mx-auto bg-brand-blue/80 backdrop-blur-xl rounded-[1.5rem] md:rounded-[2rem] border border-white/15 shadow-xl pointer-events-auto py-3 md:py-3.5">
         <div className="px-6 md:px-10 flex items-center justify-between">
           {/* Left: Address */}
           <div className="flex-1 flex justify-start">

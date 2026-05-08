@@ -531,18 +531,7 @@ export default function HomeClient({
                       {step.desc}
                     </p>
 
-                    <div className="flex items-center gap-6 pt-2">
-                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-brand-blue text-black flex items-center justify-center shadow-glow-sm shrink-0">
-                        <step.icon size={36} />
-                      </div>
-                      <div className="space-y-0.5">
-                        <div className="flex items-center gap-2">
-                          <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                          <p className="text-black font-black uppercase tracking-widest text-[11px]">Status: Verified</p>
-                        </div>
-                        <p className="text-brand-blue/60 text-[10px] font-bold uppercase tracking-[0.2em]">Quality Protocol Active</p>
-                      </div>
-                    </div>
+
                   </div>
 
                   {/* Right: Premium Glass Step Card */}
@@ -562,12 +551,7 @@ export default function HomeClient({
                           {step.title}
                         </h4>
                         
-                        <div className="pt-6 flex items-center gap-5">
-                          <div className="w-12 h-12 rounded-xl bg-white/10 border border-brand-blue/20 flex items-center justify-center text-brand-blue shadow-sm">
-                            <step.icon size={24} />
-                          </div>
-                          <div className="h-[1px] flex-1 bg-gradient-to-r from-brand-blue/30 to-transparent" />
-                        </div>
+
                       </div>
                     </div>
                   </div>
