@@ -66,8 +66,7 @@ export function ProjectCard({ project, className, onEnquire }: ProjectCardProps)
 
       {/* Content Section */}
       <div className="p-7 space-y-6 relative overflow-hidden flex flex-col flex-grow">
-        {/* Subtle Background Icon */}
-        <ShieldCheck className="absolute -right-4 -bottom-4 w-24 h-24 text-foreground/[0.03] rotate-12" />
+        {/* Subtle Background Icon removed */}
 
         <div className="space-y-2">
           <h3 className="text-2xl font-black uppercase tracking-tighter italic text-foreground group-hover:text-brand-blue transition-colors duration-500">
@@ -79,7 +78,7 @@ export function ProjectCard({ project, className, onEnquire }: ProjectCardProps)
           </div>
         </div>
 
-        <p className="text-sm text-muted-foreground leading-relaxed font-medium line-clamp-2 min-h-[40px] flex-grow">
+        <p className="text-sm text-muted-foreground leading-relaxed font-medium flex-grow">
           {project.projectCard?.shortDescription}
         </p>
 

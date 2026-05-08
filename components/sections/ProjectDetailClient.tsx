@@ -122,8 +122,8 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                 <div className="w-2 h-2 rounded-full bg-brand-blue animate-pulse" />
                 <span className="tactical-label text-brand-blue">{project.status}</span>
               </div>
-              <h1 className="text-3xl sm:text-5xl md:text-8xl font-black tracking-tighter text-foreground uppercase italic leading-[0.85]">
-                {project.name.split(' ').slice(0, -1).join(' ')} <br />
+              <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-foreground uppercase italic leading-[0.9] flex flex-wrap gap-x-4">
+                {project.name.split(' ').slice(0, -1).join(' ')}
                 <span className="text-brand-blue">{project.name.split(' ').slice(-1)}</span>
               </h1>
               <p className="text-lg md:text-2xl text-muted-foreground font-bold italic tracking-tight max-w-3xl">
@@ -131,11 +131,14 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               </p>
             </div>
 
+            {/* Location Tag - Moved back to White Space */}
             <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-4 bg-bg-card border border-border/40 px-6 sm:px-8 py-4 sm:py-5 rounded-2xl shadow-xl">
-                <MapPin size={24} className="text-brand-blue" />
+              <div className="flex items-center gap-4 bg-white border border-border/40 px-6 sm:px-8 py-4 sm:py-5 rounded-2xl shadow-xl">
+                <div className="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue">
+                  <MapPin size={24} />
+                </div>
                 <div className="flex flex-col">
-                  <span className="tactical-label text-muted-foreground/80">Located At</span>
+                  <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/60">Located At</span>
                   <span className="text-[12px] sm:text-sm font-black uppercase tracking-tight text-foreground">{project.location}, {project.city}</span>
                 </div>
               </div>
@@ -143,8 +146,9 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
           </motion.div>
 
           {/* Image Showcase Display */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 h-[500px] md:h-[750px]">
-            <div className="lg:col-span-9 relative rounded-[3rem] overflow-hidden border border-border/40 group bg-black shadow-4xl">
+          {/* Image Showcase Display - Reduced Dimensions */}
+          <div className="flex flex-col gap-6 max-w-6xl mx-auto">
+            <div className="relative w-full h-[350px] md:h-[480px] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden border border-border/40 group bg-black shadow-4xl">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeHeroIndex}
@@ -169,24 +173,27 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                 </motion.div>
               </AnimatePresence>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-10 right-10 flex gap-4 z-20">
-                <button onClick={() => setActiveHeroIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length)} className="w-14 h-14 rounded-full bg-black/40 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-brand-blue hover:text-black transition-all">
-                  <ArrowLeft size={20} />
+              
+              {/* Navigation Arrows */}
+              <div className="absolute bottom-8 left-8 hidden md:flex gap-4 z-20">
+                <button onClick={() => setActiveHeroIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length)} className="w-11 h-11 rounded-full bg-black/40 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-brand-blue hover:text-black transition-all">
+                  <ArrowLeft size={16} />
                 </button>
-                <button onClick={() => setActiveHeroIndex((prev) => (prev + 1) % heroImages.length)} className="w-14 h-14 rounded-full bg-black/40 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-brand-blue hover:text-black transition-all rotate-180">
-                  <ArrowLeft size={20} />
+                <button onClick={() => setActiveHeroIndex((prev) => (prev + 1) % heroImages.length)} className="w-11 h-11 rounded-full bg-black/40 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-brand-blue hover:text-black transition-all rotate-180">
+                  <ArrowLeft size={16} />
                 </button>
               </div>
             </div>
 
-            <div className="lg:col-span-3 flex lg:flex-col gap-4 overflow-x-auto lg:overflow-y-auto no-scrollbar pr-2 pb-4 lg:pb-0">
+            {/* Thumbnails Row - Small & Professional */}
+            <div className="flex gap-3 overflow-x-auto no-scrollbar pb-2 px-2">
               {heroImages.map((img, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveHeroIndex(idx)}
                   className={cn(
-                    "relative min-w-[150px] lg:min-w-0 aspect-[4/3] rounded-2xl overflow-hidden border-2 transition-all shrink-0",
-                    activeHeroIndex === idx ? "border-brand-blue scale-[0.98] shadow-glow-sm" : "border-transparent opacity-50 hover:opacity-100"
+                    "relative w-16 h-12 md:w-24 md:h-16 rounded-xl overflow-hidden border-2 transition-all shrink-0",
+                    activeHeroIndex === idx ? "border-brand-blue scale-[0.95] shadow-glow-sm" : "border-transparent opacity-40 hover:opacity-100"
                   )}
                 >
                   <img src={img || "/assets/projects/placeholder.png"} className="w-full h-full object-cover" alt={`Thumbnail ${idx}`} />
@@ -362,11 +369,11 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
             <div className="h-[1px] flex-grow bg-white/10 hidden md:block" />
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {project.detailsPage.amenities.map((amenity, idx) => {
               const Icon = iconMap[amenity.icon] || Shield;
               return (
-                <div key={idx} className="flex flex-col gap-6 p-8 sm:p-10 rounded-[2rem] sm:rounded-[3rem] bg-white/5 border border-white/10 hover:bg-white/10 transition-all group">
+                <div key={idx} className="flex flex-col gap-6 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] min-w-[280px] p-8 sm:p-10 rounded-[2rem] sm:rounded-[3rem] bg-white/5 border border-white/10 hover:bg-white/10 transition-all group">
                   <div className="w-16 h-16 bg-brand-blue text-black rounded-2xl flex items-center justify-center shadow-glow-sm transition-transform group-hover:scale-110">
                     <Icon size={28} />
                   </div>
@@ -413,17 +420,17 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="flex items-center gap-6 group cursor-pointer" onClick={() => window.location.href = `tel:${project.detailsPage.projectContact?.phone}`}>
                     <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-brand-blue group-hover:text-black transition-all"><Phone size={20} /></div>
-                    <div className="flex flex-col">
-                      <span className="tactical-label text-white/60">Contact Hot-line</span>
-                      <span className="text-lg font-black tracking-widest">{project.detailsPage.projectContact?.phone || "+92 347 0139661"}</span>
+                    <div className="flex flex-col min-w-0">
+                      <span className="tactical-label text-white/60 whitespace-nowrap">Contact Hot-line</span>
+                      <span className="text-lg font-black tracking-widest whitespace-nowrap">{project.detailsPage.projectContact?.phone || "+92 347 0139661"}</span>
                     </div>
                   </div>
                   {project.detailsPage.projectContact?.email && (
                     <div className="flex items-center gap-6 group cursor-pointer" onClick={() => window.location.href = `mailto:${project.detailsPage.projectContact?.email}`}>
                       <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-brand-blue group-hover:text-black transition-all"><Mail size={20} /></div>
-                      <div className="flex flex-col">
-                        <span className="tactical-label text-white/60">Transmission Email</span>
-                        <span className="text-sm font-black tracking-widest truncate max-w-[200px]">{project.detailsPage.projectContact?.email}</span>
+                      <div className="flex flex-col min-w-0">
+                        <span className="tactical-label text-white/60 whitespace-nowrap">Transmission Email</span>
+                        <span className="text-[10px] sm:text-xs md:text-sm font-black tracking-widest break-all">{project.detailsPage.projectContact?.email}</span>
                       </div>
                     </div>
                   )}
@@ -436,9 +443,9 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                       }}
                     >
                       <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-[#25D366] group-hover:text-white transition-all"><FaWhatsapp size={20} /></div>
-                      <div className="flex flex-col">
-                        <span className="tactical-label text-white/60">WhatsApp Sync</span>
-                        <span className="text-lg font-black tracking-widest text-[#25D366]">Chat Now</span>
+                      <div className="flex flex-col min-w-0">
+                        <span className="tactical-label text-white/60 whitespace-nowrap">WhatsApp Sync</span>
+                        <span className="text-lg font-black tracking-widest text-[#25D366] whitespace-nowrap">Chat Now</span>
                       </div>
                     </div>
                   )}
@@ -451,9 +458,9 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                       }}
                     >
                       <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-[#1877F2] group-hover:text-white transition-all"><FaFacebook size={20} /></div>
-                      <div className="flex flex-col">
-                        <span className="tactical-label text-white/60">Field Intelligence</span>
-                        <span className="text-lg font-black tracking-widest text-[#1877F2]">Facebook Page</span>
+                      <div className="flex flex-col min-w-0">
+                        <span className="tactical-label text-white/60 whitespace-nowrap">Digital Hub</span>
+                        <span className="text-lg font-black tracking-widest text-[#1877F2] whitespace-nowrap">Facebook Page</span>
                       </div>
                     </div>
                   )}

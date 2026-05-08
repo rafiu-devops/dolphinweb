@@ -20,10 +20,15 @@ export function StickyHeader({ children }: StickyHeaderProps) {
 
     const updateVisibility = () => {
       const currentScrollY = window.scrollY;
-      const isHome = pathname === "/";
-      const isMobile = window.innerWidth < 768;
+      const isProjectsPage = pathname.startsWith("/projects");
       
-      setIsVisible(true);
+      if (isProjectsPage) {
+        // On Projects page, hide after scrolling down a bit to prevent blocking content
+        setIsVisible(currentScrollY < 120);
+      } else {
+        // On other pages (like Home), keep it visible/sticky
+        setIsVisible(true);
+      }
       ticking = false;
     };
 
