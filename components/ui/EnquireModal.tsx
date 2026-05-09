@@ -134,7 +134,7 @@ export function EnquireModal({ isOpen, onClose, projectName }: EnquireModalProps
                         <input 
                           required
                           type="text" 
-                          placeholder="Your Name" 
+                          placeholder="ENTER YOUR NAME" 
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           className="w-full bg-card/40 border border-border rounded-2xl px-6 py-5 text-sm font-black uppercase tracking-wider italic text-foreground placeholder:text-muted-foreground/30 focus:border-brand-blue/40 outline-none transition-all focus:bg-brand-blue/[0.02]"
@@ -158,7 +158,7 @@ export function EnquireModal({ isOpen, onClose, projectName }: EnquireModalProps
                       <input 
                         required
                         type="email" 
-                        placeholder="email@example.com" 
+                        placeholder="EXAMPLE@GMAIL.COM" 
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="w-full bg-card/40 border border-border rounded-2xl px-6 py-5 text-sm font-black uppercase tracking-wider italic text-foreground placeholder:text-muted-foreground/30 focus:border-brand-blue/40 outline-none transition-all focus:bg-brand-blue/[0.02]"

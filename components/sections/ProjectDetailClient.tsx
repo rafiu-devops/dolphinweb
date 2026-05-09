@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import {
   MapPin, Building, Ruler, Tag, Shield, Zap, Home,
-  Camera, WavesLadder, Coffee, Trees, Car, ArrowLeft,
+  Camera, WavesLadder, Coffee, Trees, Car, ArrowLeft, ChevronLeft, ChevronRight,
   Download, Crosshair, Box, TrendingUp, Heart, Info,
   Phone, Mail, Globe, Send, Loader2, CheckCircle2,
   Calendar, Layers, Map as MapIcon, Star, X, Road, Trophy
@@ -46,23 +46,52 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [activeCategory, setActiveCategory] = useState<"exterior" | "interior" | "layouts">("exterior");
-  const [mounted, setMounted] = useState(false);
-  const [selectedGalleryImage, setSelectedGalleryImage] = useState<string | null>(null);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const categories = project.detailsPage.galleryCategories || {
+  const categories = useMemo(() => project.detailsPage.galleryCategories || {
     exterior: project.detailsPage.gallery || [],
     interior: [],
     layouts: []
-  };
+  }, [project]);
 
   const currentGalleryImages = useMemo(() => {
     const raw = categories[activeCategory] || [];
     return raw.filter((img): img is string => typeof img === 'string' && img.trim().length > 0);
   }, [categories, activeCategory]);
+  const [mounted, setMounted] = useState(false);
+  const [selectedGalleryIndex, setSelectedGalleryIndex] = useState<number | null>(null);
+
+  // Gallery navigation handlers
+  const handlePrevGallery = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (selectedGalleryIndex === null) return;
+    setSelectedGalleryIndex((prev) => 
+      prev !== null ? (prev - 1 + currentGalleryImages.length) % currentGalleryImages.length : null
+    );
+  };
+
+  const handleNextGallery = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (selectedGalleryIndex === null) return;
+    setSelectedGalleryIndex((prev) => 
+      prev !== null ? (prev + 1) % currentGalleryImages.length : null
+    );
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedGalleryIndex === null) return;
+      if (e.key === "ArrowLeft") handlePrevGallery();
+      if (e.key === "ArrowRight") handleNextGallery();
+      if (e.key === "Escape") setSelectedGalleryIndex(null);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedGalleryIndex, currentGalleryImages.length]);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
 
   const [activeHeroIndex, setActiveHeroIndex] = useState(0);
   const heroImages = useMemo(() => {
@@ -554,7 +583,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.4 }}
                     className="group relative aspect-[4/3] rounded-[2.5rem] overflow-hidden border border-border/40 shadow-2xl cursor-zoom-in"
-                    onClick={() => setSelectedGalleryImage(img)}
+                    onClick={() => setSelectedGalleryIndex(idx)}
                   >
                     <img src={img || "/assets/projects/placeholder.png"} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt={`Asset ${idx}`} />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
@@ -624,36 +653,73 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
 
       {/* LIGHTBOX MODAL */}
       <AnimatePresence>
-        {selectedGalleryImage && (
+        {selectedGalleryIndex !== null && currentGalleryImages[selectedGalleryIndex] && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setSelectedGalleryImage(null)}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-10 cursor-zoom-out"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-2xl p-4 md:p-10"
+            onClick={() => setSelectedGalleryIndex(null)}
           >
-            <motion.button
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="absolute top-6 right-6 md:top-10 md:right-10 w-12 h-12 md:w-16 md:h-16 bg-white/10 hover:bg-brand-blue hover:text-black rounded-full flex items-center justify-center text-white transition-all z-[110]"
-              onClick={() => setSelectedGalleryImage(null)}
-            >
-              <X size={24} />
-            </motion.button>
+            {/* Header / Info */}
+            <div className="absolute top-0 left-0 right-0 p-6 md:p-10 flex items-center justify-between z-[110] pointer-events-none">
+              <div className="bg-black/20 backdrop-blur-xl border border-white/10 px-6 py-3 rounded-2xl pointer-events-auto">
+                <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-white/60">
+                  Sector: <span className="text-brand-blue">{activeCategory}</span> — Image <span className="text-white">{selectedGalleryIndex + 1} / {currentGalleryImages.length}</span>
+                </span>
+              </div>
+              
+              <button
+                className="w-12 h-12 md:w-16 md:h-16 bg-white/5 hover:bg-brand-blue hover:text-black border border-white/10 rounded-2xl flex items-center justify-center text-white transition-all pointer-events-auto shadow-2xl"
+                onClick={() => setSelectedGalleryIndex(null)}
+              >
+                <X size={24} />
+              </button>
+            </div>
+
+            {/* Navigation Buttons */}
+            <div className="absolute inset-x-4 md:inset-x-10 top-1/2 -translate-y-1/2 flex justify-between items-center z-[110] pointer-events-none">
+              <button
+                onClick={handlePrevGallery}
+                className="w-12 h-12 md:w-20 md:h-20 bg-white/5 hover:bg-brand-blue hover:text-black border border-white/10 rounded-full md:rounded-3xl flex items-center justify-center text-white transition-all pointer-events-auto shadow-2xl backdrop-blur-md group"
+              >
+                <ChevronLeft size={32} className="group-hover:scale-110 transition-transform" />
+              </button>
+              
+              <button
+                onClick={handleNextGallery}
+                className="w-12 h-12 md:w-20 md:h-20 bg-white/5 hover:bg-brand-blue hover:text-black border border-white/10 rounded-full md:rounded-3xl flex items-center justify-center text-white transition-all pointer-events-auto shadow-2xl backdrop-blur-md group"
+              >
+                <ChevronRight size={32} className="group-hover:scale-110 transition-transform" />
+              </button>
+            </div>
+
+            {/* Image Container */}
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+              key={selectedGalleryIndex}
+              initial={{ scale: 0.95, opacity: 0, x: 20 }}
+              animate={{ scale: 1, opacity: 1, x: 0 }}
+              exit={{ scale: 0.95, opacity: 0, x: -20 }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="relative max-w-7xl w-full aspect-auto flex items-center justify-center"
+              className="relative max-w-7xl w-full h-full flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={selectedGalleryImage}
-                alt="Full Gallery View"
-                className="max-w-full max-h-[90vh] object-contain rounded-2xl shadow-2xl border border-white/10"
-              />
+              <div className="relative group cursor-default">
+                <img
+                  src={currentGalleryImages[selectedGalleryIndex]}
+                  alt="Full Gallery View"
+                  className="max-w-full max-h-[85vh] md:max-h-[80vh] object-contain rounded-3xl shadow-[0_50px_100px_rgba(0,0,0,0.5)] border border-white/10"
+                />
+                
+                {/* Visual Accent */}
+                <div className="absolute -inset-4 bg-brand-blue/10 blur-3xl rounded-full opacity-30 pointer-events-none" />
+              </div>
             </motion.div>
+
+            {/* Keyboard Hint */}
+            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 tactical-label text-white/30 hidden md:block">
+              Use <span className="text-white/60">ARROWS</span> to Navigate — <span className="text-white/60">ESC</span> to Close
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -78,29 +78,29 @@ export function ProjectsSection({ projects: initialProjects }: ProjectsSectionPr
         "sticky top-0 z-[100] transition-all duration-500",
         isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg py-4" : "bg-transparent py-4 md:py-8"
       )}>
-        <div className="container mx-auto px-6 space-y-6">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
-            {/* Status Pills */}
-            <div className="flex flex-wrap items-center gap-2">
-              {statuses.map(status => (
-                <button
-                  key={status}
-                  onClick={() => setFilterStatus(status)}
-                  className={cn(
-                    "px-6 py-2.5 rounded-full text-[11px] font-black uppercase tracking-widest transition-all duration-300",
-                    filterStatus === status 
-                      ? "bg-brand-blue text-white shadow-[0_10px_20px_rgba(26,106,255,0.3)]" 
-                      : "bg-white border border-gray-200 text-[#373635]/60 hover:border-brand-blue/30"
-                  )}
-                >
-                  {status}
-                </button>
-              ))}
-            </div>
+        <div className="container mx-auto px-6 space-y-8">
+          {/* Status Pills - Now in a 4-column sequence row */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 w-full">
+            {statuses.map(status => (
+              <button
+                key={status}
+                onClick={() => setFilterStatus(status)}
+                className={cn(
+                  "w-full px-4 py-4 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all duration-300 text-center",
+                  filterStatus === status 
+                    ? "bg-brand-blue text-white shadow-[0_15px_30px_rgba(26,106,255,0.25)] scale-[1.02]" 
+                    : "bg-white border border-gray-100 text-[#373635]/60 hover:border-brand-blue/30 hover:bg-gray-50/50"
+                )}
+              >
+                {status}
+              </button>
+            ))}
+          </div>
 
-            <div className="flex items-center gap-4 w-full lg:w-auto">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 pt-4 border-t border-gray-100/50">
+            <div className="flex items-center gap-4 w-full">
               {/* Result Count */}
-              <div className="hidden lg:block text-[11px] font-black uppercase tracking-widest text-[#373635]/40 border-r border-gray-200 pr-6 mr-2">
+              <div className="hidden xl:block text-[11px] font-black uppercase tracking-widest text-[#373635]/40 border-r border-gray-200 pr-6 mr-2">
                 Showing {filteredProjects.length} of {PROJECTS_DATA.length} Projects
               </div>
 
@@ -109,7 +109,7 @@ export function ProjectsSection({ projects: initialProjects }: ProjectsSectionPr
                 <select 
                   value={filterCity}
                   onChange={(e) => setFilterCity(e.target.value)}
-                  className="w-full lg:w-48 bg-white border border-gray-200 rounded-xl px-5 py-3 text-[11px] font-black uppercase tracking-widest outline-none focus:border-brand-blue/30 transition-all appearance-none cursor-pointer"
+                  className="w-full lg:w-56 bg-white border border-gray-200 rounded-xl px-5 py-3.5 text-[11px] font-black uppercase tracking-widest outline-none focus:border-brand-blue/30 transition-all appearance-none cursor-pointer"
                 >
                   {cities.map(city => (
                     <option key={city} value={city}>{city === "All" ? "All Cities" : city}</option>
@@ -121,17 +121,16 @@ export function ProjectsSection({ projects: initialProjects }: ProjectsSectionPr
               </div>
 
               {/* Search */}
-              <div className="relative flex-1 lg:w-64">
+              <div className="relative flex-1">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
                 <input 
                   type="text" 
                   placeholder="Search projects..." 
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-white border border-gray-200 rounded-xl pl-12 pr-4 py-3 text-[11px] font-black uppercase tracking-widest outline-none focus:border-brand-blue/30 transition-all"
+                  className="w-full bg-white border border-gray-200 rounded-xl pl-12 pr-4 py-3.5 text-[11px] font-black uppercase tracking-widest outline-none focus:border-brand-blue/30 transition-all"
                 />
               </div>
-
             </div>
           </div>
 

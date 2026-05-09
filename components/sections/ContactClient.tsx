@@ -261,14 +261,14 @@ export default function ContactClient({ contact }: ContactClientProps) {
                 <form onSubmit={handleSubmit} className="space-y-8">
                   <div className="space-y-3">
                     <label className="text-[12px] font-black uppercase tracking-[0.3em] text-[#0a0f1a]/70 pl-2">Full Name</label>
-                    <input 
-                      required
-                      type="text" 
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="John Doe" 
-                      className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all placeholder:text-[#0a0f1a]/50 font-black text-base uppercase tracking-wider italic focus:bg-brand-blue/[0.04] text-[#0a0f1a]" 
-                    />
+                      <input 
+                        required
+                        type="text" 
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        placeholder="ENTER YOUR NAME" 
+                        className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all placeholder:text-[#0a0f1a]/50 font-black text-base uppercase tracking-wider italic focus:bg-brand-blue/[0.04] text-[#0a0f1a]" 
+                      />
                   </div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -299,14 +299,14 @@ export default function ContactClient({ contact }: ContactClientProps) {
                   </div>
                   <div className="space-y-3">
                     <label className="text-[12px] font-black uppercase tracking-[0.3em] text-[#0a0f1a]/70 pl-2">Email Address</label>
-                    <input 
-                      required
-                      type="email" 
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="agent@mission.com" 
-                      className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all placeholder:text-[#0a0f1a]/50 font-black text-base uppercase tracking-wider italic focus:bg-brand-blue/[0.04] text-[#0a0f1a]" 
-                    />
+                      <input 
+                        required
+                        type="email" 
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="EXAMPLE@GMAIL.COM" 
+                        className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all placeholder:text-[#0a0f1a]/50 font-black text-base uppercase tracking-wider italic focus:bg-brand-blue/[0.04] text-[#0a0f1a]" 
+                      />
                   </div>
                   <div className="space-y-3">
                     <label className="text-[12px] font-black uppercase tracking-[0.3em] text-[#0a0f1a]/70 pl-2">Message Details</label>
