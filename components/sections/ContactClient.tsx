@@ -125,7 +125,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
               data: "Message Now", 
               sub: "Fast track your deployment details.", 
               link: contact.social.whatsapp,
-              actionColor: "text-[#25D366]"
+              actionColor: "text-brand-blue"
             },
             { 
               icon: MapPin, 
@@ -134,7 +134,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
               data: "Shahra-e-Faisal, Karachi", 
               sub: "Strategic operations center.", 
               link: contact.social.googleMaps || "#",
-              actionColor: "text-white"
+              actionColor: "text-brand-blue"
             },
           ].map((item, idx) => (
             <motion.a
@@ -160,13 +160,13 @@ export default function ContactClient({ contact }: ContactClientProps) {
                 </motion.div>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-4 w-full">
                 <h3 className="tactical-label text-muted-foreground group-hover:text-brand-blue/40 transition-colors">{item.title}</h3>
                 <p className={cn("text-xl font-black uppercase tracking-tight italic leading-tight", item.actionColor)}>{item.data}</p>
-                <p className="tactical-label text-muted-foreground/80 max-w-[200px] leading-relaxed">{item.sub}</p>
+                <p className="tactical-label text-muted-foreground/80 max-w-[200px] leading-relaxed mx-auto">{item.sub}</p>
               </div>
 
-              <div className="pt-6 w-full">
+              <div className="w-full">
                 <div className="flex items-center justify-center gap-2 group-hover:text-brand-blue transition-colors tactical-label">
                   Execute Link <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
                 </div>
@@ -383,7 +383,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
               <div className="p-8 bg-card border border-border/40 rounded-[2.5rem] space-y-2">
                 <h4 className="tactical-label text-brand-blue">Location Context</h4>
                 <p className="text-[14px] font-black uppercase tracking-tight italic text-foreground leading-tight">Located on Shahra-e-Faisal, Karachi</p>
-                <p className="tactical-label text-muted-foreground/80">Easy access from main arterial roads.</p>
+
               </div>
               <div className="p-8 bg-card border border-border/40 rounded-[2.5rem] flex items-center gap-6">
                 <div className="w-12 h-12 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue">
@@ -415,11 +415,8 @@ export default function ContactClient({ contact }: ContactClientProps) {
             <div className="space-y-4">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter italic text-white leading-tight">
                 Ready to Invest in <br />
-                <span className="text-black/40">Premium Property?</span>
+                <span className="text-black/40">Your Property?</span>
               </h2>
-              <p className="tactical-label text-black/70">
-                Secure your tactical deployment in Karachi's most prime assets.
-              </p>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
