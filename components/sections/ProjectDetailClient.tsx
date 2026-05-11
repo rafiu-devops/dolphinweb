@@ -95,6 +95,11 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
 
   const [activeHeroIndex, setActiveHeroIndex] = useState(0);
   const heroImages = useMemo(() => {
+    // If heroThumbnails is manually provided in the JSON, use it exclusively
+    if (project.detailsPage.heroThumbnails && project.detailsPage.heroThumbnails.length > 0) {
+      return project.detailsPage.heroThumbnails;
+    }
+
     const gallery = project.detailsPage.gallery || [];
     const exterior = project.detailsPage.galleryCategories?.exterior || [];
     const sources = Array.from(new Set([project.detailsPage.heroImage, ...gallery, ...exterior]))
@@ -151,7 +156,12 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                 <div className="w-2 h-2 rounded-full bg-brand-blue animate-pulse" />
                 <span className="tactical-label text-brand-blue">{project.status}</span>
               </div>
-              <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-foreground uppercase italic leading-[0.9] flex flex-wrap gap-x-4">
+              <h1 className={cn(
+                "text-3xl sm:text-5xl md:text-7xl font-black tracking-tighter text-foreground uppercase italic leading-[0.9] flex flex-wrap gap-x-4",
+                project.name.length < 25 
+                  ? "lg:text-7xl xl:text-8xl lg:flex-nowrap lg:whitespace-nowrap" 
+                  : "lg:text-8xl"
+              )}>
                 {project.name.split(' ').slice(0, -1).join(' ')}
                 <span className="text-brand-blue">{project.name.split(' ').slice(-1)}</span>
               </h1>
@@ -252,7 +262,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
 
           <motion.div {...fadeInUp} className="relative aspect-square rounded-[2.5rem] sm:rounded-[4rem] overflow-hidden border border-border/40 shadow-4xl group">
             <img
-              src={project.detailsPage.heroImage || project.detailsPage.gallery[0] || "/assets/projects/placeholder.png"}
+              src={project.detailsPage.overviewImage || project.detailsPage.heroImage || project.detailsPage.gallery[0] || "/assets/projects/placeholder.png"}
               alt={project.name}
               className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110"
             />
@@ -373,11 +383,11 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
             ].map((spec, idx) => {
               const Icon = spec.icon;
               return (
-                <div key={idx} className="flex flex-col sm:flex-row gap-6 sm:gap-8 p-8 sm:p-10 rounded-3xl bg-bg-card border-l-4 border-brand-blue shadow-lg hover:shadow-2xl transition-all">
-                  <div className="text-brand-blue"><Icon size={32} /></div>
-                  <div className="space-y-1">
-                    <span className="tactical-label text-muted-foreground/80">{spec.label}</span>
-                    <p className="text-lg font-black uppercase italic tracking-tight text-foreground">{spec.value}</p>
+                <div key={idx} className="flex flex-col gap-5 p-7 rounded-3xl bg-bg-card border-l-4 border-brand-blue shadow-lg hover:shadow-2xl transition-all h-full">
+                  <div className="text-brand-blue"><Icon size={28} /></div>
+                  <div className="space-y-2">
+                    <span className="tactical-label text-[10px] text-muted-foreground/80 leading-none">{spec.label}</span>
+                    <p className="text-base md:text-lg font-black uppercase italic tracking-tight text-foreground leading-tight">{spec.value}</p>
                   </div>
                 </div>
               );
@@ -603,44 +613,43 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
       </section>
 
       {/* 10. INQUIRY FORM (LEAD GENERATION) */}
-      <section id="enquire" className="py-32 bg-black overflow-hidden relative">
-        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-blue/50 to-transparent" />
+      <section id="enquire" className="py-20 bg-background overflow-hidden relative border-t border-border/40">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-            <div className="space-y-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center">
+            <div className="space-y-8">
               <div className="space-y-6">
-                <h3 className="text-3xl sm:text-4xl md:text-6xl font-black uppercase italic tracking-tighter text-white">Contact <span className="text-brand-blue text-glow">Us</span></h3>
-                <p className="text-base md:text-lg text-white/60 font-bold uppercase tracking-[0.1em] leading-relaxed max-w-xl">Our high-tier asset management team will process your strategic interest within 24 operational hours.</p>
+                <h3 className="text-3xl sm:text-4xl md:text-6xl font-black uppercase italic tracking-tighter text-foreground">Contact <span className="text-brand-blue">Us</span></h3>
+                <p className="text-base md:text-lg text-muted-foreground font-bold uppercase tracking-[0.1em] leading-relaxed max-w-xl">Our high-tier asset management team will process your strategic interest within 24 operational hours.</p>
               </div>
             </div>
 
-            <div className="bg-white p-8 sm:p-12 md:p-20 rounded-[2.5rem] sm:rounded-[4rem] border border-white/10 relative shadow-4xl">
+            <div className="bg-brand-blue p-8 sm:p-12 md:p-16 rounded-[2.5rem] sm:rounded-[4rem] relative shadow-4xl">
               <AnimatePresence mode="wait">
                 {isSuccess ? (
                   <motion.div key="success" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-20 text-center space-y-8">
-                    <div className="w-24 h-24 bg-brand-blue text-white rounded-[2rem] flex items-center justify-center mx-auto shadow-glow-md animate-bounce"><CheckCircle2 size={48} /></div>
+                    <div className="w-24 h-24 bg-white text-brand-blue rounded-[2rem] flex items-center justify-center mx-auto shadow-glow-md animate-bounce"><CheckCircle2 size={48} /></div>
                     <div className="space-y-2">
-                      <h3 className="text-3xl font-black uppercase italic text-black">Transmission Received</h3>
-                      <p className="tactical-label text-black/60">Stand by for tactical agent follow-up.</p>
+                      <h3 className="text-3xl font-black uppercase italic text-white">Transmission Received</h3>
+                      <p className="tactical-label text-white/80">Stand by for tactical agent follow-up.</p>
                     </div>
                   </motion.div>
                 ) : (
                   <form onSubmit={handleFormSubmit} className="space-y-6">
                     <div className="space-y-6">
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black uppercase tracking-widest text-black/40 ml-4">Identity</label>
-                        <input required type="text" placeholder="YOUR NAME" className="w-full bg-gray-50 border border-gray-200 p-5 rounded-2xl text-black font-bold tracking-widest focus:border-brand-blue outline-none transition-all placeholder:text-black/20" />
+                        <label className="text-[10px] font-black uppercase tracking-widest text-white/70 ml-4">Identity</label>
+                        <input required type="text" placeholder="YOUR NAME" className="w-full bg-white/10 border border-white/20 p-5 rounded-2xl text-white font-bold tracking-widest focus:border-white outline-none transition-all placeholder:text-white/30" />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black uppercase tracking-widest text-black/40 ml-4">Secure Email</label>
-                        <input required type="email" placeholder="EMAIL ADDRESS" className="w-full bg-gray-50 border border-gray-200 p-5 rounded-2xl text-black font-bold tracking-widest focus:border-brand-blue outline-none transition-all placeholder:text-black/20" />
+                        <label className="text-[10px] font-black uppercase tracking-widest text-white/70 ml-4">Secure Email</label>
+                        <input required type="email" placeholder="EMAIL ADDRESS" className="w-full bg-white/10 border border-white/20 p-5 rounded-2xl text-white font-bold tracking-widest focus:border-white outline-none transition-all placeholder:text-white/30" />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black uppercase tracking-widest text-black/40 ml-4">Tactical Number</label>
-                        <input required type="tel" placeholder="PHONE / WHATSAPP" className="w-full bg-gray-50 border border-gray-200 p-5 rounded-2xl text-black font-bold tracking-widest focus:border-brand-blue outline-none transition-all placeholder:text-black/20" />
+                        <label className="text-[10px] font-black uppercase tracking-widest text-white/70 ml-4">Tactical Number</label>
+                        <input required type="tel" placeholder="PHONE / WHATSAPP" className="w-full bg-white/10 border border-white/20 p-5 rounded-2xl text-white font-bold tracking-widest focus:border-white outline-none transition-all placeholder:text-white/30" />
                       </div>
                     </div>
-                    <button disabled={isSubmitting} className="w-full btn-brand py-6 rounded-2xl text-[14px] font-black shadow-glow-sm mt-4">
+                    <button disabled={isSubmitting} className="w-full bg-white text-brand-blue hover:bg-black hover:text-white py-6 rounded-2xl text-[14px] font-black shadow-xl mt-4 transition-all flex items-center justify-center gap-3">
                       {isSubmitting ? <Loader2 className="animate-spin" /> : <><Send size={20} /> Send Message</>}
                     </button>
                   </form>
@@ -704,22 +713,20 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               className="relative max-w-7xl w-full h-full flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative group cursor-default">
+              <div className="relative group cursor-default flex items-center justify-center w-full h-full">
+
+
                 <img
                   src={currentGalleryImages[selectedGalleryIndex]}
                   alt="Full Gallery View"
-                  className="max-w-full max-h-[85vh] md:max-h-[80vh] object-contain rounded-3xl shadow-[0_50px_100px_rgba(0,0,0,0.5)] border border-white/10"
+                  className="relative z-10 w-full h-full max-w-[95vw] md:max-w-[85vw] max-h-[85vh] md:max-h-[80vh] object-contain rounded-2xl md:rounded-3xl shadow-[0_50px_100px_rgba(0,0,0,0.5)] border border-white/10"
                 />
                 
-                {/* Visual Accent */}
-                <div className="absolute -inset-4 bg-brand-blue/10 blur-3xl rounded-full opacity-30 pointer-events-none" />
+
               </div>
             </motion.div>
 
-            {/* Keyboard Hint */}
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 tactical-label text-white/30 hidden md:block">
-              Use <span className="text-white/60">ARROWS</span> to Navigate — <span className="text-white/60">ESC</span> to Close
-            </div>
+
           </motion.div>
         )}
       </AnimatePresence>

@@ -15,8 +15,7 @@
   "latestProperties": [],
   "projectCard": {
     "images": [
-      "/dc-images/dccover.png",
-      "/dc-images/dc-p2.jpg"
+      "/dc-images/dccover.png"
     ],
     "badges": [
       "Govt Approved",
@@ -25,13 +24,17 @@
     "shortDescription": "A premier gated housing scheme on Main Shikarpur Road offering residential and commercial plots with modern infrastructure, parks, and 24/7 security."
   },
   "detailsPage": {
-    "heroImage": "/dc-images/dccover.png",
+    "heroImage": "/dc-images/project-overview.jpeg",
     "gallery": [
-      "/dc-images/dccover.png",
-      "/dc-images/dc-p1.jpg",
-      "/dc-images/dc-p2.jpg"
+      "/dc-images/dccover.png"
     ],
-    "fullDescription": "Dream City Housing Scheme Sukkur is a state-of-the-art residential and commercial project developed by Dolphin Builders & Developers. Strategically located on Main Shikarpur Road near Dua Hotel & Restaurant, this project is designed to redefine urban living in Sukkur. As a Government of Sindh approved development, it offers a secure and legally sound investment environment.\n\nThe project features a fully gated community with a magnificent main gate, wide road networks, and modern underground infrastructure. Residents will enjoy a complete lifestyle ecosystem including a central masjid, family parks, walking tracks, and essential facilities like schools, hospitals, and a dedicated shopping mall. With sustainable features like solar street lights and robust 24/7 CCTV surveillance, Dream City Sukkur provides a safe, green, and sophisticated atmosphere for families to thrive.",
+    "heroThumbnails": [
+      "/dc-images/dccover.png",
+      "/dc-images/ext-1-1.jpg",
+      "/dc-images/ext-2.jpg"
+    ],
+    "overviewImage": "/dc-images/project-overview.jpeg",
+    "fullDescription": "Dream City Sukkur is a state-of-the-art, Government of Sindh approved residential and commercial project by Dolphin Builders & Developers. Located strategically on Main Shikarpur Road, this gated community offers a secure investment environment with modern underground infrastructure and wide road networks.\n\nDesigned for a complete lifestyle, it features a central masjid, family parks, schools, hospitals, and a dedicated shopping mall. With 24/7 CCTV surveillance and solar street lights, Dream City provides a safe, sophisticated, and green atmosphere for modern family living.",
     "introduction": "A Modern Lifestyle Housing Scheme Approved by Government of Sindh",
     "offerings": [
       {
@@ -79,7 +82,7 @@
     ],
     "galleryCategories": {
       "exterior": [
-        "/dc-images/ext-1.jpg",
+        "/dc-images/ext-1-1.jpg",
         "/dc-images/ext-2.jpg",
         "/dc-images/ext-3.jpg",
         "/dc-images/ext-4.jpg"

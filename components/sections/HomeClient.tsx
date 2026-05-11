@@ -640,7 +640,7 @@ export default function HomeClient({
                 <span className="text-white drop-shadow-2xl">Future</span>
               </h2>
               <p className="text-lg md:text-2xl font-black text-black/60 uppercase tracking-widest leading-relaxed">
-                Contact our expert team to secure your premium residential property today.
+                Contact our expert team to secure your residential property today.
               </p>
             </div>
 

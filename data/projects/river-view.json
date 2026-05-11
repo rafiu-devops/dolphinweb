@@ -4,7 +4,7 @@
   "name": "Dolphin River View",
   "status": "Under Construction",
   "city": "Sukkur",
-  "location": "Dolphin River View, Near Arfat Masjid, Bunder Road, Sukkur, Pakistan, 65200",
+  "location": "Dolphin River View, Near Arfat Masjid, Bunder Road, Sukkur",
   "featured": {
     "isFeatured": true,
     "images": [
@@ -29,6 +29,13 @@
       "/river-view/rv-p1.png",
       "/river-view/rv-p2.png"
     ],
+    "heroThumbnails": [
+      "/river-view/rv-p1.png",
+      "/river-view/rv-p2.png",
+      "/river-view/int-1.jpg",
+      "/river-view/int-2.jpg"
+    ],
+    "overviewImage": "/river-view/rv-p2.png",
     "fullDescription": "Dolphin River View is a high-end mixed-use development that redefines modern luxury living and shopping. Featuring inspired architecture and stylish interiors, the project combines super luxury residential units with a flagship shopping destination, designed for those seeking an elite lifestyle.\n\nStrategically positioned to leverage its river-view advantage, the development provides a scenic living experience while serving as a premium shopping hub. It integrates advanced security, premium finishes, and a community-focused design to offer a secure and sophisticated environment for both families and businesses.",
     "introduction": "Redefining Modern Luxury Living & Elite Shopping",
     "offerings": [

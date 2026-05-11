@@ -39,11 +39,12 @@
   },
   "detailsPage": {
     "heroImage": "/dt-images/dtcover.png",
-    "gallery": [
+    "heroThumbnails": [
       "/dt-images/dt-1.jpg",
       "/dt-images/dt-2.jpg",
       "/dt-images/dt-3.jpg"
     ],
+    "overviewImage": "/dt-images/dt-2.jpg",
     "fullDescription": "Dolphin Tower & Shopping Mall is a premier mixed-use landmark in Sukkur, integrating one of the city's first multi-brand shopping malls with high-end residential living. Developed by Dolphin Builders & Developers, the project offers a luxurious environment with modern commercial and residential facilities.\n\nStrategically located on Minara Road, it serves as a central hub for both business activity and urban living. The project is designed for both business growth and modern urban lifestyle, offering high visibility and attracting consistent footfall in an established commercial zone.",
     "introduction": "A Premier Mixed-Use Landmark Integrating Retail & Luxury Living",
     "offerings": [
@@ -97,6 +98,11 @@
     ],
     "galleryCategories": {
       "exterior": [
+        "/dt-images/dt-1.jpg",
+        "/dt-images/dt-2.jpg",
+        "/dt-images/dt-3.jpg"
+      ],
+      "interior": [
         "/dt-images/ext-1.jpg",
         "/dt-images/ext-2.jpg",
         "/dt-images/ext-3.jpg",
@@ -106,9 +112,7 @@
         "/dt-images/ext-7.jpg",
         "/dt-images/ext-8.jpg",
         "/dt-images/ext-9.jpg",
-        "/dt-images/ext-10.jpg"
-      ],
-      "interior": [
+        "/dt-images/ext-10.jpg",
         "/dt-images/apt_1.jpg",
         "/dt-images/apt_1_1.jpg",
         "/dt-images/int-1.jpg",

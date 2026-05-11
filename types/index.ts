@@ -47,6 +47,8 @@ export interface Project {
     offerings?: { icon: string; label: string }[];
     amenities: Amenity[];
     unitTypes: UnitSize[];
+    heroThumbnails?: string[];
+    overviewImage?: string;
     galleryCategories: {
       exterior: string[];
       interior: string[];

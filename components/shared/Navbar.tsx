@@ -253,7 +253,7 @@ export function Navbar() {
                   ))}
                 </nav>
 
-                <div className="mt-auto p-8 border-t border-black/5 flex flex-col gap-6">
+                <div className="mt-auto p-8 pb-12 border-t border-black/5 flex flex-col gap-6">
                   <Link
                     href="/contact"
                     prefetch={false}

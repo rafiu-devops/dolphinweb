@@ -220,25 +220,53 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
             <p className="tactical-label text-white/60">Structured Development Lifecycle</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-5 gap-8"
+          >
             {approachSteps.map((step, idx) => (
               <motion.div
                 key={idx}
-                {...fadeInUp}
-                transition={{ delay: idx * 0.1 }}
+                variants={fadeInUp}
                 className="relative space-y-6"
               >
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full border border-brand-blue flex items-center justify-center text-brand-blue font-black italic">0{idx + 1}</div>
-                  {idx < 4 && <div className="hidden md:block h-[2px] flex-grow bg-brand-blue shadow-[0_0_10px_rgba(90,161,255,0.5)]" />}
+                  <motion.div 
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: idx * 0.2 }}
+                    className="w-12 h-12 rounded-full border-2 border-brand-blue flex items-center justify-center text-brand-blue font-black italic shadow-glow-sm shrink-0"
+                  >
+                    0{idx + 1}
+                  </motion.div>
+                  {idx < 4 && (
+                    <motion.div 
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: (idx * 0.2) + 0.3, ease: [0.16, 1, 0.3, 1] }}
+                      style={{ originX: 0 }}
+                      className="hidden md:block h-[2px] flex-grow bg-gradient-to-r from-brand-blue to-brand-blue/20 shadow-[0_0_15px_rgba(90,161,255,0.6)]" 
+                    />
+                  )}
                 </div>
-                <div className="space-y-3">
+                <motion.div 
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: (idx * 0.2) + 0.1 }}
+                  className="space-y-3"
+                >
                   <h4 className="text-lg font-black uppercase italic tracking-tight text-white">{step.title}</h4>
-                  <p className="tactical-description text-white/60 text-xs">{step.desc}</p>
-                </div>
+                  <p className="tactical-description text-white/60 text-[11px] leading-relaxed">{step.desc}</p>
+                </motion.div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -305,7 +333,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="bg-brand-blue rounded-[4rem] p-16 md:p-32 shadow-[0_30px_90px_rgba(90,161,255,0.25)] relative overflow-hidden group text-center"
+          className="bg-brand-blue rounded-[3rem] md:rounded-[4rem] p-12 md:py-24 md:px-20 shadow-[0_30px_90px_rgba(90,161,255,0.25)] relative overflow-hidden group text-center"
         >
           <div className="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2" />
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-black/10 rounded-full blur-[100px] translate-x-1/2 translate-y-1/2" />
