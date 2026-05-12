@@ -69,16 +69,16 @@ export function ProjectCard({ project, className, onEnquire }: ProjectCardProps)
         {/* Subtle Background Icon removed */}
 
         <div className="space-y-2">
-          <h3 className="text-2xl font-black uppercase tracking-tighter italic text-foreground group-hover:text-brand-blue transition-colors duration-500">
+          <h3 className="font-heading text-3xl font-normal uppercase italic tracking-wider text-foreground group-hover:text-brand-blue transition-colors duration-500 leading-none">
             {project.name}
           </h3>
-          <div className="flex items-center gap-2 tactical-label text-muted-foreground/80">
+          <div className="flex items-center gap-2 font-heading text-[14px] uppercase tracking-widest text-brand-blue/80">
             <MapPin size={12} className="text-brand-blue" />
             <span>{project.location}</span>
           </div>
         </div>
 
-        <p className="text-sm text-muted-foreground leading-relaxed font-medium flex-grow">
+        <p className="font-sans text-[16px] text-[--muted] leading-relaxed font-medium flex-grow">
           {project.projectCard?.shortDescription}
         </p>
 
@@ -92,9 +92,9 @@ export function ProjectCard({ project, className, onEnquire }: ProjectCardProps)
             prefetch={false}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-[1.2] btn-brand py-2 md:py-2.5 tactical-label shadow-[0_0_20px_rgba(90,161,255,0.15)] group-hover:shadow-[0_0_30px_rgba(90,161,255,0.3)] transition-all text-[9px] md:text-[10px] whitespace-nowrap flex items-center justify-center gap-1"
+            className="flex-[1.2] btn-brand py-2.5 md:py-3.5 shadow-[0_10px_30px_rgba(90,161,255,0.2)] group-hover:shadow-[0_15px_40px_rgba(90,161,255,0.35)] transition-all flex items-center justify-center gap-2"
           >
-            View Details <ArrowRight size={11} />
+            View Details <ArrowRight size={14} />
           </Link>
           <button 
             suppressHydrationWarning
@@ -103,7 +103,7 @@ export function ProjectCard({ project, className, onEnquire }: ProjectCardProps)
               e.stopPropagation();
               onEnquire?.(project);
             }}
-            className="flex-1 bg-muted/10 border border-border/40 text-muted-foreground hover:text-foreground hover:bg-muted/20 hover:border-brand-blue/30 transition-all py-2 md:py-2.5 rounded-lg tactical-label text-[9px] md:text-[10px] whitespace-nowrap"
+            className="flex-1 bg-muted/10 border border-border/40 text-[--muted] hover:text-black hover:bg-muted/20 hover:border-brand-blue/30 transition-all py-2.5 md:py-3.5 rounded-lg font-sans text-[11px] font-semibold uppercase tracking-[0.15em] whitespace-nowrap"
           >
             Contact Us
           </button>

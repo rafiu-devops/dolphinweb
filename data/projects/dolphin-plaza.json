@@ -10,7 +10,7 @@
     "images": [
       "/dp-images/dpcover.png"
     ],
-    "tagline": "Premium Mixed-Use Development"
+    "tagline": "Premium Commercial Development"
   },
   "projectCard": {
     "images": [
@@ -18,29 +18,26 @@
     ],
     "badges": [
       "Under Construction",
-      "Mixed-Use"
+      "Commercial Hub"
     ],
-    "shortDescription": "A 10-story modern high-rise offering luxury apartments and prime commercial shops on Race Course Road, Sukkur."
+    "shortDescription": "A 10-story modern high-rise offering prime commercial shops and executive business spaces on Race Course Road, Sukkur."
   },
   "detailsPage": {
     "heroImage": "/dp-images/dpcover.png",
-    "gallery": [
-      "/dp-images/dpcover.png"
-    ],
     "heroThumbnails": [
-      "/dp-images/dpcover.png"
+      "/dp-images/dpcover.png",
+      "/dp-images/ext/1.webp",
+      "/dp-images/ext/2.webp",
+      "/dp-images/ext/3.webp"
     ],
     "overviewImage": "/dp-images/dpcover.png",
-    "fullDescription": "Dolphin Plaza is a prestigious mixed-use development in Sukkur, designed to combine luxury residential living, modern commercial opportunities, and premium lifestyle experiences within a contemporary architectural environment.\n\nDeveloped with a focus on sophistication, comfort, and long-term value, the project features a modern 10-story structure offering both elegant residential spaces and prime commercial frontage. The development is thoughtfully planned to provide a peaceful and refined lifestyle through privacy-focused residential layouts, integrated greenery across balconies and rooftop areas, and a visually modern urban atmosphere.\n\nPositioned in a strategic location, Dolphin Plaza is designed to serve as both a vibrant commercial destination and a strong long-term investment opportunity. Beyond infrastructure, Dolphin Plaza represents a growing community built around modern living, accessibility, and future-focused development standards, creating a destination where residential comfort and commercial activity coexist seamlessly.",
-    "introduction": "Luxury Residential Living & Commercial Opportunities",
+    "fullDescription": "Dolphin Plaza is a prestigious commercial development in Sukkur, designed to combine modern business opportunities and premium corporate experiences within a contemporary architectural environment.\n\nDeveloped with a focus on sophistication, utility, and long-term value, the project features a modern 10-story structure offering prime commercial frontage and high-end business sectors. The development is thoughtfully planned to provide a vibrant commercial atmosphere through open-plan layouts, integrated modern facilities, and a visually striking urban presence.\n\nPositioned in a strategic location, Dolphin Plaza is designed to serve as a premier commercial destination and a high-yield investment opportunity. Beyond infrastructure, Dolphin Plaza represents a growing business hub built around modern operational standards, accessibility, and future-focused growth, creating a destination where commercial activity and corporate excellence coexist seamlessly.",
+    "introduction": "Premier Commercial & Corporate Opportunities",
     "offerings": [
       {
-        "icon": "Home",
-        "label": "Luxury Apartments (1,400 - 2,100 sq. ft.)"
-      },
-      {
-        "icon": "Tag",
-        "label": "Commercial Shops"
+        "icon": "Building",
+        "label": "Commercial & Corporate Hub",
+        "description": "Modern commercial shops and executive corporate offices designed for high utility and maximum visibility. Strategically located to provide premium business opportunities and long-term growth for your investment. This 10-story high-rise is the perfect destination for businesses looking for a prime location in Sukkur."
       }
     ],
     "amenities": [
@@ -59,33 +56,33 @@
     ],
     "unitTypes": [
       {
-        "type": "Luxury Apartments",
-        "size": "1,400 - 2,100 sq. ft.",
-        "price": "Starting from 168 Lacs"
-      },
-      {
         "type": "Commercial Shops",
         "size": "Investment Friendly",
         "price": "Starting from 30 Lacs"
+      },
+      {
+        "type": "Corporate Spaces",
+        "size": "Customizable Layouts",
+        "price": "Contact for Details"
       }
     ],
     "galleryCategories": {
       "exterior": [
-        "/dp-images/dpcover.png",
-        "/dp-images/dp-1.jpg"
+        "/dp-images/ext/1.webp",
+        "/dp-images/ext/2.webp",
+        "/dp-images/ext/3.webp",
+        "/dp-images/ext/4.webp",
+        "/dp-images/ext/5.webp",
+        "/dp-images/ext/6.webp"
       ],
       "interior": [],
-      "layouts": [
-        "/dp-images/lay-1.jpg",
-        "/dp-images/lay-2.jpg",
-        "/dp-images/lay-3.jpg"
-      ]
+      "layouts": []
     },
     "specifications": {
       "floors": "10 Floors",
       "totalUnits": "Mixed Inventory",
       "totalArea": "Race Course Road",
-      "projectType": "Mixed-use (Residential + Commercial)",
+      "projectType": "Commercial & Corporate Hub",
       "completionYear": "2027"
     },
     "features": [
@@ -96,8 +93,8 @@
     ],
     "investmentBenefits": [
       "Booking starts from 10%",
-      "3-year installment plan (Apartments)",
       "2-year installment plan (Shops)",
+      "High Rental Yield Potential",
       "Strong long-term investment opportunity"
     ],
     "landmarks": [

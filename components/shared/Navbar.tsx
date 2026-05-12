@@ -28,12 +28,12 @@ function BrandLogo({ height = 88, mobileHeight = 48, theme = "dark" }: { height?
       </div>
       <div className="flex flex-col">
         <span className={cn(
-          "text-xl sm:text-xl md:text-[24px] font-bold tracking-tight leading-none group-hover:text-brand-blue transition-colors whitespace-nowrap",
+          "font-heading text-2xl sm:text-2xl md:text-[32px] tracking-widest leading-none group-hover:text-brand-blue transition-colors whitespace-nowrap",
           theme === "dark" ? "text-white" : "text-black"
         )}>
           Dolphin Builders
         </span>
-        <span className="tactical-label text-[11px] sm:text-[12px] text-brand-blue mt-1 whitespace-nowrap">
+        <span className="font-heading text-[13px] sm:text-[14px] tracking-[0.2em] text-brand-blue mt-1 whitespace-nowrap uppercase">
           & Developers
         </span>
       </div>
@@ -125,10 +125,10 @@ export function Navbar() {
                     onMouseEnter={() => setHoveredPath(link.href)}
                     onMouseLeave={() => setHoveredPath(null)}
                     className={cn(
-                      "px-4 py-2.5 tactical-label text-[13px] rounded-2xl transition-all duration-300 relative flex items-center gap-1.5",
+                      "px-5 py-3 font-sans text-[17px] font-semibold rounded-2xl transition-all duration-300 relative flex items-center gap-2",
                       (hoveredPath === link.href || (!hoveredPath && pathname === link.href))
                         ? "text-white"
-                        : activeTheme === "light" ? "text-black/70" : "text-white/70"
+                        : activeTheme === "light" ? "text-[#111]" : "text-white"
                     )}
                   >
                     <span className="relative z-10">{link.name}</span>
@@ -166,7 +166,7 @@ export function Navbar() {
                                 <div className="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-black transition-all">
                                   <item.icon size={18} />
                                 </div>
-                                <span className="text-[13px] font-bold text-black/80 group-hover:text-black transition-colors">{item.name}</span>
+                                <span className="font-heading text-[15px] font-bold text-black/80 group-hover:text-black transition-colors">{item.name}</span>
                               </div>
                               <ChevronRight size={16} className="text-black/20 group-hover:text-brand-blue group-hover:translate-x-1 transition-all" />
                             </Link>
@@ -182,7 +182,7 @@ export function Navbar() {
             <Link
               href="/contact"
               prefetch={false}
-              className="bg-brand-blue text-white px-6 py-3 tactical-label text-[12px] rounded-xl transition-all hover:bg-black hover:shadow-xl hover:-translate-y-1 active:translate-y-0 whitespace-nowrap"
+              className="bg-brand-blue text-black px-8 py-3.5 font-sans text-[16px] font-bold uppercase tracking-[0.2em] rounded-xl transition-all hover:bg-black hover:text-white hover:shadow-xl hover:-translate-y-1 active:translate-y-0 whitespace-nowrap"
             >
               Contact Us
             </Link>
@@ -238,17 +238,15 @@ export function Navbar() {
                         href={link.href}
                         prefetch={false}
                         className={cn(
-                          "flex items-center justify-between px-6 py-5 rounded-2xl tactical-label text-[14px] transition-all",
+                          "flex items-center justify-between px-8 py-6 rounded-2xl font-heading text-[22px] font-normal transition-all",
                           pathname === link.href
-                            ? "text-brand-blue bg-brand-blue/5 border border-brand-blue/20"
-                            : "text-[#373635] hover:text-brand-blue hover:bg-brand-blue/[0.04]"
+                            ? "text-brand-blue bg-brand-blue/5 border border-brand-blue/30"
+                            : "text-[#111] hover:text-brand-blue hover:bg-brand-blue/[0.04]"
                         )}
                       >
                         {link.name}
-                        <ChevronRight size={18} className={cn("opacity-40", pathname === link.href && "opacity-100")} />
+                        <ChevronRight size={22} className={cn("opacity-40", pathname === link.href && "opacity-100")} />
                       </Link>
-
-
                     </div>
                   ))}
                 </nav>
@@ -257,7 +255,7 @@ export function Navbar() {
                   <Link
                     href="/contact"
                     prefetch={false}
-                    className="w-full bg-brand-blue text-white py-5 rounded-2xl text-center text-[15px] font-bold uppercase tracking-[0.1em] shadow-xl hover:bg-black transition-colors"
+                    className="w-full bg-brand-blue text-black py-5 rounded-2xl text-center font-sans text-[16px] font-semibold uppercase tracking-[0.15em] shadow-xl hover:bg-black hover:text-white transition-colors"
                   >
                     Contact Us
                   </Link>

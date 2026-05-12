@@ -82,12 +82,32 @@
     ],
     "galleryCategories": {
       "exterior": [
+        "/dc-images/ext/1.webp",
+        "/dc-images/ext/2.webp",
+        "/dc-images/ext/3.webp",
+        "/dc-images/ext/5.webp",
+        "/dc-images/ext/6.webp",
+        "/dc-images/ext/7.webp",
+        "/dc-images/ext/8.webp",
+        "/dc-images/ext/9.webp",
+        "/dc-images/ext/10.webp",
+        "/dc-images/ext/11.webp",
+        "/dc-images/ext/12.webp",
+        "/dc-images/ext/14.webp",
+        "/dc-images/ext/15.webp",
+        "/dc-images/ext/16.webp",
+        "/dc-images/ext/17.webp",
+        "/dc-images/ext/18.webp",
+        "/dc-images/ext/19.webp",
+        "/dc-images/ext/20.webp",
+        "/dc-images/ext/21.webp",
+        "/dc-images/ext/22.webp"
+      ],
+      "interior": [
         "/dc-images/ext-1-1.jpg",
         "/dc-images/ext-2.jpg",
         "/dc-images/ext-3.jpg",
-        "/dc-images/ext-4.jpg"
-      ],
-      "interior": [
+        "/dc-images/ext-4.jpg",
         "/dc-images/int-1.jpg",
         "/dc-images/int-2.jpg",
         "/dc-images/int-3.jpg",

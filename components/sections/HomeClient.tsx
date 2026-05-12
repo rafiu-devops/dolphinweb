@@ -192,14 +192,14 @@ export default function HomeClient({
           >
             {/* Branding Text - Left Aligned */}
             <div className="max-w-4xl text-left space-y-4 md:space-y-8">
-              <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-brand-blue/80 backdrop-blur-md text-black shadow-[0_0_20px_rgba(90,161,255,0.2)]">
-                <div className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
-                <span className="text-[10px] md:tactical-label font-black uppercase tracking-widest">Premium Asset Management</span>
+              <div className="inline-flex items-center gap-3 px-8 py-3 rounded-full bg-brand-blue backdrop-blur-md text-black shadow-[0_15px_35px_rgba(90,161,255,0.4)] border border-white/30">
+                <div className="w-2.5 h-2.5 rounded-full bg-black animate-pulse" />
+                <span className="font-sans text-[13px] md:text-[14px] font-bold uppercase tracking-[0.2em]">Premium Asset Management</span>
               </div>
 
-              <h1 className="text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase leading-[0.9] italic drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-normal tracking-wider uppercase leading-[0.9] italic drop-shadow-[0_15px_45px_rgba(0,0,0,0.6)]">
                 <span className="text-white block">Dolphin Builder's </span>
-                <span className="text-brand-blue text-glow-blue block">&  Developer's</span>
+                <span className="text-brand-blue text-glow block">& Developer's</span>
               </h1>
 
 
@@ -209,7 +209,7 @@ export default function HomeClient({
                     href="/projects"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-brand bg-brand-blue/80 backdrop-blur-md px-6 md:px-10 py-3 md:py-5 text-[11px] md:text-[13px] border-2 border-transparent shadow-[0_0_30px_rgba(90,161,255,0.3)] w-full block text-center"
+                    className="btn-brand px-10 md:px-14 py-4 md:py-6 shadow-[0_15px_35px_rgba(90,161,255,0.4)] w-full block text-center"
                   >
                     View Projects
                   </Link>
@@ -219,7 +219,7 @@ export default function HomeClient({
                     href="/contact"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-6 md:px-10 py-3 md:py-5 text-[11px] md:text-[13px] border-2 border-white/20 hover:border-brand-blue hover:text-brand-blue transition-all rounded-xl font-black uppercase tracking-widest backdrop-blur-md bg-white/5 text-white w-full block text-center"
+                    className="px-10 md:px-14 py-4 md:py-6 text-[12px] md:text-[13px] border-2 border-white/30 hover:bg-white hover:text-black transition-all rounded-xl font-sans font-semibold uppercase tracking-[0.2em] backdrop-blur-md bg-white/10 text-white w-full block text-center"
                   >
                     Contact Us
                   </Link>
@@ -236,8 +236,8 @@ export default function HomeClient({
           transition={{ delay: 2, duration: 1 }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 hidden md:flex"
         >
-          <span className="tactical-label text-muted-foreground/60">Scroll for more</span>
-          <div className="w-[1px] h-16 bg-gradient-to-b from-brand-blue to-transparent" />
+          <span className="font-heading text-[16px] tracking-[0.3em] uppercase text-white/50">Scroll for more</span>
+          <div className="w-[1px] h-20 bg-gradient-to-b from-brand-blue to-transparent" />
         </motion.div>
       </section>
 
@@ -250,17 +250,17 @@ export default function HomeClient({
           <div className="space-y-6">
             <h2 className="section-heading">Featured Projects</h2>
             <p className="tactical-description max-w-xl">
-              Our current standout developments across prime urban Quick Links. Exceptional precision in every masterplan.
+              Our current standout developments across prime urban locations. Exceptional precision in every masterplan.
             </p>
           </div>
           <Link
             href="/projects"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-6 bg-brand-blue text-white px-10 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-[12px] hover:bg-black hover:shadow-[0_10px_40px_rgba(90,161,255,0.3)] transition-all hover:-translate-y-1 active:scale-95 shadow-xl"
+            className="group inline-flex items-center gap-6 bg-brand-blue text-black px-10 py-5 rounded-2xl font-sans font-semibold uppercase tracking-[0.2em] text-[12px] hover:bg-black hover:text-white hover:shadow-[0_15px_45px_rgba(0,0,0,0.3)] transition-all hover:-translate-y-1 active:scale-95 shadow-xl border border-white/10"
           >
             Browse All Projects
-            <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-brand-blue group-hover:text-black transition-all">
+            <div className="w-10 h-10 rounded-full bg-black/10 flex items-center justify-center group-hover:bg-brand-blue group-hover:text-black transition-all">
               <ArrowRight size={16} />
             </div>
           </Link>
@@ -285,7 +285,7 @@ export default function HomeClient({
               >
                 {/* Large Background Index - Side-Centered Positioning */}
                 <div className={cn(
-                  "hidden md:block absolute top-1/2 -translate-y-1/2 opacity-[0.08] text-black text-[9rem] md:text-[13rem] font-black italic select-none pointer-events-none transition-all duration-1000 group-hover:opacity-[0.12] z-0 will-change-transform",
+                  "hidden md:block absolute top-1/2 -translate-y-1/2 opacity-[0.15] text-black text-[12rem] md:text-[20rem] font-heading italic select-none pointer-events-none transition-all duration-1000 group-hover:opacity-[0.2] z-0 will-change-transform tracking-tighter",
                   isLeft ? "left-[18%] -translate-x-1/2" : "left-[82%] -translate-x-1/2"
                 )}>
                   {projectNumber}
@@ -305,7 +305,7 @@ export default function HomeClient({
 
                     {/* Mobile-Only Project Number Tag (Circular Messenger Style - Partially Outside) */}
                     <div className="md:hidden absolute -top-5 -right-5 z-[70] pointer-events-none">
-                      <div className="w-14 h-14 bg-brand-blue text-black rounded-full font-black italic text-xl shadow-[0_10px_30px_rgba(90,161,255,0.4)] flex items-center justify-center border-4 border-white dark:border-background">
+                      <div className="w-14 h-14 bg-brand-blue text-black rounded-full font-heading italic text-2xl shadow-[0_10px_30px_rgba(90,161,255,0.4)] flex items-center justify-center border-4 border-white dark:border-background">
                         {projectNumber}
                       </div>
                     </div>
@@ -329,12 +329,12 @@ export default function HomeClient({
                         {/* Header HUD - Solid Visibility */}
                         <div className="flex flex-col sm:flex-row justify-between items-start gap-4 sm:gap-0">
                           <div className="space-y-3 sm:space-y-4">
-                            <h3 className="text-xl sm:text-4xl md:text-6xl font-black text-white uppercase italic tracking-tighter leading-tight sm:leading-[0.85] drop-shadow-[0_10px_40px_rgba(0,0,0,1)] max-w-2xl">
+                            <h3 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-normal text-white uppercase italic tracking-wider leading-[1.1] drop-shadow-[0_15px_45px_rgba(0,0,0,0.8)] max-w-xl">
                               {project.name}
                             </h3>
-                            <div className="flex items-center gap-2 md:gap-4 bg-black/60 backdrop-blur-md px-3 md:px-4 py-1.5 rounded-lg w-fit border border-white/5">
-                              <MapPin size={14} className="text-brand-blue" />
-                              <span className="text-[11px] sm:text-[12px] md:tactical-label text-white/90 italic">{project.location}</span>
+                             <div className="flex items-center gap-2 md:gap-4 bg-black/80 backdrop-blur-xl px-6 py-2.5 rounded-xl w-fit border border-white/20 shadow-4xl">
+                              <MapPin size={16} className="text-brand-blue" />
+                              <span className="font-sans text-[14px] md:text-[16px] font-semibold text-white uppercase tracking-[0.15em]">{project.location}</span>
                             </div>
                           </div>
 
@@ -369,7 +369,7 @@ export default function HomeClient({
                             <button
                               suppressHydrationWarning
                               onClick={() => handleEnquire(project)}
-                              className="px-6 md:px-10 py-3 md:py-4 bg-white text-black text-[10px] md:text-[11px] font-black uppercase tracking-widest rounded-xl hover:bg-brand-blue transition-all flex-1"
+                              className="px-6 md:px-10 py-3 md:py-4 bg-white text-black text-[10px] md:text-[11px] font-sans font-semibold uppercase tracking-[0.2em] rounded-xl hover:bg-brand-blue transition-all flex-1"
                             >
                               Contact Us
                             </button>
@@ -443,8 +443,8 @@ export default function HomeClient({
                     <item.icon size={24} />
                   </motion.div>
                 </div>
-                <h3 className="text-lg font-black uppercase tracking-tight italic mb-3 text-foreground leading-tight">{item.title}</h3>
-                <p className="text-[13px] text-muted-foreground leading-relaxed font-medium line-clamp-4">{item.desc}</p>
+                <h3 className="text-2xl font-heading font-normal uppercase tracking-wider italic mb-4 text-foreground leading-tight">{item.title}</h3>
+                <p className="text-[14px] text-[--muted] leading-relaxed font-medium line-clamp-4">{item.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -462,12 +462,12 @@ export default function HomeClient({
                 className="flex items-center gap-10 pr-10"
               >
                 {[...Array(4)].map((_, i) => (
-                  <p key={i} className="text-[20px] md:text-[48px] font-black uppercase tracking-[0.3em] text-foreground/80 italic leading-none flex items-center gap-10">
+                  <p key={i} className="text-[24px] md:text-[56px] font-heading font-normal uppercase tracking-[0.2em] text-foreground/80 italic leading-none flex items-center gap-12">
                     Serving premium locations across Karachi with
-                    <span className="text-brand-blue font-black italic underline decoration-brand-blue/30 underline-offset-[15px]">
+                    <span className="text-brand-blue italic underline decoration-brand-blue/30 underline-offset-[20px]">
                       trusted developments
                     </span>
-                    <span className="w-3 h-3 md:w-5 md:h-5 bg-brand-blue/30 rounded-full rotate-45" />
+                    <span className="w-4 h-4 md:w-6 md:h-6 bg-brand-blue/30 rounded-full rotate-45" />
                   </p>
                 ))}
               </motion.div>
@@ -494,11 +494,11 @@ export default function HomeClient({
         <div className="container mx-auto px-6 relative z-10">
           {/* Centered Single-Line Heading */}
           <motion.div {...fadeInUp} className="text-center mb-32 md:mb-48">
-            <h2 className="text-4xl md:text-8xl font-black uppercase italic tracking-tighter text-black leading-none flex flex-wrap justify-center gap-x-4 md:gap-x-8">
+            <h2 className="font-heading text-6xl md:text-[140px] font-normal uppercase italic tracking-widest text-black leading-none flex flex-wrap justify-center gap-x-8 md:gap-x-16">
               <span>Development</span>
-              <span className="text-brand-blue text-glow-blue underline decoration-brand-blue/20 underline-offset-[10px] md:underline-offset-[15px]">Journey</span>
+              <span className="text-brand-blue text-glow underline decoration-brand-blue/20 underline-offset-[20px] md:underline-offset-[40px]">Journey</span>
             </h2>
-            <p className="tactical-label text-brand-blue/80 mt-10 uppercase tracking-[0.3em]">Strategic Project Lifecycle</p>
+            <p className="font-heading text-[20px] md:text-[28px] text-brand-blue/80 mt-16 uppercase tracking-[0.5em]">Strategic Project Lifecycle</p>
           </motion.div>
 
           <div className="relative max-w-7xl mx-auto">
@@ -518,16 +518,16 @@ export default function HomeClient({
                   {/* Left: Description Content Panel */}
                   <div className="space-y-6 order-2 lg:order-none lg:text-left lg:items-start">
                     <div className="flex flex-col gap-4 items-start">
-                      <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-[10px] font-black uppercase tracking-[0.3em]">
-                        <span className="w-1.5 h-1.5 rounded-full bg-brand-blue animate-pulse" />
+                      <div className="inline-flex items-center gap-4 px-6 py-2.5 rounded-full bg-brand-blue/10 border border-brand-blue/30 text-brand-blue text-[13px] md:text-[15px] font-bold uppercase tracking-[0.3em]">
+                        <span className="w-2 h-2 rounded-full bg-brand-blue animate-pulse" />
                         {step.subtitle}
                       </div>
-                      <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-black leading-tight">
+                      <h3 className="font-heading text-4xl md:text-6xl font-normal uppercase tracking-wider text-black leading-tight">
                         {step.title}
                       </h3>
                     </div>
 
-                    <p className="text-base md:text-lg text-muted-foreground leading-relaxed font-medium italic max-w-lg border-l-2 border-brand-blue/20 pl-6">
+                    <p className="text-base md:text-lg text-[--muted] leading-relaxed font-medium max-w-lg border-l-2 border-brand-blue/30 pl-6">
                       {step.desc}
                     </p>
 
@@ -542,12 +542,12 @@ export default function HomeClient({
                       
                       <div className="relative z-10 space-y-5">
                         <div className="flex items-center gap-4">
-                          <span className="text-[11px] md:text-[12px] font-black italic tracking-[0.3em] text-brand-blue">
+                          <span className="text-[13px] md:text-[15px] font-heading font-normal tracking-[0.3em] text-brand-blue">
                             PHASE 0{idx + 1}
                           </span>
                           <div className="h-[1px] w-10 bg-brand-blue/20" />
                         </div>
-                        <h4 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter text-black leading-[0.9] break-words">
+                        <h4 className="font-heading text-3xl md:text-5xl font-normal uppercase italic tracking-tight text-black leading-[0.9]">
                           {step.title}
                         </h4>
                         
@@ -605,7 +605,7 @@ export default function HomeClient({
                     <Star size={14} fill="currentColor" />
                   </div>
                   <div className="space-y-0.5">
-                    <h4 className="text-[14px] md:text-[15px] font-black text-foreground uppercase italic tracking-tight">
+                    <h4 className="font-heading text-[18px] md:text-[22px] font-normal text-foreground uppercase italic tracking-tight">
                       {t.name}
                     </h4>
                     <p className="text-[10px] tactical-label text-brand-blue/70">
@@ -635,11 +635,11 @@ export default function HomeClient({
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="space-y-6 md:space-y-8 text-center lg:text-left">
-              <h2 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter italic leading-tight text-white/30">
+              <h2 className="font-heading text-5xl sm:text-7xl md:text-9xl font-normal uppercase tracking-wider italic leading-tight text-white/20">
                 Secure Your <br />
-                <span className="text-white drop-shadow-2xl">Future</span>
+                <span className="text-white drop-shadow-4xl">Future</span>
               </h2>
-              <p className="text-lg md:text-2xl font-black text-black/60 uppercase tracking-widest leading-relaxed">
+              <p className="font-sans text-lg md:text-2xl font-bold text-black/80 uppercase tracking-[0.2em] leading-relaxed">
                 Contact our expert team to secure your residential property today.
               </p>
             </div>
@@ -650,10 +650,10 @@ export default function HomeClient({
               <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
               <div className="space-y-4 mb-12 text-center lg:text-left">
-                <h4 className="text-2xl md:text-3xl font-black text-black italic uppercase tracking-tighter leading-none">
+                <h4 className="font-heading text-3xl md:text-5xl font-normal text-black italic uppercase tracking-wider leading-none">
                   Quick <span className="text-brand-blue">Contact</span>
                 </h4>
-                <p className="text-[11px] font-black uppercase tracking-[0.2em] text-gray-400">Operational response within 24 tactical hours.</p>
+                <p className="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-[--muted]">Operational response within 24 tactical hours.</p>
               </div>
 
               <AnimatePresence mode="wait">
@@ -676,7 +676,7 @@ export default function HomeClient({
                   <form onSubmit={handleExpressSubmit} className="space-y-6">
                     <div className="space-y-6">
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black uppercase tracking-widest text-black/40 ml-4">Identity</label>
+                        <label className="font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-[--muted] ml-4">Name</label>
                         <input
                           required
                           suppressHydrationWarning
@@ -684,12 +684,12 @@ export default function HomeClient({
                           placeholder="YOUR NAME"
                           value={expressFormData.name}
                           onChange={(e) => setExpressFormData({ ...expressFormData, name: e.target.value })}
-                          className="w-full bg-gray-50 border border-gray-200 p-5 rounded-2xl text-black text-[12px] font-bold tracking-widest focus:ring-1 focus:ring-brand-blue focus:border-brand-blue outline-none placeholder:text-black/20 transition-all"
+                          className="w-full bg-gray-50 border border-gray-200 p-5 rounded-2xl text-black font-sans text-[14px] font-semibold tracking-wider focus:ring-1 focus:ring-brand-blue focus:border-brand-blue outline-none placeholder:text-black/20 transition-all shadow-sm"
                         />
                       </div>
 
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black uppercase tracking-widest text-black/40 ml-4">Secure Email</label>
+                        <label className="font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-[--muted] ml-4">Email</label>
                         <input
                           required
                           suppressHydrationWarning
@@ -697,19 +697,19 @@ export default function HomeClient({
                           placeholder="EMAIL ADDRESS"
                           value={expressFormData.email}
                           onChange={(e) => setExpressFormData({ ...expressFormData, email: e.target.value })}
-                          className="w-full bg-gray-50 border border-gray-200 p-5 rounded-2xl text-black text-[12px] font-bold tracking-widest focus:ring-1 focus:ring-brand-blue focus:border-brand-blue outline-none placeholder:text-black/20 transition-all"
+                          className="w-full bg-gray-50 border border-gray-200 p-5 rounded-2xl text-black font-sans text-[14px] font-semibold tracking-wider focus:ring-1 focus:ring-brand-blue focus:border-brand-blue outline-none placeholder:text-black/20 transition-all shadow-sm"
                         />
                       </div>
 
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black uppercase tracking-widest text-black/40 ml-4">Tactical Number</label>
+                        <label className="font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-[--muted] ml-4">Phone / WhatsApp</label>
                         <input
                           suppressHydrationWarning
                           type="tel"
                           placeholder="PHONE / WHATSAPP"
                           value={expressFormData.phone}
                           onChange={(e) => setExpressFormData({ ...expressFormData, phone: e.target.value })}
-                          className="w-full bg-gray-50 border border-gray-200 p-5 rounded-2xl text-black text-[12px] font-bold tracking-widest focus:ring-1 focus:ring-brand-blue focus:border-brand-blue outline-none placeholder:text-black/20 transition-all"
+                          className="w-full bg-gray-50 border border-gray-200 p-5 rounded-2xl text-black font-sans text-[14px] font-semibold tracking-wider focus:ring-1 focus:ring-brand-blue focus:border-brand-blue outline-none placeholder:text-black/20 transition-all shadow-sm"
                         />
                       </div>
                     </div>
@@ -718,7 +718,7 @@ export default function HomeClient({
                       disabled={isExpressSubmitting}
                       suppressHydrationWarning
                       type="submit"
-                      className="w-full bg-brand-blue text-white py-6 rounded-2xl text-[13px] font-black uppercase tracking-[0.2em] flex items-center justify-center gap-3 hover:bg-black transition-all shadow-glow-sm disabled:opacity-50 mt-4 group/btn"
+                      className="w-full bg-brand-blue text-black py-6 rounded-2xl font-sans text-[14px] font-semibold uppercase tracking-[0.2em] flex items-center justify-center gap-3 hover:bg-black hover:text-white transition-all shadow-glow-sm disabled:opacity-50 mt-4 group/btn"
                     >
                       {isExpressSubmitting ? (
                         <>Processing... <Loader2 size={16} className="animate-spin" /></>

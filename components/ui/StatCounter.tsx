@@ -47,13 +47,13 @@ export function StatCounter({ value, label }: StatCounterProps) {
       <div className="absolute -right-4 -top-4 w-24 h-24 bg-brand-blue/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
       
       <div className="relative z-10 space-y-3 w-full">
-        <div className="flex items-baseline justify-center gap-0.5">
-          <motion.span className="text-5xl md:text-6xl font-black text-foreground italic tracking-tighter text-glow-blue">
+        <div className="flex items-baseline justify-center gap-1">
+          <motion.span className="text-6xl md:text-7xl font-heading font-normal text-foreground italic tracking-wider text-glow">
             {mounted ? displayValue : "0"}
           </motion.span>
-          <span className="text-3xl md:text-4xl font-black text-brand-blue italic">{suffix}</span>
+          <span className="text-4xl md:text-5xl font-heading font-normal text-brand-blue italic">{suffix}</span>
         </div>
-        <div className="text-[9px] md:text-[10px] font-black tracking-[0.25em] uppercase text-muted-foreground group-hover:text-brand-blue/80 transition-colors leading-relaxed px-2">
+        <div className="font-heading text-[13px] md:text-[15px] font-normal tracking-[0.2em] uppercase text-[--muted] group-hover:text-brand-blue transition-colors leading-tight px-4">
           {label}
         </div>
       </div>

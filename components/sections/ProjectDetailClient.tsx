@@ -45,7 +45,6 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [activeCategory, setActiveCategory] = useState<"exterior" | "interior" | "layouts">("exterior");
 
   const categories = useMemo(() => project.detailsPage.galleryCategories || {
     exterior: project.detailsPage.gallery || [],
@@ -54,9 +53,15 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
   }, [project]);
 
   const currentGalleryImages = useMemo(() => {
-    const raw = categories[activeCategory] || [];
-    return raw.filter((img): img is string => typeof img === 'string' && img.trim().length > 0);
-  }, [categories, activeCategory]);
+    const ext = categories.exterior || [];
+    const int = categories.interior || [];
+    const lay = categories.layouts || [];
+    const gal = project.detailsPage.gallery || [];
+    
+    // Combine all and remove duplicates
+    const all = Array.from(new Set([...ext, ...int, ...lay, ...gal]));
+    return all.filter((img): img is string => typeof img === 'string' && img.trim().length > 0);
+  }, [categories, project]);
   const [mounted, setMounted] = useState(false);
   const [selectedGalleryIndex, setSelectedGalleryIndex] = useState<number | null>(null);
 
@@ -279,25 +284,45 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
             <p className="tactical-label text-muted-foreground/80">Prime Location's Approved by government of sindh.</p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-8">
+          <div className={cn(
+            "flex flex-wrap justify-center gap-8",
+            project.detailsPage.offerings?.length === 1 ? "max-w-4xl mx-auto" : ""
+          )}>
             {(project.detailsPage.offerings || [
               { icon: "Building", label: "Corporate Offices" },
               { icon: "Tag", label: "Commercial Shops" },
               { icon: "Box", label: "Luxury Showrooms" },
               { icon: "Home", label: "Residential Suites" }
-            ]).map((offer, idx) => {
+            ]).map((offer: any, idx) => {
               const Icon = iconMap[offer.icon] || Building;
+              const isSingle = project.detailsPage.offerings?.length === 1;
               return (
                 <motion.div
                   key={idx}
                   whileHover={{ y: -10 }}
-                  className="w-full md:w-[calc(50%-2rem)] lg:w-[calc(25%-2rem)] min-w-[280px] p-8 sm:p-10 rounded-[2rem] sm:rounded-[2.5rem] bg-bg-card border border-border/40 text-center space-y-6 hover:border-brand-blue/40 transition-all group"
+                  className={cn(
+                    "rounded-[2rem] sm:rounded-[2.5rem] bg-bg-card border border-border/40 text-center space-y-6 hover:border-brand-blue/40 transition-all group p-8 sm:p-10",
+                    isSingle 
+                      ? "w-full md:p-16 border-2 border-brand-blue/20 bg-gradient-to-b from-brand-blue/[0.02] to-transparent shadow-2xl" 
+                      : "w-full md:w-[calc(50%-2rem)] lg:w-[calc(25%-2rem)] min-w-[280px]"
+                  )}
                 >
-                  <div className="w-20 h-20 bg-white border-2 border-black text-brand-blue rounded-3xl flex items-center justify-center mx-auto transition-all group-hover:bg-brand-blue group-hover:text-black shadow-lg">
-                    <Icon size={32} />
+                  <div className={cn(
+                    "bg-white border-2 border-black text-brand-blue rounded-3xl flex items-center justify-center mx-auto transition-all group-hover:bg-brand-blue group-hover:text-black shadow-lg",
+                    isSingle ? "w-24 h-24 mb-4" : "w-20 h-20"
+                  )}>
+                    <Icon size={isSingle ? 40 : 32} />
                   </div>
-                  <h3 className="text-xl font-black uppercase italic tracking-tight">{offer.label}</h3>
-                  <p className="tactical-description text-xs">Engineered for high utility and maximum commercial visibility.</p>
+                  <h3 className={cn(
+                    "font-black uppercase italic tracking-tight",
+                    isSingle ? "text-2xl sm:text-4xl" : "text-xl"
+                  )}>{offer.label}</h3>
+                  <p className={cn(
+                    "tactical-description mx-auto",
+                    isSingle ? "text-base sm:text-lg max-w-2xl opacity-80" : "text-xs"
+                  )}>
+                    {offer.description || "Engineered for high utility and maximum commercial visibility."}
+                  </p>
                 </motion.div>
               );
             })}
@@ -375,8 +400,6 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               { icon: Building, label: "Asset Type", value: project.detailsPage.specifications.projectType },
               { icon: Layers, label: "Structural Levels", value: project.detailsPage.specifications.floors || "N/A" },
               { icon: Box, label: "Inventory Count", value: project.detailsPage.specifications.totalUnits || "N/A" },
-              { icon: Calendar, label: "Deployment Year", value: project.detailsPage.specifications.completionYear || "N/A" },
-              { icon: Ruler, label: "Total Terrain", value: project.detailsPage.specifications.totalArea || "N/A" },
               { icon: Crosshair, label: "Current Status", value: project.status },
               { icon: Shield, label: "Compliance", value: "LDA/SDA Verified" },
               { icon: Globe, label: "Investment Tier", value: "Executive" },
@@ -460,7 +483,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                   <div className="flex items-center gap-6 group cursor-pointer" onClick={() => window.location.href = `tel:${project.detailsPage.projectContact?.phone}`}>
                     <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-brand-blue group-hover:text-black transition-all"><Phone size={20} /></div>
                     <div className="flex flex-col min-w-0">
-                      <span className="tactical-label text-white/60 whitespace-nowrap">Contact Hot-line</span>
+                      <span className="tactical-label text-white/60 whitespace-nowrap">Contact</span>
                       <span className="text-lg font-black tracking-widest whitespace-nowrap">{project.detailsPage.projectContact?.phone || "+92 347 0139661"}</span>
                     </div>
                   </div>
@@ -468,7 +491,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                     <div className="flex items-center gap-6 group cursor-pointer" onClick={() => window.location.href = `mailto:${project.detailsPage.projectContact?.email}`}>
                       <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-brand-blue group-hover:text-black transition-all"><Mail size={20} /></div>
                       <div className="flex flex-col min-w-0">
-                        <span className="tactical-label text-white/60 whitespace-nowrap">Transmission Email</span>
+                        <span className="tactical-label text-white/60 whitespace-nowrap">Email</span>
                         <span className="text-[10px] sm:text-xs md:text-sm font-black tracking-widest break-all">{project.detailsPage.projectContact?.email}</span>
                       </div>
                     </div>
@@ -483,7 +506,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                     >
                       <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-[#25D366] group-hover:text-white transition-all"><FaWhatsapp size={20} /></div>
                       <div className="flex flex-col min-w-0">
-                        <span className="tactical-label text-white/60 whitespace-nowrap">WhatsApp Sync</span>
+                        <span className="tactical-label text-white/60 whitespace-nowrap">WhatsApp</span>
                         <span className="text-lg font-black tracking-widest text-[#25D366] whitespace-nowrap">Chat Now</span>
                       </div>
                     </div>
@@ -498,7 +521,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                     >
                       <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-[#1877F2] group-hover:text-white transition-all"><FaFacebook size={20} /></div>
                       <div className="flex flex-col min-w-0">
-                        <span className="tactical-label text-white/60 whitespace-nowrap">Digital Hub</span>
+                        <span className="tactical-label text-white/60 whitespace-nowrap">Facebook</span>
                         <span className="text-lg font-black tracking-widest text-[#1877F2] whitespace-nowrap">Facebook Page</span>
                       </div>
                     </div>
@@ -545,7 +568,6 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               "Eco-Sustainable Architecture"
             ]).slice(0, 3).map((benefit, i) => (
               <div key={i} className="w-full md:w-[calc(50%-3rem)] lg:w-[calc(33.33%-3rem)] min-w-[300px] p-12 rounded-[3.5rem] bg-background border border-border/40 hover:border-brand-blue/40 transition-all group relative overflow-hidden">
-                <div className="absolute -top-10 -right-10 text-[10rem] font-black italic text-brand-blue/5 group-hover:text-brand-blue/10 transition-colors">{i + 1}</div>
                 <div className="relative z-10 space-y-6">
                   <div className="w-16 h-16 bg-brand-blue/10 text-brand-blue rounded-2xl flex items-center justify-center shadow-glow-sm"><TrendingUp size={32} /></div>
                   <h3 className="text-2xl font-black uppercase italic tracking-tighter leading-tight">{benefit}</h3>
@@ -561,24 +583,9 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
       <section className="py-32 bg-background">
         <div className="container mx-auto px-6 space-y-16">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="space-y-4">
-              <h2 className="section-heading"><span className="text-brand-blue">Gallery</span></h2>
-              <p className="tactical-label text-muted-foreground/80">Categorized Architectural Intelligence</p>
-            </div>
-
-            <div className="flex flex-wrap p-2 bg-bg-card border border-border/40 rounded-2xl md:rounded-3xl shadow-xl">
-              {(["exterior", "interior", "layouts"] as const).map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setActiveCategory(cat)}
-                  className={cn(
-                    "flex-1 px-4 md:px-10 py-3 md:py-4 rounded-xl md:rounded-2xl tactical-label transition-all text-[10px] md:text-[12px]",
-                    activeCategory === cat ? "bg-brand-blue text-white shadow-glow-sm" : "text-muted-foreground hover:text-foreground"
-                  )}
-                >
-                  {cat}
-                </button>
-              ))}
+            <div className="space-y-4 text-center md:text-left w-full">
+              <h2 className="section-heading"><span className="text-brand-blue">Project Gallery</span></h2>
+              <p className="tactical-label text-muted-foreground/80">Complete Architectural Visualization & Intelligence</p>
             </div>
           </div>
 
@@ -587,7 +594,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               {currentGalleryImages.length > 0 ? (
                 currentGalleryImages.map((img, idx) => (
                   <motion.div
-                    key={`${activeCategory}-${idx}`}
+                    key={`gal-${idx}`}
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
@@ -637,15 +644,15 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                   <form onSubmit={handleFormSubmit} className="space-y-6">
                     <div className="space-y-6">
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black uppercase tracking-widest text-white/70 ml-4">Identity</label>
+                        <label className="text-[10px] font-black uppercase tracking-widest text-white/70 ml-4">Name</label>
                         <input required type="text" placeholder="YOUR NAME" className="w-full bg-white/10 border border-white/20 p-5 rounded-2xl text-white font-bold tracking-widest focus:border-white outline-none transition-all placeholder:text-white/30" />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black uppercase tracking-widest text-white/70 ml-4">Secure Email</label>
+                        <label className="text-[10px] font-black uppercase tracking-widest text-white/70 ml-4">Email</label>
                         <input required type="email" placeholder="EMAIL ADDRESS" className="w-full bg-white/10 border border-white/20 p-5 rounded-2xl text-white font-bold tracking-widest focus:border-white outline-none transition-all placeholder:text-white/30" />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black uppercase tracking-widest text-white/70 ml-4">Tactical Number</label>
+                        <label className="text-[10px] font-black uppercase tracking-widest text-white/70 ml-4">Phone / WhatsApp</label>
                         <input required type="tel" placeholder="PHONE / WHATSAPP" className="w-full bg-white/10 border border-white/20 p-5 rounded-2xl text-white font-bold tracking-widest focus:border-white outline-none transition-all placeholder:text-white/30" />
                       </div>
                     </div>
@@ -674,7 +681,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
             <div className="absolute top-0 left-0 right-0 p-6 md:p-10 flex items-center justify-between z-[110] pointer-events-none">
               <div className="bg-black/20 backdrop-blur-xl border border-white/10 px-6 py-3 rounded-2xl pointer-events-auto">
                 <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-white/60">
-                  Sector: <span className="text-brand-blue">{activeCategory}</span> — Image <span className="text-white">{selectedGalleryIndex + 1} / {currentGalleryImages.length}</span>
+                  Sector: <span className="text-brand-blue">All Visuals</span> — Image <span className="text-white">{selectedGalleryIndex + 1} / {currentGalleryImages.length}</span>
                 </span>
               </div>
               

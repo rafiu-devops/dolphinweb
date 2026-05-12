@@ -107,15 +107,15 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           <motion.div {...fadeInUp} className="space-y-10">
             <div className="space-y-4">
-              <h2 className="section-heading">About <span className="text-brand-blue">Dolphin Builders</span></h2>
+              <h2 className="section-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl">About <br /> <span className="text-brand-blue whitespace-nowrap">Dolphin Builders</span></h2>
               <div className="w-20 h-1 bg-brand-blue" />
             </div>
-            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed font-medium italic">
+            <div className="space-y-8 font-sans text-[19px] md:text-[22px] text-[--muted] leading-relaxed font-medium">
               <p>
                 Dolphin Builders & Developers is a forward-thinking real estate development company committed to delivering modern residential and commercial projects that redefine urban living standards in Sukkur and surrounding regions.
               </p>
               <p>
-                With a focus on <span className="text-foreground font-black">quality construction, strategic locations, and long-term value creation</span>, we provide spaces that are not only functional but also investment-friendly. Each project is carefully planned to meet the evolving needs of modern lifestyles and businesses.
+                With a focus on <span className="text-foreground font-bold">quality construction, strategic locations, and long-term value creation</span>, we provide spaces that are not only functional but also investment-friendly. Each project is carefully planned to meet the evolving needs of modern lifestyles and businesses.
               </p>
             </div>
 
@@ -148,10 +148,10 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
             </div>
             <motion.div
               whileHover={{ scale: 1.05, y: -5 }}
-              className="absolute -bottom-10 -left-10 bg-brand-blue text-black p-10 rounded-[2rem] shadow-[0_30px_60px_rgba(90,161,255,0.4)] hidden lg:block max-w-xs"
+              className="absolute -bottom-10 -left-10 bg-brand-blue text-black p-6 md:p-8 rounded-[2rem] shadow-[0_30px_60px_rgba(90,161,255,0.4)] hidden lg:block max-w-[280px]"
             >
-              <Building className="mb-4 w-8 h-8" />
-              <p className="text-lg font-black uppercase tracking-tight italic leading-tight">
+              <Building className="mb-3 w-6 h-6" />
+              <p className="font-heading text-base md:text-lg font-normal uppercase italic tracking-wider leading-tight text-black">
                 "We provide spaces engineered for the future of modern lifestyles."
               </p>
             </motion.div>
@@ -176,7 +176,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
                   <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight italic text-foreground">
                     {v.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed font-medium text-base md:text-lg max-w-md mx-auto">{v.desc}</p>
+                  <p className="font-sans text-[17px] md:text-[20px] text-[--muted] leading-relaxed font-medium max-w-md mx-auto">{v.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -204,7 +204,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
               </div>
               <div className="space-y-4">
                 <h3 className="text-xl font-black uppercase tracking-tight italic text-foreground">{e.title}</h3>
-                <p className="text-[13px] text-muted-foreground leading-relaxed font-medium">{e.desc}</p>
+                <p className="font-sans text-[16px] text-[--muted] leading-relaxed font-medium">{e.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -220,7 +220,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
             <p className="tactical-label text-white/60">Structured Development Lifecycle</p>
           </div>
 
-          <motion.div 
+          <motion.div
             variants={staggerContainer}
             initial="initial"
             whileInView="whileInView"
@@ -234,7 +234,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
                 className="relative space-y-6"
               >
                 <div className="flex items-center gap-4">
-                  <motion.div 
+                  <motion.div
                     initial={{ scale: 0, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once: true }}
@@ -244,17 +244,17 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
                     0{idx + 1}
                   </motion.div>
                   {idx < 4 && (
-                    <motion.div 
+                    <motion.div
                       initial={{ scaleX: 0 }}
                       whileInView={{ scaleX: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.8, delay: (idx * 0.2) + 0.3, ease: [0.16, 1, 0.3, 1] }}
                       style={{ originX: 0 }}
-                      className="hidden md:block h-[2px] flex-grow bg-gradient-to-r from-brand-blue to-brand-blue/20 shadow-[0_0_15px_rgba(90,161,255,0.6)]" 
+                      className="hidden md:block h-[2px] flex-grow bg-gradient-to-r from-brand-blue to-brand-blue/20 shadow-[0_0_15px_rgba(90,161,255,0.6)]"
                     />
                   )}
                 </div>
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -262,7 +262,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
                   className="space-y-3"
                 >
                   <h4 className="text-lg font-black uppercase italic tracking-tight text-white">{step.title}</h4>
-                  <p className="tactical-description text-white/60 text-[11px] leading-relaxed">{step.desc}</p>
+                  <p className="font-sans text-[15px] md:text-[17px] text-white/70 leading-relaxed font-medium">{step.desc}</p>
                 </motion.div>
               </motion.div>
             ))}
@@ -309,7 +309,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
 
           <motion.div {...fadeInUp} className="space-y-12">
             <div className="space-y-4">
-              <h2 className="section-heading italic">Why Choose <br /> <span className="text-brand-blue">Dolphin Builders?</span></h2>
+              <h2 className="section-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic">Why Choose <br /> <span className="text-brand-blue whitespace-nowrap">Dolphin Builders?</span></h2>
               <p className="tactical-label text-muted-foreground/80">Our Strategic Edge</p>
             </div>
 
@@ -319,7 +319,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
                   <div className="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-black transition-all">
                     <CheckCircle2 size={20} />
                   </div>
-                  <span className="text-lg font-black uppercase italic tracking-tight text-foreground/80">{item}</span>
+                  <span className="font-sans text-[18px] md:text-[22px] font-bold uppercase tracking-wider text-foreground group-hover:text-brand-blue transition-colors">{item}</span>
                 </div>
               ))}
             </div>
@@ -343,7 +343,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
               Partner with <br className="hidden md:block" />
               Pakistan’s Trusted Developers
             </h2>
-            <p className="text-lg md:text-2xl font-black text-black/60 uppercase tracking-widest max-w-3xl mx-auto">
+            <p className="font-sans text-[22px] md:text-[32px] font-bold text-black/70 uppercase tracking-[0.2em] max-w-4xl mx-auto leading-relaxed">
               Deployment ready assets in Sukkur’s most strategic urban sectors.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">

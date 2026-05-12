@@ -101,7 +101,7 @@ export function FooterClient({ contact }: FooterClientProps) {
                   className="h-[100px] md:h-[180px] w-auto object-contain brightness-0 invert opacity-100"
                 />
               </Link>
-              <p className="text-[14px] md:text-[15px] leading-relaxed text-white max-w-[320px] font-medium opacity-90 mb-8">
+              <p className="text-[17px] md:text-[19px] leading-relaxed text-white max-w-[380px] font-medium opacity-95 mb-10">
                 Premium real estate developers delivering high-end projects with surgical precision across Karachi.
               </p>
               
@@ -109,9 +109,9 @@ export function FooterClient({ contact }: FooterClientProps) {
               <div className="w-full sm:w-auto mb-10 lg:mb-0">
                 <Link
                   href="/projects"
-                  className="inline-flex items-center justify-center gap-4 bg-white text-brand-blue px-10 py-4 rounded-xl font-black uppercase tracking-widest text-[11px] hover:bg-black hover:text-white transition-all w-full sm:w-auto active:scale-95 shadow-xl"
+                  className="font-sans inline-flex items-center justify-center gap-4 bg-white text-brand-blue px-12 py-5 rounded-xl font-bold uppercase tracking-[0.2em] text-[14px] hover:bg-black hover:text-white transition-all w-full sm:w-auto active:scale-95 shadow-2xl"
                 >
-                  View Projects <ArrowRight size={14} />
+                  View Projects <ArrowRight size={18} />
                 </Link>
               </div>
             </div>
@@ -123,14 +123,14 @@ export function FooterClient({ contact }: FooterClientProps) {
                   onClick={() => toggleSection(section.title)}
                   className="w-full flex items-center justify-between py-5 lg:hidden"
                 >
-                  <h4 className="text-[14px] font-black text-white uppercase tracking-[0.15em]">{section.title}</h4>
-                  <ChevronDown className={cn("text-white transition-transform duration-300", openSection === section.title && "rotate-180")} size={18} />
+                  <h4 className="font-heading text-[22px] font-normal text-white uppercase tracking-[0.1em]">{section.title}</h4>
+                  <ChevronDown className={cn("text-white transition-transform duration-300", openSection === section.title && "rotate-180")} size={22} />
                 </button>
                 
                 {/* Desktop Heading */}
                 <div className="hidden lg:block mb-10">
-                  <h4 className="text-[16px] font-black text-white uppercase tracking-[0.16em] mb-3">{section.title}</h4>
-                  <div className="w-10 h-[2px] bg-white rounded-full" />
+                  <h4 className="font-heading text-[28px] font-normal text-white uppercase tracking-[0.1em] mb-4">{section.title}</h4>
+                  <div className="w-16 h-[3px] bg-white rounded-full" />
                 </div>
 
                 <ul className={cn(
@@ -141,7 +141,7 @@ export function FooterClient({ contact }: FooterClientProps) {
                     <li key={item.name}>
                       <Link
                         href={item.href}
-                        className="group py-3 text-[14px] md:text-[15px] text-white/90 flex items-center gap-0 transition-all hover:text-black lg:hover:pl-2 lg:border-b lg:border-white/10"
+                        className="group py-4 font-sans text-[16px] md:text-[18px] text-white font-medium flex items-center gap-0 transition-all hover:text-black lg:hover:pl-2 lg:border-b lg:border-white/10"
                       >
                         {item.name}
                       </Link>
@@ -155,12 +155,12 @@ export function FooterClient({ contact }: FooterClientProps) {
             <div className="space-y-10 lg:space-y-12 py-8 lg:py-0 lg:col-span-1">
               <div className="text-center lg:text-left">
                 <div className="hidden lg:block mb-8">
-                  <h4 className="text-[18px] font-black text-white uppercase tracking-[0.2em] mb-4">Project Updates</h4>
-                  <div className="w-16 h-[3px] bg-white rounded-full" />
+                  <h4 className="font-heading text-[32px] font-normal text-white uppercase tracking-[0.1em] mb-5">Project Updates</h4>
+                  <div className="w-20 h-[4px] bg-white rounded-full" />
                 </div>
-                <h4 className="lg:hidden text-[14px] font-black text-white uppercase tracking-[0.15em] mb-6">Project Updates</h4>
+                <h4 className="lg:hidden font-heading text-[22px] font-normal text-white uppercase tracking-[0.1em] mb-8">Project Updates</h4>
                 
-                <p className="text-[13px] md:text-[14px] text-white/80 uppercase tracking-[0.15em] leading-relaxed mb-10 mx-auto lg:mx-0 max-w-[320px] font-bold">
+                <p className="text-[15px] md:text-[17px] text-white uppercase tracking-[0.15em] leading-relaxed mb-12 mx-auto lg:mx-0 max-w-[360px] font-bold">
                   Subscribe for real-time property deployment alerts and exclusive investor access.
                 </p>
                 
@@ -175,7 +175,7 @@ export function FooterClient({ contact }: FooterClientProps) {
                     placeholder="EMAIL ADDRESS"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-white text-brand-blue border-2 border-white/20 rounded-2xl px-6 pr-24 md:pr-32 py-5 md:py-6 text-[13px] md:text-[15px] font-black outline-none focus:border-white transition-all placeholder:text-brand-blue/40 shadow-2xl"
+                    className="w-full bg-white text-brand-blue border-2 border-white/20 rounded-2xl px-6 pr-24 md:pr-32 py-5 md:py-6 font-sans text-[13px] md:text-[15px] font-semibold outline-none focus:border-white transition-all placeholder:text-brand-blue/40 shadow-2xl"
                   />
                   <button 
                     disabled={isSubmitting}
@@ -212,11 +212,11 @@ export function FooterClient({ contact }: FooterClientProps) {
       {/* 8. Footer Bottom Bar (Copyright Bar) */}
       <div className="bg-white border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-6 md:px-8 py-8 md:py-12 flex flex-col items-center justify-center gap-6 text-center">
-          <p className="text-[14px] sm:text-[16px] md:text-[18px] text-black font-black tracking-widest uppercase leading-tight">
-            © <span suppressHydrationWarning>{currentYear}</span> <Link href={contact.social.facebook || "#"} target="_blank" className="text-brand-blue font-black hover:scale-105 transition-transform inline-block">Dolphin Builders</Link>. <br className="md:hidden" /> All Rights Reserved.
+          <p className="font-sans text-[14px] sm:text-[16px] md:text-[18px] text-black font-semibold tracking-widest uppercase leading-tight">
+            © <span suppressHydrationWarning>{currentYear}</span> <Link href={contact.social.facebook || "#"} target="_blank" className="text-brand-blue font-bold hover:scale-105 transition-transform inline-block">Dolphin Builders</Link>. <br className="md:hidden" /> All Rights Reserved.
           </p>
-          <p className="text-[13px] sm:text-[15px] md:text-[16px] font-black uppercase tracking-[0.2em] text-black/80">
-            DEVELOPED BY <Link href="https://www.anziandco.com/?refer=anziandco" target="_blank" className="text-brand-blue font-black hover:scale-105 transition-transform inline-block">ANZI & .CO</Link>
+          <p className="font-sans text-[13px] sm:text-[15px] md:text-[16px] font-semibold uppercase tracking-[0.2em] text-black/80">
+            DEVELOPED BY <Link href="https://www.anziandco.com/?refer=anziandco" target="_blank" className="text-brand-blue font-bold hover:scale-105 transition-transform inline-block">ANZI & .CO</Link>
           </p>
         </div>
       </div>
