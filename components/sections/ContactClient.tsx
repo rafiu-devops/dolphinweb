@@ -90,7 +90,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
               <Radio size={12} className="animate-pulse" />
               <span className="text-[10px] md:tactical-label font-black uppercase tracking-widest">Active Communication Channel</span>
             </div>
-            
+
             <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase italic leading-[1] drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-wrap justify-center gap-x-4 md:gap-x-8">
               <span className="text-white">Get in</span>
               <span className="text-brand-blue text-glow-blue">Touch</span>
@@ -109,30 +109,30 @@ export default function ContactClient({ contact }: ContactClientProps) {
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           {[
-            { 
-              icon: Phone, 
-              label: "Call Us Now", 
-              title: "Voice Support", 
-              data: contact.phone, 
-              sub: "Direct line for urgent asset inquiries.", 
+            {
+              icon: Phone,
+              label: "Call Us Now",
+              title: "Voice Support",
+              data: contact.phone,
+              sub: "Direct line for urgent asset inquiries.",
               link: `tel:${contact.phone}`,
               actionColor: "text-brand-blue"
             },
-            { 
-              icon: FaWhatsapp, 
-              label: "WhatsApp Support", 
-              title: "Instant Chat", 
-              data: "Message Now", 
-              sub: "Fast track your deployment details.", 
+            {
+              icon: FaWhatsapp,
+              label: "WhatsApp Support",
+              title: "Instant Chat",
+              data: "Message Now",
+              sub: "Fast track your deployment details.",
               link: contact.social.whatsapp,
               actionColor: "text-brand-blue"
             },
-            { 
-              icon: MapPin, 
-              label: "Visit Our Office", 
-              title: "Headquarters", 
-              data: "Shahra-e-Faisal, Karachi", 
-              sub: "Strategic operations center.", 
+            {
+              icon: MapPin,
+              label: "Visit Our Office",
+              title: "Headquarters",
+              data: "Shahra-e-Faisal, Karachi",
+              sub: "Strategic operations center.",
               link: contact.social.googleMaps || "#",
               actionColor: "text-brand-blue"
             },
@@ -150,7 +150,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
               <div className="inline-block px-4 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue tactical-label mb-4">
                 {item.label}
               </div>
-              
+
               <div className="w-20 h-20 bg-brand-blue/10 text-brand-blue rounded-2xl flex items-center justify-center mx-auto transition-all duration-500 group-hover:bg-brand-blue group-hover:text-black group-hover:shadow-[0_0_40px_rgba(90,161,255,0.4)]">
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
@@ -181,25 +181,25 @@ export default function ContactClient({ contact }: ContactClientProps) {
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-              { [
-                { 
-                  icon: Users2, 
-                  title: "Expert Guidance", 
+              {[
+                {
+                  icon: Users2,
+                  title: "Expert Guidance",
                   desc: "Our senior consultants provide surgical precision in asset selection and deployment."
                 },
-                { 
-                  icon: ShieldCheck, 
-                  title: "Verified Projects", 
+                {
+                  icon: ShieldCheck,
+                  title: "Verified Projects",
                   desc: "Every listing undergoes a rigorous 50-point tactical audit to ensure maximum security."
                 },
-                { 
-                  icon: Zap, 
-                  title: "Fast Response", 
+                {
+                  icon: Zap,
+                  title: "Fast Response",
                   desc: "Our communications team maintains a strict 24-hour response protocol for all inquiries."
                 }
               ].map((item, i) => (
-                <motion.div 
-                  key={i} 
+                <motion.div
+                  key={i}
                   whileHover={{ y: -6 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
                   className="flex items-start gap-5 md:gap-8 group p-4 sm:p-6 rounded-3xl transition-all hover:bg-white/[0.02]"
@@ -244,7 +244,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
 
             <AnimatePresence mode="wait">
               {isSuccess ? (
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className="py-20 text-center space-y-6"
@@ -261,34 +261,34 @@ export default function ContactClient({ contact }: ContactClientProps) {
                 <form onSubmit={handleSubmit} className="space-y-8">
                   <div className="space-y-3">
                     <label className="text-[12px] font-black uppercase tracking-[0.3em] text-[#0a0f1a]/70 pl-2">Full Name</label>
-                      <input 
-                        required
-                        type="text" 
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="ENTER YOUR NAME" 
-                        className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all placeholder:text-[#0a0f1a]/50 font-black text-base uppercase tracking-wider italic focus:bg-brand-blue/[0.04] text-[#0a0f1a]" 
-                      />
+                    <input
+                      required
+                      type="text"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      placeholder="ENTER YOUR NAME"
+                      className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all placeholder:text-[#0a0f1a]/50 font-black text-base uppercase tracking-wider italic focus:bg-brand-blue/[0.04] text-[#0a0f1a]"
+                    />
                   </div>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-3">
                       <label className="text-[12px] font-black uppercase tracking-[0.3em] text-[#0a0f1a]/70 pl-2">Phone Number</label>
-                      <input 
+                      <input
                         required
-                        type="tel" 
+                        type="tel"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="+92 --- -------" 
-                        className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all placeholder:text-[#0a0f1a]/50 font-black text-base uppercase tracking-wider italic focus:bg-brand-blue/[0.04] text-[#0a0f1a]" 
+                        placeholder="+92 --- -------"
+                        className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all placeholder:text-[#0a0f1a]/50 font-black text-base uppercase tracking-wider italic focus:bg-brand-blue/[0.04] text-[#0a0f1a]"
                       />
                     </div>
                     <div className="space-y-3">
                       <label className="text-[12px] font-black uppercase tracking-[0.3em] text-[#0a0f1a]/70 pl-2">Contact Type</label>
-                      <select 
+                      <select
                         value={formData.inquiryType}
                         onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
-                        className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all font-black text-base uppercase tracking-wider italic focus:bg-brand-blue/[0.04] text-[#0a0f1a] appearance-none cursor-pointer" 
+                        className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all font-black text-base uppercase tracking-wider italic focus:bg-brand-blue/[0.04] text-[#0a0f1a] appearance-none cursor-pointer"
                       >
                         <option value="Buy Property">Buy Property</option>
                         <option value="Investment">Investment</option>
@@ -299,24 +299,24 @@ export default function ContactClient({ contact }: ContactClientProps) {
                   </div>
                   <div className="space-y-3">
                     <label className="text-[12px] font-black uppercase tracking-[0.3em] text-[#0a0f1a]/70 pl-2">Email Address</label>
-                      <input 
-                        required
-                        type="email" 
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="EXAMPLE@GMAIL.COM" 
-                        className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all placeholder:text-[#0a0f1a]/50 font-black text-base uppercase tracking-wider italic focus:bg-brand-blue/[0.04] text-[#0a0f1a]" 
-                      />
+                    <input
+                      required
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="EXAMPLE@GMAIL.COM"
+                      className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all placeholder:text-[#0a0f1a]/50 font-black text-base uppercase tracking-wider italic focus:bg-brand-blue/[0.04] text-[#0a0f1a]"
+                    />
                   </div>
                   <div className="space-y-3">
                     <label className="text-[12px] font-black uppercase tracking-[0.3em] text-[#0a0f1a]/70 pl-2">Message Details</label>
-                    <textarea 
+                    <textarea
                       required
-                      rows={5} 
+                      rows={5}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="How can we help you today?" 
-                      className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all resize-none placeholder:text-[#0a0f1a]/50 font-black text-base uppercase tracking-wider italic focus:bg-brand-blue/[0.04] text-[#0a0f1a]" 
+                      placeholder="How can we help you today?"
+                      className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all resize-none placeholder:text-[#0a0f1a]/50 font-black text-base uppercase tracking-wider italic focus:bg-brand-blue/[0.04] text-[#0a0f1a]"
                     />
                   </div>
                   <motion.button
@@ -341,7 +341,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
             </AnimatePresence>
 
             <div className="pt-10 border-t border-border/20">
-              <Link 
+              <Link
                 href={contact.social.whatsapp}
                 target="_blank"
                 className="flex items-center gap-4 text-[#25D366] hover:text-[#25D366]/80 transition-colors group"
@@ -378,7 +378,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
                 </div>
               )}
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="p-8 bg-card border border-border/40 rounded-[2.5rem] space-y-2">
                 <h4 className="tactical-label text-brand-blue">Location Context</h4>
@@ -418,7 +418,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
                 <span className="text-black/40">Your Property?</span>
               </h2>
             </div>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <Link
                 href={`tel:${contact.phone}`}

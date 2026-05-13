@@ -21,7 +21,7 @@ export function FooterClient({ contact }: FooterClientProps) {
   const toggleSection = (section: string) => {
     setOpenSection(openSection === section ? null : section);
   };
-  
+
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
@@ -88,10 +88,10 @@ export function FooterClient({ contact }: FooterClientProps) {
     <>
       <footer className="bg-brand-blue border-t-[3px] border-white/20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-8 pt-12 md:pt-24 pb-12 md:pb-20 relative z-10">
-          
+
           {/* Mobile Hierarchy: Logo -> CTA -> Nav -> Newsletter -> Socials */}
           <div className="flex flex-col lg:grid lg:grid-cols-[2.2fr_1fr_1fr_1fr_2.8fr] gap-8 md:gap-12 lg:gap-16">
-            
+
             {/* 1. Identity & Logo Area */}
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
               <Link href="/" className="inline-block transform hover:scale-105 transition-all duration-500 mb-6 md:mb-10">
@@ -102,9 +102,9 @@ export function FooterClient({ contact }: FooterClientProps) {
                 />
               </Link>
               <p className="text-[17px] md:text-[19px] leading-relaxed text-white max-w-[380px] font-medium opacity-95 mb-10">
-                Premium real estate developers delivering high-end projects with surgical precision across Karachi.
+                Premium real estate developers delivering high-end projects with precision across Sindh.
               </p>
-              
+
               {/* 2. Primary CTA Button */}
               <div className="w-full sm:w-auto mb-10 lg:mb-0">
                 <Link
@@ -119,14 +119,14 @@ export function FooterClient({ contact }: FooterClientProps) {
             {/* 3. Navigation Sections (Accordions on Mobile) */}
             {navSections.map((section) => (
               <div key={section.title} className="border-b border-white/10 lg:border-none">
-                <button 
+                <button
                   onClick={() => toggleSection(section.title)}
                   className="w-full flex items-center justify-between py-5 lg:hidden"
                 >
                   <h4 className="font-heading text-[22px] font-normal text-white uppercase tracking-[0.1em]">{section.title}</h4>
                   <ChevronDown className={cn("text-white transition-transform duration-300", openSection === section.title && "rotate-180")} size={22} />
                 </button>
-                
+
                 {/* Desktop Heading */}
                 <div className="hidden lg:block mb-10">
                   <h4 className="font-heading text-[28px] font-normal text-white uppercase tracking-[0.1em] mb-4">{section.title}</h4>
@@ -159,12 +159,12 @@ export function FooterClient({ contact }: FooterClientProps) {
                   <div className="w-20 h-[4px] bg-white rounded-full" />
                 </div>
                 <h4 className="lg:hidden font-heading text-[22px] font-normal text-white uppercase tracking-[0.1em] mb-8">Project Updates</h4>
-                
+
                 <p className="text-[15px] md:text-[17px] text-white uppercase tracking-[0.15em] leading-relaxed mb-12 mx-auto lg:mx-0 max-w-[360px] font-bold">
                   Subscribe for real-time property deployment alerts and exclusive investor access.
                 </p>
-                
-                <form 
+
+                <form
                   onSubmit={handleNewsletterSubmit}
                   className="relative group max-w-full lg:max-w-2xl mx-auto lg:mx-0"
                 >
@@ -177,7 +177,7 @@ export function FooterClient({ contact }: FooterClientProps) {
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full bg-white text-brand-blue border-2 border-white/20 rounded-2xl px-6 pr-24 md:pr-32 py-5 md:py-6 font-sans text-[13px] md:text-[15px] font-semibold outline-none focus:border-white transition-all placeholder:text-brand-blue/40 shadow-2xl"
                   />
-                  <button 
+                  <button
                     disabled={isSubmitting}
                     suppressHydrationWarning
                     type="submit"
@@ -191,9 +191,9 @@ export function FooterClient({ contact }: FooterClientProps) {
                       <Bell size={20} />
                     )}
                   </button>
-                  
+
                   {isSuccess && (
-                    <motion.p 
+                    <motion.p
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       className="absolute -bottom-10 left-0 text-[11px] font-black uppercase tracking-widest text-white/90 bg-black/40 backdrop-blur-md px-4 py-2 rounded-lg"

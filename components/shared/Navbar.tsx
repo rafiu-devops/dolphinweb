@@ -94,14 +94,17 @@ export function Navbar() {
 
   const isLightPage = (pathname.startsWith("/projects/") && pathname !== "/projects") || 
                       pathname === "/faqs";
-  const activeTheme = (scrolled || isLightPage) ? "light" : "dark";
+  const activeTheme = isLightPage ? "light" : "dark";
 
   return (
     <div className="w-full transition-all duration-300 pointer-events-none relative z-[100]">
       <header
         className={cn(
-          "max-w-[1240px] mx-4 md:mx-6 lg:mx-8 xl:mx-auto transition-all duration-500 pointer-events-auto origin-top mt-1 md:mt-2 bg-white/10 backdrop-blur-3xl border border-white/20 shadow-[0_20px_40px_rgba(0,0,0,0.05)] rounded-[1.5rem] md:rounded-[3rem]",
-          "h-[90px] md:h-[104px]"
+          "max-w-[1240px] mx-4 md:mx-6 lg:mx-8 xl:mx-auto transition-all duration-500 pointer-events-auto origin-top mt-1 md:mt-2 backdrop-blur-3xl rounded-[1.5rem] md:rounded-[3rem]",
+          "h-[90px] md:h-[104px]",
+          scrolled 
+            ? (activeTheme === "light" ? "bg-white/80 border-black/5 shadow-xl" : "bg-black/40 border-white/10 shadow-2xl")
+            : "bg-white/10 border-white/20 shadow-[0_20px_40px_rgba(0,0,0,0.05)]"
         )}
       >
         <div className="h-full px-6 md:px-10 flex items-center justify-between">

@@ -333,18 +333,20 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
       {/* 4. ASSET INVENTORY (AVAILABLE SPACES) */}
       <section className="py-24 bg-bg-card border-y border-border/40">
         <div className="container mx-auto px-6 space-y-20">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <div className="space-y-6">
-              <h2 className="section-heading">
+          <div className="flex flex-col items-center text-center space-y-6 w-full">
+            <h2 className="font-heading uppercase italic tracking-widest leading-[0.9] font-normal flex flex-wrap justify-center items-center gap-x-4 md:gap-x-6 text-3xl sm:text-4xl md:text-6xl">
+              <span className="text-foreground">
                 {project.slug === "dolphin-tower" ? "What This Project " : "Available "}
-                <span className="text-brand-blue">{project.slug === "dolphin-tower" ? "Includes" : "Spaces"}</span>
-              </h2>
-              <p className="tactical-label text-muted-foreground/80">
-                {project.slug === "dolphin-tower"
-                  ? "Key commercial, corporate, and residential facilities integrated within the Dolphin Tower development."
-                  : "Operational Blueprint & Inventory Specs"}
-              </p>
-            </div>
+              </span>
+              <span className="text-brand-blue">
+                {project.slug === "dolphin-tower" ? "Includes" : "Spaces"}
+              </span>
+            </h2>
+            <p className="tactical-label text-muted-foreground/80 max-w-2xl">
+              {project.slug === "dolphin-tower"
+                ? "Key commercial, corporate, and residential facilities integrated within the Dolphin Tower development."
+                : "Operational Blueprint & Inventory Specs"}
+            </p>
           </div>
 
           <div className="overflow-hidden rounded-[3rem] border border-border/40 shadow-4xl bg-background">
@@ -453,7 +455,10 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
             <motion.div {...fadeInUp} className="space-y-12">
               <div className="space-y-6">
-                <h2 className="section-heading">Location & <span className="text-brand-blue">Accessibility</span></h2>
+                <h2 className="section-heading leading-[1.1]">
+                  Location & <br />
+                  <span className="text-brand-blue">Accessibility</span>
+                </h2>
                 <p className="text-lg text-muted-foreground font-bold italic leading-relaxed">
                   Strategically positioned at {project.location}, {project.city}. This operational sector offers maximum visibility and optimized logistics.
                 </p>

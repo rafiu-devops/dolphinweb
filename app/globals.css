@@ -80,7 +80,7 @@
   }
 
   .section-heading {
-    @apply font-heading text-5xl md:text-8xl font-normal uppercase tracking-widest text-foreground leading-[0.9] italic;
+    @apply font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal uppercase tracking-widest text-foreground leading-[0.9] italic;
   }
 
   /* Tactical Readability Utilities */

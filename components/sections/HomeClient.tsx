@@ -332,7 +332,7 @@ export default function HomeClient({
                             <h3 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-normal text-white uppercase italic tracking-wider leading-[1.1] drop-shadow-[0_15px_45px_rgba(0,0,0,0.8)] max-w-xl">
                               {project.name}
                             </h3>
-                             <div className="flex items-center gap-2 md:gap-4 bg-black/80 backdrop-blur-xl px-6 py-2.5 rounded-xl w-fit border border-white/20 shadow-4xl">
+                            <div className="flex items-center gap-2 md:gap-4 bg-black/80 backdrop-blur-xl px-6 py-2.5 rounded-xl w-fit border border-white/20 shadow-4xl">
                               <MapPin size={16} className="text-brand-blue" />
                               <span className="font-sans text-[14px] md:text-[16px] font-semibold text-white uppercase tracking-[0.15em]">{project.location}</span>
                             </div>
@@ -395,7 +395,7 @@ export default function HomeClient({
           <motion.div {...fadeInUp} className="text-center mb-20 space-y-4">
             <h2 className="section-heading italic">Why Invest With Us</h2>
             <p className="text-brand-blue max-w-2xl mx-auto tactical-label">
-              Across Karachi • Premier Real Estate Standard
+              Across Sindh • Premier Real Estate Standard
             </p>
           </motion.div>
 
@@ -463,7 +463,7 @@ export default function HomeClient({
               >
                 {[...Array(4)].map((_, i) => (
                   <p key={i} className="text-[24px] md:text-[56px] font-heading font-normal uppercase tracking-[0.2em] text-foreground/80 italic leading-none flex items-center gap-12">
-                    Serving premium locations across Karachi with
+                    Serving premium locations across Sindh with
                     <span className="text-brand-blue italic underline decoration-brand-blue/30 underline-offset-[20px]">
                       trusted developments
                     </span>
@@ -484,7 +484,7 @@ export default function HomeClient({
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="blueprint-grid-static" width="100" height="100" patternUnits="userSpaceOnUse">
-                <path d="M 100 0 L 0 0 0 100" fill="none" stroke="black" strokeWidth="0.5"/>
+                <path d="M 100 0 L 0 0 0 100" fill="none" stroke="black" strokeWidth="0.5" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#blueprint-grid-static)" />
@@ -493,12 +493,12 @@ export default function HomeClient({
 
         <div className="container mx-auto px-6 relative z-10">
           {/* Centered Single-Line Heading */}
-          <motion.div {...fadeInUp} className="text-center mb-32 md:mb-48">
-            <h2 className="font-heading text-6xl md:text-[140px] font-normal uppercase italic tracking-widest text-black leading-none flex flex-wrap justify-center gap-x-8 md:gap-x-16">
+          <motion.div {...fadeInUp} className="text-center mb-20 md:mb-32">
+            <h2 className="font-heading text-4xl md:text-[80px] font-normal uppercase italic tracking-widest text-black leading-none flex flex-wrap justify-center gap-x-6 md:gap-x-12">
               <span>Development</span>
-              <span className="text-brand-blue text-glow underline decoration-brand-blue/20 underline-offset-[20px] md:underline-offset-[40px]">Journey</span>
+              <span className="text-brand-blue text-glow underline decoration-brand-blue/20 underline-offset-[15px] md:underline-offset-[25px]">Journey</span>
             </h2>
-            <p className="font-heading text-[20px] md:text-[28px] text-brand-blue/80 mt-16 uppercase tracking-[0.5em]">Strategic Project Lifecycle</p>
+            <p className="font-heading text-[16px] md:text-[22px] text-brand-blue/80 mt-8 uppercase tracking-[0.5em]">Strategic Project Lifecycle</p>
           </motion.div>
 
           <div className="relative max-w-7xl mx-auto">
@@ -539,7 +539,7 @@ export default function HomeClient({
                     {/* Enhanced Glass Card - High Transparency with Ice Tint */}
                     <div className="relative z-10 p-6 md:p-10 rounded-[2.5rem] border border-brand-blue/10 bg-brand-blue/[0.02] backdrop-blur-3xl shadow-xl overflow-hidden group">
                       <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                      
+
                       <div className="relative z-10 space-y-5">
                         <div className="flex items-center gap-4">
                           <span className="text-[13px] md:text-[15px] font-heading font-normal tracking-[0.3em] text-brand-blue">
@@ -550,7 +550,7 @@ export default function HomeClient({
                         <h4 className="font-heading text-3xl md:text-5xl font-normal uppercase italic tracking-tight text-black leading-[0.9]">
                           {step.title}
                         </h4>
-                        
+
 
                       </div>
                     </div>
@@ -570,8 +570,8 @@ export default function HomeClient({
 
         <div className="container mx-auto px-6 relative z-10 mb-16">
           <motion.div {...fadeInUp} className="text-center space-y-4">
-            <h2 className="section-heading underline decoration-brand-blue/20 underline-offset-[20px] italic">
-              Executive Testimonials
+            <h2 className="section-heading italic">
+              Executive <span className="underline decoration-brand-blue/20 underline-offset-[20px]">Testimonials</span>
             </h2>
             <p className="tactical-label text-brand-blue/80 pt-6">Strategic Success Stories</p>
           </motion.div>
@@ -635,11 +635,10 @@ export default function HomeClient({
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="space-y-6 md:space-y-8 text-center lg:text-left">
-              <h2 className="font-heading text-5xl sm:text-7xl md:text-9xl font-normal uppercase tracking-wider italic leading-tight text-white/20">
-                Secure Your <br />
-                <span className="text-white drop-shadow-4xl">Future</span>
+              <h2 className="font-heading text-3xl sm:text-5xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wider italic leading-tight text-white drop-shadow-4xl">
+                Secure Your Future
               </h2>
-              <p className="font-sans text-lg md:text-2xl font-bold text-black/80 uppercase tracking-[0.2em] leading-relaxed">
+              <p className="font-sans text-base md:text-xl font-bold text-black/80 uppercase tracking-[0.15em] leading-relaxed max-w-xl">
                 Contact our expert team to secure your residential property today.
               </p>
             </div>
