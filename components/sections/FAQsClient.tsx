@@ -5,7 +5,7 @@ import { FAQ, Project } from "@/types";
 import { AccordionItem } from "@/components/ui/AccordionItem";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { EnquireModal } from "@/components/ui/EnquireModal";
-import { Search, HelpCircle, MessageCircle, Database, ShieldCheck } from "lucide-react";
+import { Search, HelpCircle, MessageCircle, Database, ShieldCheck, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -79,17 +79,34 @@ export default function FAQsPage({ faqs, featuredProjects }: FAQsClientProps) {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2 }}
-          className="max-w-2xl mx-auto relative group"
+          className="max-w-3xl mx-auto relative group"
         >
-          <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-muted-foreground/30 group-focus-within:text-brand-blue transition-colors" size={20} />
+          <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-muted-foreground/30 group-focus-within:text-brand-blue transition-colors z-10" size={20} />
           <input
             type="text"
             placeholder="Search for answers..."
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-card/40 border border-border/40 rounded-2xl px-16 py-6 text-[15px] font-black outline-none focus:border-brand-blue/30 shadow-2xl focus:shadow-[0_0_40px_rgba(90,161,255,0.1)] transition-all uppercase tracking-tight placeholder:text-muted-foreground/30 backdrop-blur-xl text-foreground"
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
+              setOpenIndex(null);
+            }}
+            className="w-full bg-card/40 border border-border/40 rounded-2xl pl-16 pr-44 py-6 text-[15px] font-black outline-none focus:border-brand-blue/30 shadow-2xl focus:shadow-[0_0_50px_rgba(90,161,255,0.15)] transition-all uppercase tracking-tight placeholder:text-muted-foreground/30 backdrop-blur-xl text-foreground"
           />
-          <div className="absolute right-6 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-brand-blue/10 rounded border border-brand-blue/20 tactical-label text-brand-blue">SEARCH</div>
+          <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-3">
+            {searchQuery && (
+              <button 
+                onClick={() => { setSearchQuery(""); setOpenIndex(null); }}
+                className="p-2 hover:bg-muted/20 rounded-full transition-colors text-muted-foreground/50 hover:text-foreground"
+              >
+                <X size={18} />
+              </button>
+            )}
+            <button 
+              className="px-8 py-3.5 bg-brand-blue text-black font-black uppercase tracking-widest text-[11px] rounded-xl hover:bg-black hover:text-white transition-all shadow-[0_10px_30px_rgba(90,161,255,0.3)] hover:shadow-none active:scale-95"
+            >
+              Search
+            </button>
+          </div>
         </motion.div>
       </section>
 
@@ -131,6 +148,7 @@ export default function FAQsPage({ faqs, featuredProjects }: FAQsClientProps) {
                   <AccordionItem
                     question={faq.question}
                     answer={faq.answer}
+                    index={idx + 1}
                     isOpen={openIndex === idx}
                     onToggle={() => setOpenIndex(openIndex === idx ? null : idx)}
                   />

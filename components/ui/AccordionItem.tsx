@@ -8,11 +8,14 @@ import { cn } from "@/lib/utils";
 interface AccordionItemProps {
   question: string;
   answer: string;
+  index: number;
   isOpen: boolean;
   onToggle: () => void;
 }
 
-export function AccordionItem({ question, answer, isOpen, onToggle }: AccordionItemProps) {
+export function AccordionItem({ question, answer, index, isOpen, onToggle }: AccordionItemProps) {
+  const displayIndex = index.toString().padStart(2, "0");
+
   return (
     <div className={cn(
       "border border-border/40 rounded-2xl overflow-hidden transition-all duration-500",
@@ -27,7 +30,7 @@ export function AccordionItem({ question, answer, isOpen, onToggle }: AccordionI
             "w-9 h-9 rounded-xl flex items-center justify-center border font-black text-[11px] transition-all duration-500",
             isOpen ? "bg-brand-blue border-brand-blue text-black shadow-[0_0_15px_rgba(90,161,255,0.4)]" : "bg-muted/10 border-border/40 text-muted-foreground"
           )}>
-            {isOpen ? <ShieldAlert size={16} /> : "01"}
+            {isOpen ? <ShieldAlert size={16} /> : displayIndex}
           </div>
           <span className={cn(
             "text-base md:text-xl font-black uppercase tracking-tight italic transition-colors duration-500",

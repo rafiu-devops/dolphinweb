@@ -145,13 +145,13 @@ export default function ContactClient({ contact }: ContactClientProps) {
               variants={fadeInUp}
               whileHover={{ y: -10 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="bg-card border border-border/40 p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] text-center space-y-6 md:space-y-8 group transition-all duration-300 hover:border-brand-blue/30 backdrop-blur-xl shadow-xl hover:shadow-[0_40px_80px_rgba(0,0,0,0.4)] flex flex-col items-center"
+              className="bg-card border border-border/40 p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] text-center group transition-all duration-300 hover:border-brand-blue/30 backdrop-blur-xl shadow-xl hover:shadow-[0_40px_80px_rgba(0,0,0,0.4)] flex flex-col items-center h-full"
             >
-              <div className="inline-block px-4 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue tactical-label mb-4">
+              <div className="inline-block px-4 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue tactical-label mb-8">
                 {item.label}
               </div>
 
-              <div className="w-20 h-20 bg-brand-blue/10 text-brand-blue rounded-2xl flex items-center justify-center mx-auto transition-all duration-500 group-hover:bg-brand-blue group-hover:text-black group-hover:shadow-[0_0_40px_rgba(90,161,255,0.4)]">
+              <div className="w-20 h-20 bg-brand-blue/10 text-brand-blue rounded-2xl flex items-center justify-center mx-auto transition-all duration-500 group-hover:bg-brand-blue group-hover:text-black group-hover:shadow-[0_0_40px_rgba(90,161,255,0.4)] mb-8 shrink-0">
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ duration: 0.25, ease: "easeOut" }}
@@ -160,13 +160,21 @@ export default function ContactClient({ contact }: ContactClientProps) {
                 </motion.div>
               </div>
 
-              <div className="space-y-4 w-full">
-                <h3 className="tactical-label text-muted-foreground group-hover:text-brand-blue/40 transition-colors">{item.title}</h3>
-                <p className={cn("text-xl font-black uppercase tracking-tight italic leading-tight", item.actionColor)}>{item.data}</p>
-                <p className="tactical-label text-muted-foreground/80 max-w-[200px] leading-relaxed mx-auto">{item.sub}</p>
+              <div className="flex-grow flex flex-col items-center justify-start w-full space-y-6">
+                <h3 className="tactical-label text-muted-foreground group-hover:text-brand-blue/40 transition-colors uppercase">{item.title}</h3>
+                <div className="min-h-[60px] flex items-center justify-center w-full">
+                  <p className={cn("text-xl md:text-2xl font-black uppercase tracking-tight italic leading-tight", item.actionColor)}>
+                    {item.data}
+                  </p>
+                </div>
+                <div className="min-h-[64px] flex items-center justify-center w-full">
+                  <p className="tactical-label text-muted-foreground/80 max-w-[220px] leading-relaxed mx-auto normal-case">
+                    {item.sub}
+                  </p>
+                </div>
               </div>
 
-              <div className="w-full">
+              <div className="w-full pt-8 mt-auto border-t border-border/10 group-hover:border-brand-blue/20 transition-colors">
                 <div className="flex items-center justify-center gap-2 group-hover:text-brand-blue transition-colors tactical-label">
                   Execute Link <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
                 </div>
@@ -381,7 +389,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="p-8 bg-card border border-border/40 rounded-[2.5rem] space-y-2">
-                <h4 className="tactical-label text-brand-blue">Location Context</h4>
+                <h4 className="tactical-label text-brand-blue whitespace-nowrap text-[12px] md:text-[15px] tracking-[0.15em]">Location Context</h4>
                 <p className="text-[14px] font-black uppercase tracking-tight italic text-foreground leading-tight">Located on Shahra-e-Faisal, Karachi</p>
 
               </div>
@@ -390,7 +398,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
                   <Clock size={24} />
                 </div>
                 <div>
-                  <h4 className="tactical-label text-muted-foreground/80">Office Hours</h4>
+                  <h4 className="tactical-label whitespace-nowrap text-[12px] md:text-[15px] tracking-[0.15em]">Office Hours</h4>
                   <p className="text-[14px] font-black uppercase tracking-tight italic text-foreground">{contact.officeHours}</p>
                 </div>
               </div>

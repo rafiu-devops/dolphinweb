@@ -107,7 +107,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           <motion.div {...fadeInUp} className="space-y-10">
             <div className="space-y-4">
-              <h2 className="section-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl">About <br /> <span className="text-brand-blue whitespace-nowrap">Dolphin Builders</span></h2>
+              <h2 className="section-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl">About <br /> <span className="text-brand-blue whitespace-nowrap">Dolphin Builders</span></h2>
               <div className="w-20 h-1 bg-brand-blue" />
             </div>
             <div className="space-y-8 font-sans text-[19px] md:text-[22px] text-[--muted] leading-relaxed font-medium">
@@ -309,7 +309,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
 
           <motion.div {...fadeInUp} className="space-y-12">
             <div className="space-y-4">
-              <h2 className="section-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic">Why Choose <br /> <span className="text-brand-blue whitespace-nowrap">Dolphin Builders?</span></h2>
+              <h2 className="section-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl italic">Why Choose <br /> <span className="text-brand-blue whitespace-nowrap">Dolphin Builders?</span></h2>
               <p className="tactical-label text-muted-foreground/80">Our Strategic Edge</p>
             </div>
 
