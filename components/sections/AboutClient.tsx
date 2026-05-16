@@ -274,7 +274,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
       <section className="py-32 bg-background border-b border-border/40">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-20 space-y-4">
-            <h2 className="section-heading italic">Signature <span className="text-brand-blue">Portfolios</span></h2>
+            <h2 className="section-heading italic">Signature <span className="text-brand-blue">Developments</span></h2>
             <p className="tactical-label text-muted-foreground/80">Active Tactical Deployments</p>
           </motion.div>
 
