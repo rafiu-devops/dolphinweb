@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, MessageSquare, Send, Radio, Loader2, ShieldCheck, CheckCircle2, Building2, Users2, Zap, ArrowRight, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageSquare, Send, Radio, Loader2, ShieldCheck, CheckCircle2, Building2, Users2, Zap, ArrowRight, MessageCircle, FileText, Headset } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa6";
 import React, { useState } from "react";
 import Link from "next/link";
@@ -99,134 +99,80 @@ export default function ContactClient({ contact }: ContactClientProps) {
         </div>
       </section>
 
-      {/* Step 1: ENHANCED TOP CONTACT CARDS */}
-      <section className="container mx-auto px-6">
-        <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="whileInView"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
-        >
-          {[
-            {
-              icon: Phone,
-              label: "Call Us Now",
-              title: "Voice Support",
-              data: contact.phone,
-              sub: "Direct line for urgent asset inquiries.",
-              link: `tel:${contact.phone}`,
-              actionColor: "text-brand-blue"
-            },
-            {
-              icon: FaWhatsapp,
-              label: "WhatsApp Support",
-              title: "Instant Chat",
-              data: "Message Now",
-              sub: "Fast track your deployment details.",
-              link: contact.social.whatsapp,
-              actionColor: "text-brand-blue"
-            },
-            {
-              icon: MapPin,
-              label: "Visit Our Office",
-              title: "Headquarters",
-              data: "Shahra-e-Faisal, Karachi",
-              sub: "Strategic operations center.",
-              link: contact.social.googleMaps || "#",
-              actionColor: "text-brand-blue"
-            },
-          ].map((item, idx) => (
-            <motion.a
-              key={idx}
-              href={item.link}
-              target={item.link.startsWith("http") ? "_blank" : undefined}
-              rel={item.link.startsWith("http") ? "noopener noreferrer" : undefined}
-              variants={fadeInUp}
-              whileHover={{ y: -10 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="bg-card border border-border/40 p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] text-center group transition-all duration-300 hover:border-brand-blue/30 backdrop-blur-xl shadow-xl hover:shadow-[0_40px_80px_rgba(0,0,0,0.4)] flex flex-col items-center h-full"
-            >
-              <div className="inline-block px-4 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue tactical-label mb-8">
-                {item.label}
-              </div>
 
-              <div className="w-20 h-20 bg-brand-blue/10 text-brand-blue rounded-2xl flex items-center justify-center mx-auto transition-all duration-500 group-hover:bg-brand-blue group-hover:text-black group-hover:shadow-[0_0_40px_rgba(90,161,255,0.4)] mb-8 shrink-0">
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.25, ease: "easeOut" }}
-                >
-                  <item.icon size={32} />
-                </motion.div>
-              </div>
-
-              <div className="flex-grow flex flex-col items-center justify-start w-full space-y-6">
-                <h3 className="tactical-label text-muted-foreground group-hover:text-brand-blue/40 transition-colors uppercase">{item.title}</h3>
-                <div className="min-h-[60px] flex items-center justify-center w-full">
-                  <p className={cn("text-xl md:text-2xl font-black uppercase tracking-tight italic leading-tight", item.actionColor)}>
-                    {item.data}
-                  </p>
-                </div>
-                <div className="min-h-[64px] flex items-center justify-center w-full">
-                  <p className="tactical-label text-muted-foreground/80 max-w-[220px] leading-relaxed mx-auto normal-case">
-                    {item.sub}
-                  </p>
-                </div>
-              </div>
-
-              <div className="w-full pt-8 mt-auto border-t border-border/10 group-hover:border-brand-blue/20 transition-colors">
-                <div className="flex items-center justify-center gap-2 group-hover:text-brand-blue transition-colors tactical-label">
-                  Execute Link <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
-                </div>
-              </div>
-            </motion.a>
-          ))}
-        </motion.div>
-      </section>
-
-      {/* Step 2: NEW "WHY CONTACT US" SECTION */}
-      <section className="bg-bg-card/40 py-24 border-y border-border/40">
-        <div className="container mx-auto px-6">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-              {[
-                {
-                  icon: Users2,
-                  title: "Expert Guidance",
-                  desc: "Our senior consultants provide surgical precision in asset selection and deployment."
-                },
-                {
-                  icon: ShieldCheck,
-                  title: "Verified Projects",
-                  desc: "Every listing undergoes a rigorous 50-point tactical audit to ensure maximum security."
-                },
-                {
-                  icon: Zap,
-                  title: "Fast Response",
-                  desc: "Our communications team maintains a strict 24-hour response protocol for all inquiries."
-                }
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  whileHover={{ y: -6 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
-                  className="flex items-start gap-5 md:gap-8 group p-4 sm:p-6 rounded-3xl transition-all hover:bg-white/[0.02]"
-                >
-                  <div className="shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-black transition-all">
-                    <motion.div
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                    >
-                      <item.icon size={24} />
-                    </motion.div>
-                  </div>
-                  <div className="space-y-2">
-                    <h4 className="text-base md:text-lg font-black uppercase tracking-tight italic text-foreground leading-tight">{item.title}</h4>
-                    <p className="text-[14px] md:text-[15px] text-foreground/60 leading-relaxed font-medium">{item.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+      {/* NEW CONTACT INTRODUCTION SECTION */}
+      <section className="bg-white pt-16 pb-24 relative overflow-hidden -mt-32">
+        {/* Subtle blueprint grid pattern / background texture */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-40 pointer-events-none" />
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-16 space-y-5">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter text-[#0a0f1a]">
+              Connect With Our Team
+            </h2>
+            <div className="w-20 h-1 bg-brand-blue mx-auto rounded-full" />
+            <p className="text-[#333] max-w-2xl mx-auto text-base md:text-lg leading-relaxed font-medium">
+              We're here to assist with project inquiries, booking information, site visits, and partnership opportunities.
+            </p>
           </div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+          >
+            {[
+              {
+                icon: Building2,
+                title: "Project Details",
+                desc: "Discover project specifications, amenities, locations, and development highlights."
+              },
+              {
+                icon: FileText,
+                title: "Booking Assistance",
+                desc: "Receive information about availability, payment plans, and booking procedures."
+              },
+              {
+                icon: MapPin,
+                title: "Site Visit Scheduling",
+                desc: "Arrange a guided visit to explore our developments and experience the project firsthand."
+              },
+              {
+                icon: Headset,
+                title: "Customer Support",
+                desc: "Connect with our team for inquiries, updates, and additional assistance."
+              }
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                variants={fadeInUp}
+                whileHover={{ y: -8 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                className="bg-white rounded-[2rem] p-8 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(90,161,255,0.15)] transition-all duration-300 group relative overflow-hidden flex flex-col h-full border border-gray-100 hover:border-brand-blue/20"
+              >
+                {/* Top blue accent line on hover */}
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-brand-blue scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 ease-out" />
+                
+                <div className="w-16 h-16 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue mb-8 transition-colors duration-500 group-hover:bg-brand-blue group-hover:text-white shrink-0">
+                  <div className="transition-transform duration-500 group-hover:scale-110">
+                    <item.icon size={28} strokeWidth={1.5} />
+                  </div>
+                </div>
+                
+                <div className="flex-grow space-y-4">
+                  <h3 className="text-xl font-bold text-[#0a0f1a] tracking-tight group-hover:text-brand-blue transition-colors duration-300">
+                    {item.title}
+                  </h3>
+                  
+                  <p className="text-[#4a5568] leading-relaxed text-[15px] font-medium">
+                    {item.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
@@ -390,7 +336,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="p-8 bg-card border border-border/40 rounded-[2.5rem] space-y-2">
                 <h4 className="tactical-label text-brand-blue whitespace-nowrap text-[12px] md:text-[15px] tracking-[0.15em]">Location Context</h4>
-                <p className="text-[14px] font-black uppercase tracking-tight italic text-foreground leading-tight">Located on Shahra-e-Faisal, Karachi</p>
+                <p className="text-[14px] font-black uppercase tracking-tight italic text-foreground leading-tight">Located on Race Course Road, Sukkur</p>
 
               </div>
               <div className="p-8 bg-card border border-border/40 rounded-[2.5rem] flex items-center gap-6">
