@@ -216,7 +216,7 @@ export function FooterClient({ contact }: FooterClientProps) {
             © <span suppressHydrationWarning>{currentYear}</span> <Link href={contact.social.facebook || "#"} target="_blank" className="text-brand-blue font-bold hover:scale-105 transition-transform inline-block">Dolphin Builders</Link>. <br className="md:hidden" /> All Rights Reserved.
           </p>
           <p className="font-sans text-[13px] sm:text-[15px] md:text-[16px] font-semibold uppercase tracking-[0.2em] text-black/80">
-            DEVELOPED BY <Link href="https://www.anziandco.com/?refer=anziandco" target="_blank" className="text-brand-blue font-bold hover:scale-105 transition-transform inline-block">ANZI & .CO</Link>
+            DEVELOPED BY <Link href="https://www.anziandco.com/?refer=dolphinbuilders" target="_blank" className="text-brand-blue font-bold hover:scale-105 transition-transform inline-block">ANZI & .CO</Link>
           </p>
         </div>
       </div>

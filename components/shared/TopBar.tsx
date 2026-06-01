@@ -59,8 +59,8 @@ export function TopBar({ phone, email, address, social }: TopBarProps) {
               <div className="w-9 h-9 rounded-xl bg-black/5 flex items-center justify-center text-black group-hover:bg-black group-hover:text-white transition-all">
                 <Phone size={17} />
               </div>
-              <a href={`tel:${phone.replace(/[^\d+]/g, '')}`} className="text-[13px] font-black uppercase tracking-[0.1em] text-black group-hover:text-black/70 transition-colors">
-                {phone}
+              <a href="tel:03702502769" className="text-[13px] font-black uppercase tracking-[0.1em] text-black group-hover:text-black/70 transition-colors">
+                0370 2502769
               </a>
             </div>
           </div>
