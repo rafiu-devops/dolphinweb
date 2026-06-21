@@ -178,7 +178,7 @@ export function ProjectsSection({ projects: initialProjects }: ProjectsSectionPr
               <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Filter size={32} className="text-gray-300" />
               </div>
-              <h3 className="text-2xl font-black uppercase tracking-tighter italic text-gray-800">No results found</h3>
+              <h3 className="text-2xl font-black uppercase tracking-tighter text-gray-800">No results found</h3>
               <p className="text-gray-400 mt-2">Adjust your filters to see more projects.</p>
             </motion.div>
           ) : (
@@ -222,8 +222,7 @@ function ProjectCard({ project, index }: {
           
           {/* Status Badge */}
           <div className={cn(
-            "absolute top-4 right-4 sm:top-6 sm:right-6 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[9px] font-black uppercase tracking-[0.2em] shadow-lg z-20",
-            project.status === "Completed" ? "bg-[#25D366] text-white" : "bg-brand-blue text-white"
+            "absolute top-4 right-4 sm:top-6 sm:right-6 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-[12px] font-black uppercase tracking-[0.22em] shadow-lg z-20 bg-brand-blue text-white"
           )}>
             {project.status}
           </div>
@@ -256,7 +255,7 @@ function ProjectCard({ project, index }: {
         <div className="p-6 sm:p-8 flex flex-col justify-between flex-1">
           <div className="space-y-4">
             <div className="space-y-2">
-              <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tighter italic text-[#373635] group-hover:text-brand-blue transition-colors duration-500">
+              <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tighter text-[#373635] group-hover:text-brand-blue transition-colors duration-500">
                 {project.name}
               </h3>
               <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-gray-400">

@@ -98,7 +98,7 @@ function LocationCard({ loc, isStaggered }: { loc: typeof locations[0], isStagge
             <div className="w-2 h-2 rounded-full bg-brand-blue animate-pulse" />
             <span className="tactical-label">{loc.properties} Operational Hubs</span>
           </div>
-          <h3 className="text-4xl md:text-5xl font-black italic uppercase tracking-tighter text-white group-hover:text-brand-blue transition-all duration-500 transform group-hover:-translate-y-2">
+          <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white group-hover:text-brand-blue transition-all duration-500 transform group-hover:-translate-y-2">
             {loc.name}
           </h3>
           
@@ -136,8 +136,8 @@ export function LocationSection() {
              <MapPin size={14} />
              <span className="tactical-label">Strategic Geolocation</span>
           </div>
-          <h2 className="text-5xl md:text-7xl font-black italic uppercase tracking-tighter leading-none">
-            Explore <span className="text-brand-blue text-glow-blue italic">Location</span>
+          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none">
+            Explore <span className="text-brand-blue text-glow-blue">Location</span>
           </h2>
           <p className="tactical-label text-muted-foreground/80 max-w-xl">
             Signature neighborhoods. Tactical urban placement. Elite real estate assets across Dubai's most profitable operational zones.

@@ -123,13 +123,13 @@ export function FooterClient({ contact }: FooterClientProps) {
                   onClick={() => toggleSection(section.title)}
                   className="w-full flex items-center justify-between py-5 lg:hidden"
                 >
-                  <h4 className="font-heading text-[22px] font-normal text-white uppercase tracking-[0.1em]">{section.title}</h4>
+                  <h4 className="font-heading text-[22px] font-bold text-white uppercase tracking-[0.1em]">{section.title}</h4>
                   <ChevronDown className={cn("text-white transition-transform duration-300", openSection === section.title && "rotate-180")} size={22} />
                 </button>
 
                 {/* Desktop Heading */}
                 <div className="hidden lg:block mb-10">
-                  <h4 className="font-heading text-[28px] font-normal text-white uppercase tracking-[0.1em] mb-4">{section.title}</h4>
+                  <h4 className="font-heading text-[28px] font-bold text-white uppercase tracking-[0.1em] mb-4">{section.title}</h4>
                   <div className="w-16 h-[3px] bg-white rounded-full" />
                 </div>
 
@@ -155,10 +155,10 @@ export function FooterClient({ contact }: FooterClientProps) {
             <div className="space-y-10 lg:space-y-12 py-8 lg:py-0 lg:col-span-1">
               <div className="text-center lg:text-left">
                 <div className="hidden lg:block mb-8">
-                  <h4 className="font-heading text-[32px] font-normal text-white uppercase tracking-[0.1em] mb-5">Project Updates</h4>
+                  <h4 className="font-heading text-[32px] font-bold text-white uppercase tracking-[0.1em] mb-5">Project Updates</h4>
                   <div className="w-20 h-[4px] bg-white rounded-full" />
                 </div>
-                <h4 className="lg:hidden font-heading text-[22px] font-normal text-white uppercase tracking-[0.1em] mb-8">Project Updates</h4>
+                <h4 className="lg:hidden font-heading text-[22px] font-bold text-white uppercase tracking-[0.1em] mb-8">Project Updates</h4>
 
                 <p className="text-[15px] md:text-[17px] text-white uppercase tracking-[0.15em] leading-relaxed mb-12 mx-auto lg:mx-0 max-w-[360px] font-bold">
                   Subscribe for real-time property deployment alerts and exclusive investor access.

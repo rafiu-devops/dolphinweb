@@ -25,7 +25,7 @@ export function TopBar({ phone, email, address, social }: TopBarProps) {
           {/* Left: Address */}
           <div className="flex-1 flex justify-start">
             <div className="flex items-center gap-3 group cursor-pointer">
-              <div className="w-9 h-9 rounded-xl bg-black/5 flex items-center justify-center text-black group-hover:bg-black group-hover:text-white transition-all">
+              <div className="w-9 h-9 rounded-xl bg-white flex items-center justify-center text-black shadow-md group-hover:bg-black group-hover:text-white transition-all">
                 <MapPin size={16} />
               </div>
               <span className="text-[11px] font-bold uppercase tracking-[0.1em] text-black group-hover:text-black/70 transition-colors">
@@ -38,25 +38,22 @@ export function TopBar({ phone, email, address, social }: TopBarProps) {
           <div className="flex items-center gap-6 justify-end flex-1">
             {/* Facebook Icon */}
             {[
-              { icon: FaFacebookF, href: social.facebook, brand: "#1877F2" }
+              { icon: FaFacebookF, href: social.facebook }
             ].map((social, idx) => (
               <a
                 key={idx}
                 href={social.href}
                 target="_blank"
-                className="relative w-9 h-9 rounded-xl flex items-center justify-center text-white overflow-hidden group shadow-md"
+                className="relative w-9 h-9 rounded-xl flex items-center justify-center text-[#1877F2] overflow-hidden group shadow-md bg-white"
               >
-                <div
-                  className="absolute inset-0 transition-transform duration-500 group-hover:scale-110"
-                  style={{ background: social.brand }}
-                />
+                <div className="absolute inset-0 bg-white transition-transform duration-500 group-hover:scale-110" />
                 <social.icon size={15} className="relative z-10 transition-transform duration-300 group-hover:scale-125" />
               </a>
             ))}
 
             {/* Phone Number */}
             <div className="flex items-center gap-3 group cursor-pointer">
-              <div className="w-9 h-9 rounded-xl bg-black/5 flex items-center justify-center text-black group-hover:bg-black group-hover:text-white transition-all">
+              <div className="w-9 h-9 rounded-xl bg-white flex items-center justify-center text-black shadow-md group-hover:bg-black group-hover:text-white transition-all">
                 <Phone size={17} />
               </div>
               <a href="tel:03702502769" className="text-[13px] font-black uppercase tracking-[0.1em] text-black group-hover:text-black/70 transition-colors">

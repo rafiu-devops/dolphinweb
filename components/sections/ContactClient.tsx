@@ -91,7 +91,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
               <span className="text-[10px] md:tactical-label font-black uppercase tracking-widest">Active Communication Channel</span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase italic leading-[1] drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-wrap justify-center gap-x-4 md:gap-x-8">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase leading-[1] drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-wrap justify-center gap-x-4 md:gap-x-8">
               <span className="text-white">Get in</span>
               <span className="text-brand-blue text-glow-blue">Touch</span>
             </h1>
@@ -190,7 +190,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
             <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-brand-blue border-brand-blue/30 group-hover:via-brand-blue transition-all duration-1000" />
 
             <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter italic text-foreground">Send Us a <span className="text-brand-blue">Message</span></h2>
+              <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter text-foreground">Send Us a <span className="text-brand-blue">Message</span></h2>
               <p className="tactical-label text-muted-foreground/80 max-w-sm">
                 Our expert mission control team is ready to assist with your strategic property requirements. Expect a tactical brief within 24 hours.
               </p>
@@ -207,7 +207,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
                     <ShieldCheck size={48} />
                   </div>
                   <div className="space-y-2">
-                    <h3 className="text-3xl font-black uppercase tracking-tighter italic text-foreground">Message Transmitted</h3>
+                    <h3 className="text-3xl font-black uppercase tracking-tighter text-foreground">Message Transmitted</h3>
                     <p className="tactical-label text-muted-foreground/80 leading-relaxed max-w-xs mx-auto">Our tactical team has received your link. We will respond shortly.</p>
                   </div>
                 </motion.div>
@@ -221,7 +221,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="ENTER YOUR NAME"
-                      className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all placeholder:text-[#0a0f1a]/50 font-black text-base uppercase tracking-wider italic focus:bg-brand-blue/[0.04] text-[#0a0f1a]"
+                      className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all placeholder:text-[#0a0f1a]/50 font-black text-base uppercase tracking-wider focus:bg-brand-blue/[0.04] text-[#0a0f1a]"
                     />
                   </div>
 
@@ -234,7 +234,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+92 --- -------"
-                        className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all placeholder:text-[#0a0f1a]/50 font-black text-base uppercase tracking-wider italic focus:bg-brand-blue/[0.04] text-[#0a0f1a]"
+                        className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all placeholder:text-[#0a0f1a]/50 font-black text-base uppercase tracking-wider focus:bg-brand-blue/[0.04] text-[#0a0f1a]"
                       />
                     </div>
                     <div className="space-y-3">
@@ -242,7 +242,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
                       <select
                         value={formData.inquiryType}
                         onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
-                        className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all font-black text-base uppercase tracking-wider italic focus:bg-brand-blue/[0.04] text-[#0a0f1a] appearance-none cursor-pointer"
+                        className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all font-black text-base uppercase tracking-wider focus:bg-brand-blue/[0.04] text-[#0a0f1a] appearance-none cursor-pointer"
                       >
                         <option value="Buy Property">Buy Property</option>
                         <option value="Investment">Investment</option>
@@ -259,7 +259,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="EXAMPLE@GMAIL.COM"
-                      className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all placeholder:text-[#0a0f1a]/50 font-black text-base uppercase tracking-wider italic focus:bg-brand-blue/[0.04] text-[#0a0f1a]"
+                      className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all placeholder:text-[#0a0f1a]/50 font-black text-base uppercase tracking-wider focus:bg-brand-blue/[0.04] text-[#0a0f1a]"
                     />
                   </div>
                   <div className="space-y-3">
@@ -270,7 +270,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="How can we help you today?"
-                      className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all resize-none placeholder:text-[#0a0f1a]/50 font-black text-base uppercase tracking-wider italic focus:bg-brand-blue/[0.04] text-[#0a0f1a]"
+                      className="w-full bg-muted/20 border border-border/60 rounded-2xl px-8 py-6 focus:border-brand-blue/60 outline-none transition-all resize-none placeholder:text-[#0a0f1a]/50 font-black text-base uppercase tracking-wider focus:bg-brand-blue/[0.04] text-[#0a0f1a]"
                     />
                   </div>
                   <motion.button
@@ -336,7 +336,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="p-8 bg-card border border-border/40 rounded-[2.5rem] space-y-2">
                 <h4 className="tactical-label text-brand-blue whitespace-nowrap text-[12px] md:text-[15px] tracking-[0.15em]">Location Context</h4>
-                <p className="text-[14px] font-black uppercase tracking-tight italic text-foreground leading-tight">Located on Race Course Road, Sukkur</p>
+                <p className="text-[14px] font-black uppercase tracking-tight text-foreground leading-tight">Located on Race Course Road, Sukkur</p>
 
               </div>
               <div className="p-8 bg-card border border-border/40 rounded-[2.5rem] flex items-center gap-6">
@@ -345,7 +345,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
                 </div>
                 <div>
                   <h4 className="tactical-label whitespace-nowrap text-[12px] md:text-[15px] tracking-[0.15em]">Office Hours</h4>
-                  <p className="text-[14px] font-black uppercase tracking-tight italic text-foreground">{contact.officeHours}</p>
+                  <p className="text-[14px] font-black uppercase tracking-tight text-foreground">{contact.officeHours}</p>
                 </div>
               </div>
             </div>
@@ -367,7 +367,7 @@ export default function ContactClient({ contact }: ContactClientProps) {
 
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12 text-center md:text-left">
             <div className="space-y-4">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter italic text-white leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter text-white leading-tight">
                 Ready to Invest in <br />
                 <span className="text-black/40">Your Property?</span>
               </h2>

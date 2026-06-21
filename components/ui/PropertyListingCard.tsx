@@ -39,7 +39,7 @@ export function PropertyListingCard({ property }: PropertyListingCardProps) {
             <MapPin size={14} className="text-brand-blue" />
             <span className="text-[12px] font-bold text-foreground">{property.location}</span>
           </div>
-          <h3 className="text-xl font-black uppercase italic tracking-tighter text-foreground group-hover:text-brand-blue transition-colors">
+          <h3 className="text-xl font-black uppercase tracking-tighter text-foreground group-hover:text-brand-blue transition-colors">
             {title}
           </h3>
         </div>

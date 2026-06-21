@@ -48,12 +48,12 @@ export function StatCounter({ value, label }: StatCounterProps) {
       
       <div className="relative z-10 space-y-3 w-full">
         <div className="flex items-baseline justify-center gap-1">
-          <motion.span className="text-6xl md:text-7xl font-heading font-normal text-foreground italic tracking-wider text-glow">
+          <motion.span className="text-6xl md:text-7xl font-heading font-bold text-foreground tracking-wider text-glow">
             {mounted ? displayValue : "0"}
           </motion.span>
-          <span className="text-4xl md:text-5xl font-heading font-normal text-brand-blue italic">{suffix}</span>
+          <span className="text-4xl md:text-5xl font-heading font-bold text-brand-blue">{suffix}</span>
         </div>
-        <div className="font-heading text-[13px] md:text-[15px] font-normal tracking-[0.2em] uppercase text-[--muted] group-hover:text-brand-blue transition-colors leading-tight px-4">
+        <div className="font-heading text-[13px] md:text-[15px] font-bold tracking-[0.2em] uppercase text-[--muted] group-hover:text-brand-blue transition-colors leading-tight px-4">
           {label}
         </div>
       </div>

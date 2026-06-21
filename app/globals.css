@@ -80,12 +80,12 @@
   }
 
   .section-heading {
-    @apply font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal uppercase tracking-widest text-foreground leading-[0.9] italic;
+    @apply font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-widest text-foreground leading-[0.9];
   }
 
   /* Tactical Readability Utilities */
   .tactical-label {
-    @apply font-heading text-[16px] md:text-[20px] font-normal uppercase tracking-[0.25em] leading-tight text-brand-blue;
+    @apply font-heading text-[16px] md:text-[20px] font-bold uppercase tracking-[0.25em] leading-tight text-brand-blue;
   }
 
   .tactical-description {
@@ -124,4 +124,19 @@
   backface-visibility: hidden;
   perspective: 1000px;
   will-change: transform;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.section-heading,
+.italic,
+i,
+em,
+cite {
+  font-style: normal !important;
+  font-weight: 700;
 }

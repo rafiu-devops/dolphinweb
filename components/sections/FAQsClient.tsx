@@ -66,7 +66,7 @@ export default function FAQsPage({ faqs, featuredProjects }: FAQsClientProps) {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-blue/10 border border-brand-blue/10 mb-2">
             <span className="tactical-label text-brand-blue">Information Center</span>
           </div>
-          <h1 className="text-5xl md:text-8xl font-black tracking-tighter uppercase italic leading-[0.9]">
+          <h1 className="text-5xl md:text-8xl font-black tracking-tighter uppercase leading-[0.9]">
             Information <span className="text-brand-blue text-glow-blue underline decoration-brand-blue/20 underline-offset-[10px]">Portal</span>
           </h1>
           <p className="tactical-label text-muted-foreground/80 max-w-xl mx-auto">
@@ -162,7 +162,7 @@ export default function FAQsPage({ faqs, featuredProjects }: FAQsClientProps) {
                 <div className="w-16 h-16 rounded-full border border-brand-blue/20 flex items-center justify-center mx-auto">
                   <ShieldCheck size={32} className="text-brand-blue" />
                 </div>
-                <p className="text-lg font-black uppercase tracking-widest italic">No matching questions found.</p>
+                <p className="text-lg font-black uppercase tracking-widest">No matching questions found.</p>
               </motion.div>
             )}
           </AnimatePresence>
@@ -180,7 +180,7 @@ export default function FAQsPage({ faqs, featuredProjects }: FAQsClientProps) {
               <MessageCircle className="text-brand-blue" size={32} />
             </div>
             <div className="space-y-4">
-              <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter italic text-foreground leading-tight">Need More Help?</h3>
+              <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-foreground leading-tight">Need More Help?</h3>
               <p className="tactical-label text-muted-foreground/80 max-w-lg mx-auto">
                 If you couldn't find the answer you were looking for, please get in touch with our support team.
               </p>

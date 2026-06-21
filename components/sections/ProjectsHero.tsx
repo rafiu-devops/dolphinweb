@@ -13,13 +13,13 @@ const SLIDE_IMAGES = [
 
 interface ProjectsHeroProps {
   title?: string;
-  italicTitle?: string;
+  accentTitle?: string;
   subtitle?: string;
 }
 
 export function ProjectsHero({ 
   title = "PROJECT", 
-  italicTitle = "STRATEGIC REAL ESTATE IN SUKKUR", 
+  accentTitle = "STRATEGIC REAL ESTATE IN SUKKUR", 
   subtitle = "Explore Dolphin Builders’ portfolio of commercial landmarks, modern housing schemes, and high-value developments shaping the future of Sukkur." 
 }: ProjectsHeroProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -88,8 +88,8 @@ export function ProjectsHero({
                   DEVELOPMENTS
                 </>
               ) : title}
-              <span className="text-brand-blue italic drop-shadow-[0_0_20px_rgba(90,161,255,0.3)] text-3xl md:text-5xl block mt-6">
-                {italicTitle}
+              <span className="text-brand-blue drop-shadow-[0_0_20px_rgba(90,161,255,0.3)] text-3xl md:text-5xl block mt-6">
+                {accentTitle}
               </span>
             </motion.h1>
             
@@ -97,7 +97,7 @@ export function ProjectsHero({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="text-xl md:text-2xl text-white/60 font-medium max-w-2xl leading-relaxed italic"
+              className="text-xl md:text-2xl text-white/60 font-medium max-w-2xl leading-relaxed"
             >
               {subtitle}
             </motion.p>

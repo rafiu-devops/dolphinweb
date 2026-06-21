@@ -94,7 +94,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
             <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-brand-blue border border-brand-blue/20 mb-6 shadow-[0_0_20px_rgba(90,161,255,0.3)]">
               <span className="tactical-label text-white">Modern Real Estate Solutions</span>
             </div>
-            <h1 className="text-4xl sm:text-6xl md:text-9xl font-black tracking-tighter text-white uppercase italic leading-[0.85] drop-shadow-2xl">
+            <h1 className="text-4xl sm:text-6xl md:text-9xl font-black tracking-tighter text-white uppercase leading-[0.85] drop-shadow-2xl">
               Building <br />
               <span className="text-brand-blue text-glow-blue underline decoration-brand-blue/40 underline-offset-[10px] md:underline-offset-[15px]">Legacies</span>
             </h1>
@@ -151,7 +151,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
               className="absolute -bottom-10 -left-10 bg-brand-blue text-black p-6 md:p-8 rounded-[2rem] shadow-[0_30px_60px_rgba(90,161,255,0.4)] hidden lg:block max-w-[280px]"
             >
               <Building className="mb-3 w-6 h-6" />
-              <p className="font-heading text-base md:text-lg font-normal uppercase italic tracking-wider leading-tight text-black">
+              <p className="font-heading text-base md:text-lg font-bold uppercase tracking-wider leading-tight text-black">
                 "We provide spaces engineered for the future of modern lifestyles."
               </p>
             </motion.div>
@@ -173,7 +173,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
                   <v.icon className="w-8 h-8 md:w-9 md:h-9" />
                 </div>
                 <div className="space-y-4">
-                  <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight italic text-foreground">
+                  <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-foreground">
                     {v.title}
                   </h3>
                   <p className="font-sans text-[17px] md:text-[20px] text-[--muted] leading-relaxed font-medium max-w-md mx-auto">{v.desc}</p>
@@ -187,7 +187,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
       {/* 4. CORE EXPERTISE */}
       <section className="container mx-auto px-6 py-32">
         <motion.div {...fadeInUp} className="text-center mb-16 space-y-4">
-          <h2 className="section-heading italic">Core <span className="text-brand-blue">Expertise</span></h2>
+          <h2 className="section-heading">Core <span className="text-brand-blue">Expertise</span></h2>
           <p className="tactical-label text-muted-foreground/80">Strategic Real Estate Solutions</p>
         </motion.div>
 
@@ -203,7 +203,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
                 <e.icon size={28} />
               </div>
               <div className="space-y-4">
-                <h3 className="text-xl font-black uppercase tracking-tight italic text-foreground">{e.title}</h3>
+                <h3 className="text-xl font-black uppercase tracking-tight text-foreground">{e.title}</h3>
                 <p className="font-sans text-[16px] text-[--muted] leading-relaxed font-medium">{e.desc}</p>
               </div>
             </motion.div>
@@ -216,7 +216,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
         <div className="absolute inset-0 bg-brand-blue/[0.03] pointer-events-none" />
         <div className="container mx-auto px-6 space-y-20 relative z-10">
           <div className="text-center space-y-4">
-            <h2 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase italic tracking-tighter">Project <span className="text-brand-blue">Approach</span></h2>
+            <h2 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter">Project <span className="text-brand-blue">Approach</span></h2>
             <p className="tactical-label text-white/60">Structured Development Lifecycle</p>
           </div>
 
@@ -239,7 +239,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: idx * 0.2 }}
-                    className="w-12 h-12 rounded-full border-2 border-brand-blue flex items-center justify-center text-brand-blue font-black italic shadow-glow-sm shrink-0"
+                    className="w-12 h-12 rounded-full border-2 border-brand-blue flex items-center justify-center text-brand-blue font-black shadow-glow-sm shrink-0"
                   >
                     0{idx + 1}
                   </motion.div>
@@ -261,7 +261,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
                   transition={{ duration: 0.5, delay: (idx * 0.2) + 0.1 }}
                   className="space-y-3"
                 >
-                  <h4 className="text-lg font-black uppercase italic tracking-tight text-white">{step.title}</h4>
+                  <h4 className="text-lg font-black uppercase tracking-tight text-white">{step.title}</h4>
                   <p className="font-sans text-[15px] md:text-[17px] text-white/70 leading-relaxed font-medium">{step.desc}</p>
                 </motion.div>
               </motion.div>
@@ -274,7 +274,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
       <section className="py-32 bg-background border-b border-border/40">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-20 space-y-4">
-            <h2 className="section-heading italic">Signature <span className="text-brand-blue">Developments</span></h2>
+            <h2 className="section-heading">Signature <span className="text-brand-blue">Developments</span></h2>
             <p className="tactical-label text-muted-foreground/80">Active Tactical Deployments</p>
           </motion.div>
 
@@ -309,7 +309,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
 
           <motion.div {...fadeInUp} className="space-y-12">
             <div className="space-y-4">
-              <h2 className="section-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl italic">Why Choose <br /> <span className="text-brand-blue whitespace-nowrap">Dolphin Builders?</span></h2>
+              <h2 className="section-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl">Why Choose <br /> <span className="text-brand-blue whitespace-nowrap">Dolphin Builders?</span></h2>
               <p className="tactical-label text-muted-foreground/80">Our Strategic Edge</p>
             </div>
 
@@ -339,7 +339,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-black/10 rounded-full blur-[100px] translate-x-1/2 translate-y-1/2" />
 
           <div className="relative z-10 space-y-12">
-            <h2 className="text-3xl sm:text-4xl md:text-7xl font-black uppercase tracking-tighter italic leading-[1.1] md:leading-tight text-white drop-shadow-2xl">
+            <h2 className="text-3xl sm:text-4xl md:text-7xl font-black uppercase tracking-tighter leading-[1.1] md:leading-tight text-white drop-shadow-2xl">
               Partner with <br className="hidden md:block" />
               Pakistan’s Trusted Developers
             </h2>

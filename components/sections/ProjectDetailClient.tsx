@@ -162,7 +162,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                 <span className="tactical-label text-brand-blue">{project.status}</span>
               </div>
               <h1 className={cn(
-                "text-3xl sm:text-5xl md:text-7xl font-black tracking-tighter text-foreground uppercase italic leading-[0.9] flex flex-wrap gap-x-4",
+                "text-3xl sm:text-5xl md:text-7xl font-black tracking-tighter text-foreground uppercase leading-[0.9] flex flex-wrap gap-x-4",
                 project.name.length < 25 
                   ? "lg:text-7xl xl:text-8xl lg:flex-nowrap lg:whitespace-nowrap" 
                   : "lg:text-8xl"
@@ -170,7 +170,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                 {project.name.split(' ').slice(0, -1).join(' ')}
                 <span className="text-brand-blue">{project.name.split(' ').slice(-1)}</span>
               </h1>
-              <p className="text-lg md:text-2xl text-muted-foreground font-bold italic tracking-tight max-w-3xl">
+              <p className="text-lg md:text-2xl text-muted-foreground font-bold tracking-tight max-w-3xl">
                 {project.detailsPage.introduction || project.projectCard.shortDescription}
               </p>
             </div>
@@ -256,7 +256,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               <h2 className="section-heading">Project <span className="text-brand-blue">Overview</span></h2>
               <div className="w-24 h-[2px] bg-brand-blue" />
             </div>
-            <div className="text-xl text-foreground/80 leading-relaxed italic font-medium space-y-6">
+            <div className="text-xl text-foreground/80 leading-relaxed font-medium space-y-6">
               {project.detailsPage.fullDescription.split('\n').map((para, i) => (
                 <p key={i}>{para}</p>
               ))}
@@ -314,7 +314,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                     <Icon size={isSingle ? 40 : 32} />
                   </div>
                   <h3 className={cn(
-                    "font-black uppercase italic tracking-tight",
+                    "font-black uppercase tracking-tight",
                     isSingle ? "text-2xl sm:text-4xl" : "text-xl"
                   )}>{offer.label}</h3>
                   <p className={cn(
@@ -334,7 +334,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
       <section className="py-24 bg-bg-card border-y border-border/40">
         <div className="container mx-auto px-6 space-y-20">
           <div className="flex flex-col items-center text-center space-y-6 w-full">
-            <h2 className="font-heading uppercase italic tracking-widest leading-[0.9] font-normal flex flex-wrap justify-center items-center gap-x-4 md:gap-x-6 text-3xl sm:text-4xl md:text-6xl">
+            <h2 className="font-heading uppercase tracking-widest leading-[0.9] font-bold flex flex-wrap justify-center items-center gap-x-4 md:gap-x-6 text-3xl sm:text-4xl md:text-6xl">
               <span className="text-foreground">
                 {project.slug === "dolphin-tower" ? "What This Project " : "Available "}
               </span>
@@ -366,7 +366,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                     {project.slug !== "dolphin-tower" && <th className="p-6 md:p-10 tactical-label text-right">Acquisition State</th>}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-border/20 font-black uppercase tracking-tight italic">
+                <tbody className="divide-y divide-border/20 font-black uppercase tracking-tight">
                   {project.detailsPage.unitTypes.map((unit, idx) => (
                     <tr key={idx} className="hover:bg-brand-blue/[0.03] transition-colors group">
                       <td className="p-6 md:p-10">
@@ -412,7 +412,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                   <div className="text-brand-blue"><Icon size={28} /></div>
                   <div className="space-y-2">
                     <span className="tactical-label text-[10px] text-muted-foreground/80 leading-none">{spec.label}</span>
-                    <p className="text-base md:text-lg font-black uppercase italic tracking-tight text-foreground leading-tight">{spec.value}</p>
+                    <p className="text-base md:text-lg font-black uppercase tracking-tight text-foreground leading-tight">{spec.value}</p>
                   </div>
                 </div>
               );
@@ -427,7 +427,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
         <div className="container mx-auto px-6 space-y-20 relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="space-y-4 text-center md:text-left">
-              <h2 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase italic tracking-tighter">Strategic <span className="text-brand-blue">Facilities</span></h2>
+              <h2 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter">Strategic <span className="text-brand-blue">Facilities</span></h2>
               <p className="tactical-label text-white/60">Mission-Critical Amenities for High-End Living</p>
             </div>
             <div className="h-[1px] flex-grow bg-white/10 hidden md:block" />
@@ -441,7 +441,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                   <div className="w-16 h-16 bg-brand-blue text-black rounded-2xl flex items-center justify-center shadow-glow-sm transition-transform group-hover:scale-110">
                     <Icon size={28} />
                   </div>
-                  <span className="tactical-label text-white/90 italic">{amenity.label}</span>
+                  <span className="tactical-label text-white/90">{amenity.label}</span>
                 </div>
               );
             })}
@@ -459,7 +459,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                   Location & <br />
                   <span className="text-brand-blue">Accessibility</span>
                 </h2>
-                <p className="text-lg text-muted-foreground font-bold italic leading-relaxed">
+                <p className="text-lg text-muted-foreground font-bold leading-relaxed">
                   Strategically positioned at {project.location}, {project.city}. This operational sector offers maximum visibility and optimized logistics.
                 </p>
               </div>
@@ -474,7 +474,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                         <Icon size={24} className="text-brand-blue" />
                         <span className="text-sm font-black uppercase tracking-widest text-foreground">{lm.name}</span>
                       </div>
-                      <span className="text-xs font-black text-brand-blue italic">{lm.distance}</span>
+                      <span className="text-xs font-black text-brand-blue">{lm.distance}</span>
                     </div>
                   );
                 })}
@@ -483,7 +483,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               {/* PROJECT SPECIFIC CONTACT */}
               <div className="p-8 sm:p-10 rounded-[2rem] sm:rounded-[3rem] bg-black text-white space-y-8 sm:space-y-10 shadow-4xl relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-40 h-40 bg-brand-blue/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-                <h3 className="text-2xl font-black uppercase italic tracking-tighter">Contact <span className="text-brand-blue">Information</span></h3>
+                <h3 className="text-2xl font-black uppercase tracking-tighter">Contact <span className="text-brand-blue">Information</span></h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="flex items-center gap-6 group cursor-pointer" onClick={() => window.location.href = `tel:${project.detailsPage.projectContact?.phone}`}>
                     <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-brand-blue group-hover:text-black transition-all"><Phone size={20} /></div>
@@ -575,8 +575,8 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               <div key={i} className="w-full md:w-[calc(50%-3rem)] lg:w-[calc(33.33%-3rem)] min-w-[300px] p-12 rounded-[3.5rem] bg-background border border-border/40 hover:border-brand-blue/40 transition-all group relative overflow-hidden">
                 <div className="relative z-10 space-y-6">
                   <div className="w-16 h-16 bg-brand-blue/10 text-brand-blue rounded-2xl flex items-center justify-center shadow-glow-sm"><TrendingUp size={32} /></div>
-                  <h3 className="text-2xl font-black uppercase italic tracking-tighter leading-tight">{benefit}</h3>
-                  <p className="text-sm text-muted-foreground font-medium italic leading-relaxed">A high-priority investment zone targeted for double-digit growth by 2026. Data-driven asset selection.</p>
+                  <h3 className="text-2xl font-black uppercase tracking-tighter leading-tight">{benefit}</h3>
+                  <p className="text-sm text-muted-foreground font-medium leading-relaxed">A high-priority investment zone targeted for double-digit growth by 2026. Data-driven asset selection.</p>
                 </div>
               </div>
             ))}
@@ -615,7 +615,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                   </motion.div>
                 ))
               ) : (
-                <div className="col-span-full py-40 text-center border-2 border-dashed border-border/40 rounded-[3rem] text-muted-foreground font-black uppercase tracking-[0.5em] italic opacity-40">
+                <div className="col-span-full py-40 text-center border-2 border-dashed border-border/40 rounded-[3rem] text-muted-foreground font-black uppercase tracking-[0.5em] opacity-40">
                   Visual data not yet deployed for this sub-sector.
                 </div>
               )}
@@ -630,7 +630,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center">
             <div className="space-y-8">
               <div className="space-y-6">
-                <h3 className="text-3xl sm:text-4xl md:text-6xl font-black uppercase italic tracking-tighter text-foreground">Contact <span className="text-brand-blue">Us</span></h3>
+                <h3 className="text-3xl sm:text-4xl md:text-6xl font-black uppercase tracking-tighter text-foreground">Contact <span className="text-brand-blue">Us</span></h3>
                 <p className="text-base md:text-lg text-muted-foreground font-bold uppercase tracking-[0.1em] leading-relaxed max-w-xl">Our high-tier asset management team will process your strategic interest within 24 operational hours.</p>
               </div>
             </div>
@@ -641,7 +641,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                   <motion.div key="success" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-20 text-center space-y-8">
                     <div className="w-24 h-24 bg-white text-brand-blue rounded-[2rem] flex items-center justify-center mx-auto shadow-glow-md animate-bounce"><CheckCircle2 size={48} /></div>
                     <div className="space-y-2">
-                      <h3 className="text-3xl font-black uppercase italic text-white">Transmission Received</h3>
+                      <h3 className="text-3xl font-black uppercase text-white">Transmission Received</h3>
                       <p className="tactical-label text-white/80">Stand by for tactical agent follow-up.</p>
                     </div>
                   </motion.div>

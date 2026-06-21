@@ -85,7 +85,7 @@ export function EnquireModal({ isOpen, onClose, projectName }: EnquireModalProps
                        <Target size={14} className="animate-pulse" />
                        <span className="tactical-label">Official Contact</span>
                    </div>
-                   <h3 className="text-3xl md:text-4xl font-black text-foreground uppercase tracking-tighter italic leading-none">
+                   <h3 className="text-3xl md:text-4xl font-black text-foreground uppercase tracking-tighter leading-none">
                       Establish <span className="text-brand-blue text-glow-blue underline decoration-brand-blue/20 underline-offset-4">Link</span>
                    </h3>
                 </div>
@@ -110,7 +110,7 @@ export function EnquireModal({ isOpen, onClose, projectName }: EnquireModalProps
                        <ShieldCheck size={48} className="relative z-10" />
                     </div>
                     <div className="space-y-4">
-                      <h4 className="text-3xl font-black uppercase tracking-tighter italic text-foreground">Message Sent</h4>
+                      <h4 className="text-3xl font-black uppercase tracking-tighter text-foreground">Message Sent</h4>
                       <p className="tactical-label text-muted-foreground/80 leading-relaxed max-w-xs mx-auto">
                         Your message has been received. Our team will contact you shortly.
                       </p>
@@ -123,7 +123,7 @@ export function EnquireModal({ isOpen, onClose, projectName }: EnquireModalProps
                         <label className="tactical-label text-brand-blue/60">Interest Area</label>
                         <div className="flex items-center gap-4 bg-brand-blue/[0.03] border border-brand-blue/20 rounded-2xl px-6 py-4">
                            <Zap size={14} className="text-brand-blue" />
-                           <span className="font-black text-sm text-brand-blue uppercase tracking-widest italic">{projectName}</span>
+                           <span className="font-black text-sm text-brand-blue uppercase tracking-widest">{projectName}</span>
                         </div>
                       </div>
                     )}
@@ -137,7 +137,7 @@ export function EnquireModal({ isOpen, onClose, projectName }: EnquireModalProps
                           placeholder="ENTER YOUR NAME" 
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className="w-full bg-card/40 border border-border rounded-2xl px-6 py-5 text-sm font-black uppercase tracking-wider italic text-foreground placeholder:text-muted-foreground/30 focus:border-brand-blue/40 outline-none transition-all focus:bg-brand-blue/[0.02]"
+                          className="w-full bg-card/40 border border-border rounded-2xl px-6 py-5 text-sm font-black uppercase tracking-wider text-foreground placeholder:text-muted-foreground/30 focus:border-brand-blue/40 outline-none transition-all focus:bg-brand-blue/[0.02]"
                         />
                       </div>
                       <div className="space-y-3">
@@ -148,7 +148,7 @@ export function EnquireModal({ isOpen, onClose, projectName }: EnquireModalProps
                           placeholder="+XX --- --- ----" 
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          className="w-full bg-card/40 border border-border rounded-2xl px-6 py-5 text-sm font-black uppercase tracking-wider italic text-foreground placeholder:text-muted-foreground/30 focus:border-brand-blue/40 outline-none transition-all focus:bg-brand-blue/[0.02]"
+                          className="w-full bg-card/40 border border-border rounded-2xl px-6 py-5 text-sm font-black uppercase tracking-wider text-foreground placeholder:text-muted-foreground/30 focus:border-brand-blue/40 outline-none transition-all focus:bg-brand-blue/[0.02]"
                         />
                       </div>
                     </div>
@@ -161,7 +161,7 @@ export function EnquireModal({ isOpen, onClose, projectName }: EnquireModalProps
                         placeholder="EXAMPLE@GMAIL.COM" 
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full bg-card/40 border border-border rounded-2xl px-6 py-5 text-sm font-black uppercase tracking-wider italic text-foreground placeholder:text-muted-foreground/30 focus:border-brand-blue/40 outline-none transition-all focus:bg-brand-blue/[0.02]"
+                        className="w-full bg-card/40 border border-border rounded-2xl px-6 py-5 text-sm font-black uppercase tracking-wider text-foreground placeholder:text-muted-foreground/30 focus:border-brand-blue/40 outline-none transition-all focus:bg-brand-blue/[0.02]"
                       />
                     </div>
 
@@ -173,7 +173,7 @@ export function EnquireModal({ isOpen, onClose, projectName }: EnquireModalProps
                         placeholder="How can we help you?" 
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className="w-full bg-card/40 border border-border rounded-2xl px-6 py-5 text-sm font-black uppercase tracking-wider italic text-foreground placeholder:text-muted-foreground/30 focus:border-brand-blue/40 outline-none transition-all resize-none focus:bg-brand-blue/[0.02]"
+                        className="w-full bg-card/40 border border-border rounded-2xl px-6 py-5 text-sm font-black uppercase tracking-wider text-foreground placeholder:text-muted-foreground/30 focus:border-brand-blue/40 outline-none transition-all resize-none focus:bg-brand-blue/[0.02]"
                       />
                     </div>
 

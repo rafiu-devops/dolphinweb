@@ -6,6 +6,7 @@ import { ProjectCard } from "@/components/ui/ProjectCard";
 import { EnquireModal } from "@/components/ui/EnquireModal";
 import { StatCounter } from "@/components/ui/StatCounter";
 import { Quote, CheckCircle2, ShieldCheck, Trophy, Headphones, ArrowRight, Star, Users, Briefcase, Zap, Phone, Send, MapPin, Building, TrendingUp, Loader2, Map, PenTool, LayoutGrid } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
@@ -167,78 +168,70 @@ export default function HomeClient({
     <div className="flex flex-col pb-20 bg-background overflow-x-hidden">
 
       {/* Hero Section */}
-      <section className="relative min-h-[500px] sm:min-h-[600px] lg:min-h-[850px] flex items-center overflow-hidden">
+      <section className="relative min-h-[760px] sm:min-h-[820px] lg:min-h-[920px] flex items-center overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
-          <ImageSlider
-            images={featuredProjects.flatMap(p => p.featured?.images || [])}
-            videoUrl="https://youtu.be/2Gd6cvbhQMs?si=1Xvh-KksRQLmIYc_"
-            autoPlay={true}
-            showArrows={false}
-            showDots={false}
-            interval={6000}
-            className="h-full w-full grayscale-0 opacity-100 transition-all duration-1000"
+          <Image
+            src="/bg-hero.png"
+            alt="Dolphin Builders and Developers"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center opacity-90 sm:object-[62%_center] lg:translate-y-20 lg:object-contain lg:object-right-bottom"
           />
-          <div className="absolute inset-0 bg-black/40 z-[1]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-[2]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-transparent z-[2]" />
+          <div className="absolute inset-0 bg-black/35" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/38 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/10" />
         </div>
 
-        <div className="container mx-auto px-6 md:px-20 pt-32 sm:pt-48 md:pt-64 pb-12 md:pb-20 relative z-[10]">
+        <div className="container mx-auto px-5 md:px-12 lg:px-16 pt-40 sm:pt-48 md:pt-56 lg:pt-64 pb-20 md:pb-24 relative z-[10]">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full flex flex-col gap-6 md:gap-10"
+            className="max-w-lg text-left"
           >
-            {/* Branding Text - Left Aligned */}
-            <div className="max-w-4xl text-left space-y-4 md:space-y-8">
-              <div className="inline-flex items-center gap-3 px-8 py-3 rounded-full bg-brand-blue backdrop-blur-md text-black shadow-[0_15px_35px_rgba(90,161,255,0.4)] border border-white/30">
-                <div className="w-2.5 h-2.5 rounded-full bg-black animate-pulse" />
-                <span className="font-sans text-[13px] md:text-[14px] font-bold uppercase tracking-[0.2em]">Premium Asset Management</span>
-              </div>
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.12, duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+              className="inline-flex max-w-full items-center gap-3 rounded-full border border-white/20 bg-black/25 px-5 py-3 text-white shadow-[0_18px_45px_rgba(0,0,0,0.18)] backdrop-blur-md"
+            >
+              <span className="h-2 w-2 rounded-full bg-brand-blue" />
+              <span className="font-sans text-[11px] md:text-[12px] font-bold uppercase tracking-[0.24em]">
+                Premium Real Estate Developers
+              </span>
+            </motion.div>
 
-              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-normal tracking-wider uppercase leading-[0.9] italic drop-shadow-[0_15px_45px_rgba(0,0,0,0.6)]">
-                <span className="text-white block">Dolphin Builder's </span>
-                <span className="text-brand-blue text-glow block">& Developer's</span>
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.22, duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-6 md:mt-8"
+            >
+              <h1 className="[font-family:Poppins,var(--font-inter),sans-serif] text-[32px] sm:text-5xl md:text-[54px] lg:text-[58px] font-bold uppercase leading-[1.04] tracking-[0.03em] text-white drop-shadow-[0_14px_42px_rgba(0,0,0,0.42)]">
+                Landmark Living, Built With Trust
               </h1>
+            </motion.div>
 
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.34, duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-8 md:mt-10"
+            >
+              <Link
+                href="/projects"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-brand min-h-[56px] w-full px-8 py-4 text-center shadow-[0_18px_45px_rgba(90,161,255,0.28)] sm:w-fit"
+              >
+                Explore Projects
+                <ArrowRight size={17} />
+              </Link>
+            </motion.div>
 
-              <div className="flex flex-col sm:flex-row gap-3 md:gap-5 pt-2 md:pt-4 items-center sm:items-start">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
-                  <Link
-                    href="/projects"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-brand px-10 md:px-14 py-4 md:py-6 shadow-[0_15px_35px_rgba(90,161,255,0.4)] w-full block text-center"
-                  >
-                    View Projects
-                  </Link>
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
-                  <Link
-                    href="/contact"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-10 md:px-14 py-4 md:py-6 text-[12px] md:text-[13px] border-2 border-white/30 hover:bg-white hover:text-black transition-all rounded-xl font-sans font-semibold uppercase tracking-[0.2em] backdrop-blur-md bg-white/10 text-white w-full block text-center"
-                  >
-                    Contact Us
-                  </Link>
-                </motion.div>
-              </div>
-            </div>
           </motion.div>
         </div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 hidden md:flex"
-        >
-          <span className="font-heading text-[16px] tracking-[0.3em] uppercase text-white/50">Scroll for more</span>
-          <div className="w-[1px] h-20 bg-gradient-to-b from-brand-blue to-transparent" />
-        </motion.div>
       </section>
 
       {/* Featured Projects */}
@@ -285,7 +278,7 @@ export default function HomeClient({
               >
                 {/* Large Background Index - Side-Centered Positioning */}
                 <div className={cn(
-                  "hidden md:block absolute top-1/2 -translate-y-1/2 opacity-[0.15] text-black text-[12rem] md:text-[20rem] font-heading italic select-none pointer-events-none transition-all duration-1000 group-hover:opacity-[0.2] z-0 will-change-transform tracking-tighter",
+                  "hidden md:block absolute top-1/2 -translate-y-1/2 opacity-[0.15] text-black text-[12rem] md:text-[20rem] font-heading select-none pointer-events-none transition-all duration-1000 group-hover:opacity-[0.2] z-0 will-change-transform tracking-tighter",
                   isLeft ? "left-[18%] -translate-x-1/2" : "left-[82%] -translate-x-1/2"
                 )}>
                   {projectNumber}
@@ -305,7 +298,7 @@ export default function HomeClient({
 
                     {/* Mobile-Only Project Number Tag (Circular Messenger Style - Partially Outside) */}
                     <div className="md:hidden absolute -top-5 -right-5 z-[70] pointer-events-none">
-                      <div className="w-14 h-14 bg-brand-blue text-black rounded-full font-heading italic text-2xl shadow-[0_10px_30px_rgba(90,161,255,0.4)] flex items-center justify-center border-4 border-white dark:border-background">
+                      <div className="w-14 h-14 bg-brand-blue text-black rounded-full font-heading text-2xl shadow-[0_10px_30px_rgba(90,161,255,0.4)] flex items-center justify-center border-4 border-white dark:border-background">
                         {projectNumber}
                       </div>
                     </div>
@@ -329,7 +322,7 @@ export default function HomeClient({
                         {/* Header HUD - Solid Visibility */}
                         <div className="flex flex-col sm:flex-row justify-between items-start gap-4 sm:gap-0">
                           <div className="space-y-3 sm:space-y-4">
-                            <h3 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-normal text-white uppercase italic tracking-wider leading-[1.1] drop-shadow-[0_15px_45px_rgba(0,0,0,0.8)] max-w-xl">
+                            <h3 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white uppercase tracking-wider leading-[1.1] drop-shadow-[0_15px_45px_rgba(0,0,0,0.8)] max-w-xl">
                               {project.name}
                             </h3>
                             <div className="flex items-center gap-2 md:gap-4 bg-black/80 backdrop-blur-xl px-6 py-2.5 rounded-xl w-fit border border-white/20 shadow-4xl">
@@ -339,12 +332,8 @@ export default function HomeClient({
                           </div>
 
                           <div className={cn(
-                            "px-4 sm:px-10 py-2 sm:py-3.5 rounded-xl md:rounded-2xl tactical-label shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-2xl border-2 transition-all text-[10px] md:text-[12px] shrink-0",
-                            project.status === "Completed"
-                              ? "bg-black border-[#25D366]/40 text-[#25D366]"
-                              : project.status === "Launching Soon" || project.status === "New Launch"
-                                ? "bg-black border-white text-white animate-pulse"
-                                : "bg-black border-brand-blue/40 text-brand-blue"
+                            "px-5 sm:px-10 py-2.5 sm:py-4 rounded-xl md:rounded-2xl bg-brand-blue text-white shadow-[0_20px_50px_rgba(90,161,255,0.35)] backdrop-blur-2xl border-2 border-white/20 transition-all text-[12px] md:text-[15px] font-bold uppercase tracking-[0.22em] shrink-0",
+                            (project.status === "Launching Soon" || project.status === "New Launch") && "animate-pulse"
                           )}>
                             {project.status === "Under Construction" ? (
                               <>
@@ -393,7 +382,7 @@ export default function HomeClient({
 
         <div className="container mx-auto px-6 relative z-10">
           <motion.div {...fadeInUp} className="text-center mb-20 space-y-4">
-            <h2 className="section-heading italic">Why Invest With Us</h2>
+            <h2 className="section-heading">Why Invest With Us</h2>
             <p className="text-brand-blue max-w-2xl mx-auto tactical-label">
               Across Sindh • Premier Real Estate Standard
             </p>
@@ -443,7 +432,7 @@ export default function HomeClient({
                     <item.icon size={24} />
                   </motion.div>
                 </div>
-                <h3 className="text-2xl font-heading font-normal uppercase tracking-wider italic mb-4 text-foreground leading-tight">{item.title}</h3>
+                <h3 className="text-2xl font-heading font-bold uppercase tracking-wider mb-4 text-foreground leading-tight">{item.title}</h3>
                 <p className="text-[14px] text-[--muted] leading-relaxed font-medium line-clamp-4">{item.desc}</p>
               </motion.div>
             ))}
@@ -462,9 +451,9 @@ export default function HomeClient({
                 className="flex items-center gap-10 pr-10"
               >
                 {[...Array(4)].map((_, i) => (
-                  <p key={i} className="text-[24px] md:text-[56px] font-heading font-normal uppercase tracking-[0.2em] text-foreground/80 italic leading-none flex items-center gap-12">
+                  <p key={i} className="text-[24px] md:text-[56px] font-heading font-bold uppercase tracking-[0.2em] text-foreground/80 leading-none flex items-center gap-12">
                     Serving premium locations across Sindh with
-                    <span className="text-brand-blue italic underline decoration-brand-blue/30 underline-offset-[20px]">
+                    <span className="text-brand-blue underline decoration-brand-blue/30 underline-offset-[20px]">
                       trusted developments
                     </span>
                     <span className="w-4 h-4 md:w-6 md:h-6 bg-brand-blue/30 rounded-full rotate-45" />
@@ -494,7 +483,7 @@ export default function HomeClient({
         <div className="container mx-auto px-6 relative z-10">
           {/* Centered Single-Line Heading */}
           <motion.div {...fadeInUp} className="text-center mb-20 md:mb-32">
-            <h2 className="font-heading text-4xl md:text-[80px] font-normal uppercase italic tracking-widest text-black leading-none flex flex-wrap justify-center gap-x-6 md:gap-x-12">
+            <h2 className="font-heading text-4xl md:text-[80px] font-bold uppercase tracking-widest text-black leading-none flex flex-wrap justify-center gap-x-6 md:gap-x-12">
               <span>Development</span>
               <span className="text-brand-blue text-glow underline decoration-brand-blue/20 underline-offset-[15px] md:underline-offset-[25px]">Journey</span>
             </h2>
@@ -522,7 +511,7 @@ export default function HomeClient({
                         <span className="w-2 h-2 rounded-full bg-brand-blue animate-pulse" />
                         {step.subtitle}
                       </div>
-                      <h3 className="font-heading text-4xl md:text-6xl font-normal uppercase tracking-wider text-black leading-tight">
+                      <h3 className="font-heading text-4xl md:text-6xl font-bold uppercase tracking-wider text-black leading-tight">
                         {step.title}
                       </h3>
                     </div>
@@ -542,12 +531,12 @@ export default function HomeClient({
 
                       <div className="relative z-10 space-y-5">
                         <div className="flex items-center gap-4">
-                          <span className="text-[13px] md:text-[15px] font-heading font-normal tracking-[0.3em] text-brand-blue">
+                          <span className="text-[13px] md:text-[15px] font-heading font-bold tracking-[0.3em] text-brand-blue">
                             PHASE 0{idx + 1}
                           </span>
                           <div className="h-[1px] w-10 bg-brand-blue/20" />
                         </div>
-                        <h4 className="font-heading text-3xl md:text-5xl font-normal uppercase italic tracking-tight text-black leading-[0.9]">
+                        <h4 className="font-heading text-3xl md:text-5xl font-bold uppercase tracking-tight text-black leading-[0.9]">
                           {step.title}
                         </h4>
 
@@ -570,7 +559,7 @@ export default function HomeClient({
 
         <div className="container mx-auto px-6 relative z-10 mb-16">
           <motion.div {...fadeInUp} className="text-center space-y-4">
-            <h2 className="section-heading italic">
+            <h2 className="section-heading">
               Executive <span className="underline decoration-brand-blue/20 underline-offset-[20px]">Testimonials</span>
             </h2>
             <p className="tactical-label text-brand-blue/80 pt-6">Strategic Success Stories</p>
@@ -595,7 +584,7 @@ export default function HomeClient({
               >
                 <div className="relative">
                   <Quote className="text-brand-blue/20 absolute -top-4 -left-4" size={32} />
-                  <p className="text-[13px] md:text-[15px] italic text-foreground/90 leading-relaxed font-medium pt-2 line-clamp-4">
+                  <p className="text-[13px] md:text-[15px] text-foreground/90 leading-relaxed font-medium pt-2 line-clamp-4">
                     "{t.quote}"
                   </p>
                 </div>
@@ -605,7 +594,7 @@ export default function HomeClient({
                     <Star size={14} fill="currentColor" />
                   </div>
                   <div className="space-y-0.5">
-                    <h4 className="font-heading text-[18px] md:text-[22px] font-normal text-foreground uppercase italic tracking-tight">
+                    <h4 className="font-heading text-[18px] md:text-[22px] font-bold text-foreground uppercase tracking-tight">
                       {t.name}
                     </h4>
                     <p className="text-[10px] tactical-label text-brand-blue/70">
@@ -635,7 +624,7 @@ export default function HomeClient({
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="space-y-6 md:space-y-8 text-center lg:text-left">
-              <h2 className="font-heading text-3xl sm:text-5xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wider italic leading-tight text-white drop-shadow-4xl">
+              <h2 className="font-heading text-3xl sm:text-5xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wider leading-tight text-white drop-shadow-4xl">
                 Secure Your Future
               </h2>
               <p className="font-sans text-base md:text-xl font-bold text-black/80 uppercase tracking-[0.15em] leading-relaxed max-w-xl">
@@ -649,7 +638,7 @@ export default function HomeClient({
               <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
               <div className="space-y-4 mb-12 text-center lg:text-left">
-                <h4 className="font-heading text-3xl md:text-5xl font-normal text-black italic uppercase tracking-wider leading-none">
+                <h4 className="font-heading text-3xl md:text-5xl font-bold text-black uppercase tracking-wider leading-none">
                   Quick <span className="text-brand-blue">Contact</span>
                 </h4>
                 <p className="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-[--muted]">Operational response within 24 tactical hours.</p>
@@ -667,7 +656,7 @@ export default function HomeClient({
                       <ShieldCheck size={40} />
                     </div>
                     <div className="space-y-2">
-                      <p className="text-lg font-black uppercase tracking-tighter text-black italic">Transmission Successful</p>
+                      <p className="text-lg font-black uppercase tracking-tighter text-black">Transmission Successful</p>
                       <p className="tactical-label text-gray-400">Stand by for tactical follow-up.</p>
                     </div>
                   </motion.div>

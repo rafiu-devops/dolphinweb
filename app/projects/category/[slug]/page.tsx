@@ -13,30 +13,30 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const { slug } = await params;
   const projects = await getProjects();
 
-  const categoryMap: Record<string, { status: string; title: string; italic: string; subtitle: string; featured?: boolean }> = {
+  const categoryMap: Record<string, { status: string; title: string; accent: string; subtitle: string; featured?: boolean }> = {
     upcoming: {
       status: "Upcoming",
       title: "Upcoming",
-      italic: "Deployments",
+      accent: "Deployments",
       subtitle: "Strategic preview of our high-potential real estate assets currently in the planning and pre-launch phase."
     },
     featured: {
       status: "All",
       featured: true,
       title: "Featured",
-      italic: "Portfolio",
+      accent: "Portfolio",
       subtitle: "Elite, high-performance tactical deployments selected for their exceptional value and premium potential."
     },
     ongoing: {
       status: "Ongoing",
       title: "Current",
-      italic: "Construction",
+      accent: "Construction",
       subtitle: "Active operational zones where our high-end architectural concepts are becoming physical reality."
     },
     completed: {
       status: "Completed",
       title: "Completed",
-      italic: "Operations",
+      accent: "Operations",
       subtitle: "Successfully deployed assets representing the pinnacle of our tactical luxury real estate vision."
     }
   };
@@ -51,7 +51,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     <div className="min-h-screen">
       <ProjectsHero 
         title={config.title} 
-        italicTitle={config.italic} 
+        accentTitle={config.accent} 
         subtitle={config.subtitle} 
       />
       <ProjectsClient 

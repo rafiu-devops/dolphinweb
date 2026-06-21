@@ -16,11 +16,11 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, className, onEnquire }: ProjectCardProps) {
   const statusColors: Record<string, string> = {
-    "Under Construction": "bg-brand-blue text-black shadow-[0_0_20px_rgba(90,161,255,0.4)]",
-    "Completed": "bg-[#25D366] text-white shadow-[0_0_20px_rgba(37,211,102,0.3)]",
-    "Upcoming": "bg-white text-black border border-border/40",
-    "Launching Soon": "bg-black text-brand-blue border border-brand-blue shadow-[0_0_15px_rgba(90,161,255,0.3)]",
-    "New Launch": "bg-brand-blue text-black animate-pulse",
+    "Under Construction": "bg-brand-blue text-white border border-white/20 shadow-[0_0_24px_rgba(90,161,255,0.45)]",
+    "Completed": "bg-brand-blue text-white border border-white/20 shadow-[0_0_24px_rgba(90,161,255,0.45)]",
+    "Upcoming": "bg-brand-blue text-white border border-white/20 shadow-[0_0_24px_rgba(90,161,255,0.45)]",
+    "Launching Soon": "bg-brand-blue text-white border border-white/20 shadow-[0_0_24px_rgba(90,161,255,0.45)]",
+    "New Launch": "bg-brand-blue text-white border border-white/20 shadow-[0_0_24px_rgba(90,161,255,0.45)] animate-pulse",
   };
 
   const currentStatusStyle = statusColors[project.status] || statusColors["Upcoming"];
@@ -51,7 +51,7 @@ export function ProjectCard({ project, className, onEnquire }: ProjectCardProps)
         <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent z-10" />
         
         <div className={cn(
-          "absolute top-4 right-4 px-3 py-1.5 rounded-sm tactical-label shadow-2xl z-20",
+          "absolute top-4 right-4 px-5 py-2.5 rounded-xl text-[12px] md:text-[14px] font-bold uppercase tracking-[0.25em] shadow-2xl z-20",
           currentStatusStyle
         )}>
           {project.status}
@@ -69,7 +69,7 @@ export function ProjectCard({ project, className, onEnquire }: ProjectCardProps)
         {/* Subtle Background Icon removed */}
 
         <div className="space-y-2">
-          <h3 className="font-heading text-3xl font-normal uppercase italic tracking-wider text-foreground group-hover:text-brand-blue transition-colors duration-500 leading-none">
+          <h3 className="font-heading text-3xl font-bold uppercase tracking-wider text-foreground group-hover:text-brand-blue transition-colors duration-500 leading-none">
             {project.name}
           </h3>
           <div className="flex items-center gap-2 font-heading text-[14px] uppercase tracking-widest text-brand-blue/80">

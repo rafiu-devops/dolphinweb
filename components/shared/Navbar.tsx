@@ -241,7 +241,7 @@ export function Navbar() {
                         href={link.href}
                         prefetch={false}
                         className={cn(
-                          "flex items-center justify-between px-8 py-6 rounded-2xl font-heading text-[22px] font-normal transition-all",
+                          "flex items-center justify-between px-8 py-6 rounded-2xl font-heading text-[22px] font-bold transition-all",
                           pathname === link.href
                             ? "text-brand-blue bg-brand-blue/5 border border-brand-blue/30"
                             : "text-[#111] hover:text-brand-blue hover:bg-brand-blue/[0.04]"

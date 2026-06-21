@@ -198,7 +198,7 @@ export function ProjectsClient({
                 <Filter size={32} className="text-brand-blue/20" />
               </div>
               <div className="space-y-2">
-                <h3 className="text-3xl font-black uppercase tracking-tighter italic text-foreground">No Projects Found</h3>
+                <h3 className="text-3xl font-black uppercase tracking-tighter text-foreground">No Projects Found</h3>
                 <p className="tactical-label text-muted-foreground/80">Try adjusting your search filters.</p>
               </div>
               <button 

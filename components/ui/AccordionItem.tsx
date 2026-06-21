@@ -33,7 +33,7 @@ export function AccordionItem({ question, answer, index, isOpen, onToggle }: Acc
             {isOpen ? <ShieldAlert size={16} /> : displayIndex}
           </div>
           <span className={cn(
-            "text-base md:text-xl font-black uppercase tracking-tight italic transition-colors duration-500",
+            "text-base md:text-xl font-black uppercase tracking-tight transition-colors duration-500",
             isOpen ? "text-foreground" : "text-muted-foreground"
           )}>
             {question}
