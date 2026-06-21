@@ -168,7 +168,7 @@ export default function HomeClient({
     <div className="flex flex-col pb-20 bg-background overflow-x-hidden">
 
       {/* Hero Section */}
-      <section className="relative min-h-[760px] sm:min-h-[820px] lg:min-h-[920px] flex items-center overflow-hidden bg-black">
+      <section className="relative min-h-[720px] sm:min-h-[820px] lg:min-h-[920px] flex items-center overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
           <Image
             src="/bg-hero.png"
@@ -176,14 +176,14 @@ export default function HomeClient({
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center opacity-90 sm:object-[62%_center] lg:translate-y-20 lg:object-contain lg:object-right-bottom"
+            className="translate-y-28 object-contain object-top opacity-95 sm:translate-y-20 sm:object-top md:translate-y-16 md:object-contain lg:translate-y-20 lg:object-right-bottom"
           />
-          <div className="absolute inset-0 bg-black/35" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/38 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/10" />
+          <div className="absolute inset-0 bg-black/15 md:bg-black/25" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/68 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/28 via-transparent to-black/5" />
         </div>
 
-        <div className="container mx-auto px-5 md:px-12 lg:px-16 pt-40 sm:pt-48 md:pt-56 lg:pt-64 pb-20 md:pb-24 relative z-[10]">
+        <div className="container mx-auto px-5 md:px-12 lg:px-16 pt-[500px] sm:pt-[570px] md:pt-[620px] lg:pt-64 pb-20 md:pb-24 relative z-[10]">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
