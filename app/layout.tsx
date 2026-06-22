@@ -42,14 +42,14 @@ export default async function RootLayout({
         <StyledJsxRegistry>
           <div className="flex min-h-screen flex-col">
             <StickyHeader>
-              <div className="pointer-events-auto">
+              {/* <div className="pointer-events-auto">
                 <TopBar
                   phone={contact.phone}
                   email={contact.email}
                   address={contact.address}
                   social={contact.social}
                 />
-              </div>
+              </div> */}
               <div className="relative pointer-events-auto">
                 <Navbar />
               </div>

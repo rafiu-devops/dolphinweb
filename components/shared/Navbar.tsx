@@ -91,18 +91,13 @@ export function Navbar() {
         className={cn(
           "max-w-[1240px] mx-3 md:mx-6 lg:mx-8 xl:mx-auto transition-all duration-500 pointer-events-auto origin-top mt-3 md:mt-2 rounded-[20px] md:rounded-[3rem]",
           "h-[106px] md:h-[104px]",
-          // Mobile specific: white translucent background with subtle shadow
-          "bg-white/95 backdrop-blur-xl border border-black/5 shadow-[0_4px_20px_rgba(0,0,0,0.04)]",
-          // Desktop specific: dynamic theme based on scroll
-          "md:backdrop-blur-3xl md:bg-transparent md:border-none md:shadow-none",
-          scrolled
-            ? (activeTheme === "light" ? "md:bg-white/80 md:border-black/5 md:shadow-xl" : "md:bg-black/40 md:border-white/10 md:shadow-2xl")
-            : "md:bg-white/10 md:border-white/20 md:shadow-[0_20px_40px_rgba(0,0,0,0.05)]"
+          "bg-white backdrop-blur-xl border border-black/5 shadow-[0_4px_20px_rgba(0,0,0,0.04)]",
+          scrolled ? "md:shadow-xl" : "md:shadow-md"
         )}
       >
         <div className="h-full px-5 md:px-10 flex items-center justify-between">
           <Link href="/" prefetch={false} className="hover:opacity-90 transition-opacity flex items-center h-full py-1">
-            <BrandLogo height={scrolled ? 106 : 106} mobileHeight={68} theme={activeTheme} />
+            <BrandLogo height={106} mobileHeight={68} theme="light" />
           </Link>
 
           {/* Desktop Nav */}
@@ -121,10 +116,7 @@ export function Navbar() {
                     onMouseEnter={() => setHoveredPath(link.href)}
                     onMouseLeave={() => setHoveredPath(null)}
                     className={cn(
-                      "px-5 py-3 font-sans text-[17px] font-semibold rounded-2xl transition-all duration-300 relative flex items-center gap-2",
-                      (hoveredPath === link.href || (!hoveredPath && pathname === link.href))
-                        ? "text-white"
-                        : activeTheme === "light" ? "text-[#111]" : "text-white"
+                      "px-5 py-3 font-sans text-[17px] font-semibold transition-all duration-300 relative flex items-center gap-2 text-black"
                     )}
                   >
                     <span className="relative z-10">{link.name}</span>
@@ -135,7 +127,7 @@ export function Navbar() {
                     {(hoveredPath === link.href || (!hoveredPath && pathname === link.href)) && (
                       <motion.div
                         layoutId="navHighlight"
-                        className="absolute inset-0 rounded-2xl bg-brand-blue shadow-[0_10px_20px_rgba(26,106,255,0.3)] z-0"
+                        className="absolute bottom-1 left-5 right-5 h-[3px] bg-brand-blue rounded-full z-0"
                         transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                       />
                     )}
@@ -178,7 +170,7 @@ export function Navbar() {
             <Link
               href="/contact"
               prefetch={false}
-              className="bg-brand-blue text-black px-8 py-3.5 font-sans text-[16px] font-bold uppercase tracking-[0.2em] rounded-xl transition-all hover:bg-black hover:text-white hover:shadow-xl hover:-translate-y-1 active:translate-y-0 whitespace-nowrap"
+              className="bg-brand-blue text-black px-8 py-3.5 font-sans text-[16px] font-bold uppercase tracking-[0.2em] rounded-xl transition-all hover:bg-black hover:text-white hover:scale-95 active:translate-y-0 whitespace-nowrap shadow-lg"
             >
               Contact Us
             </Link>

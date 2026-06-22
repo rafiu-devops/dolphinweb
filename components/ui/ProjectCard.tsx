@@ -83,7 +83,7 @@ export function ProjectCard({ project, className, onEnquire }: ProjectCardProps)
             prefetch={false}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-[1.2] btn-brand py-2.5 md:py-3.5 shadow-[0_10px_30px_rgba(90,161,255,0.2)] group-hover:shadow-[0_15px_40px_rgba(90,161,255,0.35)] transition-all flex items-center justify-center gap-2"
+            className="flex-[1.2] bg-brand-blue text-black hover:bg-black hover:text-white hover:scale-95 transition-all py-3 px-3 md:px-4 rounded-xl font-sans text-[11px] md:text-[12px] font-bold uppercase tracking-[0.15em] flex items-center justify-center gap-2 shadow-lg whitespace-nowrap"
           >
             View Details <ArrowRight size={14} />
           </Link>
@@ -94,7 +94,7 @@ export function ProjectCard({ project, className, onEnquire }: ProjectCardProps)
               e.stopPropagation();
               onEnquire?.(project);
             }}
-            className="flex-1 bg-muted/10 border border-border/40 text-[--muted] hover:text-black hover:bg-muted/20 hover:border-brand-blue/30 transition-all py-2.5 md:py-3.5 rounded-lg font-sans text-[11px] font-semibold uppercase tracking-[0.15em] whitespace-nowrap"
+            className="flex-1 bg-gray-100 border border-gray-200 text-black hover:bg-black hover:text-white hover:scale-95 transition-all py-2.5 px-4 rounded-xl font-sans text-[11px] md:text-[12px] font-bold uppercase tracking-[0.15em] whitespace-nowrap shadow-sm"
           >
             Contact Us
           </button>

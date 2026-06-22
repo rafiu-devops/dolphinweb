@@ -12,6 +12,7 @@ import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { AdvancedSearch } from "@/components/ui/AdvancedSearch";
 import { FaWhatsapp } from "react-icons/fa6";
+import { DevelopmentJourney } from "./DevelopmentJourney";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -168,7 +169,7 @@ export default function HomeClient({
     <div className="flex flex-col pb-20 bg-background overflow-x-hidden">
 
       {/* Hero Section */}
-      <section className="relative min-h-[720px] sm:min-h-[820px] lg:min-h-[920px] flex items-center overflow-hidden bg-black">
+      <section className="relative min-h-[720px] sm:min-h-[820px] lg:min-h-[920px] flex items-center overflow-hidden bg-white">
         <div className="absolute inset-0 z-0">
           <Image
             src="/bg-hero.png"
@@ -176,11 +177,8 @@ export default function HomeClient({
             fill
             priority
             sizes="100vw"
-            className="translate-y-28 object-contain object-top opacity-95 sm:translate-y-20 sm:object-top md:translate-y-16 md:object-contain lg:translate-y-20 lg:object-right-bottom"
+            className="translate-y-28 object-contain object-top opacity-100 sm:translate-y-20 sm:object-top md:translate-y-16 md:object-contain lg:translate-y-20 lg:object-right-bottom"
           />
-          <div className="absolute inset-0 bg-black/15 md:bg-black/25" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/68 via-black/20 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/28 via-transparent to-black/5" />
         </div>
 
         <div className="container mx-auto px-5 md:px-12 lg:px-16 pt-[500px] sm:pt-[570px] md:pt-[620px] lg:pt-64 pb-20 md:pb-24 relative z-[10]">
@@ -194,7 +192,7 @@ export default function HomeClient({
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.12, duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-              className="inline-flex max-w-full items-center gap-3 rounded-full border border-white/20 bg-black/25 px-5 py-3 text-white shadow-[0_18px_45px_rgba(0,0,0,0.18)] backdrop-blur-md"
+              className="inline-flex max-w-full items-center gap-3 rounded-full border border-black/10 bg-white/60 px-5 py-3 text-black shadow-sm backdrop-blur-md"
             >
               <span className="h-2 w-2 rounded-full bg-brand-blue" />
               <span className="font-sans text-[11px] md:text-[12px] font-bold uppercase tracking-[0.24em]">
@@ -208,7 +206,7 @@ export default function HomeClient({
               transition={{ delay: 0.22, duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
               className="mt-6 md:mt-8"
             >
-              <h1 className="[font-family:Poppins,var(--font-inter),sans-serif] text-[32px] sm:text-5xl md:text-[54px] lg:text-[58px] font-bold uppercase leading-[1.04] tracking-[0.03em] text-white drop-shadow-[0_14px_42px_rgba(0,0,0,0.42)]">
+              <h1 className="[font-family:Poppins,var(--font-inter),sans-serif] text-[32px] sm:text-5xl md:text-[54px] lg:text-[58px] font-bold uppercase leading-[1.04] tracking-[0.03em] text-black">
                 Landmark Living Built With Trust
               </h1>
             </motion.div>
@@ -450,91 +448,7 @@ export default function HomeClient({
         </div>
       </section>
 
-      {/* Strategic Development Journey - Static High-End Timeline */}
-      <section className="relative bg-white overflow-hidden border-y border-border/40 py-24 md:py-48">
-        {/* Subtle Architectural Blueprint Background */}
-        <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
-          <div className="absolute inset-0 bg-[radial-gradient(#000000_1px,transparent_1px)] [background-size:40px_40px]" />
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="blueprint-grid-static" width="100" height="100" patternUnits="userSpaceOnUse">
-                <path d="M 100 0 L 0 0 0 100" fill="none" stroke="black" strokeWidth="0.5" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#blueprint-grid-static)" />
-          </svg>
-        </div>
-
-        <div className="container mx-auto px-6 relative z-10">
-          {/* Centered Single-Line Heading */}
-          <motion.div {...fadeInUp} className="text-center mb-20 md:mb-32">
-            <h2 className="font-heading text-4xl md:text-[80px] font-bold uppercase tracking-widest text-black leading-none flex flex-wrap justify-center gap-x-6 md:gap-x-12">
-              <span>Development</span>
-              <span className="text-brand-blue text-glow underline decoration-brand-blue/20 underline-offset-[15px] md:underline-offset-[25px]">Journey</span>
-            </h2>
-            <p className="font-heading text-[16px] md:text-[22px] text-brand-blue/80 mt-8 uppercase tracking-[0.5em]">Strategic Project Lifecycle</p>
-          </motion.div>
-
-          <div className="relative max-w-7xl mx-auto">
-            {/* Connecting Vertical Line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-brand-blue/10 -translate-x-1/2 hidden lg:block" />
-
-            <div className="space-y-12 md:space-y-16">
-              {steps.map((step, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
-                >
-                  {/* Left: Description Content Panel */}
-                  <div className="space-y-6 order-2 lg:order-none lg:text-left lg:items-start">
-                    <div className="flex flex-col gap-4 items-start">
-                      <div className="inline-flex items-center gap-4 px-6 py-2.5 rounded-full bg-brand-blue/10 border border-brand-blue/30 text-brand-blue text-[13px] md:text-[15px] font-bold uppercase tracking-[0.3em]">
-                        <span className="w-2 h-2 rounded-full bg-brand-blue animate-pulse" />
-                        {step.subtitle}
-                      </div>
-                      <h3 className="font-heading text-4xl md:text-6xl font-bold uppercase tracking-wider text-black leading-tight">
-                        {step.title}
-                      </h3>
-                    </div>
-
-                    <p className="text-base md:text-lg text-[--muted] leading-relaxed font-medium max-w-lg border-l-2 border-brand-blue/30 pl-6">
-                      {step.desc}
-                    </p>
-
-
-                  </div>
-
-                  {/* Right: Premium Glass Step Card */}
-                  <div className="relative order-1 lg:order-none lg:pl-12">
-                    {/* Enhanced Glass Card - High Transparency with Ice Tint */}
-                    <div className="relative z-10 p-6 md:p-10 rounded-[2.5rem] border border-brand-blue/10 bg-brand-blue/[0.02] backdrop-blur-3xl shadow-xl overflow-hidden group">
-                      <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
-                      <div className="relative z-10 space-y-5">
-                        <div className="flex items-center gap-4">
-                          <span className="text-[13px] md:text-[15px] font-heading font-bold tracking-[0.3em] text-brand-blue">
-                            PHASE 0{idx + 1}
-                          </span>
-                          <div className="h-[1px] w-10 bg-brand-blue/20" />
-                        </div>
-                        <h4 className="font-heading text-3xl md:text-5xl font-bold uppercase tracking-tight text-black leading-[0.9]">
-                          {step.title}
-                        </h4>
-
-
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <DevelopmentJourney />
 
       {/* Testimonials Marquee Section */}
       <section className="bg-bg-card/40 py-24 border-y border-border/40 relative overflow-hidden">
