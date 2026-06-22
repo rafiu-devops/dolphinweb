@@ -11,31 +11,20 @@ interface NavbarProps { }
 
 function BrandLogo({ height = 88, mobileHeight = 48, theme = "dark" }: { height?: number; mobileHeight?: number; theme?: "light" | "dark" }) {
   return (
-    <div className="flex items-center gap-5 sm:gap-4 group">
+    <div className="flex items-center group">
       <div
-        className="logo-container w-auto transition-all duration-500 flex items-center"
+        className="logo-container w-auto transition-all duration-500 flex items-center pl-2 md:pl-4"
         style={{ height: `var(--logo-h, ${mobileHeight}px)` }}
       >
         <img
           src="/db-logo.png"
           alt="Dolphin Builders Logo"
-          className="h-full w-auto origin-left scale-[1.65] object-contain md:scale-100"
+          className="h-full w-auto object-contain origin-left scale-[1.4] md:scale-110"
         />
         <style jsx>{`
-          .logo-container { --logo-h: ${mobileHeight}px; }
-          @media (min-width: 768px) { .logo-container { --logo-h: ${height}px; } }
+          .logo-container { --logo-h: ${mobileHeight * 2.2}px; max-height: 96px; }
+          @media (min-width: 768px) { .logo-container { --logo-h: ${height * 1.6}px; max-height: 100px; } }
         `}</style>
-      </div>
-      <div className="flex flex-col">
-        <span className={cn(
-          "font-heading text-[26px] sm:text-3xl md:text-[32px] tracking-widest leading-none group-hover:text-brand-blue transition-colors whitespace-nowrap",
-          theme === "dark" ? "text-white" : "text-black"
-        )}>
-          Dolphin Builders
-        </span>
-        <span className="font-heading text-[15px] md:text-[14px] tracking-[0.2em] text-brand-blue mt-1 whitespace-nowrap uppercase">
-          & Developers
-        </span>
       </div>
     </div>
   );
@@ -92,24 +81,28 @@ export function Navbar() {
 
   useEffect(() => { setIsOpen(false); }, [pathname]);
 
-  const isLightPage = (pathname.startsWith("/projects/") && pathname !== "/projects") || 
-                      pathname === "/faqs";
+  const isLightPage = (pathname.startsWith("/projects/") && pathname !== "/projects") ||
+    pathname === "/faqs";
   const activeTheme = isLightPage ? "light" : "dark";
 
   return (
     <div className="w-full transition-all duration-300 pointer-events-none relative z-[100]">
       <header
         className={cn(
-          "max-w-[1240px] mx-4 md:mx-6 lg:mx-8 xl:mx-auto transition-all duration-500 pointer-events-auto origin-top mt-1 md:mt-2 backdrop-blur-3xl rounded-[1.5rem] md:rounded-[3rem]",
-          "h-[112px] md:h-[104px]",
-          scrolled 
-            ? (activeTheme === "light" ? "bg-white/80 border-black/5 shadow-xl" : "bg-black/40 border-white/10 shadow-2xl")
-            : "bg-white/10 border-white/20 shadow-[0_20px_40px_rgba(0,0,0,0.05)]"
+          "max-w-[1240px] mx-3 md:mx-6 lg:mx-8 xl:mx-auto transition-all duration-500 pointer-events-auto origin-top mt-3 md:mt-2 rounded-[20px] md:rounded-[3rem]",
+          "h-[106px] md:h-[104px]",
+          // Mobile specific: white translucent background with subtle shadow
+          "bg-white/95 backdrop-blur-xl border border-black/5 shadow-[0_4px_20px_rgba(0,0,0,0.04)]",
+          // Desktop specific: dynamic theme based on scroll
+          "md:backdrop-blur-3xl md:bg-transparent md:border-none md:shadow-none",
+          scrolled
+            ? (activeTheme === "light" ? "md:bg-white/80 md:border-black/5 md:shadow-xl" : "md:bg-black/40 md:border-white/10 md:shadow-2xl")
+            : "md:bg-white/10 md:border-white/20 md:shadow-[0_20px_40px_rgba(0,0,0,0.05)]"
         )}
       >
-        <div className="h-full px-4 md:px-10 flex items-center justify-between">
-          <Link href="/" prefetch={false} className="hover:opacity-90 transition-opacity">
-            <BrandLogo height={scrolled ? 64 : 88} mobileHeight={88} theme={activeTheme} />
+        <div className="h-full px-5 md:px-10 flex items-center justify-between">
+          <Link href="/" prefetch={false} className="hover:opacity-90 transition-opacity flex items-center h-full py-1">
+            <BrandLogo height={scrolled ? 106 : 106} mobileHeight={68} theme={activeTheme} />
           </Link>
 
           {/* Desktop Nav */}
@@ -195,14 +188,14 @@ export function Navbar() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={cn(
-              "md:hidden w-11 h-11 flex flex-col items-center justify-center gap-1.5 rounded-lg transition-all active:scale-95 border border-brand-blue/20",
-              activeTheme === "light" ? "bg-black/5" : "bg-white/5"
+              "md:hidden w-11 h-11 flex flex-col items-center justify-center gap-[5px] rounded-[14px] transition-all duration-300 active:scale-90 shadow-sm",
+              isOpen ? "bg-brand-blue/10 border border-brand-blue/20" : "bg-white border border-gray-200 hover:bg-gray-50"
             )}
             aria-label="Toggle Menu"
           >
-            <span className={cn("w-6 h-[2px] rounded-full transition-all duration-300", isOpen ? "rotate-45 translate-y-2 bg-brand-blue" : activeTheme === "light" ? "bg-black" : "bg-white")} />
-            <span className={cn("w-6 h-[2px] rounded-full transition-all duration-300", isOpen ? "opacity-0" : activeTheme === "light" ? "bg-black" : "bg-white")} />
-            <span className={cn("w-6 h-[2px] rounded-full transition-all duration-300", isOpen ? "-rotate-45 -translate-y-2 bg-brand-blue" : activeTheme === "light" ? "bg-black" : "bg-white")} />
+            <span className={cn("w-5 h-[2px] rounded-full transition-all duration-300 origin-center", isOpen ? "rotate-45 translate-y-[7px] bg-brand-blue" : "bg-[#111]")} />
+            <span className={cn("w-5 h-[2px] rounded-full transition-all duration-300", isOpen ? "opacity-0 translate-x-2" : "bg-[#111] opacity-100")} />
+            <span className={cn("w-5 h-[2px] rounded-full transition-all duration-300 origin-center", isOpen ? "-rotate-45 -translate-y-[7px] bg-brand-blue" : "bg-[#111]")} />
           </button>
         </div>
 
@@ -224,11 +217,13 @@ export function Navbar() {
                 transition={{ type: "spring", damping: 25, stiffness: 200 }}
                 className="fixed top-0 right-0 h-screen w-[320px] z-[100] bg-white border-l border-brand-blue/20 shadow-[-8px_0_40px_rgba(0,0,0,0.15)] flex flex-col md:hidden overflow-y-auto"
               >
-                <div className="px-8 py-8 flex items-center justify-between border-b border-black/5 text-black">
-                  <BrandLogo mobileHeight={66} />
+                <div className="relative px-6 py-8 flex items-center justify-center border-b border-black/5 text-black">
+                  <div className="scale-[0.8] sm:scale-90 origin-center">
+                    <BrandLogo mobileHeight={70} theme="light" />
+                  </div>
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="w-10 h-10 flex items-center justify-center bg-brand-blue/5 border border-brand-blue/20 rounded-xl text-brand-blue"
+                    className="absolute top-6 right-4 w-10 h-10 flex items-center justify-center bg-brand-blue/5 border border-brand-blue/20 rounded-xl text-brand-blue shadow-sm z-10"
                   >
                     <X size={20} />
                   </button>

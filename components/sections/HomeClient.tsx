@@ -209,7 +209,7 @@ export default function HomeClient({
               className="mt-6 md:mt-8"
             >
               <h1 className="[font-family:Poppins,var(--font-inter),sans-serif] text-[32px] sm:text-5xl md:text-[54px] lg:text-[58px] font-bold uppercase leading-[1.04] tracking-[0.03em] text-white drop-shadow-[0_14px_42px_rgba(0,0,0,0.42)]">
-                Landmark Living, Built With Trust
+                Landmark Living Built With Trust
               </h1>
             </motion.div>
 

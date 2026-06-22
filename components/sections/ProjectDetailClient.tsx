@@ -57,7 +57,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
     const int = categories.interior || [];
     const lay = categories.layouts || [];
     const gal = project.detailsPage.gallery || [];
-    
+
     // Combine all and remove duplicates
     const all = Array.from(new Set([...ext, ...int, ...lay, ...gal]));
     return all.filter((img): img is string => typeof img === 'string' && img.trim().length > 0);
@@ -69,7 +69,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
   const handlePrevGallery = (e?: React.MouseEvent) => {
     e?.stopPropagation();
     if (selectedGalleryIndex === null) return;
-    setSelectedGalleryIndex((prev) => 
+    setSelectedGalleryIndex((prev) =>
       prev !== null ? (prev - 1 + currentGalleryImages.length) % currentGalleryImages.length : null
     );
   };
@@ -77,7 +77,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
   const handleNextGallery = (e?: React.MouseEvent) => {
     e?.stopPropagation();
     if (selectedGalleryIndex === null) return;
-    setSelectedGalleryIndex((prev) => 
+    setSelectedGalleryIndex((prev) =>
       prev !== null ? (prev + 1) % currentGalleryImages.length : null
     );
   };
@@ -163,8 +163,8 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               </div>
               <h1 className={cn(
                 "text-3xl sm:text-5xl md:text-7xl font-black tracking-tighter text-foreground uppercase leading-[0.9] flex flex-wrap gap-x-4",
-                project.name.length < 25 
-                  ? "lg:text-7xl xl:text-8xl lg:flex-nowrap lg:whitespace-nowrap" 
+                project.name.length < 25
+                  ? "lg:text-7xl xl:text-8xl lg:flex-nowrap lg:whitespace-nowrap"
                   : "lg:text-8xl"
               )}>
                 {project.name.split(' ').slice(0, -1).join(' ')}
@@ -217,7 +217,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                 </motion.div>
               </AnimatePresence>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-              
+
               {/* Navigation Arrows */}
               <div className="absolute bottom-8 left-8 hidden md:flex gap-4 z-20">
                 <button onClick={() => setActiveHeroIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length)} className="w-11 h-11 rounded-full bg-black/40 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-brand-blue hover:text-black transition-all">
@@ -281,7 +281,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
         <div className="container mx-auto px-6 space-y-20">
           <div className="text-center space-y-6">
             <h2 className="section-heading tracking-tighter">What This Project <span className="text-brand-blue">Offers</span></h2>
-            <p className="tactical-label text-muted-foreground/80">Prime Location's Approved by government of sindh.</p>
+            <p className="tactical-label text-muted-foreground/80">Prime Location Approved by government of sindh.</p>
           </div>
 
           <div className={cn(
@@ -302,8 +302,8 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                   whileHover={{ y: -10 }}
                   className={cn(
                     "rounded-[2rem] sm:rounded-[2.5rem] bg-bg-card border border-border/40 text-center space-y-6 hover:border-brand-blue/40 transition-all group p-8 sm:p-10",
-                    isSingle 
-                      ? "w-full md:p-16 border-2 border-brand-blue/20 bg-gradient-to-b from-brand-blue/[0.02] to-transparent shadow-2xl" 
+                    isSingle
+                      ? "w-full md:p-16 border-2 border-brand-blue/20 bg-gradient-to-b from-brand-blue/[0.02] to-transparent shadow-2xl"
                       : "w-full md:w-[calc(50%-2rem)] lg:w-[calc(25%-2rem)] min-w-[280px]"
                   )}
                 >
@@ -689,7 +689,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                   Sector: <span className="text-brand-blue">All Visuals</span> — Image <span className="text-white">{selectedGalleryIndex + 1} / {currentGalleryImages.length}</span>
                 </span>
               </div>
-              
+
               <button
                 className="w-12 h-12 md:w-16 md:h-16 bg-white/5 hover:bg-brand-blue hover:text-black border border-white/10 rounded-2xl flex items-center justify-center text-white transition-all pointer-events-auto shadow-2xl"
                 onClick={() => setSelectedGalleryIndex(null)}
@@ -706,7 +706,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
               >
                 <ChevronLeft size={32} className="group-hover:scale-110 transition-transform" />
               </button>
-              
+
               <button
                 onClick={handleNextGallery}
                 className="w-12 h-12 md:w-20 md:h-20 bg-white/5 hover:bg-brand-blue hover:text-black border border-white/10 rounded-full md:rounded-3xl flex items-center justify-center text-white transition-all pointer-events-auto shadow-2xl backdrop-blur-md group"
@@ -733,7 +733,7 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
                   alt="Full Gallery View"
                   className="relative z-10 w-full h-full max-w-[95vw] md:max-w-[85vw] max-h-[85vh] md:max-h-[80vh] object-contain rounded-2xl md:rounded-3xl shadow-[0_50px_100px_rgba(0,0,0,0.5)] border border-white/10"
                 />
-                
+
 
               </div>
             </motion.div>
