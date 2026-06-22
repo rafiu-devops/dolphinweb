@@ -11,7 +11,7 @@ interface NavbarProps { }
 
 function BrandLogo({ height = 88, mobileHeight = 48, theme = "dark" }: { height?: number; mobileHeight?: number; theme?: "light" | "dark" }) {
   return (
-    <div className="flex items-center gap-4 group">
+    <div className="flex items-center gap-5 sm:gap-4 group">
       <div
         className="logo-container w-auto transition-all duration-500 flex items-center"
         style={{ height: `var(--logo-h, ${mobileHeight}px)` }}
@@ -19,7 +19,7 @@ function BrandLogo({ height = 88, mobileHeight = 48, theme = "dark" }: { height?
         <img
           src="/db-logo.png"
           alt="Dolphin Builders Logo"
-          className="h-full w-auto object-contain"
+          className="h-full w-auto origin-left scale-[1.65] object-contain md:scale-100"
         />
         <style jsx>{`
           .logo-container { --logo-h: ${mobileHeight}px; }
@@ -28,12 +28,12 @@ function BrandLogo({ height = 88, mobileHeight = 48, theme = "dark" }: { height?
       </div>
       <div className="flex flex-col">
         <span className={cn(
-          "font-heading text-2xl sm:text-2xl md:text-[32px] tracking-widest leading-none group-hover:text-brand-blue transition-colors whitespace-nowrap",
+          "font-heading text-[26px] sm:text-3xl md:text-[32px] tracking-widest leading-none group-hover:text-brand-blue transition-colors whitespace-nowrap",
           theme === "dark" ? "text-white" : "text-black"
         )}>
           Dolphin Builders
         </span>
-        <span className="font-heading text-[13px] sm:text-[14px] tracking-[0.2em] text-brand-blue mt-1 whitespace-nowrap uppercase">
+        <span className="font-heading text-[15px] md:text-[14px] tracking-[0.2em] text-brand-blue mt-1 whitespace-nowrap uppercase">
           & Developers
         </span>
       </div>
@@ -101,15 +101,15 @@ export function Navbar() {
       <header
         className={cn(
           "max-w-[1240px] mx-4 md:mx-6 lg:mx-8 xl:mx-auto transition-all duration-500 pointer-events-auto origin-top mt-1 md:mt-2 backdrop-blur-3xl rounded-[1.5rem] md:rounded-[3rem]",
-          "h-[90px] md:h-[104px]",
+          "h-[112px] md:h-[104px]",
           scrolled 
             ? (activeTheme === "light" ? "bg-white/80 border-black/5 shadow-xl" : "bg-black/40 border-white/10 shadow-2xl")
             : "bg-white/10 border-white/20 shadow-[0_20px_40px_rgba(0,0,0,0.05)]"
         )}
       >
-        <div className="h-full px-6 md:px-10 flex items-center justify-between">
+        <div className="h-full px-4 md:px-10 flex items-center justify-between">
           <Link href="/" prefetch={false} className="hover:opacity-90 transition-opacity">
-            <BrandLogo height={scrolled ? 64 : 88} mobileHeight={60} theme={activeTheme} />
+            <BrandLogo height={scrolled ? 64 : 88} mobileHeight={88} theme={activeTheme} />
           </Link>
 
           {/* Desktop Nav */}
@@ -225,7 +225,7 @@ export function Navbar() {
                 className="fixed top-0 right-0 h-screen w-[320px] z-[100] bg-white border-l border-brand-blue/20 shadow-[-8px_0_40px_rgba(0,0,0,0.15)] flex flex-col md:hidden overflow-y-auto"
               >
                 <div className="px-8 py-8 flex items-center justify-between border-b border-black/5 text-black">
-                  <BrandLogo mobileHeight={56} />
+                  <BrandLogo mobileHeight={66} />
                   <button
                     onClick={() => setIsOpen(false)}
                     className="w-10 h-10 flex items-center justify-center bg-brand-blue/5 border border-brand-blue/20 rounded-xl text-brand-blue"

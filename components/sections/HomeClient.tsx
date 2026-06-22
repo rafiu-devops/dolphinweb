@@ -325,22 +325,6 @@ export default function HomeClient({
                             <h3 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white uppercase tracking-wider leading-[1.1] drop-shadow-[0_15px_45px_rgba(0,0,0,0.8)] max-w-xl">
                               {project.name}
                             </h3>
-                            <div className="flex items-center gap-2 md:gap-4 bg-black/80 backdrop-blur-xl px-6 py-2.5 rounded-xl w-fit border border-white/20 shadow-4xl">
-                              <MapPin size={16} className="text-brand-blue" />
-                              <span className="font-sans text-[14px] md:text-[16px] font-semibold text-white uppercase tracking-[0.15em]">{project.location}</span>
-                            </div>
-                          </div>
-
-                          <div className={cn(
-                            "px-5 sm:px-10 py-2.5 sm:py-4 rounded-xl md:rounded-2xl bg-brand-blue text-white shadow-[0_20px_50px_rgba(90,161,255,0.35)] backdrop-blur-2xl border-2 border-white/20 transition-all text-[12px] md:text-[15px] font-bold uppercase tracking-[0.22em] shrink-0",
-                            (project.status === "Launching Soon" || project.status === "New Launch") && "animate-pulse"
-                          )}>
-                            {project.status === "Under Construction" ? (
-                              <>
-                                <span className="sm:hidden">Const.</span>
-                                <span className="hidden sm:inline">Construction</span>
-                              </>
-                            ) : project.status}
                           </div>
                         </div>
 
@@ -439,24 +423,25 @@ export default function HomeClient({
           </motion.div>
 
           {/* Trust Line Marquee */}
-          <div className="relative border-t border-border/40 pt-12 overflow-hidden w-full">
-            <div className="flex whitespace-nowrap">
+          <div className="relative border-t border-border/40 pt-6 md:pt-12 overflow-hidden w-full">
+            <div className="w-full whitespace-nowrap overflow-x-auto overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
               <motion.div
+                initial={{ x: 0 }}
                 animate={{ x: ["0%", "-50%"] }}
                 transition={{
-                  duration: 40,
+                  duration: 46,
                   repeat: Infinity,
                   ease: "linear"
                 }}
-                className="flex items-center gap-10 pr-10"
+                className="flex w-max min-w-max items-center gap-6 md:gap-10 pr-10"
               >
-                {[...Array(4)].map((_, i) => (
-                  <p key={i} className="text-[24px] md:text-[56px] font-heading font-bold uppercase tracking-[0.2em] text-foreground/80 leading-none flex items-center gap-12">
+                {[...Array(8)].map((_, i) => (
+                  <p key={i} className="shrink-0 text-[15px] sm:text-[18px] md:text-[56px] font-heading font-bold uppercase tracking-[0.14em] md:tracking-[0.2em] text-foreground/80 leading-none flex items-center gap-5 md:gap-12">
                     Serving premium locations across Sindh with
-                    <span className="text-brand-blue underline decoration-brand-blue/30 underline-offset-[20px]">
+                    <span className="text-brand-blue underline decoration-brand-blue/30 underline-offset-[10px] md:underline-offset-[20px]">
                       trusted developments
                     </span>
-                    <span className="w-4 h-4 md:w-6 md:h-6 bg-brand-blue/30 rounded-full rotate-45" />
+                    <span className="w-3 h-3 md:w-6 md:h-6 bg-brand-blue/30 rounded-full rotate-45" />
                   </p>
                 ))}
               </motion.div>

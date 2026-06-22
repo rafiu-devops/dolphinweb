@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { MapPin, ArrowRight, ShieldCheck } from "lucide-react";
+import { ArrowRight, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import { Project } from "@/types";
 import { ImageSlider } from "./ImageSlider";
@@ -57,11 +57,6 @@ export function ProjectCard({ project, className, onEnquire }: ProjectCardProps)
           {project.status}
         </div>
 
-        {/* Location Tag */}
-        <div className="absolute bottom-4 left-4 z-20 flex items-center gap-2">
-           <div className="w-2 h-2 rounded-full bg-brand-blue animate-pulse" />
-            <span className="tactical-label text-foreground drop-shadow-md">{project.city} Central</span>
-        </div>
       </div>
 
       {/* Content Section */}
@@ -72,10 +67,6 @@ export function ProjectCard({ project, className, onEnquire }: ProjectCardProps)
           <h3 className="font-heading text-3xl font-bold uppercase tracking-wider text-foreground group-hover:text-brand-blue transition-colors duration-500 leading-none">
             {project.name}
           </h3>
-          <div className="flex items-center gap-2 font-heading text-[14px] uppercase tracking-widest text-brand-blue/80">
-            <MapPin size={12} className="text-brand-blue" />
-            <span>{project.location}</span>
-          </div>
         </div>
 
         <p className="font-sans text-[16px] text-[--muted] leading-relaxed font-medium flex-grow">

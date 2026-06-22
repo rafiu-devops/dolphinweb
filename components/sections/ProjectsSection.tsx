@@ -8,7 +8,6 @@ import {
   Grid, 
   Layout, 
   X, 
-  MapPin, 
   ArrowRight, 
   Phone,
   Zap,
@@ -227,14 +226,6 @@ function ProjectCard({ project, index }: {
             {project.status}
           </div>
 
-          {/* Location Badge */}
-          <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-20 flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-brand-blue animate-pulse" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-white drop-shadow-lg">
-              {project.city} Central
-            </span>
-          </div>
-
           {/* Hover Overlay & Slide-up Buttons */}
           <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center gap-4 z-30">
             <Link 
@@ -258,10 +249,6 @@ function ProjectCard({ project, index }: {
               <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tighter text-[#373635] group-hover:text-brand-blue transition-colors duration-500">
                 {project.name}
               </h3>
-              <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-gray-400">
-                <MapPin size={12} className="text-brand-blue" />
-                <span>{project.location}</span>
-              </div>
             </div>
 
             <p className="text-sm text-gray-500 leading-relaxed font-medium line-clamp-2">
