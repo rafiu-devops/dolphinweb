@@ -64,7 +64,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
     photo: "/team/founder.jpg",
     quote:
       "Sindh deserves world-class spaces. Everything we build at Dolphin is a commitment to that belief.",
-    bio: "Ajeet Kumar Ahuja is one of Sindh's most recognised public figures — best known as the vision behind the dolphin builders , dolphin backers and Sindh TV,  the region's leading Sindhi-language satellite channel, which he founded in 2004 under Dolphin Media House. With deep roots across business and media in Sindh, Mr. Ahuja brought the same standards of quality and long-term thinking to real estate — establishing Dolphin Builders & Developers to deliver modern commercial and residential projects that reflect Sukkur's and Karachi's  growing potential. His vision is straightforward: build with integrity, choose locations that make sense, and stand behind every project after the keys are handed over."
+    bio: "Ajeet Kumar Ahuja is one of Sindh's most recognised public figures best known as the vision behind the dolphin builders , dolphin backers and Sindh TV,  the region's leading Sindhi-language satellite channel, With deep roots across business and media in Sindh, Mr. Ahuja brought the same standards of quality and long-term thinking to real estate establishing Dolphin Builders & Developers to deliver modern commercial and residential projects that reflect Sukkur's and Karachi's growing potential. His vision is straightforward: build with integrity, choose locations that make sense, and stand behind every project after the keys are handed over."
   };
 
   const milestones = [
@@ -109,7 +109,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
               That Last.
             </h1>
             <p className="font-sans text-[17px] md:text-[20px] text-white/65 leading-relaxed max-w-xl">
-              Dolphin Builders has been developing residential and commercial real estate in Sukkur since the early 2000s — with no shortcuts taken.
+              Dolphin Builders has been developing residential and commercial real estate in Sukkur and Karachi since the early 2000s with no shortcuts taken.
             </p>
           </motion.div>
         </div>
@@ -179,7 +179,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
             </div>
 
             <p className="font-sans text-[17px] md:text-[19px] text-muted-foreground leading-relaxed">
-              Dolphin Builders & Developers was founded on a straightforward idea: that people in Sukkur deserve modern, well-built spaces at fair terms. We develop commercial plazas, residential towers, and mixed-use projects — always in locations that make sense for buyers and tenants, not just for us.
+              Dolphin Builders & Developers was founded on a straightforward idea: that people in Sukkur deserve modern, well-built spaces at fair terms. We develop commercial plazas, residential towers, and mixed-use projects always in locations that make sense for buyers and tenants, not just for us.
             </p>
             <p className="font-sans text-[17px] md:text-[19px] text-muted-foreground leading-relaxed">
               Our projects are legally cleared, structurally inspected, and delivered on schedule. We don't over-promise. We show buyers documentation before they commit, and we stay reachable after they move in.
@@ -211,7 +211,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
                 A Name That <br /> Stands for Quality
               </h3>
               <p className="font-sans text-[16px] md:text-[18px] text-muted-foreground leading-relaxed">
-                To become the most trusted real estate developer in Sindh — recognised not just for the buildings we deliver, but for the integrity we bring to every transaction.
+                To become the most trusted real estate developer in Sindh recognised not just for the buildings we deliver, but for the integrity we bring to every transaction.
               </p>
             </motion.div>
 
@@ -226,7 +226,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
                 Built for People, <br /> Not Just Portfolios
               </h3>
               <p className="font-sans text-[16px] md:text-[18px] text-white/80 leading-relaxed">
-                To develop spaces that genuinely improve the way people live and do business in Sukkur — through honest pricing, prime locations, and construction that holds up over time.
+                To develop spaces that genuinely improve the way people live and do business in Sukkur and Karachi through honest pricing, prime locations, and construction that holds up over time.
               </p>
             </motion.div>
           </div>
@@ -300,7 +300,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
       </section>
 
       {/* ─── 6. CORE EXPERTISE ─── */}
-      <section className="bg-[#f6f8fb] border-y border-gray-100 py-24 md:py-32">
+      <section className="bg-[#f6f8fb] border-y border-gray-100 py-50 md:py-5">
         <div className="container mx-auto px-6 md:px-10">
           <motion.div {...fadeUp} className="mb-14">
             <p className="font-sans text-[11px] font-bold uppercase tracking-[0.3em] text-brand-blue mb-3">What We Build</p>
@@ -353,7 +353,7 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
                 transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
                 className="flex-1 border-t border-white/10 md:border-t-0 md:border-l md:border-white/10 pt-8 md:pt-0 md:pl-8 lg:pl-12 first:border-l-0 first:pl-0 pb-10 md:pb-0"
               >
-                <span className="font-heading text-[48px] md:text-[56px] font-black text-white/8 leading-none block mb-4 select-none">
+                <span className="font-heading text-[48px] md:text-[56px] text-brand-blue leading-none block mb-4 select-none">
                   {step.num}
                 </span>
                 <h4 className="font-heading text-[17px] font-black uppercase tracking-tight text-white mb-3">
