@@ -1,27 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Target, Eye, MapPin, Building, TrendingUp, ShieldCheck, ArrowRight, Users, CheckCircle2, Zap, Cpu, Trophy, Home } from "lucide-react";
-import { cn } from "@/lib/utils";
+import {
+  MapPin, Building2, TrendingUp, ShieldCheck,
+  ArrowRight, CheckCircle2, Home, Quote
+} from "lucide-react";
 import Link from "next/link";
 import { Project } from "@/types";
-import { Tilt } from "@/components/ui/Tilt";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { EnquireModal } from "@/components/ui/EnquireModal";
 import { useState } from "react";
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
+const fadeUp = {
+  initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }
-};
-
-const staggerContainer = {
-  initial: { opacity: 0 },
-  whileInView: { opacity: 1 },
-  viewport: { once: true },
-  transition: { staggerChildren: 0.15 }
+  transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
 };
 
 interface AboutClientProps {
@@ -32,294 +26,170 @@ interface AboutClientProps {
 export default function AboutClient({ team, featuredProjects = [] }: AboutClientProps) {
   const [isEnquireOpen, setIsEnquireOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const visionMission = [
-    {
-      icon: Eye,
-      title: "Our Vision",
-      desc: "To become a trusted name in Pakistan’s real estate sector by developing high-quality projects that combine innovation, sustainability, and long-term investment value."
-    },
-    {
-      icon: Target,
-      title: "Our Mission",
-      desc: "To design and deliver real estate developments that offer exceptional value, prime locations, and modern infrastructure while maintaining transparency, reliability, and customer satisfaction."
-    },
-  ];
 
   const expertise = [
-    { icon: Building, title: "Commercial Projects", desc: "Shopping plazas, retail outlets, and office spaces engineered for business growth and maximum visibility." },
-    { icon: Home, title: "Residential Developments", desc: "Modern apartments and living spaces designed for elite comfort, convenience, and family sanctuary." },
-    { icon: Zap, title: "Mixed-Use Projects", desc: "Combining premium residential and commercial opportunities within a single high-fidelity development." },
-    { icon: ShieldCheck, title: "Investment Strategy", desc: "Transparent legal frameworks and verified project documentation for secure asset appreciation." },
+    {
+      icon: Building2,
+      title: "Commercial Plazas",
+      desc: "Retail outlets, shopping centres, and office floors in Sukkur's busiest corridors.",
+    },
+    {
+      icon: Home,
+      title: "Residential Towers",
+      desc: "Apartments and family units built around light, space, and long-term liveability.",
+    },
+    {
+      icon: TrendingUp,
+      title: "Mixed-Use Developments",
+      desc: "Single addresses that combine retail, residential, and business — reducing commute, increasing value.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Investor Assurance",
+      desc: "Verified legal documentation and transparent payment structures on every project.",
+    },
   ];
 
   const approachSteps = [
-    { title: "Strategic Planning", desc: "Selecting prime locations with high growth potential and tactical advantages." },
-    { title: "Modern Design", desc: "Incorporating contemporary architecture and efficient, ergonomic layouts." },
-    { title: "Quality Construction", desc: "Ensuring durable materials and professional, high-fidelity execution." },
-    { title: "Timely Delivery", desc: "Maintaining absolute commitment to project timelines and deployment schedules." },
-    { title: "Investment Value", desc: "Creating strategic opportunities for significant long-term capital returns." },
+    { num: "01", title: "Site Selection", desc: "We shortlist only locations with demonstrable growth trajectory and road access." },
+    { num: "02", title: "Design & Planning", desc: "Our architects balance visual identity with practical floor efficiency." },
+    { num: "03", title: "Quality Build", desc: "Structural work uses Grade-A materials with third-party inspection at every phase." },
+    { num: "04", title: "On-Time Delivery", desc: "Milestone-driven schedules are shared with investors from day one." },
+    { num: "05", title: "Post-Handover", desc: "We remain the point of contact after possession — not just until it." },
   ];
 
-  const whyChooseUs = [
-    "Prime project locations",
-    "Modern architectural design",
-    "Strong investment potential",
-    "Focus on quality and reliability",
-    "Customer-centric development approach"
+  const founder = {
+    name: "Ajeet Kumar Ahuja",
+    role: "A vision behind Dolphin Builders",
+    photo: "/team/founder.jpg",
+    quote:
+      "Sindh deserves world-class spaces. Everything we build at Dolphin is a commitment to that belief.",
+    bio: "Ajeet Kumar Ahuja is one of Sindh's most recognised public figures — best known as the vision behind the dolphin builders , dolphin backers and Sindh TV,  the region's leading Sindhi-language satellite channel, which he founded in 2004 under Dolphin Media House. With deep roots across business and media in Sindh, Mr. Ahuja brought the same standards of quality and long-term thinking to real estate — establishing Dolphin Builders & Developers to deliver modern commercial and residential projects that reflect Sukkur's and Karachi's  growing potential. His vision is straightforward: build with integrity, choose locations that make sense, and stand behind every project after the keys are handed over."
+  };
+
+  const milestones = [
+    { value: "15+", label: "Years in Sindh's market" },
+    { value: "4", label: "Active developments" },
+    { value: "500+", label: "Families housed" },
+    { value: "100%", label: "Projects legally verified" },
   ];
 
   return (
-    <div className="flex flex-col pb-20 bg-background overflow-x-hidden">
+    <div className="flex flex-col bg-background overflow-x-hidden">
 
-      {/* 1. HERO BANNER */}
-      <section className="relative min-h-[100vh] flex items-center justify-center pt-48 md:pt-64 pb-20 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <motion.img
-            initial={{ scale: 1.1, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
+      {/* ─── 1. HERO ─── */}
+      <section className="relative min-h-[100vh] flex items-end pb-20 md:pb-32 overflow-hidden pt-[80px] md:pt-[100px]">
+        <motion.div
+          className="absolute inset-0 z-0"
+          initial={{ scale: 1.06 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.8, ease: "easeOut" }}
+        >
+          <img
             src="/about-db.png"
             className="w-full h-full object-cover"
+            alt="Dolphin Builders"
             onError={(e) => (e.currentTarget.src = "/assets/projects/placeholder.png")}
           />
-          <div className="absolute inset-0 bg-black/40 z-[1]" />
-        </div>
+          {/* two-layer overlay: dark bottom, slight blue tint top */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
+        </motion.div>
 
-        <div className="container mx-auto px-6 relative z-10 text-center space-y-8">
+        <div className="container mx-auto px-6 md:px-10 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="max-w-4xl"
           >
-            <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-brand-blue border border-brand-blue/20 mb-6 shadow-[0_0_20px_rgba(90,161,255,0.3)]">
-              <span className="tactical-label text-white">Modern Real Estate Solutions</span>
-            </div>
-            <h1 className="text-4xl sm:text-6xl md:text-9xl font-black tracking-tighter text-white uppercase leading-[0.85] drop-shadow-2xl">
-              Building <br />
-              <span className="text-brand-blue text-glow-blue underline decoration-brand-blue/40 underline-offset-[10px] md:underline-offset-[15px]">Legacies</span>
+
+            <h1 className="font-heading text-[52px] sm:text-[72px] md:text-[96px] font-black text-white leading-[0.92] tracking-tight uppercase mb-8 mt-12">
+              We Build <br />
+              <span className="text-brand-blue">Places</span> <br />
+              That Last.
             </h1>
+            <p className="font-sans text-[17px] md:text-[20px] text-white/65 leading-relaxed max-w-xl">
+              Dolphin Builders has been developing residential and commercial real estate in Sukkur since the early 2000s — with no shortcuts taken.
+            </p>
           </motion.div>
         </div>
       </section>
 
-      {/* 2. ABOUT INTRO */}
-      <section className="container mx-auto px-6 py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-          <motion.div {...fadeInUp} className="space-y-10">
-            <div className="space-y-4">
-              <h2 className="section-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl">About <br /> <span className="text-brand-blue whitespace-nowrap">Dolphin Builders</span></h2>
-              <div className="w-20 h-1 bg-brand-blue" />
-            </div>
-            <div className="space-y-8 font-sans text-[19px] md:text-[22px] text-[--muted] leading-relaxed font-medium">
-              <p>
-                Dolphin Builders & Developers is a forward-thinking real estate development company committed to delivering modern residential and commercial projects that redefine urban living standards in Sukkur and surrounding regions.
-              </p>
-              <p>
-                With a focus on <span className="text-foreground font-bold">quality construction, strategic locations, and long-term value creation</span>, we provide spaces that are not only functional but also investment-friendly. Each project is carefully planned to meet the evolving needs of modern lifestyles and businesses.
-              </p>
-            </div>
+      {/* ─── 2. NUMBERS BAND ─── */}
+      <section className="bg-brand-blue">
+        <div className="container mx-auto px-6 md:px-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/20">
+            {milestones.map((m, i) => (
+              <motion.div
+                key={i}
+                {...fadeUp}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="py-10 px-6 md:px-10 text-center md:text-left"
+              >
+                <p className="font-heading text-[40px] md:text-[52px] font-black text-white leading-none mb-1">
+                  {m.value}
+                </p>
+                <p className="font-sans text-[12px] text-white/70 uppercase tracking-[0.18em] font-semibold">
+                  {m.label}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <div className="flex flex-wrap gap-6 pt-6">
-              <div className="flex items-center gap-3 px-5 py-3 rounded-xl bg-brand-blue/5 border border-brand-blue/20">
-                <CheckCircle2 className="text-brand-blue" size={18} />
-                <span className="tactical-label">Transparency & Professionalism</span>
-              </div>
-              <div className="flex items-center gap-3 px-5 py-3 rounded-xl bg-brand-blue/5 border border-brand-blue/20">
-                <CheckCircle2 className="text-brand-blue" size={18} />
-                <span className="tactical-label">Customer Trust Priority</span>
-              </div>
-            </div>
-          </motion.div>
-
+      {/* ─── 3. WHO WE ARE ─── */}
+      <section className="container mx-auto px-6 md:px-10 py-24 md:py-36">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-16 md:gap-28 items-center">
+          {/* Image */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <div className="aspect-square rounded-[2.5rem] overflow-hidden border border-border/40 glass-premium group bg-black">
+            <div className="aspect-[4/5] rounded-2xl overflow-hidden">
               <img
                 src="/about-db.png"
-                className="w-full h-full object-cover group-hover:scale-110 transition-all duration-1000 opacity-80"
-                alt="Corporate Excellence"
+                className="w-full h-full object-cover"
+                alt="Dolphin Builders site"
                 onError={(e) => (e.currentTarget.src = "/assets/projects/placeholder.png")}
               />
             </div>
-            <motion.div
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="absolute -bottom-10 -left-10 bg-brand-blue text-black p-6 md:p-8 rounded-[2rem] shadow-[0_30px_60px_rgba(90,161,255,0.4)] hidden lg:block max-w-[280px]"
-            >
-              <Building className="mb-3 w-6 h-6" />
-              <p className="font-heading text-base md:text-lg font-bold uppercase tracking-wider leading-tight text-black">
-                "We provide spaces engineered for the future of modern lifestyles."
+            {/* Pull-quote card */}
+            <div className="absolute -bottom-8 -right-4 md:-right-10 bg-white border border-gray-100 shadow-2xl rounded-2xl p-6 max-w-[240px] hidden md:block">
+              <Building2 className="text-brand-blue mb-3" size={22} />
+              <p className="font-sans text-[13px] text-gray-700 leading-snug font-medium">
+                Every Dolphin project is legal-verified before a single brick is placed.
               </p>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 3. VISION & MISSION */}
-      <section className="bg-bg-card/50 py-32 border-y border-border/40 relative">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {visionMission.map((v, idx) => (
-              <motion.div
-                key={idx}
-                {...fadeInUp}
-                className="bg-card p-8 md:p-16 rounded-[2rem] md:rounded-[3rem] border border-border/40 flex flex-col items-center text-center space-y-6 md:space-y-8 hover:border-brand-blue/40 transition-all duration-300 shadow-xl"
-              >
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-brand-blue/10 text-brand-blue rounded-2xl flex items-center justify-center">
-                  <v.icon className="w-8 h-8 md:w-9 md:h-9" />
-                </div>
-                <div className="space-y-4">
-                  <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-foreground">
-                    {v.title}
-                  </h3>
-                  <p className="font-sans text-[17px] md:text-[20px] text-[--muted] leading-relaxed font-medium max-w-md mx-auto">{v.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. CORE EXPERTISE */}
-      <section className="container mx-auto px-6 py-32">
-        <motion.div {...fadeInUp} className="text-center mb-16 space-y-4">
-          <h2 className="section-heading">Core <span className="text-brand-blue">Expertise</span></h2>
-          <p className="tactical-label text-muted-foreground/80">Strategic Real Estate Solutions</p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {expertise.map((e, idx) => (
-            <motion.div
-              key={idx}
-              {...fadeInUp}
-              whileHover={{ y: -10 }}
-              className="p-10 rounded-[2.5rem] bg-bg-card border border-border/40 text-center space-y-6 group hover:border-brand-blue/30 transition-all duration-300"
-            >
-              <div className="w-16 h-16 bg-brand-blue/10 text-brand-blue rounded-2xl flex items-center justify-center mx-auto group-hover:bg-brand-blue group-hover:text-black transition-all shadow-glow-sm">
-                <e.icon size={28} />
-              </div>
-              <div className="space-y-4">
-                <h3 className="text-xl font-black uppercase tracking-tight text-foreground">{e.title}</h3>
-                <p className="font-sans text-[16px] text-[--muted] leading-relaxed font-medium">{e.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* 5. PROJECT APPROACH (TIMELINE) */}
-      <section className="bg-black py-32 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-brand-blue/[0.03] pointer-events-none" />
-        <div className="container mx-auto px-6 space-y-20 relative z-10">
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter">Project <span className="text-brand-blue">Approach</span></h2>
-            <p className="tactical-label text-white/60">Structured Development Lifecycle</p>
-          </div>
-
-          <motion.div
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-5 gap-8"
-          >
-            {approachSteps.map((step, idx) => (
-              <motion.div
-                key={idx}
-                variants={fadeInUp}
-                className="relative space-y-6"
-              >
-                <div className="flex items-center gap-4">
-                  <motion.div
-                    initial={{ scale: 0, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: idx * 0.2 }}
-                    className="w-12 h-12 rounded-full border-2 border-brand-blue flex items-center justify-center text-brand-blue font-black shadow-glow-sm shrink-0"
-                  >
-                    0{idx + 1}
-                  </motion.div>
-                  {idx < 4 && (
-                    <motion.div
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.8, delay: (idx * 0.2) + 0.3, ease: [0.16, 1, 0.3, 1] }}
-                      style={{ originX: 0 }}
-                      className="hidden md:block h-[2px] flex-grow bg-gradient-to-r from-brand-blue to-brand-blue/20 shadow-[0_0_15px_rgba(90,161,255,0.6)]"
-                    />
-                  )}
-                </div>
-                <motion.div
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: (idx * 0.2) + 0.1 }}
-                  className="space-y-3"
-                >
-                  <h4 className="text-lg font-black uppercase tracking-tight text-white">{step.title}</h4>
-                  <p className="font-sans text-[15px] md:text-[17px] text-white/70 leading-relaxed font-medium">{step.desc}</p>
-                </motion.div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 6. PROJECTS SHOWCASE */}
-      <section className="py-32 bg-background border-b border-border/40">
-        <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-20 space-y-4">
-            <h2 className="section-heading">Signature <span className="text-brand-blue">Developments</span></h2>
-            <p className="tactical-label text-muted-foreground/80">Active Tactical Deployments</p>
+            </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {featuredProjects.map((p, idx) => (
-              <motion.div
-                key={idx}
-                {...fadeInUp}
-                transition={{ delay: idx * 0.15 }}
-              >
-                <ProjectCard project={p} onEnquire={(project) => {
-                  setSelectedProject(project);
-                  setIsEnquireOpen(true);
-                }} />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 7. WHY CHOOSE US */}
-      <section className="container mx-auto px-6 py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-          <motion.div {...fadeInUp} className="relative aspect-video rounded-[3rem] overflow-hidden border border-border/40 shadow-4xl group">
-            <img
-              src="/about-db.png"
-              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-              alt="Why Choose Us"
-            />
-            <div className="absolute inset-0 bg-brand-blue/20 mix-blend-overlay" />
-          </motion.div>
-
-          <motion.div {...fadeInUp} className="space-y-12">
-            <div className="space-y-4">
-              <h2 className="section-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl">Why Choose <br /> <span className="text-brand-blue whitespace-nowrap">Dolphin Builders?</span></h2>
-              <p className="tactical-label text-muted-foreground/80">Our Strategic Edge</p>
+          {/* Copy */}
+          <motion.div {...fadeUp} className="space-y-8">
+            <div>
+              <p className="font-sans text-[11px] font-bold uppercase tracking-[0.3em] text-brand-blue mb-4">
+                About Dolphin Builders
+              </p>
+              <h2 className="font-heading text-[36px] md:text-[52px] font-black uppercase leading-[1] tracking-tight text-foreground mb-6">
+                Sindh's Most <br /> Trusted Developer
+              </h2>
+              <div className="w-12 h-[3px] bg-brand-blue mb-8" />
             </div>
 
-            <div className="space-y-6">
-              {whyChooseUs.map((item, i) => (
-                <div key={i} className="flex items-center gap-6 group">
-                  <div className="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-black transition-all">
-                    <CheckCircle2 size={20} />
-                  </div>
-                  <span className="font-sans text-[18px] md:text-[22px] font-bold uppercase tracking-wider text-foreground group-hover:text-brand-blue transition-colors">{item}</span>
+            <p className="font-sans text-[17px] md:text-[19px] text-muted-foreground leading-relaxed">
+              Dolphin Builders & Developers was founded on a straightforward idea: that people in Sukkur deserve modern, well-built spaces at fair terms. We develop commercial plazas, residential towers, and mixed-use projects — always in locations that make sense for buyers and tenants, not just for us.
+            </p>
+            <p className="font-sans text-[17px] md:text-[19px] text-muted-foreground leading-relaxed">
+              Our projects are legally cleared, structurally inspected, and delivered on schedule. We don't over-promise. We show buyers documentation before they commit, and we stay reachable after they move in.
+            </p>
+
+            <div className="flex flex-col gap-3 pt-2">
+              {["Legally verified on every project", "Transparent payment plans from day one", "Local market knowledge built over 15 years"].map((item, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <CheckCircle2 size={17} className="text-brand-blue shrink-0" />
+                  <span className="font-sans text-[15px] text-foreground font-medium">{item}</span>
                 </div>
               ))}
             </div>
@@ -327,33 +197,258 @@ export default function AboutClient({ team, featuredProjects = [] }: AboutClient
         </div>
       </section>
 
-      {/* Final Investment CTA */}
-      <section className="container mx-auto px-6 pb-20">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="bg-brand-blue rounded-[3rem] md:rounded-[4rem] p-12 md:py-24 md:px-20 shadow-[0_30px_90px_rgba(90,161,255,0.25)] relative overflow-hidden group text-center"
-        >
-          <div className="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-black/10 rounded-full blur-[100px] translate-x-1/2 translate-y-1/2" />
+      {/* ─── 4. VISION & MISSION ─── */}
+      <section className="bg-[#f6f8fb] border-y border-gray-100 py-24 md:py-32">
+        <div className="container mx-auto px-6 md:px-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
+            {/* Vision */}
+            <motion.div
+              {...fadeUp}
+              className="bg-white border border-gray-100 p-10 md:p-16 rounded-tl-2xl rounded-bl-2xl md:rounded-tr-none rounded-tr-2xl"
+            >
+              <p className="font-sans text-[11px] font-bold uppercase tracking-[0.28em] text-brand-blue mb-4">Our Vision</p>
+              <h3 className="font-heading text-[28px] md:text-[36px] font-black uppercase tracking-tight text-foreground mb-6 leading-tight">
+                A Name That <br /> Stands for Quality
+              </h3>
+              <p className="font-sans text-[16px] md:text-[18px] text-muted-foreground leading-relaxed">
+                To become the most trusted real estate developer in Sindh — recognised not just for the buildings we deliver, but for the integrity we bring to every transaction.
+              </p>
+            </motion.div>
 
-          <div className="relative z-10 space-y-12">
-            <h2 className="text-3xl sm:text-4xl md:text-7xl font-black uppercase tracking-tighter leading-[1.1] md:leading-tight text-white drop-shadow-2xl">
-              Partner with <br className="hidden md:block" />
-              Pakistan’s Trusted Developers
-            </h2>
-            <p className="font-sans text-[22px] md:text-[32px] font-bold text-black/70 uppercase tracking-[0.2em] max-w-4xl mx-auto leading-relaxed">
-              Deployment ready assets in Sukkur’s most strategic urban sectors.
+            {/* Mission */}
+            <motion.div
+              {...fadeUp}
+              transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+              className="bg-brand-blue p-10 md:p-16 rounded-tr-2xl rounded-br-2xl md:rounded-tl-none rounded-tl-2xl"
+            >
+              <p className="font-sans text-[11px] font-bold uppercase tracking-[0.28em] text-white/60 mb-4">Our Mission</p>
+              <h3 className="font-heading text-[28px] md:text-[36px] font-black uppercase tracking-tight text-white mb-6 leading-tight">
+                Built for People, <br /> Not Just Portfolios
+              </h3>
+              <p className="font-sans text-[16px] md:text-[18px] text-white/80 leading-relaxed">
+                To develop spaces that genuinely improve the way people live and do business in Sukkur — through honest pricing, prime locations, and construction that holds up over time.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 5. MEET THE FOUNDERS ─── */}
+      <section className="container mx-auto px-6 md:px-10 py-24 md:py-36">
+        <motion.div {...fadeUp} className="mb-16">
+          <p className="font-sans text-[11px] font-bold uppercase tracking-[0.3em] text-brand-blue mb-3">
+            The People Behind It
+          </p>
+          <h2 className="font-heading text-[36px] md:text-[56px] font-black uppercase tracking-tight text-foreground leading-[1]">
+            Minds Behind <br /> Dolphin Builders
+          </h2>
+          <div className="w-12 h-[3px] bg-brand-blue mt-6" />
+        </motion.div>
+
+        <motion.div
+          {...fadeUp}
+          className="grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-12 md:gap-20 items-start"
+        >
+          {/* Photo column */}
+          <div className="group">
+            <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-gray-100 mb-6">
+              <img
+                src={founder.photo}
+                alt={founder.name}
+                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                onError={(e) => (e.currentTarget.src = "/founder.jpg")}
+              />
+            </div>
+            {/* Role badge below photo */}
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-6 h-[2px] bg-brand-blue" />
+              <span className="font-sans text-[11px] font-bold uppercase tracking-[0.25em] text-brand-blue">
+                {founder.role}
+              </span>
+            </div>
+            <h3 className="font-heading text-[28px] md:text-[34px] font-black uppercase tracking-tight text-foreground leading-tight">
+              {founder.name}
+            </h3>
+          </div>
+
+          {/* Content column */}
+          <div className="flex flex-col justify-center gap-8 pt-0 lg:pt-4">
+            {/* Sindh TV badge
+            <div className="inline-flex items-center gap-3 self-start px-4 py-2 rounded-full border border-brand-blue/20 bg-brand-blue/5">
+              <span className="w-2 h-2 rounded-full bg-brand-blue shrink-0" />
+              <span className="font-sans text-[12px] font-bold uppercase tracking-[0.2em] text-brand-blue">
+                Co-Founder & MD, Sindh TV Network
+              </span>
+            </div>
+             */}
+
+            {/* Pull quote */}
+            <div className="pl-5 border-l-[3px] border-brand-blue">
+              <p className="font-heading text-[22px] md:text-[28px] font-black text-foreground leading-snug tracking-tight">
+                "{founder.quote}"
+              </p>
+            </div>
+
+            {/* Bio */}
+            <p className="font-sans text-[16px] md:text-[18px] text-muted-foreground leading-relaxed">
+              {founder.bio}
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+
+
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ─── 6. CORE EXPERTISE ─── */}
+      <section className="bg-[#f6f8fb] border-y border-gray-100 py-24 md:py-32">
+        <div className="container mx-auto px-6 md:px-10">
+          <motion.div {...fadeUp} className="mb-14">
+            <p className="font-sans text-[11px] font-bold uppercase tracking-[0.3em] text-brand-blue mb-3">What We Build</p>
+            <h2 className="font-heading text-[36px] md:text-[52px] font-black uppercase tracking-tight text-foreground leading-[1]">
+              Four Areas, <br /> One Standard
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200 rounded-2xl overflow-hidden">
+            {expertise.map((e, i) => (
+              <motion.div
+                key={i}
+                {...fadeUp}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="bg-white p-8 md:p-10 group hover:bg-brand-blue transition-colors duration-300"
+              >
+                <div className="w-10 h-10 rounded-xl bg-brand-blue/10 group-hover:bg-white/15 flex items-center justify-center mb-7 transition-colors">
+                  <e.icon size={20} className="text-brand-blue group-hover:text-white transition-colors" />
+                </div>
+                <h4 className="font-heading text-[18px] font-black uppercase tracking-tight text-foreground group-hover:text-white mb-3 transition-colors">
+                  {e.title}
+                </h4>
+                <p className="font-sans text-[14px] text-muted-foreground group-hover:text-white/75 leading-relaxed transition-colors">
+                  {e.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 7. HOW WE WORK ─── */}
+      <section className="bg-black py-24 md:py-36 relative overflow-hidden">
+        {/* faint blue glow top-right */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-blue/10 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="container mx-auto px-6 md:px-10 relative z-10">
+          <motion.div {...fadeUp} className="mb-16">
+            <p className="font-sans text-[11px] font-bold uppercase tracking-[0.3em] text-brand-blue mb-3">How We Work</p>
+            <h2 className="font-heading text-[36px] md:text-[56px] font-black uppercase tracking-tight text-white leading-[1]">
+              From Site to Handover
+            </h2>
+          </motion.div>
+
+          <div className="flex flex-col md:flex-row gap-0">
+            {approachSteps.map((step, i) => (
+              <motion.div
+                key={i}
+                {...fadeUp}
+                transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                className="flex-1 border-t border-white/10 md:border-t-0 md:border-l md:border-white/10 pt-8 md:pt-0 md:pl-8 lg:pl-12 first:border-l-0 first:pl-0 pb-10 md:pb-0"
+              >
+                <span className="font-heading text-[48px] md:text-[56px] font-black text-white/8 leading-none block mb-4 select-none">
+                  {step.num}
+                </span>
+                <h4 className="font-heading text-[17px] font-black uppercase tracking-tight text-white mb-3">
+                  {step.title}
+                </h4>
+                <p className="font-sans text-[14px] text-white/55 leading-relaxed">
+                  {step.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 8. PROJECTS SHOWCASE ─── */}
+      {featuredProjects.length > 0 && (
+        <section className="py-24 md:py-36 border-b border-border/40">
+          <div className="container mx-auto px-6 md:px-10">
+            <motion.div {...fadeUp} className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+              <div>
+                <p className="font-sans text-[11px] font-bold uppercase tracking-[0.3em] text-brand-blue mb-3">Current Work</p>
+                <h2 className="font-heading text-[36px] md:text-[52px] font-black uppercase tracking-tight text-foreground leading-[1]">
+                  Active <br /> Developments
+                </h2>
+              </div>
+              <Link
+                href="/projects"
+                className="inline-flex items-center gap-2 font-sans text-[13px] font-bold uppercase tracking-[0.18em] text-brand-blue hover:text-foreground transition-colors"
+              >
+                All projects <ArrowRight size={14} />
+              </Link>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {featuredProjects.map((p, i) => (
+                <motion.div
+                  key={i}
+                  {...fadeUp}
+                  transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <ProjectCard
+                    project={p}
+                    onEnquire={(project) => {
+                      setSelectedProject(project);
+                      setIsEnquireOpen(true);
+                    }}
+                  />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ─── 9. CTA ─── */}
+      <section className="container mx-auto px-6 md:px-10 py-24 md:py-36">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="relative bg-brand-blue rounded-3xl overflow-hidden"
+        >
+          {/* Background texture */}
+          <div
+            className="absolute inset-0 opacity-[0.06] pointer-events-none"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
+              backgroundSize: "40px 40px",
+            }}
+          />
+
+          <div className="relative z-10 px-10 md:px-20 py-16 md:py-24 flex flex-col md:flex-row items-center justify-between gap-10">
+            <div className="text-center md:text-left">
+              <p className="font-sans text-[11px] font-bold uppercase tracking-[0.28em] text-white/55 mb-4">
+                Ready to invest?
+              </p>
+              <h2 className="font-heading text-[36px] md:text-[56px] font-black uppercase text-white leading-[1] tracking-tight">
+                Let's Find <br /> Your Space.
+              </h2>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 shrink-0">
               <Link
                 href="/contact"
-                suppressHydrationWarning
-                prefetch={false}
-                className="px-16 py-6 bg-black text-white text-lg font-black uppercase tracking-widest rounded-2xl shadow-3xl hover:bg-black/90 hover:scale-105 transition-all"
+                className="inline-flex items-center justify-center gap-3 bg-black text-white px-10 py-5 rounded-xl font-sans font-bold uppercase tracking-[0.18em] text-[13px] hover:bg-white hover:text-brand-blue transition-all active:scale-95"
               >
-                Start Consultation
+                Talk to us <ArrowRight size={15} />
+              </Link>
+              <Link
+                href="/projects"
+                className="inline-flex items-center justify-center gap-3 bg-white/15 border border-white/30 text-white px-10 py-5 rounded-xl font-sans font-bold uppercase tracking-[0.18em] text-[13px] hover:bg-white hover:text-brand-blue transition-all active:scale-95"
+              >
+                Browse Projects
               </Link>
             </div>
           </div>
