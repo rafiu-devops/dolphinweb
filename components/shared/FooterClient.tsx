@@ -305,14 +305,15 @@ export function FooterClient({ contact }: FooterClientProps) {
 
               <div className="mt-12 pt-6 border-t border-white/10">
                 <p className="font-sans text-[11px] font-bold text-white/50 uppercase tracking-[0.2em]">
-                  Developed by{" "}
+                  © {currentYear}{" "}
                   <Link
-                    href="https://www.anziandco.com/?refer=dolphinbuilders"
+                    href={contact.social.facebook || "#"}
                     target="_blank"
                     className="text-white hover:text-white/80 transition-colors"
                   >
-                    Anzi & .Co
+                    Dolphin Builders
                   </Link>
+                  . All Rights Reserved.
                 </p>
               </div>
             </div>
@@ -438,14 +439,15 @@ export function FooterClient({ contact }: FooterClientProps) {
 
               <div className="mt-6">
                 <p className="font-sans text-[11px] font-bold text-white/50 uppercase tracking-[0.2em] text-center">
-                  Developed by{" "}
+                  © {currentYear}{" "}
                   <Link
-                    href="https://www.anziandco.com/?refer=dolphinbuilders"
+                    href={contact.social.facebook || "#"}
                     target="_blank"
                     className="text-white hover:text-white/80 transition-colors"
                   >
-                    Anzi & .Co
+                    Dolphin Builders
                   </Link>
+                  . All Rights Reserved.
                 </p>
               </div>
             </div>
@@ -454,15 +456,15 @@ export function FooterClient({ contact }: FooterClientProps) {
           {/* ── DIVIDER ── */}
           <div className="mt-8 lg:mt-14 pt-6 border-t border-white/10 flex items-center justify-center text-center">
             <p className="font-sans text-[12px] font-bold text-white tracking-widest uppercase">
-              © {currentYear}{" "}
+
+              Developed by{" "}
               <Link
-                href={contact.social.facebook || "#"}
+                href="https://www.anziandco.com/?refer=dolphinbuilders"
                 target="_blank"
                 className="text-white hover:text-white/80 transition-colors"
               >
-                Dolphin Builders
+                Anzi & .Co
               </Link>
-              . All Rights Reserved.
             </p>
           </div>
         </div>

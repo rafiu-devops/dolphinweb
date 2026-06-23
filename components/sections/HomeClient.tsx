@@ -466,15 +466,16 @@ export default function HomeClient({
         </div>
 
         {/* Marquee Container */}
-        <div className="flex whitespace-nowrap overflow-hidden py-10">
+        <div className="w-full whitespace-nowrap overflow-x-auto overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden py-10">
           <motion.div
+            initial={{ x: 0 }}
             animate={{ x: ["0%", "-50%"] }}
             transition={{
               duration: 50,
               repeat: Infinity,
               ease: "linear"
             }}
-            className="flex items-center gap-8 px-4"
+            className="flex w-max min-w-max items-center gap-8 px-4"
           >
             {[...testimonials, ...testimonials, ...testimonials, ...testimonials].map((t, idx) => (
               <div
